@@ -1,6 +1,5 @@
-res://Generals/EnemyGeneral
-res://Generals
-res://Generals/PlayerGeneral
+res://Armies/PlayerArmy
+res://Armies
 res://Maps/Map 1/Assets
 res://Maps/Map 1
 res://Main

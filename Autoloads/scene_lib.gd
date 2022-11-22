@@ -1,8 +1,10 @@
 extends Node
 
 #-------------------------------------------------------------------------------
-# Actor Scenes
+# Army Scenes
 #-------------------------------------------------------------------------------
+var PLAYER_ARMY: PackedScene = load("res://Armies/PlayerArmy/player_army.tscn")
+var ENEMY_ARMY: PackedScene = load("res://Armies/EnemyArmy/enemy_army.tscn")
 
 #-------------------------------------------------------------------------------
 # Weapons
@@ -30,7 +32,7 @@ var UI_GAME_END: PackedScene = load("res://UI/Game End Menu/ui_game_end.tscn")
 func spawn_child(child: PackedScene, parent, _new_global_position: Vector2 = Vector2.ZERO):
 	var child_instance = child.instantiate()
 	parent.add_child(child_instance)
-	child_instance.set_global_position(Vector2.ZERO)
+	child_instance.set_global_position(_new_global_position)
 	return child_instance
 
 

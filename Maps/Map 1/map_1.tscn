@@ -51,7 +51,24 @@ layer_5/tile_data = PackedInt32Array(65542, 196609, 0, 65550, 196609, 0, 1441798
 [node name="Player Spawns" type="Node2D" parent="Spawns"]
 unique_name_in_owner = true
 
+[node name="Marker2D" type="Marker2D" parent="Spawns/Player Spawns"]
+position = Vector2(1728, 1512)
+
 [node name="Enemy Spawns" type="Node2D" parent="Spawns"]
 unique_name_in_owner = true
 
+[node name="Marker2D2" type="Marker2D" parent="Spawns/Enemy Spawns"]
+position = Vector2(3456, 3672)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawns/Enemy Spawns"]
+position = Vector2(3888, 2160)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawns/Enemy Spawns"]
+position = Vector2(864, 3672)
+
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2592, 2160)
+current = true
+zoom = Vector2(0.14, 0.14)
