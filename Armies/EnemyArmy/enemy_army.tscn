@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://c2s4tc83ic0xo"]
 
 [ext_resource type="Script" path="res://Armies/EnemyArmy/enemy_army.gd" id="1_6f123"]
+[ext_resource type="PackedScene" uid="uid://dedtsjl3a3pw" path="res://Armies/base_army.tscn" id="1_m4tr4"]
 
-[node name="EnemyGeneral"]
+[node name="EnemyArmy" instance=ExtResource("1_m4tr4")]
 script = ExtResource("1_6f123")
+army_speed = 2.0

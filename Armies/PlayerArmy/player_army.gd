@@ -56,16 +56,23 @@ func _draw_debug():
 	queue_redraw()
 
 func _draw() -> void: #%Debug
-	_debug_draw_army_position()
 	_debug_draw_army_formation()
+	_debug_draw_army_position(get_army_position())
+	_debug_draw_army_velocity(get_army_position(), _army_velocity)
 
 func _debug_draw_army_formation():
-	var rad = int(GlobalSettings.UNIT/2)
 	var col = Color(0.75, 0, 0)
+	var rad = int(GlobalSettings.UNIT/2)
 	for spot in _formation.vector_array:
 		draw_circle(spot, rad, col)
 
-func _debug_draw_army_position():
-	var rad = int(GlobalSettings.UNIT/2)
+func _debug_draw_army_position(new_pos):
 	var col = Color(1, 0, 0)
-	draw_circle(get_army_position(), rad, col)
+	var rad = int(GlobalSettings.UNIT/2)
+	draw_circle(new_pos, rad, col)
+
+func _debug_draw_army_velocity(start, end):
+	var col = Color(0, 0, 1)
+	var width = 0.1
+	end += start
+	draw_line(start, end, col, width)

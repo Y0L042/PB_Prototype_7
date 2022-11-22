@@ -1,9 +1,18 @@
 extends Node
 
 #-------------------------------------------------------------------------------
+# Private Variables
+#-------------------------------------------------------------------------------
+const DEFAULT_WEIGHT: float = 0.5
+
+#-------------------------------------------------------------------------------
 # Steering Functions
 #-------------------------------------------------------------------------------
-func wander(current_pos: Vector2, current_vel: Vector2 = Vector2.ZERO, weight: float = 1.0):
+func seek(current_pos: Vector2, seek_target: Vector2, weight: float = DEFAULT_WEIGHT):
+	var vel: Vector2 = current_pos.direction_to(seek_target) * weight
+	return vel # normalized, weighted
+
+func wander(current_pos: Vector2, current_vel: Vector2 = Vector2.ZERO, weight: float = DEFAULT_WEIGHT):
 	var wander_offset: float = 750.0
 	var wander_radius: float = 50000.0
 	var wander_theta_max_offset: float = 15

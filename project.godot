@@ -36,7 +36,7 @@ config/icon="res://icon.svg"
 GlobalSettings="*res://Autoloads/global_settings.gd"
 SceneLib="*res://Autoloads/scene_lib.gd"
 Tools="*res://Autoloads/tools.gd"
-SteeringBehaviour="*res://steering_behaviour.gd"
+SteeringBehaviour="*res://Autoloads/steering_behaviour.gd"
 
 [debug]
 
@@ -45,6 +45,7 @@ gdscript/warnings/unused_variable=0
 gdscript/warnings/unused_local_constant=0
 gdscript/warnings/unused_parameter=0
 gdscript/warnings/return_value_discarded=0
+gdscript/warnings/integer_division=0
 
 [input]
 
