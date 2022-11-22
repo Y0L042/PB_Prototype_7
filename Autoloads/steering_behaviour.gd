@@ -25,3 +25,4 @@ func wander(current_pos: Vector2, current_vel: Vector2 = Vector2.ZERO, weight: f
 	var wander_target: Vector2 = wander_pos + Vector2(x, y)
 	var vel: Vector2 = seek(current_pos, wander_target, weight)
 	return vel # normalized, weighted
+

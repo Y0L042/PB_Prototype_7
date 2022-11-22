@@ -33,7 +33,7 @@ func _custom_process(delta: float):
 func _move_army():
 	var dir: Vector2 = _army_velocity
 	dir = wander()
-	dir = _collision_avoidance_adjuster(_army_position, _army_position + (dir * army_speed * _delta))
+	dir = _collision_avoidance_adjuster(_army_position, _army_velocity.normalized(), 1)
 	_army_velocity = dir * army_speed
 	_move()
 
@@ -48,24 +48,32 @@ func wander() -> Vector2:
 	vel = SteeringBehaviour.wander(_army_position, _army_velocity)
 	return vel
 
-func _collision_avoidance_adjuster(self_pos, target_pos):
-	var new_dir: Vector2
-	var offset: float = deg_to_rad(36)
-	var isRaycastIntersected: bool = !_do_line_raycast(self_pos, target_pos, GlobalSettings.COL_LAYER.WORLD).is_empty()
+func _collision_avoidance_adjuster(current_position, current_direction, new_distance, new_degree_offset = 36):
+	var distance = new_distance * GlobalSettings.UNIT
+	var new_dir: Vector2 = current_direction
+	var offset: float = deg_to_rad(new_degree_offset)
+	var isRaycastIntersected: bool = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
+	var tmp = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
 	while isRaycastIntersected:
 		print("intersected_1")
-		new_dir = (target_pos - self_pos).rotated(offset)
-		target_pos = new_dir + self_pos
-		isRaycastIntersected = !_do_line_raycast(self_pos, target_pos, GlobalSettings.COL_LAYER.WORLD).is_empty()
+		new_dir = current_direction.rotated(offset)
+		isRaycastIntersected = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
 		if isRaycastIntersected:
 			print("intersected__2")
-			new_dir = (target_pos - self_pos).rotated(-offset)
-			target_pos = new_dir + self_pos
-			isRaycastIntersected = !_do_line_raycast(self_pos, target_pos, GlobalSettings.COL_LAYER.WORLD).is_empty()
+			new_dir = current_direction.rotated(-offset)
+			isRaycastIntersected = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
 			if isRaycastIntersected:
 				print("intersected___3")
 				offset *= 2
-	return self_pos.direction_to(target_pos)
+	return new_dir
+
+func _collision_avoidance_pinball(current_position, current_direction, new_distance, new_degree_offset = 36):
+	var distance = new_distance * GlobalSettings.UNIT
+	var new_dir: Vector2 = current_direction
+	var offset: float = deg_to_rad(new_degree_offset)
+	var isRaycastIntersected: bool = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
+
+
 #-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------
