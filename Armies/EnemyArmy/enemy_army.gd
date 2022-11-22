@@ -33,7 +33,8 @@ func _custom_process(delta: float):
 func _move_army():
 	var dir: Vector2 = _army_velocity
 	dir = wander()
-	dir = _collision_avoidance_adjuster(_army_position, _army_velocity.normalized(), 1)
+#	dir = _collision_avoidance_adjust(_army_position, dir.normalized(), 1)
+	dir = _collision_avoidance_bounce(_army_position, dir.normalized(), 1)
 	_army_velocity = dir * army_speed
 	_move()
 
@@ -43,12 +44,21 @@ func _move_to_target(target: Vector2 = Vector2.ZERO) -> Vector2:
 
 func wander() -> Vector2:
 	if _army_velocity == Vector2.ZERO:
-		_army_velocity = Vector2(1,1)
+		_army_velocity = Vector2(randf(),randf())
+	var wander_offset: float = 1000.0   * GlobalSettings.UNIT
+	var wander_radius: float = 500.0  * GlobalSettings.UNIT
+	var wander_theta_max_offset: float = 5
 	var vel: Vector2 = _army_velocity
-	vel = SteeringBehaviour.wander(_army_position, _army_velocity)
+	vel = SteeringBehaviour.wander(
+		_army_position,
+		_army_velocity,
+		wander_offset,
+		wander_radius,
+		wander_theta_max_offset
+		)
 	return vel
 
-func _collision_avoidance_adjuster(current_position, current_direction, new_distance, new_degree_offset = 36):
+func _collision_avoidance_adjust(current_position, current_direction, new_distance, new_degree_offset = 36):
 	var distance = new_distance * GlobalSettings.UNIT
 	var new_dir: Vector2 = current_direction
 	var offset: float = deg_to_rad(new_degree_offset)
@@ -67,12 +77,18 @@ func _collision_avoidance_adjuster(current_position, current_direction, new_dist
 				offset *= 2
 	return new_dir
 
-func _collision_avoidance_pinball(current_position, current_direction, new_distance, new_degree_offset = 36):
+func _collision_avoidance_bounce(current_position, current_direction, new_distance, new_degree_offset = 36):
 	var distance = new_distance * GlobalSettings.UNIT
 	var new_dir: Vector2 = current_direction
 	var offset: float = deg_to_rad(new_degree_offset)
-	var isRaycastIntersected: bool = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
-
+	var raycast = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
+	var isRaycastIntersected: bool = !raycast.is_empty()
+	if !isRaycastIntersected:
+		return current_direction
+	else:
+		var angle: float = current_direction.angle_to(raycast.normal)
+		new_dir = (-current_direction).rotated(2 * angle)
+		return new_dir
 
 #-------------------------------------------------------------------------------
 # Tools

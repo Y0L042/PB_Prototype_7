@@ -12,10 +12,17 @@ func seek(current_pos: Vector2, seek_target: Vector2, weight: float = DEFAULT_WE
 	var vel: Vector2 = current_pos.direction_to(seek_target) * weight
 	return vel # normalized, weighted
 
-func wander(current_pos: Vector2, current_vel: Vector2 = Vector2.ZERO, weight: float = DEFAULT_WEIGHT):
-	var wander_offset: float = 750.0
-	var wander_radius: float = 50000.0
-	var wander_theta_max_offset: float = 15
+func wander(
+	current_pos: Vector2,
+	current_vel: Vector2 = Vector2.ZERO,
+	wander_offset: float = 750.0,
+	wander_radius: float = 50000.0,
+	wander_theta_max_offset: float = 15.0,
+	weight: float = DEFAULT_WEIGHT
+	):
+#	var wander_offset: float = 750.0
+#	var wander_radius: float = 50000.0
+#	var wander_theta_max_offset: float = 15
 	var wander_pos: Vector2 = current_pos + (current_vel.normalized() * wander_offset)
 	var theta: float = 0 # zero ref is E, Clockwise
 	theta += randf_range(-wander_theta_max_offset, wander_theta_max_offset)
