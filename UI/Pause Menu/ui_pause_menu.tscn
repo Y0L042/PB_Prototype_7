@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://mkk160r4og8j"]
+
+[ext_resource type="Script" path="res://UI/Pause Menu/ui_pause_menu.gd" id="1_qynq6"]
+[ext_resource type="Script" path="res://UI/focus_grab.gd" id="2_2s133"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_5o6cb"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_cta8r"]
+events = [SubResource("InputEventAction_5o6cb")]
+
+[node name="UI_Pause Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qynq6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+offset_left = 512.0
+offset_top = 246.0
+offset_right = 640.0
+offset_bottom = 401.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/PanelContainer"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 155.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 139.0
+alignment = 1
+
+[node name="MenuTitle" type="Label" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 96.0
+offset_bottom = 26.0
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 96.0
+offset_bottom = 61.0
+shortcut = SubResource("Shortcut_cta8r")
+text = "Resume"
+script = ExtResource("2_2s133")
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 65.0
+offset_right = 96.0
+offset_bottom = 96.0
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 100.0
+offset_right = 96.0
+offset_bottom = 131.0
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -8,8 +8,34 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node",
+"class": &"GridObject",
+"language": &"GDScript",
+"path": "res://Classes/GridClass.gd"
+}]
+_global_script_class_icons={
+"GridObject": ""
+}
+
 [application]
 
 config/name="PB_Prototype_7"
+run/main_scene="res://Main/main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalSettings="*res://Autoloads/global_settings.gd"
+SceneLib="*res://Autoloads/scene_lib.gd"
+Tools="*res://Autoloads/tools.gd"
+
+[debug]
+
+file_logging/enable_file_logging=true
+gdscript/warnings/return_value_discarded=0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
