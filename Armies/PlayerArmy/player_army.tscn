@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dswevfjtbmu1c"]
+
+[ext_resource type="Script" path="res://Army/PlayerGeneral/player_general.gd" id="1_ufmxq"]
+
+[node name="PlayerGeneral"]
+script = ExtResource("1_ufmxq")

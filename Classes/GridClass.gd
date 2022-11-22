@@ -12,6 +12,7 @@ var UNIT = GlobalSettings.UNIT # dependency on another library, set to unit pixe
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
+var is_grid_active: bool = false
 var width: int : set = set_width
 var number_of_positions: int : set = set_number_of_positions
 var offset: Vector2 : set = set_offset

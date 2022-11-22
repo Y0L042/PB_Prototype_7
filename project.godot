@@ -9,12 +9,18 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node2D",
+"class": &"Army",
+"language": &"GDScript",
+"path": "res://Armies/base_army.gd"
+}, {
 "base": "Node",
 "class": &"GridObject",
 "language": &"GDScript",
 "path": "res://Classes/GridClass.gd"
 }]
 _global_script_class_icons={
+"Army": "",
 "GridObject": ""
 }
 
@@ -35,6 +41,14 @@ Tools="*res://Autoloads/tools.gd"
 
 file_logging/enable_file_logging=true
 gdscript/warnings/return_value_discarded=0
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Specials"
+2d_physics/layer_5="Mobs"
 
 [rendering]
 

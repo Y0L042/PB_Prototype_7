@@ -29,6 +29,7 @@ func _ready() -> void:
 func _on_start_new_game_pressed() -> void:
 #	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) disabled for debugging because it is annoying
 	startNewGame.emit(self)
+	get_tree().change_scene_to_packed(SceneLib.MAP_1)
 
 func _on_quit_pressed() -> void:
 	quit()

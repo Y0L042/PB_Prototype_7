@@ -1,5 +1,3 @@
-res://Main/main.tscn
 res://UI/Main Menu/ui_main_menu.tscn
-res://UI/Game End Menu/ui_game_end.tscn
-res://UI/Pause Menu/ui_pause_menu.tscn
-res://Maps/Map 1/map_1.tscn
+res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
+res://Armies/base_army.gd
