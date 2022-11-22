@@ -1,6 +1,7 @@
-res://Armies/EnemyArmy/enemy_army.tscn
-res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
-res://Armies/EnemyArmy/enemy_army.gd
 res://Main/main.tscn
+res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
 res://Maps/Map 1/map_1.tscn
 res://Armies/PlayerArmy/player_army.tscn
+res://Armies/EnemyArmy/enemy_army.tscn
+res://Autoloads/global_settings.gd
+res://Armies/EnemyArmy/enemy_army.gd

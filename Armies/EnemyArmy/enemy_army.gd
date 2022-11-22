@@ -31,7 +31,9 @@ func _custom_process(delta: float):
 # Movement Functions
 #-------------------------------------------------------------------------------
 func _move_army():
-	var dir: Vector2 = wander()
+	var dir: Vector2 = _army_velocity
+	dir = wander()
+	dir = _collision_avoidance_adjuster(_army_position, _army_position + (dir * army_speed * _delta))
 	_army_velocity = dir * army_speed
 	_move()
 
@@ -42,23 +44,26 @@ func _move_to_target(target: Vector2 = Vector2.ZERO) -> Vector2:
 func wander() -> Vector2:
 	if _army_velocity == Vector2.ZERO:
 		_army_velocity = Vector2(1,1)
-	var vel = SteeringBehaviour.wander(_army_position, _army_velocity)
-	vel = _collision_avoidance_adjuster(_army_position, vel * army_speed *10)
+	var vel: Vector2 = _army_velocity
+	vel = SteeringBehaviour.wander(_army_position, _army_velocity)
 	return vel
 
 func _collision_avoidance_adjuster(self_pos, target_pos):
 	var new_dir: Vector2
 	var offset: float = deg_to_rad(36)
-	var isRaycastIntersected: bool = !_do_line_raycast(self_pos, target_pos, 0x1).is_empty()
+	var isRaycastIntersected: bool = !_do_line_raycast(self_pos, target_pos, GlobalSettings.COL_LAYER.WORLD).is_empty()
 	while isRaycastIntersected:
+		print("intersected_1")
 		new_dir = (target_pos - self_pos).rotated(offset)
 		target_pos = new_dir + self_pos
-		isRaycastIntersected = !_do_line_raycast(self_pos, target_pos, 0x1).is_empty()
+		isRaycastIntersected = !_do_line_raycast(self_pos, target_pos, GlobalSettings.COL_LAYER.WORLD).is_empty()
 		if isRaycastIntersected:
+			print("intersected__2")
 			new_dir = (target_pos - self_pos).rotated(-offset)
 			target_pos = new_dir + self_pos
-			isRaycastIntersected = !_do_line_raycast(self_pos, target_pos, 0x1).is_empty()
+			isRaycastIntersected = !_do_line_raycast(self_pos, target_pos, GlobalSettings.COL_LAYER.WORLD).is_empty()
 			if isRaycastIntersected:
+				print("intersected___3")
 				offset *= 2
 	return self_pos.direction_to(target_pos)
 #-------------------------------------------------------------------------------
