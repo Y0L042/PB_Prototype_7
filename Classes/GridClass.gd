@@ -14,7 +14,7 @@ var _ref_vector_array: Array
 # Public Variables
 #-------------------------------------------------------------------------------
 var is_grid_active: bool = false
-var width: int : set = set_width
+var width: int = 1 : set = set_width
 var number_of_positions: int : set = set_number_of_positions
 var spacing = 1 * UNIT : set = set_spacing
 var rotation: float = 0 #: set = set_rotation
@@ -26,7 +26,7 @@ var vector_array: Array
 # SetGet
 #-------------------------------------------------------------------------------
 func set_width(new_width):
-	width = new_width
+	width = clamp(new_width, 1, INF)
 	generate_box_grid()
 
 
@@ -49,10 +49,10 @@ func increment_rotation(rotation_increment):
 
 func set_center_position(new_center_position: Vector2):
 	center_position = new_center_position
-	set_grid_center_position()
+	set_grid_center_position(center_position)
 
 #-------------------------------------------------------------------------------
-# (Static) Grid Tools
+# Grid Tools
 #-------------------------------------------------------------------------------
 func get_grid_center(new_grid: Array):
 	var new_grid_center: Vector2 = Vector2.ZERO
@@ -63,14 +63,14 @@ func get_grid_center(new_grid: Array):
 
 
 func set_grid_spacing(new_grid, new_spacing):
-	new_spacing *= GlobalSettings.UNIT
+#	new_spacing *= GlobalSettings.UNIT
 	for index in new_grid.size():
 		new_grid[index] *= new_spacing
 
 
-func set_grid_center_position():
+func set_grid_center_position(new_center_position: Vector2 = center_position):
 	var current_grid_center: Vector2 = get_grid_center(vector_array)
-	var _offset: Vector2 = center_position - current_grid_center
+	var _offset: Vector2 = new_center_position - current_grid_center
 	for index in vector_array.size():
 		vector_array[index] += _offset
 
@@ -79,6 +79,7 @@ func set_grid_rotation(new_grid, new_rotation: float):
 	for index in new_grid.size():
 		var new_vector: Vector2 = _ref_vector_array[index].rotated(new_rotation)
 		new_grid[index] = new_vector
+	set_grid_center_position(center_position)
 
 
 func increment_grid_rotation(new_grid, new_rotation: float):
@@ -94,6 +95,7 @@ func generate_box_grid() -> Array:
 	var volume: float = number_of_positions
 	var temp: float = volume/width
 	var height: float = ceil(temp)
+	if is_inf(height): print ("ERROR: Height is INF, WIDTH is ZERO") #throw error
 	for y in height:
 		for x in width:
 			# add hollow grid
@@ -107,6 +109,8 @@ func generate_box_grid() -> Array:
 	set_grid_spacing(grid, spacing)
 	_ref_vector_array = grid.duplicate() # create ref grid to use for absolute rotations
 	set_grid_rotation(grid, rotation)
+	vector_array = grid
+	set_grid_center_position(center_position)
 	return grid
 
 func trim_grid_to_volume(new_grid, new_volume):

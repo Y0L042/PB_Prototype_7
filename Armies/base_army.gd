@@ -63,6 +63,7 @@ func _custom_process(delta: float):
 func _move():
 	var delta: float = _delta
 	_army_position += _army_velocity * delta
+	_formation.set_center_position(_army_position)
 
 #-------------------------------------------------------------------------------
 # Formation Functions

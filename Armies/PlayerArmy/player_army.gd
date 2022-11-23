@@ -24,6 +24,9 @@ var _rotate_formation_dir: int = 0
 #-------------------------------------------------------------------------------
 # Initialization
 #-------------------------------------------------------------------------------
+func _ready() -> void:
+	_formation.set_number_of_positions(9)
+	_formation.set_width(3)
 
 
 #-------------------------------------------------------------------------------
@@ -80,14 +83,15 @@ func rotate_formation():
 # %debug%
 #---------------------------------------------------------------------------------------------------#
 func _draw() -> void: #%Debug
-	_debug_draw_army_formation()
+
 	_debug_draw_army_rotation()
 	_debug_draw_army_position(get_army_position())
 	_debug_draw_army_velocity(get_army_position(), _army_velocity)
 
+	_debug_draw_army_formation()
 
 func _debug_draw_army_formation():
-	var col = Color(0.75, 0, 0)
+	var col = Color(1, 1, 0)
 	var rad = int(GlobalSettings.UNIT/2)
 	_debug_draw_grid_dots(_formation.vector_array, col, rad)
 
