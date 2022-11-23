@@ -53,8 +53,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _increment_width_cooldown_timer.get_time_left() <= 0:
 		var formation_stretch: int = int(Input.is_action_pressed("game_action_f_stretch"))
 		var formation_squash: int = int(Input.is_action_pressed("game_action_f_squash")) * -1
-		formation.increment_width(formation_stretch + formation_squash)
-		_increment_width_cooldown_timer = get_tree().create_timer(0.25)
+		if (formation_stretch + formation_squash) != 0:
+			formation.increment_width(formation_stretch + formation_squash)
+			_increment_width_cooldown_timer = get_tree().create_timer(0.25)
 
 func _smooth_input_handling():
 	rotate_formation()

@@ -5,3 +5,5 @@ res://Main/main.tscn
 res://Maps/Map 1/map_1.tscn
 res://Armies/PlayerArmy/player_army.tscn
 res://Armies/EnemyArmy/enemy_army.tscn
+res://Classes/GridClass.gd
+res://Armies/PlayerArmy/player_army.gd

@@ -15,7 +15,7 @@ var _ref_vector_array: Array
 #-------------------------------------------------------------------------------
 var is_grid_active: bool = false
 var width: int = 1 : set = set_width
-var height: float : set = set_height
+var height: int : set = set_height
 var volume: int : set = set_volume
 var spacing = 1 * UNIT : set = set_spacing
 var rotation: float = 0 #: set = set_rotation
@@ -27,6 +27,7 @@ var vector_array: Array
 # SetGet
 #-------------------------------------------------------------------------------
 func set_width(new_width):
+	var width_diff = new_width - width
 	width = clamp(new_width, 1, volume)
 	generate_box_grid()
 
