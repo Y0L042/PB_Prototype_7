@@ -29,6 +29,9 @@ func set_width(new_width):
 	width = clamp(new_width, 1, INF)
 	generate_box_grid()
 
+func increment_width(width_increment):
+	set_width(width + width_increment)
+
 
 func set_number_of_positions(new_number_of_positions: int):
 	number_of_positions = new_number_of_positions
