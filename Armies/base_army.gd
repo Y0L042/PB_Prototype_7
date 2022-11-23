@@ -19,7 +19,7 @@ var blackboard: Dictionary = {
 	"move_order" : Vector2.ZERO,
 }
 
-@export_color_no_alpha var army_colour: Color
+@export_color_no_alpha var army_colour: Color # used with outline shader
 @export var army_speed: float : set = set_army_speed
 #---------------------------------------------------------------------------------------------------#
 # SetGet
@@ -65,6 +65,11 @@ func _move():
 	_army_position += _army_velocity * delta
 
 #-------------------------------------------------------------------------------
+# Formation Functions
+#-------------------------------------------------------------------------------
+
+
+#-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------
 func _calc_soldier_array_center(arr: Array):
@@ -82,3 +87,38 @@ func _calc_soldier_array_center(arr: Array):
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#
+func _draw_debug():
+	queue_redraw()
+
+func _draw() -> void: #%Debug
+	pass
+
+func _debug_draw_grid_dots(
+	grid: Array,
+	new_col = Color(0, 0, 1),
+	new_rad = int(GlobalSettings.UNIT/2)
+	):
+	var col = new_col
+	var rad = new_rad
+	for spot in grid:
+		draw_circle(spot, rad, col)
+
+func _debug_draw_dot(
+	new_pos: Vector2,
+	new_col = Color(0, 0, 1),
+	new_rad = int(GlobalSettings.UNIT/2)
+	):
+	var col = new_col
+	var rad = new_rad
+	draw_circle(new_pos, rad, col)
+
+func _debug_draw_line(
+	start: Vector2,
+	end: Vector2,
+	new_col = Color(0, 1, 1),
+	new_width: float = 0.1
+	):
+	var col = new_col
+	var width = new_width
+	end += start
+	draw_line(start, end, col, width)

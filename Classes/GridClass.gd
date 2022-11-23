@@ -76,8 +76,6 @@ func set_grid_center_position():
 
 
 func set_grid_rotation(new_grid, new_rotation: float):
-	#uses reference vector array
-	new_rotation = deg_to_rad(new_rotation)
 	for index in new_grid.size():
 		var new_vector: Vector2 = _ref_vector_array[index].rotated(new_rotation)
 		new_grid[index] = new_vector

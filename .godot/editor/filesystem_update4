@@ -1,8 +1,8 @@
-res://Armies/EnemyArmy/enemy_army.tscn
-res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
-res://Armies/EnemyArmy/enemy_army.gd
 res://Main/main.tscn
+res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
 res://Maps/Map 1/map_1.tscn
 res://Armies/PlayerArmy/player_army.tscn
-res://Maps/Map 1/map_1.gd
-res://Autoloads/steering_behaviour.gd
+res://Armies/EnemyArmy/enemy_army.tscn
+res://Armies/base_army.gd
+res://Armies/PlayerArmy/player_army.gd
+res://Classes/GridClass.gd
