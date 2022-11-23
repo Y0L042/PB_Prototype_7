@@ -47,6 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _smooth_input_handling():
 	rotate_formation()
+#	_set_formation_rotation()
 
 #-------------------------------------------------------------------------------
 # Movement Functions
@@ -106,5 +107,5 @@ func _debug_draw_army_rotation():
 	var start: Vector2 = _army_position
 	var end: Vector2 = Vector2.RIGHT.rotated(_formation.rotation) * 2 * GlobalSettings.UNIT
 	var col = Color(1, 0, 1)
-	var width = 10
+	var width = 100
 	_debug_draw_line(start, end, col, width)

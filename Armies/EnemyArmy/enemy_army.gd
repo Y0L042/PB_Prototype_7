@@ -23,6 +23,7 @@ extends Army
 #-------------------------------------------------------------------------------
 func _custom_process(delta: float):
 	_move_army()
+	_set_formation_rotation()
 	_draw_debug()
 
 
@@ -33,7 +34,6 @@ func _custom_process(delta: float):
 func _move_army():
 	var dir: Vector2 = _army_velocity
 	dir = wander()
-#	dir = _collision_avoidance_adjust(_army_position, dir.normalized(), 1)
 	dir = _collision_avoidance_bounce(_army_position, dir.normalized(), 1)
 	_army_velocity = dir * army_speed
 	_move()
@@ -41,6 +41,7 @@ func _move_army():
 
 func _move_to_target(target: Vector2 = Vector2.ZERO) -> Vector2:
 	return _army_position.direction_to(target)
+
 
 func wander() -> Vector2:
 	if _army_velocity == Vector2.ZERO:
@@ -57,6 +58,7 @@ func wander() -> Vector2:
 		wander_theta_max_offset
 		)
 	return vel
+
 
 func _collision_avoidance_adjust(current_position, current_direction, new_distance, new_degree_offset = 36):
 	var distance = new_distance * GlobalSettings.UNIT
@@ -76,6 +78,7 @@ func _collision_avoidance_adjust(current_position, current_direction, new_distan
 				print("intersected___3")
 				offset *= 2
 	return new_dir
+
 
 func _collision_avoidance_bounce(current_position, current_direction, new_distance, new_degree_offset = 36):
 	var distance = new_distance * GlobalSettings.UNIT
@@ -110,6 +113,7 @@ func _draw_debug():
 
 func _draw() -> void: #%Debug
 	_debug_draw_army_formation()
+	_debug_draw_army_rotation()
 	_debug_draw_army_position(get_army_position())
 	_debug_draw_army_velocity(get_army_position(), _army_velocity)
 
@@ -129,3 +133,10 @@ func _debug_draw_army_velocity(start, end):
 	var width = 0.1
 	end += start
 	draw_line(start, end, col, width)
+
+func _debug_draw_army_rotation():
+	var start: Vector2 = _army_position
+	var end: Vector2 = Vector2.RIGHT.rotated(_formation.rotation) * 2 * GlobalSettings.UNIT
+	var col = Color(1, 0, 1)
+	var width = 100
+	_debug_draw_line(start, end, col, width)

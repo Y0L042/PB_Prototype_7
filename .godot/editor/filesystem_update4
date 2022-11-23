@@ -6,3 +6,4 @@ res://Armies/EnemyArmy/enemy_army.tscn
 res://Armies/base_army.gd
 res://Armies/PlayerArmy/player_army.gd
 res://Classes/GridClass.gd
+res://Armies/EnemyArmy/enemy_army.gd
