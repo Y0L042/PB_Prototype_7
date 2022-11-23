@@ -15,7 +15,8 @@ var _ref_vector_array: Array
 #-------------------------------------------------------------------------------
 var is_grid_active: bool = false
 var width: int = 1 : set = set_width
-var number_of_positions: int : set = set_number_of_positions
+var height: float : set = set_height
+var volume: int : set = set_volume
 var spacing = 1 * UNIT : set = set_spacing
 var rotation: float = 0 #: set = set_rotation
 var center_position: Vector2 : set = set_center_position
@@ -26,15 +27,18 @@ var vector_array: Array
 # SetGet
 #-------------------------------------------------------------------------------
 func set_width(new_width):
-	width = clamp(new_width, 1, INF)
+	width = clamp(new_width, 1, volume)
 	generate_box_grid()
+
+func set_height(new_height):
+	height = clamp(new_height, 1, volume)
 
 func increment_width(width_increment):
 	set_width(width + width_increment)
 
 
-func set_number_of_positions(new_number_of_positions: int):
-	number_of_positions = new_number_of_positions
+func set_volume(new_volume: int):
+	volume = new_volume
 	generate_box_grid()
 
 
@@ -95,9 +99,8 @@ func increment_grid_rotation(new_grid, new_rotation: float):
 
 func generate_box_grid() -> Array:
 	var grid: Array = []
-	var volume: float = number_of_positions
 	var temp: float = volume/width
-	var height: float = ceil(temp)
+	height = ceil(temp)
 	if is_inf(height): print ("ERROR: Height is INF, WIDTH is ZERO") #throw error
 	for y in height:
 		for x in width:

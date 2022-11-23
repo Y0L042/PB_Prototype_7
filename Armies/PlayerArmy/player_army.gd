@@ -26,8 +26,8 @@ var _rotate_formation_dir: int = 0
 # Initialization
 #-------------------------------------------------------------------------------
 func _ready() -> void:
-	_formation.set_number_of_positions(9)
-	_formation.set_width(3)
+	formation.set_volume(9)
+	formation.set_width(3)
 
 
 #-------------------------------------------------------------------------------
@@ -53,7 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _increment_width_cooldown_timer.get_time_left() <= 0:
 		var formation_stretch: int = int(Input.is_action_pressed("game_action_f_stretch"))
 		var formation_squash: int = int(Input.is_action_pressed("game_action_f_squash")) * -1
-		_formation.increment_width(formation_stretch + formation_squash)
+		formation.increment_width(formation_stretch + formation_squash)
 		_increment_width_cooldown_timer = get_tree().create_timer(0.25)
 
 func _smooth_input_handling():
@@ -75,7 +75,7 @@ func _move_army():
 func rotate_formation():
 	var rotation_increment: float = 180 * _delta
 	if _rotate_formation_dir != 0:
-		_formation.increment_rotation(deg_to_rad(rotation_increment * _rotate_formation_dir))
+		formation.increment_rotation(deg_to_rad(rotation_increment * _rotate_formation_dir))
 
 
 #-------------------------------------------------------------------------------
@@ -101,12 +101,12 @@ func _draw() -> void: #%Debug
 func _debug_draw_army_formation():
 	var col = Color(1, 1, 0)
 	var rad = int(GlobalSettings.UNIT/2)
-	_debug_draw_grid_dots(_formation.vector_array, col, rad)
+	_debug_draw_grid_dots(formation.vector_array, col, rad)
 
 
 func _debug_draw_army_position(new_pos):
 	var col = Color(1, 0, 0)
-	var rad = int(GlobalSettings.UNIT/2)
+	var rad = int(GlobalSettings.UNIT/1.75)
 	_debug_draw_dot(new_pos, col, rad)
 
 
@@ -117,7 +117,7 @@ func _debug_draw_army_velocity(start, end):
 
 func _debug_draw_army_rotation():
 	var start: Vector2 = _army_position
-	var end: Vector2 = Vector2.RIGHT.rotated(_formation.rotation) * 2 * GlobalSettings.UNIT
+	var end: Vector2 = Vector2.RIGHT.rotated(formation.rotation) * 2 * GlobalSettings.UNIT
 	var col = Color(1, 0, 1)
 	var width = 100
 	_debug_draw_line(start, end, col, width)

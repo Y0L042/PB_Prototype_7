@@ -19,10 +19,17 @@ extends Army
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
 #-------------------------------------------------------------------------------
+# Initialization
+#-------------------------------------------------------------------------------
+func _ready() -> void:
+	formation.set_volume(9)
+	formation.set_width(3)
+
+#-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
 func _custom_process(delta: float):
-	_move_army()
+	move_army(wander())
 	_set_formation_rotation()
 	_draw_debug()
 
@@ -31,35 +38,6 @@ func _custom_process(delta: float):
 #-------------------------------------------------------------------------------
 # Movement Functions
 #-------------------------------------------------------------------------------
-func _move_army():
-	var dir: Vector2 = _army_velocity
-	dir = wander()
-	dir = _collision_avoidance_bounce(_army_position, dir.normalized(), 1)
-	_army_velocity = dir * army_speed
-	_move()
-
-
-func _move_to_target(target: Vector2 = Vector2.ZERO) -> Vector2:
-	return _army_position.direction_to(target)
-
-
-func wander() -> Vector2:
-	if _army_velocity == Vector2.ZERO:
-		_army_velocity = Vector2(randf(),randf())
-	var wander_offset: float = 1000.0   * GlobalSettings.UNIT
-	var wander_radius: float = 500.0  * GlobalSettings.UNIT
-	var wander_theta_max_offset: float = 5
-	var vel: Vector2 = _army_velocity
-	vel = SteeringBehaviour.wander(
-		_army_position,
-		_army_velocity,
-		wander_offset,
-		wander_radius,
-		wander_theta_max_offset
-		)
-	return vel
-
-
 func _collision_avoidance_adjust(current_position, current_direction, new_distance, new_degree_offset = 36):
 	var distance = new_distance * GlobalSettings.UNIT
 	var new_dir: Vector2 = current_direction
@@ -104,7 +82,35 @@ func _do_line_raycast(from: Vector2, to: Vector2, col_mask = 0xFFFFFFFF):
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------
+# Movement Functions
+#-------------------------------------------------------------------------------
+func move_army(direction_vector: Vector2):
+	var dir: Vector2 = direction_vector
+	dir = _collision_avoidance_bounce(_army_position, dir.normalized(), 1)
+	_army_velocity = dir * army_speed
+	_move()
 
+
+func move_to_target(target: Vector2 = Vector2.ZERO) -> Vector2:
+	return _army_position.direction_to(target)
+
+
+func wander() -> Vector2:
+	if _army_velocity == Vector2.ZERO:
+		_army_velocity = Vector2(randf(),randf())
+	var wander_offset: float = 1000.0   * GlobalSettings.UNIT
+	var wander_radius: float = 500.0  * GlobalSettings.UNIT
+	var wander_theta_max_offset: float = 5
+	var vel: Vector2 = _army_velocity
+	vel = SteeringBehaviour.wander(
+		_army_position,
+		_army_velocity,
+		wander_offset,
+		wander_radius,
+		wander_theta_max_offset
+		)
+	return vel
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#
@@ -112,20 +118,19 @@ func _draw_debug():
 	queue_redraw()
 
 func _draw() -> void: #%Debug
-	_debug_draw_army_formation()
 	_debug_draw_army_rotation()
 	_debug_draw_army_position(get_army_position())
 	_debug_draw_army_velocity(get_army_position(), _army_velocity)
+	_debug_draw_army_formation()
 
 func _debug_draw_army_formation():
-	var col = Color(0, 0, 1)
+	var col = Color(1, 0, 1)
 	var rad = int(GlobalSettings.UNIT/2)
-	for spot in _formation.vector_array:
-		draw_circle(spot, rad, col)
+	_debug_draw_grid_dots(formation.vector_array, col, rad)
 
 func _debug_draw_army_position(new_pos):
 	var col = Color(0, 0, 1)
-	var rad = int(GlobalSettings.UNIT/2)
+	var rad = int(GlobalSettings.UNIT/1.75)
 	draw_circle(new_pos, rad, col)
 
 func _debug_draw_army_velocity(start, end):
@@ -136,7 +141,7 @@ func _debug_draw_army_velocity(start, end):
 
 func _debug_draw_army_rotation():
 	var start: Vector2 = _army_position
-	var end: Vector2 = Vector2.RIGHT.rotated(_formation.rotation) * 2 * GlobalSettings.UNIT
+	var end: Vector2 = Vector2.RIGHT.rotated(formation.rotation) * 2 * GlobalSettings.UNIT
 	var col = Color(1, 0, 1)
 	var width = 100
 	_debug_draw_line(start, end, col, width)

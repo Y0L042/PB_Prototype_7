@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://buog12uw7g3uv"]
+[gd_scene load_steps=3 format=3 uid="uid://c8hin0q46nqwm"]
 
 [ext_resource type="PackedScene" uid="uid://dedtsjl3a3pw" path="res://Armies/base_army.tscn" id="1_ifu8s"]
 [ext_resource type="Script" path="res://Armies/PlayerArmy/player_army.gd" id="2_oemet"]

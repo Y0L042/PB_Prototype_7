@@ -1,32 +1,33 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1669183285
+::res://::1669208467
 header_comment_template.gd::GDScript::-1::1669113703::0::1::::<>RefCounted<>::
 icon.svg::CompressedTexture2D::3998031586563503381::1669096806::1669183291::1::::<><>::
 README.md::TextFile::-1::1669096806::0::1::::<><>::
-::res://Armies/::1669120663
-base_army.gd::GDScript::-1::1669120663::0::1::::Army<>Node2D<>::
-base_army.tscn::PackedScene::219041082853610980::1669117986::0::1::::<><>::res://Armies/base_army.gd
-::res://Armies/EnemyArmy/::1669183269
-enemy_army.gd::GDScript::-1::1669183269::0::1::::<>Army<>::
-enemy_army.tscn::PackedScene::6706893825368809808::1669125592::0::1::::<><>::res://Armies/EnemyArmy/enemy_army.gd<>uid://dedtsjl3a3pw
-::res://Armies/PlayerArmy/::1669125592
-player_army.gd::GDScript::-1::1669124684::0::1::::<>Army<>::
-player_army.tscn::PackedScene::3819511027677864861::1669125592::0::1::::<><>::uid://dedtsjl3a3pw<>res://Armies/PlayerArmy/player_army.gd
+::res://Armies/::1669208423
+Army_Sight.gd::GDScript::-1::1669208423::0::1::::<>Area2D<>::
+base_army.gd::GDScript::-1::1669207358::0::1::::Army<>Node2D<>::
+base_army.tscn::PackedScene::219041082853610980::1669208423::0::1::::<><>::res://Armies/base_army.gd<>res://Armies/Army_Sight.gd
+::res://Armies/EnemyArmy/::1669208308
+enemy_army.gd::GDScript::-1::1669207393::0::1::::<>Army<>::
+enemy_army.tscn::PackedScene::6706893825368809808::1669208308::0::1::::<><>::res://Armies/EnemyArmy/enemy_army.gd<>uid://dedtsjl3a3pw
+::res://Armies/PlayerArmy/::1669208308
+player_army.gd::GDScript::-1::1669207393::0::1::::<>Army<>::
+player_army.tscn::PackedScene::7104034142142792752::1669208308::0::1::::<><>::uid://dedtsjl3a3pw<>res://Armies/PlayerArmy/player_army.gd
 ::res://Autoloads/::1669183269
 global_settings.gd::GDScript::-1::1669183269::0::1::::<>Node<>::
 scene_lib.gd::GDScript::-1::1669123682::0::1::::<>Node<>::
 steering_behaviour.gd::GDScript::-1::1669183269::0::1::::<>Node<>::
 tools.gd::GDScript::-1::1668860595::0::1::::<>Node<>::
-::res://Classes/::1669121195
-GridClass.gd::GDScript::-1::1669121195::0::1::::GridObject<>Node<>::
-::res://Main/::1669125592
-main.tscn::PackedScene::3789670626454827212::1669125592::0::1::::<><>::uid://cxcf7dgraqck0
+::res://Classes/::1669208107
+GridClass.gd::GDScript::-1::1669208107::0::1::::GridObject<>Node<>::
+::res://Main/::1669208308
+main.tscn::PackedScene::3789670626454827212::1669208308::0::1::::<><>::uid://cxcf7dgraqck0
 ::res://Maps/::1669098502
-::res://Maps/Map 1/::1669183269
+::res://Maps/Map 1/::1669208308
 map_1.gd::GDScript::-1::1669183269::0::1::::<>Node2D<>::
-map_1.tscn::PackedScene::1566676420300406328::1669183269::0::1::::<><>::res://Maps/Map 1/map_1.gd<>uid://0lfqmjlyfncj
-::res://Maps/Map 1/Assets/::1669125540
-pixel_art_dungeon_216.tres::TileSet::1777762048627292617::1669125540::0::1::::<><>::uid://c3xi3kqj1tmo6
+map_1.tscn::PackedScene::1566676420300406328::1669208308::0::1::::<><>::res://Maps/Map 1/map_1.gd<>uid://0lfqmjlyfncj<>uid://mkk160r4og8j
+::res://Maps/Map 1/Assets/::1669183399
+pixel_art_dungeon_216.tres::TileSet::1777762048627292617::1669183399::0::1::::<><>::uid://c3xi3kqj1tmo6
 ::res://Maps/Map 1/Assets/v1.1 dungeon crawler 16X16 pixel pack/::1669101901
 full spritesheet.png::CompressedTexture2D::8035811691232772499::1664973266::1669101900::1::::<><>::
 full tilemap.png::CompressedTexture2D::6786145966160749315::1669101888::1669101901::1::::<><>::
@@ -238,6 +239,6 @@ ui_game_end.tscn::PackedScene::7956475156155619599::1669098413::0::1::::<><>::re
 ::res://UI/Main Menu/::1669113901
 ui_main_menu.gd::GDScript::-1::1669102945::0::1::::<>Control<>::
 ui_main_menu.tscn::PackedScene::6391674424549766165::1669113901::0::1::::<><>::res://UI/Main Menu/ui_main_menu.gd<>res://UI/focus_grab.gd
-::res://UI/Pause Menu/::1669098413
+::res://UI/Pause Menu/::1669198084
 ui_pause_menu.gd::GDScript::-1::1669097867::0::1::::<>Control<>::
-ui_pause_menu.tscn::PackedScene::863565169421857443::1669098413::0::1::::<><>::res://UI/Pause Menu/ui_pause_menu.gd<>res://UI/focus_grab.gd
+ui_pause_menu.tscn::PackedScene::863565169421857443::1669198084::0::1::::<><>::res://UI/Pause Menu/ui_pause_menu.gd<>res://UI/focus_grab.gd
