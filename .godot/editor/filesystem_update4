@@ -7,3 +7,4 @@ res://Armies/base_army.gd
 res://Armies/PlayerArmy/player_army.gd
 res://Classes/GridClass.gd
 res://Armies/EnemyArmy/enemy_army.gd
+res://UI/Pause Menu/ui_pause_menu.tscn
