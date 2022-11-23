@@ -100,7 +100,7 @@ func increment_grid_rotation(new_grid, new_rotation: float):
 
 func generate_box_grid() -> Array:
 	var grid: Array = []
-	var temp: float = volume/width
+	var temp: float = float(volume)/float(width)
 	height = ceil(temp)
 	if is_inf(height): print ("ERROR: Height is INF, WIDTH is ZERO") #throw error
 	for y in height:
