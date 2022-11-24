@@ -19,7 +19,7 @@ func set_ai_module(new_ai_module):
 		print("Error: AI module scene is empty!")
 		return -1
 	_ai_module = new_ai_module
-	_ai_module.set_local_to_scene(true)
+#	_ai_module.set_local_to_scene(true)
 	_ai_module.set_parent(self)
 
 #---------------------------------------------------------------------------------------------------#

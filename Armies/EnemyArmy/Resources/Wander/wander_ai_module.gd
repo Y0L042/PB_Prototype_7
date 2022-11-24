@@ -11,15 +11,17 @@ var friendly_armies: Array = []
 
 
 
+
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
-@export var set_CHASE_DIST: float = 5 : set = set_chase_distance
+@export var set_CHASE_DIST: float = 5
+var CHASE_DIST: float = set_CHASE_DIST * GlobalSettings.UNIT : set = set_chase_distance
 @export var FRIENDLY_AVOIDANCE_STRENGTH: float = 0.5
-var CHASE_DIST: float = set_CHASE_DIST * GlobalSettings.UNIT
+
 @export var wander_area: Area2D
 
 
@@ -46,19 +48,24 @@ func _connect_to_parent_signals():
 # Logic
 #-------------------------------------------------------------------------------
 func _logic():
+	var move_target: Vector2
+	var avoid_faction_armies: Vector2 = Vector2.ZERO
+	for army in friendly_armies:
+		avoid_faction_armies += _parent.get_army_position().direction_to(army.get_army_position())
+	avoid_faction_armies = avoid_faction_armies.normalized() * FRIENDLY_AVOIDANCE_STRENGTH
+
 	if enemy_army == null:
-		_move_army(_parent.wander())
+		move_target = _parent.wander()
 	else:
 		var enemy_army_target: Vector2 = _parent.get_army_position().direction_to(enemy_army.get_army_position())
-		if _parent.get_army_position().distance_to(enemy_army.get_army_position()) > CHASE_DIST:
+		CHASE_DIST = set_CHASE_DIST + sqrt(_parent.formation.volume) * 2
+		var dist_to_enemy: float = _parent.get_army_position().distance_to(enemy_army.get_army_position())
+		if dist_to_enemy > CHASE_DIST:
 			enemy_army = null
+			print("enemy lost")
 			return
-		var avoid_faction_armies: Vector2 = Vector2.ZERO
-		for army in friendly_armies:
-			avoid_faction_armies += _parent.get_army_position().direction_to(army.get_army_position())
-		avoid_faction_armies = avoid_faction_armies.normalized() * FRIENDLY_AVOIDANCE_STRENGTH
-		var move_target: Vector2 = enemy_army_target - avoid_faction_armies
-		_move_army(move_target)
+		move_target = enemy_army_target
+	_move_army(move_target - avoid_faction_armies)
 #-------------------------------------------------------------------------------
 # Movement Functions
 #-------------------------------------------------------------------------------
@@ -69,7 +76,6 @@ func _move_army(target: Vector2):
 # Events
 #-------------------------------------------------------------------------------
 func _on_army_sight_area_entered(area: Area2D) -> void:
-	print("army spotted")
 	var spotted_object = area.get_parent()
 	if spotted_object.is_in_group(_parent.TYPE):
 		if spotted_object.faction != _parent.faction:
@@ -96,7 +102,6 @@ func _on_army_sight_area_exited(area: Area2D) -> void:
 #-------------------------------------------------------------------------------
 func ai_module_ready():
 	_connect_to_parent_signals()
-	print("Wander AI ready ")
 
 	_set_up_debug()
 
@@ -122,7 +127,8 @@ func _draw_debug():
 	debug_node.queue_redraw()
 
 func _draw() -> void: #%Debug
-	_debug_draw_dot(_parent.get_army_position(), Color(1,0,int(enemy_army == null),0.5), 1.5)
+	_debug_draw_dot(_parent.get_army_position(), Color(1,0,int(enemy_army == null),0.5), 1.5 * GlobalSettings.UNIT)
+	_debug_draw_dot(_parent.get_army_position(), Color(0.5,0.5,int(enemy_army == null),0.25), CHASE_DIST)
 
 func _debug_draw_grid_dots(
 	grid: Array,
@@ -140,7 +146,7 @@ func _debug_draw_dot(
 	new_rad = int(GlobalSettings.UNIT/2)
 	):
 	var col = new_col
-	var rad = new_rad * GlobalSettings.UNIT
+	var rad = new_rad
 	debug_node.draw_circle(new_pos, rad, col)
 
 func _debug_draw_line(
