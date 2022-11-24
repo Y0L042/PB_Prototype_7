@@ -5,3 +5,4 @@
 
 [node name="WanderAIModule" instance=ExtResource("1_aokvh")]
 script = ExtResource("2_ekuok")
+set_CHASE_DIST = 5

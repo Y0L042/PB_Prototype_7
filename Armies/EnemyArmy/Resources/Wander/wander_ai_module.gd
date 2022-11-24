@@ -13,12 +13,20 @@ var enemy_army: Variant = null
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------
+# Properties
+#-------------------------------------------------------------------------------
+@export var set_CHASE_DIST: float = 5 : set = set_chase_distance
+var CHASE_DIST: float = set_CHASE_DIST * GlobalSettings.UNIT
 @export var wander_area: Area2D
+
+
 
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
-
+func set_chase_distance(new_chase_distance: float):
+	CHASE_DIST = new_chase_distance * GlobalSettings.UNIT
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -38,14 +46,17 @@ func _connect_to_parent_signals():
 # Movement Functions
 #-------------------------------------------------------------------------------
 func _move_army(target: Vector2):
-	_parent.move_army()
+	_parent.move_army(target)
 
 #-------------------------------------------------------------------------------
 # Events
 #-------------------------------------------------------------------------------
 func _on_army_sight_area_entered(area: Area2D) -> void:
 	print("army spotted")
-	if area.get_parent().is_in_group()
+	var spotted_object = area.get_parent()
+	if spotted_object.is_in_group(_parent.TYPE) and spotted_object.faction != _parent.faction:
+		print("enemy spotted")
+		enemy_army = spotted_object
 #-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------
@@ -70,8 +81,12 @@ func ai_module_physics_process(_delta: float):
 	if enemy_army == null:
 		_move_army(_parent.wander())
 	else:
+
 		var enemy_army_target: Vector2 = _parent.get_army_position().direction_to(enemy_army.get_army_position())
-		_move_army(_parent)
+		if _parent.get_army_position().distance_to(enemy_army.get_army_position()) > CHASE_DIST:
+			enemy_army = null
+			return
+		_move_army(enemy_army_target)
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

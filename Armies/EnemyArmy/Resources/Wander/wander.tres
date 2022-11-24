@@ -4,3 +4,4 @@
 
 [resource]
 script = ExtResource("1_ub6gf")
+CHASE_DIST = 5
