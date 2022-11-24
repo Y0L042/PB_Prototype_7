@@ -3,8 +3,8 @@ extends Army
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-@export @onready var _ai_module_scene: PackedScene : set = set_ai_module
-@onready var _ai_module: Variant
+@export @onready var _ai_module: Resource : set = set_ai_module
+
 
 
 #---------------------------------------------------------------------------------------------------#
@@ -17,7 +17,9 @@ extends Army
 func set_ai_module(new_ai_module):
 	if new_ai_module == null:
 		print("Error: AI module scene is empty!")
-	_ai_module = SceneLib.spawn_child(new_ai_module, self)
+		return -1
+	_ai_module = new_ai_module
+	_ai_module.set_local_to_scene(true)
 	_ai_module.set_parent(self)
 
 #---------------------------------------------------------------------------------------------------#
@@ -27,6 +29,10 @@ func set_ai_module(new_ai_module):
 # Initialization
 #-------------------------------------------------------------------------------
 func _ready() -> void:
+	# Run AI Module _ready
+	if _ai_module != null:
+		_ai_module.ai_module_ready()
+
 	formation.set_volume(9)
 	formation.set_width(3)
 
@@ -35,7 +41,10 @@ func _ready() -> void:
 # Runtime
 #-------------------------------------------------------------------------------
 func _custom_process(delta: float):
-#	move_army(wander())
+	# Run AI Module _physics
+	if _ai_module != null:
+		_ai_module.ai_module_physics_process(delta)
+
 	_set_formation_rotation()
 	_draw_debug()
 

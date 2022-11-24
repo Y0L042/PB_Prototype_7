@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://butxpfe4a6mg7"]
+
+[ext_resource type="Script" path="res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd" id="1_ub6gf"]
+
+[resource]
+script = ExtResource("1_ub6gf")
