@@ -15,13 +15,25 @@ _global_script_classes=[{
 "path": "res://Armies/base_army.gd"
 }, {
 "base": "Node",
+"class": &"BaseAIModule",
+"language": &"GDScript",
+"path": "res://Armies/EnemyArmy/Resources/base_ai_module.gd"
+}, {
+"base": "Node",
 "class": &"GridObject",
 "language": &"GDScript",
 "path": "res://Classes/GridClass.gd"
+}, {
+"base": "BaseAIModule",
+"class": &"WanderAIModule",
+"language": &"GDScript",
+"path": "res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd"
 }]
 _global_script_class_icons={
 "Army": "",
-"GridObject": ""
+"BaseAIModule": "",
+"GridObject": "",
+"WanderAIModule": ""
 }
 
 [application]

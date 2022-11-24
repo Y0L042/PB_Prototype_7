@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2s4tc83ic0xo"]
+[gd_scene load_steps=5 format=3 uid="uid://csj1rq8gj007b"]
 
 [ext_resource type="Script" path="res://Armies/EnemyArmy/enemy_army.gd" id="1_6f123"]
 [ext_resource type="PackedScene" uid="uid://dedtsjl3a3pw" path="res://Armies/base_army.tscn" id="1_m4tr4"]
+[ext_resource type="Script" path="res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd" id="3_7g66a"]
+
+[sub_resource type="Resource" id="Resource_y67fc"]
+script = ExtResource("3_7g66a")
 
 [node name="EnemyArmy" instance=ExtResource("1_m4tr4")]
 script = ExtResource("1_6f123")
+_ai_module = SubResource("Resource_y67fc")
 army_colour = Color(0.882353, 0, 0, 1)
 army_speed = 2.0

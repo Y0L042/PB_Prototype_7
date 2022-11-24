@@ -5,3 +5,9 @@ res://Armies/PlayerArmy/player_army.tscn
 res://Armies/EnemyArmy/enemy_army.tscn
 res://Armies/base_army.tscn
 res://Armies/base_army.gd
+res://Armies/EnemyArmy/Resources/wander.gd
+res://Armies/EnemyArmy/enemy_army.gd
+res://Armies/EnemyArmy/Resources/base_ai_module.gd
+res://Armies/EnemyArmy/Resources/wander_ai_module.gd
+res://Armies/EnemyArmy/Resources/wander_ai_module.tres
+res://header_comment_template.gd
