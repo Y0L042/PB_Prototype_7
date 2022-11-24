@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://clkbx61c3kk7o"]
+[gd_scene load_steps=2 format=3 uid="uid://d2ns343thjdah"]
 
 [ext_resource type="Script" path="res://Armies/EnemyArmy/Resources/base_ai_module.gd" id="1_6b5vm"]
 
