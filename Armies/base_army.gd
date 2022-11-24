@@ -26,6 +26,9 @@ var blackboard: Dictionary = {
 }
 @onready var army_sight_area: Area2D = %Army_Sight
 @onready var formation = blackboard.formation
+
+@export var faction: String : set = set_faction
+@onready var army_id: int = get_instance_id() : set = set_army_id
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
@@ -50,6 +53,13 @@ func set_army_colour(new_colour: Color):
 	army_colour = new_colour
 	blackboard.army_colour = army_colour
 
+func set_faction(new_faction):
+	faction = new_faction
+	blackboard.faction = faction
+
+func set_army_id(new_id):
+	army_id = new_id
+	blackboard.army_id = army_id
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -140,3 +150,9 @@ func _debug_draw_line(
 	var width = new_width
 	end += start
 	draw_line(start, end, col, width)
+
+
+
+
+
+

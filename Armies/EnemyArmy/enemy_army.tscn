@@ -7,5 +7,6 @@
 [node name="EnemyArmy" instance=ExtResource("1_m4tr4")]
 script = ExtResource("1_6f123")
 _ai_module = ExtResource("3_hwa1q")
+faction = "Enemy"
 army_colour = Color(0.882353, 0, 0, 1)
 army_speed = 2.0
