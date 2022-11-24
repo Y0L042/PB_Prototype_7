@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgdk0dy5aj42i"]
-
-[ext_resource type="PackedScene" uid="uid://d2ns343thjdah" path="res://Armies/EnemyArmy/Resources/base_ai_module.tscn" id="1_aokvh"]
-[ext_resource type="Script" path="res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd" id="2_ekuok"]
-
-[node name="WanderAIModule" instance=ExtResource("1_aokvh")]
-script = ExtResource("2_ekuok")
-set_CHASE_DIST = 5
