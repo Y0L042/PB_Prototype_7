@@ -3,8 +3,8 @@ extends Army
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-@export @onready var _ai_module: PackedScene : set = set_ai_module
-
+@export @onready var _ai_module_scene: PackedScene : set = set_ai_module
+@onready var _ai_module: Variant
 
 
 #---------------------------------------------------------------------------------------------------#
@@ -15,7 +15,9 @@ extends Army
 # SetGet
 #---------------------------------------------------------------------------------------------------#
 func set_ai_module(new_ai_module):
-	_ai_module = new_ai_module
+	if new_ai_module == null:
+		print("Error: AI module scene is empty!")
+	_ai_module = SceneLib.spawn_child(new_ai_module, self)
 	_ai_module.set_parent(self)
 
 #---------------------------------------------------------------------------------------------------#
