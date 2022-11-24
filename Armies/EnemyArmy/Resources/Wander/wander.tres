@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://butxpfe4a6mg7"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b5m6kt2efa4y6"]
 
 [ext_resource type="Script" path="res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd" id="1_ub6gf"]
 
 [resource]
 script = ExtResource("1_ub6gf")
-CHASE_DIST = 5
+set_CHASE_DIST = 5
