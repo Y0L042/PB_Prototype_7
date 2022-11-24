@@ -18,7 +18,7 @@ var friendly_armies: Array = []
 # Properties
 #-------------------------------------------------------------------------------
 @export var set_CHASE_DIST: float = 5 : set = set_chase_distance
-@export var FRIENDLY_AVOIDANCE_STRENGTH
+@export var FRIENDLY_AVOIDANCE_STRENGTH: float = 0.5
 var CHASE_DIST: float = set_CHASE_DIST * GlobalSettings.UNIT
 @export var wander_area: Area2D
 

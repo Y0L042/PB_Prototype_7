@@ -1,10 +1,8 @@
+res://Armies/EnemyArmy/enemy_army.tscn
 res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
 res://Armies/EnemyArmy/Resources/Wander/wander.tres
+res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd
 res://Main/main.tscn
 res://Maps/Map 1/map_1.tscn
 res://Armies/base_army.tscn
 res://Armies/PlayerArmy/player_army.tscn
-res://Armies/EnemyArmy/enemy_army.tscn
-res://Armies/EnemyArmy/Resources/base_ai_module.tscn
-res://Armies/EnemyArmy/Resources/base_ai_module.gd
-res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd
