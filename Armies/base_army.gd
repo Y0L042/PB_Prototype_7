@@ -17,8 +17,11 @@ var _army_velocity: Vector2 = Vector2.ZERO
 # "Features"
 #-------------------------------------------------------------------------------
 var blackboard: Dictionary = {
-	"formation" : GridObject.new(),
+	"faction" : "INSERT FACTION HERE",
+	"army_id" : "INSERT ARMY INSTANCE ID HERE",
 
+	"formation" : GridObject.new(),
+	"army_colour" : army_colour,
 	"move_order" : Vector2.ZERO,
 }
 @onready var army_sight_area: Area2D = %Army_Sight
@@ -26,7 +29,7 @@ var blackboard: Dictionary = {
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
-@export_color_no_alpha var army_colour: Color # used with outline shader
+@export_color_no_alpha var army_colour: Color : set = set_army_colour# used with outline shader
 @export var army_speed: float : set = set_army_speed
 #---------------------------------------------------------------------------------------------------#
 # SetGet
@@ -43,7 +46,9 @@ func set_army_speed(new_army_speed: float):
 	army_speed = new_army_speed
 	army_speed *= GlobalSettings.UNIT
 
-
+func set_army_colour(new_colour: Color):
+	army_colour = new_colour
+	blackboard.army_colour = army_colour
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
