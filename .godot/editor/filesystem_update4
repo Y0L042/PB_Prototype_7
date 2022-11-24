@@ -8,3 +8,4 @@ res://Armies/base_army.tscn
 res://Armies/PlayerArmy/player_army.tscn
 res://Armies/EnemyArmy/enemy_army.gd
 res://Armies/EnemyArmy/Resources/base_ai_module.gd
+res://Camera/Camera2d.gd
