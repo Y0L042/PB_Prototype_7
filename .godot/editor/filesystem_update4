@@ -9,3 +9,4 @@ res://Armies/EnemyArmy/Resources/base_ai_module.tscn
 res://Armies/EnemyArmy/enemy_army.gd
 res://Armies/EnemyArmy/Resources/base_ai_module.gd
 res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd
+res://Armies/base_army.gd
