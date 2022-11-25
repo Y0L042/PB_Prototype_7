@@ -1,6 +1,6 @@
-extends Node2D
+extends BaseStats
 
-class_name BaseSoldier
+class_name DefaultSoldierStats
 
 
 #---------------------------------------------------------------------------------------------------#
@@ -12,34 +12,12 @@ class_name BaseSoldier
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
-#-------------------------------------------------------------------------------
-# "Features"
-#-------------------------------------------------------------------------------
-@onready var soldier_collision_shape: CollisionShape2D = %SoldierCollision
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var animation_tree: AnimationTree = %AnimationTree
-@onready var animation_tree_mode = animation_tree["parameters/playback"]
-@onready var pivot: Marker2D = %Pivot
-@onready var body_sprite: Sprite2D = %BodySprite
-@onready var weapon_pivot: Marker2D = %WeaponPivot
-@onready var soldier_sight: Area2D = %Sight
-
-var blackboard: Dictionary : set = set_blackboard
-
-#-------------------------------------------------------------------------------
-# Properties
-#-------------------------------------------------------------------------------
-@export_category("Arrays of Resources")
-@export var array_of_stats: Array = []
-@export var array_of_effects: Array = []
-@export var array_of_weapons: Array = []
-@export var array_of_weapon_effects: Array = [] #? here or in Weapon??
-
+@export var health: float : set = set_health
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
-func set_blackboard(new_blackboard):
-	blackboard = new_blackboard
+func set_health(new_health):
+	health = new_health
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions

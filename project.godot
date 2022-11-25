@@ -24,6 +24,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Soldiers/base_soldier.gd"
 }, {
+"base": "Resource",
+"class": &"BaseStats",
+"language": &"GDScript",
+"path": "res://Soldiers/Resources/Stats/base_stats.gd"
+}, {
+"base": "BaseStats",
+"class": &"DefaultSoldierStats",
+"language": &"GDScript",
+"path": "res://Soldiers/Resources/Stats/default_soldier_stats.gd"
+}, {
 "base": "Node",
 "class": &"GridObject",
 "language": &"GDScript",
@@ -38,6 +48,8 @@ _global_script_class_icons={
 "Army": "",
 "BaseAIModule": "",
 "BaseSoldier": "",
+"BaseStats": "",
+"DefaultSoldierStats": "",
 "GridObject": "",
 "WanderAIModule": ""
 }
