@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://brssk481x63mo"]
+
+[ext_resource type="Script" path="res://Armies/soldier_manager.gd" id="1_26i7w"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_26i7w")

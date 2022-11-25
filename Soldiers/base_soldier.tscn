@@ -12,7 +12,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 root_node = NodePath("../SoldierCollision")
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 
 [node name="Pivot" type="Marker2D" parent="."]

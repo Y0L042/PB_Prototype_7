@@ -10,6 +10,10 @@ var _delta: float
 var _army_position: Vector2 = Vector2.ZERO : set = set_army_position
 var _army_velocity: Vector2 = Vector2.ZERO
 
+#-------------------------------------------------------------------------------
+# Soldier-Related Variables
+#-------------------------------------------------------------------------------
+@export @onready var _soldier_manager: Resource : set = set_soldier_manager
 
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
@@ -61,6 +65,13 @@ func set_faction(new_faction):
 func set_army_id(new_id):
 	army_id = new_id
 	blackboard.army_id = army_id
+
+func set_soldier_manager(new_soldier_manager):
+	if new_soldier_manager == null:
+		print("Error: Soldier manager scene is empty!")
+		return -1
+	_soldier_manager = new_soldier_manager
+	_soldier_manager.set_parent(self)
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#

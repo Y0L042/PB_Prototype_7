@@ -53,10 +53,10 @@ func _custom_process(delta: float):
 	_set_formation_rotation()
 	_draw_debug()
 
-func _ai_module_process(_delta: float):
+func _ai_module_process(delta: float):
 	# Run AI Module _physics
 	if _ai_module != null:
-		_ai_module.ai_module_physics_process(_delta)
+		_ai_module.ai_module_physics_process(delta)
 
 #-------------------------------------------------------------------------------
 # Movement Functions
