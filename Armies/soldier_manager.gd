@@ -24,6 +24,9 @@ var living_soldiers_array: Array = []
 #---------------------------------------------------------------------------------------------------#
 func set_parent(new_parent):
 	_parent = new_parent
+	await  _parent.ready
+	_parent.ready.connect(_custom_ready)
+	_parent.get_tree().physics_frame.connect(_custom_physics_process)
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -31,11 +34,13 @@ func set_parent(new_parent):
 #-------------------------------------------------------------------------------
 # Initialization
 #-------------------------------------------------------------------------------
-
+func _custom_ready():
+	print("soldier manager is ready to spawn your soldiers.")
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
-
+func _custom_physics_process():
+	print("soldier manager physics process.")
 #-------------------------------------------------------------------------------
 # Movement Functions
 #-------------------------------------------------------------------------------
