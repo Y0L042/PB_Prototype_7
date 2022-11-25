@@ -6,3 +6,5 @@ res://Armies/base_army.tscn
 res://Armies/PlayerArmy/player_army.tscn
 res://Armies/EnemyArmy/enemy_army.tscn
 res://Autoloads/scene_lib.gd
+res://Soldiers/base_soldier.tscn
+res://Soldiers/base_soldier.gd
