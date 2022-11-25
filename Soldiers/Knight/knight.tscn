@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cde7ddgpbjev5"]
+[gd_scene load_steps=20 format=3 uid="uid://cde7ddgpbjev5"]
 
 [ext_resource type="PackedScene" uid="uid://galuiw0n6l36" path="res://Soldiers/base_soldier.tscn" id="1_x6li2"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_s1n8o"]
 [ext_resource type="Texture2D" uid="uid://bcjck6wdvlqp8" path="res://Soldiers/Knight/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png" id="3_0i888"]
+[ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_p5t1t"]
 
 [sub_resource type="Animation" id="Animation_snrig"]
 resource_name = "Hurt"
@@ -115,6 +116,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Knight" instance=ExtResource("1_x6li2")]
 script = ExtResource("2_s1n8o")
+_ai_module = ExtResource("3_p5t1t")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

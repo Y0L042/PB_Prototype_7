@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1669372534
+::res://::1669375458
 header_comment_template.gd::GDScript::-1::1669368195::0::1::::<>RefCounted<>::
 icon.svg::CompressedTexture2D::3998031586563503381::1669096806::1669353220::1::::<><>::
 README.md::TextFile::-1::1669096806::0::1::::<><>::
@@ -241,17 +241,21 @@ menu_button_press.png::CompressedTexture2D::4742937787661013852::1664973266::166
 pause_button.png::CompressedTexture2D::2431706842046049519::1664973266::1669101900::1::::<><>::
 pause_button_press.png::CompressedTexture2D::3555779101020157283::1664973266::1669101900::1::::<><>::
 progress bar.png::CompressedTexture2D::100942067116417053::1664973266::1669101900::1::::<><>::
-::res://Soldiers/::1669372415
-base_soldier.gd::GDScript::-1::1669368388::0::1::::BaseSoldier<>Node2D<>::
+::res://Soldiers/::1669373597
+base_soldier.gd::GDScript::-1::1669373501::0::1::::BaseSoldier<>Node2D<>::
 base_soldier.tscn::PackedScene::421837119953711723::1669370673::0::1::::<><>::res://Soldiers/base_soldier.gd
-::res://Soldiers/Knight/::1669372506
+base_soldier_ai_module.gd::GDScript::-1::1669373597::0::1::::BaseSoldierAIModule<>Resource<>::
+::res://Soldiers/Knight/::1669375458
 knight.gd::GDScript::-1::1669368210::0::1::::<>BaseSoldier<>::
-knight.tscn::PackedScene::4993613877988883632::1669372603::0::1::::<><>::uid://galuiw0n6l36<>res://Soldiers/Knight/knight.gd<>uid://bcjck6wdvlqp8
+knight.tscn::PackedScene::4993613877988883632::1669375444::0::1::::<><>::uid://galuiw0n6l36<>res://Soldiers/Knight/knight.gd<>uid://bcjck6wdvlqp8
 knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png::CompressedTexture2D::2545518725054658023::1669369295::1669369314::1::::<><>::
+::res://Soldiers/Knight/Soldier AI/::1669375444
+standard_ai_module.gd::GDScript::-1::1669375444::0::1::::StandardSoldierAIModule<>BaseSoldierAIModule<>::
 ::res://Soldiers/Resources/::1669372534
-::res://Soldiers/Resources/Stats/::1669372534
+::res://Soldiers/Resources/Stats/::1669372757
 base_stats.gd::GDScript::-1::1669372506::0::1::::BaseStats<>Resource<>::
-soldier_default_stats.gd::GDScript::-1::1669372603::0::1::::DefaultSoldierStats<>BaseStats<>::
+default_soldier_stats.gd::GDScript::-1::1669372693::0::1::::DefaultSoldierStats<>BaseStats<>::
+default_soldier_stats.tres::Resource::4377124999811144317::1669372757::0::1::::<><>::res://Soldiers/Resources/Stats/default_soldier_stats.gd
 ::res://UI/::1669098161
 focus_grab.gd::GDScript::-1::1669097967::0::1::::<>Button<>::
 ::res://UI/Game End Menu/::1669098413

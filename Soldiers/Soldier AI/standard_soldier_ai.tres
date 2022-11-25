@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d2jgdb1r55t1i"]
+
+[ext_resource type="Script" path="res://Soldiers/Soldier AI/standard_ai_module.gd" id="1_w4lqs"]
+
+[resource]
+script = ExtResource("1_w4lqs")

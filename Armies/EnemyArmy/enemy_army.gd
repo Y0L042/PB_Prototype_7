@@ -29,6 +29,13 @@ func set_ai_module(new_ai_module):
 # Initialization
 #-------------------------------------------------------------------------------
 func _ready() -> void:
+	_ai_module_ready()
+	_custom_ready()
+
+func _custom_ready():
+	pass
+
+func _ai_module_ready():
 	# Run AI Module _ready
 	if _ai_module != null:
 		_ai_module.ai_module_ready()
@@ -41,14 +48,15 @@ func _ready() -> void:
 # Runtime
 #-------------------------------------------------------------------------------
 func _custom_process(delta: float):
-	# Run AI Module _physics
-	if _ai_module != null:
-		_ai_module.ai_module_physics_process(delta)
+	_ai_module_process(delta)
 
 	_set_formation_rotation()
 	_draw_debug()
 
-
+func _ai_module_process(_delta: float):
+	# Run AI Module _physics
+	if _ai_module != null:
+		_ai_module.ai_module_physics_process(_delta)
 
 #-------------------------------------------------------------------------------
 # Movement Functions

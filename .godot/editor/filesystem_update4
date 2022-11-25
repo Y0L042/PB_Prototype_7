@@ -11,3 +11,8 @@ res://Soldiers/Resources/Stats/soldier_default_stats.gd
 res://Soldiers/Resources/Stats/default_soldier_stats.gd
 res://Soldiers/Resources/Stats/default_soldier_stats.tres
 res://Soldiers/base_soldier.gd
+res://Soldiers/base_soldier_ai_module.gd
+res://Soldiers/Knight/Knight AI/standard_ai_module.gd
+res://Soldiers/Soldier AI/standard_ai_module.gd
+res://Soldiers/Knight/knight.gd
+res://Armies/EnemyArmy/enemy_army.gd
