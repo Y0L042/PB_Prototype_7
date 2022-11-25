@@ -6,6 +6,7 @@
 script = ExtResource("1_67478")
 
 [node name="SoldierCollision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -23,7 +24,7 @@ unique_name_in_owner = true
 [node name="WeaponPivot" type="Marker2D" parent="Pivot"]
 unique_name_in_owner = true
 
-[node name="Area2D" type="Area2D" parent="Pivot"]
+[node name="Sight" type="Area2D" parent="Pivot"]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sight"]

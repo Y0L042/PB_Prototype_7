@@ -1,0 +1,141 @@
+[gd_scene load_steps=19 format=3 uid="uid://cde7ddgpbjev5"]
+
+[ext_resource type="PackedScene" uid="uid://galuiw0n6l36" path="res://Soldiers/base_soldier.tscn" id="1_x6li2"]
+[ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_s1n8o"]
+[ext_resource type="Texture2D" uid="uid://bcjck6wdvlqp8" path="res://Soldiers/Knight/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png" id="3_0i888"]
+
+[sub_resource type="Animation" id="Animation_snrig"]
+resource_name = "Hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_86lki"]
+resource_name = "Idle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_5fck6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_aqgct"]
+resource_name = "Run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7tud"]
+_data = {
+"Hit": SubResource("Animation_snrig"),
+"Idle": SubResource("Animation_86lki"),
+"RESET": SubResource("Animation_5fck6"),
+"Run": SubResource("Animation_aqgct")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ydomu"]
+animation = &"Hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y5y4o"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aq1qr"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pghit"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2lga"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qvsfi"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e2o1h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rvurk"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vwyly"]
+states/End/position = Vector2(597, 100)
+states/Hit/node = SubResource("AnimationNodeAnimation_ydomu")
+states/Hit/position = Vector2(303, 179)
+states/Idle/node = SubResource("AnimationNodeAnimation_y5y4o")
+states/Idle/position = Vector2(303, 100)
+states/Run/node = SubResource("AnimationNodeAnimation_aq1qr")
+states/Run/position = Vector2(303, 2)
+states/Start/position = Vector2(171, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_pghit"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_j2lga"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_qvsfi"), "Idle", "Hit", SubResource("AnimationNodeStateMachineTransition_e2o1h"), "Hit", "Idle", SubResource("AnimationNodeStateMachineTransition_rvurk")]
+graph_offset = Vector2(-75, -35)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_iibjp"]
+
+[node name="Knight" instance=ExtResource("1_x6li2")]
+script = ExtResource("2_s1n8o")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_s7tud")
+}
+
+[node name="AnimationTree" parent="AnimationPlayer" index="0"]
+tree_root = SubResource("AnimationNodeStateMachine_vwyly")
+anim_player = NodePath("..")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_iibjp")
+
+[node name="BodySprite" parent="Pivot" index="0"]
+position = Vector2(0, -216)
+scale = Vector2(15, 15)
+texture = ExtResource("3_0i888")
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+current = true
