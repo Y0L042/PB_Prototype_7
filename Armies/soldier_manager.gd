@@ -24,7 +24,7 @@ var living_soldiers_array: Array = []
 #---------------------------------------------------------------------------------------------------#
 func set_parent(new_parent):
 	_parent = new_parent
-	await  _parent.ready
+#	await  _parent.ready
 	_parent.ready.connect(_custom_ready)
 	_parent.get_tree().physics_frame.connect(_custom_physics_process)
 
@@ -40,7 +40,8 @@ func _custom_ready():
 # Runtime
 #-------------------------------------------------------------------------------
 func _custom_physics_process():
-	print("soldier manager physics process.")
+#	print("soldier manager physics process.")
+	pass
 #-------------------------------------------------------------------------------
 # Movement Functions
 #-------------------------------------------------------------------------------

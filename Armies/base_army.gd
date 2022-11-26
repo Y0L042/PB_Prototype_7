@@ -13,7 +13,7 @@ var _army_velocity: Vector2 = Vector2.ZERO
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
 #-------------------------------------------------------------------------------
-@export @onready var _soldier_manager: Resource : set = set_soldier_manager
+@export var _soldier_manager: Resource : set = set_soldier_manager
 
 #---------------------------------------------------------------------------------------------------#
 # Public Variables

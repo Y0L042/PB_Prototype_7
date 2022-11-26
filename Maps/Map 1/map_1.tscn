@@ -59,16 +59,16 @@ position = Vector2(1728, 1512)
 [node name="Enemy Spawns" type="Node2D" parent="Spawns"]
 unique_name_in_owner = true
 
-[node name="Marker2D2" type="Marker2D" parent="Spawns/Enemy Spawns"]
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="Items"]
 position = Vector2(3456, 3672)
 
-[node name="Marker2D3" type="Marker2D" parent="Spawns/Enemy Spawns"]
+[node name="Marker2D3" type="Marker2D" parent="Items"]
 position = Vector2(1080, 3888)
 
-[node name="Marker2D4" type="Marker2D" parent="Spawns/Enemy Spawns"]
+[node name="Marker2D4" type="Marker2D" parent="Items"]
 position = Vector2(3672, 1512)
-
-[node name="Node2D" type="Node2D" parent="."]
 
 [node name="UI_Pause Menu" parent="." instance=ExtResource("3_r0f5s")]
 

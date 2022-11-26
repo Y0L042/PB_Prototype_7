@@ -1,22 +1,8 @@
-res://Main/main.tscn
-res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
-res://Armies/EnemyArmy/Resources/Wander/wander.tres
-res://Maps/Map 1/map_1.tscn
-res://Armies/base_army.tscn
-res://Armies/PlayerArmy/player_army.tscn
 res://Armies/EnemyArmy/enemy_army.tscn
-res://Soldiers/Knight/knight.tscn
-res://Soldiers/Resources/base_stats.gd
-res://Soldiers/Resources/Stats/soldier_default_stats.gd
-res://Soldiers/Resources/Stats/default_soldier_stats.gd
-res://Soldiers/Resources/Stats/default_soldier_stats.tres
-res://Soldiers/base_soldier.gd
-res://Soldiers/base_soldier_ai_module.gd
-res://Soldiers/Knight/Knight AI/standard_ai_module.gd
-res://Soldiers/Soldier AI/standard_ai_module.gd
-res://Soldiers/Knight/knight.gd
-res://Armies/EnemyArmy/enemy_army.gd
-res://Soldiers/base_soldier.tscn
-res://Armies/soldier_manager.gd
-res://Armies/base_army.gd
 res://Armies/soldier_manager.tres
+res://Armies/EnemyArmy/Resources/Wander/wander.tres
+res://Armies/PlayerArmy/player_army.tscn
+res://Armies/soldier_manager.gd
+res://Maps/Map 1/map_1.tscn
+res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
+res://Armies/base_army.gd

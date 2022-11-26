@@ -1,27 +1,29 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1669375458
+::res://::1669447486
 header_comment_template.gd::GDScript::-1::1669368195::0::1::::<>RefCounted<>::
 icon.svg::CompressedTexture2D::3998031586563503381::1669096806::1669353220::1::::<><>::
 README.md::TextFile::-1::1669096806::0::1::::<><>::
-::res://Armies/::1669372357
+::res://Armies/::1669447467
 Army_Sight.gd::GDScript::-1::1669208770::0::1::::<>Area2D<>::
-base_army.gd::GDScript::-1::1669295194::0::1::::Army<>Node2D<>::
-base_army.tscn::PackedScene::219041082853610980::1669372357::0::1::::<><>::res://Armies/base_army.gd<>res://Armies/Army_Sight.gd
-::res://Armies/EnemyArmy/::1669372357
-enemy_army.gd::GDScript::-1::1669353161::0::1::::<>Army<>::
-enemy_army.tscn::PackedScene::6056429844603434493::1669372357::0::1::::<><>::res://Armies/EnemyArmy/enemy_army.gd<>uid://dedtsjl3a3pw<>uid://b5m6kt2efa4y6
+base_army.gd::GDScript::-1::1669382442::0::1::::Army<>Node2D<>::
+base_army.tscn::PackedScene::219041082853610980::1669447413::0::1::::<><>::res://Armies/base_army.gd<>uid://brssk481x63mo<>res://Armies/Army_Sight.gd
+soldier_manager.gd::GDScript::-1::1669447467::0::1::::SoldierManager<>Resource<>::
+soldier_manager.tres::Resource::3617902164290580734::1669446854::0::1::::<><>::res://Armies/soldier_manager.gd
+::res://Armies/EnemyArmy/::1669447467
+enemy_army.gd::GDScript::-1::1669377555::0::1::::<>Army<>::
+enemy_army.tscn::PackedScene::6056429844603434493::1669447467::0::1::::<><>::res://Armies/EnemyArmy/enemy_army.gd<>uid://dedtsjl3a3pw<>uid://b5m6kt2efa4y6
 ::res://Armies/EnemyArmy/Resources/::1669353161
 base_ai_module.gd::GDScript::-1::1669353161::0::1::::BaseAIModule<>Resource<>::
 base_ai_module.tscn::PackedScene::3143785714418257139::1669296229::0::1::::<><>::res://Armies/EnemyArmy/Resources/base_ai_module.gd
-::res://Armies/EnemyArmy/Resources/Wander/::1669372357
-wander.tres::Resource::4518759650439428947::1669372357::0::1::::<><>::res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd
+::res://Armies/EnemyArmy/Resources/Wander/::1669446854
+wander.tres::Resource::4518759650439428947::1669446854::0::1::::<><>::res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd
 wander_ai_module.gd::GDScript::-1::1669353161::0::1::::WanderAIModule<>BaseAIModule<>::
-::res://Armies/PlayerArmy/::1669372357
+::res://Armies/PlayerArmy/::1669447413
 player_army.gd::GDScript::-1::1669209862::0::1::::<>Army<>::
-player_army.tscn::PackedScene::7104034142142792752::1669372357::0::1::::<><>::uid://dedtsjl3a3pw<>res://Armies/PlayerArmy/player_army.gd<>uid://b26x8d8pllql7
-::res://Autoloads/::1669355230
+player_army.tscn::PackedScene::7104034142142792752::1669447413::0::1::::<><>::uid://dedtsjl3a3pw<>res://Armies/PlayerArmy/player_army.gd<>res://Armies/soldier_manager.gd<>uid://b26x8d8pllql7
+::res://Autoloads/::1669447382
 global_settings.gd::GDScript::-1::1669183269::0::1::::<>Node<>::
-scene_lib.gd::GDScript::-1::1669355230::0::1::::<>Node<>::
+scene_lib.gd::GDScript::-1::1669447382::0::1::::<>Node<>::
 steering_behaviour.gd::GDScript::-1::1669183269::0::1::::<>Node<>::
 tools.gd::GDScript::-1::1668860595::0::1::::<>Node<>::
 ::res://Camera/::1669353161
@@ -30,14 +32,14 @@ camera_2d.tscn::PackedScene::4346970803573597182::1669353161::0::1::::<><>::res:
 free-png-target-bullseye-target-png-1323-3427143875.png::CompressedTexture2D::1937439445456814041::1669353161::1669353161::1::::<><>::
 ::res://Classes/::1669223039
 GridClass.gd::GDScript::-1::1669223039::0::1::::GridObject<>Node<>::
-::res://Main/::1669372357
-main.tscn::PackedScene::3789670626454827212::1669372357::0::1::::<><>::uid://cxcf7dgraqck0
+::res://Main/::1669447413
+main.tscn::PackedScene::3789670626454827212::1669447413::0::1::::<><>::uid://cxcf7dgraqck0
 ::res://Maps/::1669098502
-::res://Maps/Map 1/::1669372357
+::res://Maps/Map 1/::1669447413
 map_1.gd::GDScript::-1::1669183269::0::1::::<>Node2D<>::
-map_1.tscn::PackedScene::1566676420300406328::1669372357::0::1::::<><>::res://Maps/Map 1/map_1.gd<>uid://0lfqmjlyfncj<>uid://mkk160r4og8j
-::res://Maps/Map 1/Assets/::1669372357
-pixel_art_dungeon_216.tres::TileSet::1777762048627292617::1669372357::0::1::::<><>::uid://c3xi3kqj1tmo6
+map_1.tscn::PackedScene::1566676420300406328::1669447413::0::1::::<><>::res://Maps/Map 1/map_1.gd<>uid://0lfqmjlyfncj<>uid://cde7ddgpbjev5<>uid://mkk160r4og8j
+::res://Maps/Map 1/Assets/::1669446854
+pixel_art_dungeon_216.tres::TileSet::1777762048627292617::1669446854::0::1::::<><>::uid://c3xi3kqj1tmo6
 ::res://Maps/Map 1/Assets/v1.1 dungeon crawler 16X16 pixel pack/::1669101901
 full spritesheet.png::CompressedTexture2D::8035811691232772499::1664973266::1669101900::1::::<><>::
 full tilemap.png::CompressedTexture2D::6786145966160749315::1669101888::1669101901::1::::<><>::
@@ -241,21 +243,22 @@ menu_button_press.png::CompressedTexture2D::4742937787661013852::1664973266::166
 pause_button.png::CompressedTexture2D::2431706842046049519::1664973266::1669101900::1::::<><>::
 pause_button_press.png::CompressedTexture2D::3555779101020157283::1664973266::1669101900::1::::<><>::
 progress bar.png::CompressedTexture2D::100942067116417053::1664973266::1669101900::1::::<><>::
-::res://Soldiers/::1669373597
-base_soldier.gd::GDScript::-1::1669373501::0::1::::BaseSoldier<>Node2D<>::
-base_soldier.tscn::PackedScene::421837119953711723::1669370673::0::1::::<><>::res://Soldiers/base_soldier.gd
+::res://Soldiers/::1669447414
+base_soldier.gd::GDScript::-1::1669376905::0::1::::BaseSoldier<>CharacterBody2D<>::
+base_soldier.tscn::PackedScene::421837119953711723::1669447414::0::1::::<><>::res://Soldiers/base_soldier.gd
 base_soldier_ai_module.gd::GDScript::-1::1669373597::0::1::::BaseSoldierAIModule<>Resource<>::
-::res://Soldiers/Knight/::1669375458
-knight.gd::GDScript::-1::1669368210::0::1::::<>BaseSoldier<>::
-knight.tscn::PackedScene::4993613877988883632::1669375444::0::1::::<><>::uid://galuiw0n6l36<>res://Soldiers/Knight/knight.gd<>uid://bcjck6wdvlqp8
+::res://Soldiers/Knight/::1669447414
+knight.gd::GDScript::-1::1669376631::0::1::::<>BaseSoldier<>::
+knight.tscn::PackedScene::4993613877988883632::1669447414::0::1::::<><>::uid://galuiw0n6l36<>res://Soldiers/Knight/knight.gd<>uid://bcjck6wdvlqp8<>uid://d2jgdb1r55t1i
 knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png::CompressedTexture2D::2545518725054658023::1669369295::1669369314::1::::<><>::
-::res://Soldiers/Knight/Soldier AI/::1669375444
-standard_ai_module.gd::GDScript::-1::1669375444::0::1::::StandardSoldierAIModule<>BaseSoldierAIModule<>::
 ::res://Soldiers/Resources/::1669372534
 ::res://Soldiers/Resources/Stats/::1669372757
 base_stats.gd::GDScript::-1::1669372506::0::1::::BaseStats<>Resource<>::
 default_soldier_stats.gd::GDScript::-1::1669372693::0::1::::DefaultSoldierStats<>BaseStats<>::
 default_soldier_stats.tres::Resource::4377124999811144317::1669372757::0::1::::<><>::res://Soldiers/Resources/Stats/default_soldier_stats.gd
+::res://Soldiers/Soldier AI/::1669380584
+standard_ai_module.gd::GDScript::-1::1669380584::0::1::::StandardSoldierAIModule<>BaseSoldierAIModule<>::
+standard_soldier_ai.tres::Resource::9073309981932988216::1669375479::0::1::::<><>::res://Soldiers/Soldier AI/standard_ai_module.gd
 ::res://UI/::1669098161
 focus_grab.gd::GDScript::-1::1669097967::0::1::::<>Button<>::
 ::res://UI/Game End Menu/::1669098413
