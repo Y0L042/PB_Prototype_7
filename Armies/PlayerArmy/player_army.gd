@@ -25,7 +25,7 @@ var _rotate_formation_dir: int = 0
 #-------------------------------------------------------------------------------
 # Initialization
 #-------------------------------------------------------------------------------
-func _ready() -> void:
+func _custom_ready() -> void:
 	formation.set_volume(9)
 	formation.set_width(3)
 

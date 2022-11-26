@@ -26,8 +26,8 @@ extends Node2D
 func _ready() -> void:
 #	randomize()
 	seed(11)
-	_spawn_players()
-	_spawn_enemies()
+#	_spawn_players()
+#	_spawn_enemies()
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------

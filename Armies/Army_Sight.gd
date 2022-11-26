@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _update_position():
-	self.set_global_position(parent.get_army_position())
+	self.set_position(parent.get_army_position())
 
 #-------------------------------------------------------------------------------
 # Formation Related

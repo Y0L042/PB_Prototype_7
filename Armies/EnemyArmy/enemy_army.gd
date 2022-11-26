@@ -28,12 +28,10 @@ func set_ai_module(new_ai_module):
 #-------------------------------------------------------------------------------
 # Initialization
 #-------------------------------------------------------------------------------
-func _ready() -> void:
+func _custom_ready() -> void:
 	_ai_module_ready()
-	_custom_ready()
 
-func _custom_ready():
-	pass
+
 
 func _ai_module_ready():
 	# Run AI Module _ready

@@ -136,9 +136,6 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_bc553")
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
-current = true
-
 [node name="BodySprite" parent="Pivot" index="0"]
 position = Vector2(0, -216)
 scale = Vector2(15, 15)

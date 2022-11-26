@@ -7,8 +7,10 @@ class_name Army
 #---------------------------------------------------------------------------------------------------#
 const TYPE: String = "ARMY"
 var _delta: float
-var _army_position: Vector2 = Vector2.ZERO : set = set_army_position
+var _army_position: Vector2 = Vector2.ZERO : set = set_army_position # Vector2.ZERO
 var _army_velocity: Vector2 = Vector2.ZERO
+
+
 
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
@@ -47,6 +49,7 @@ func set_army_position(new_army_position: Vector2):
 	# update move_order
 	blackboard.move_order = _army_position
 	formation.center_position = _army_position
+
 func get_army_position():
 	return _army_position
 
@@ -71,7 +74,7 @@ func set_soldier_manager(new_soldier_manager):
 		print("Error: Soldier manager scene is empty!")
 		return -1
 	_soldier_manager = new_soldier_manager
-	_soldier_manager.set_parent(self)
+#	_soldier_manager.set_parent(self)
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -79,14 +82,27 @@ func set_soldier_manager(new_soldier_manager):
 # Initialization
 #-------------------------------------------------------------------------------
 func _init() -> void:
+	_custom_init()
 	add_to_group(TYPE)
 
+func _custom_init():
+	pass
+
+func _ready() -> void:
+	_custom_ready()
+#	set_global_position(get_position()) # for position offset debug sat, 21/11/2022 10:40
+#	set_army_position(get_global_position()) # for position offset debug sat, 21/11/2022 10:40
+
+func _custom_ready():
+	pass
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
 	_delta = delta
 	_custom_process(delta)
+
+	_debug_pos()
 
 @warning_ignore(unused_parameter)
 func _custom_process(delta: float):
@@ -128,6 +144,19 @@ func _calc_soldier_array_center(arr: Array):
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#
+#%debug%
+func _debug_pos():
+	_debug_global_pos = get_global_position()
+	_debug_local_pos = get_position()
+
+var _debug_global_pos = get_global_position() : set = set_debug_global_pos
+func set_debug_global_pos(new_pos):
+	_debug_global_pos = new_pos
+
+var _debug_local_pos = get_position() : set = set_debug_local_pos
+func set_debug_local_pos(new_pos):
+	_debug_local_pos = new_pos
+
 func _draw_debug():
 	queue_redraw()
 
