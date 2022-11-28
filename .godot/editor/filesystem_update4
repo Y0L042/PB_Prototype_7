@@ -1,15 +1,13 @@
-res://Armies/EnemyArmy/enemy_army.tscn
-res://Armies/soldier_manager.tres
-res://Armies/EnemyArmy/Resources/Wander/wander.tres
-res://Armies/PlayerArmy/player_army.tscn
-res://Armies/soldier_manager.gd
 res://Maps/Map 1/map_1.tscn
 res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
-res://Armies/base_army.gd
-res://Maps/Map 1/map_1.gd
+res://Armies/soldier_manager.tres
+res://Armies/EnemyArmy/Resources/Wander/wander.tres
+res://Armies/EnemyArmy/enemy_army.tscn
+res://Armies/PlayerArmy/player_army.tscn
 res://Soldiers/Knight/knight.tscn
 res://Soldiers/base_soldier.tscn
-res://Autoloads/scene_lib.gd
-res://Armies/Army_Sight.gd
+res://Armies/base_army.gd
 res://Armies/EnemyArmy/enemy_army.gd
+res://Debugging Tools/draw_debug.gd
 res://Armies/PlayerArmy/player_army.gd
+res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd

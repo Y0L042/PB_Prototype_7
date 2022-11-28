@@ -10,7 +10,10 @@ var _delta: float
 var _army_position: Vector2 = Vector2.ZERO : set = set_army_position # Vector2.ZERO
 var _army_velocity: Vector2 = Vector2.ZERO
 
-
+#-------------------------------------------------------------------------------
+# % debug %
+#-------------------------------------------------------------------------------
+var _visual_debugger := VisualDebugger.new()
 
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
@@ -102,7 +105,6 @@ func _physics_process(delta: float) -> void:
 	_delta = delta
 	_custom_process(delta)
 
-	_debug_pos()
 
 @warning_ignore(unused_parameter)
 func _custom_process(delta: float):
@@ -141,57 +143,7 @@ func _calc_soldier_array_center(arr: Array):
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
 
-#---------------------------------------------------------------------------------------------------#
-# %debug%
-#---------------------------------------------------------------------------------------------------#
-#%debug%
-func _debug_pos():
-	_debug_global_pos = get_global_position()
-	_debug_local_pos = get_position()
 
-var _debug_global_pos = get_global_position() : set = set_debug_global_pos
-func set_debug_global_pos(new_pos):
-	_debug_global_pos = new_pos
-
-var _debug_local_pos = get_position() : set = set_debug_local_pos
-func set_debug_local_pos(new_pos):
-	_debug_local_pos = new_pos
-
-func _draw_debug():
-	queue_redraw()
-
-func _draw() -> void: #%Debug
-	pass
-
-func _debug_draw_grid_dots(
-	grid: Array,
-	new_col = Color(0, 0, 1),
-	new_rad = int(GlobalSettings.UNIT/2)
-	):
-	var col = new_col
-	var rad = new_rad
-	for spot in grid:
-		draw_circle(spot, rad, col)
-
-func _debug_draw_dot(
-	new_pos: Vector2,
-	new_col = Color(0, 0, 1),
-	new_rad = int(GlobalSettings.UNIT/2)
-	):
-	var col = new_col
-	var rad = new_rad
-	draw_circle(new_pos, rad, col)
-
-func _debug_draw_line(
-	start: Vector2,
-	end: Vector2,
-	new_col = Color(0, 1, 1),
-	new_width: float = 0.1
-	):
-	var col = new_col
-	var width = new_width
-	end += start
-	draw_line(start, end, col, width)
 
 
 

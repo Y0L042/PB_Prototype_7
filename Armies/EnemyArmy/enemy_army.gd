@@ -49,7 +49,7 @@ func _custom_process(delta: float):
 	_ai_module_process(delta)
 
 	_set_formation_rotation()
-	_draw_debug()
+
 
 func _ai_module_process(delta: float):
 	# Run AI Module _physics
@@ -64,6 +64,8 @@ func _collision_avoidance_adjust(current_position, current_direction, new_distan
 	var new_dir: Vector2 = current_direction
 	var offset: float = deg_to_rad(new_degree_offset)
 	var isRaycastIntersected: bool = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
+	var _debug_vector: Callable = draw_line(current_position, current_position+(new_dir*distance), Color(1,0,0), 10.0)
+
 	var tmp = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
 	while isRaycastIntersected:
 		print("intersected_1")
@@ -132,37 +134,3 @@ func wander() -> Vector2:
 		wander_theta_max_offset
 		)
 	return vel
-#---------------------------------------------------------------------------------------------------#
-# %debug%
-#---------------------------------------------------------------------------------------------------#
-func _draw_debug():
-	queue_redraw()
-
-func _draw() -> void: #%Debug
-	_debug_draw_army_rotation()
-	_debug_draw_army_position(get_army_position())
-	_debug_draw_army_velocity(get_army_position(), _army_velocity)
-	_debug_draw_army_formation()
-
-func _debug_draw_army_formation():
-	var col = Color(1, 0, 1)
-	var rad = int(GlobalSettings.UNIT/2)
-	_debug_draw_grid_dots(formation.vector_array, col, rad)
-
-func _debug_draw_army_position(new_pos):
-	var col = Color(0, 0, 1)
-	var rad = int(GlobalSettings.UNIT/1.75)
-	draw_circle(new_pos, rad, col)
-
-func _debug_draw_army_velocity(start, end):
-	var col = Color(0, 1, 1)
-	var width = 0.1
-	end += start
-	draw_line(start, end, col, width)
-
-func _debug_draw_army_rotation():
-	var start: Vector2 = _army_position
-	var end: Vector2 = Vector2.RIGHT.rotated(formation.rotation) * 2 * GlobalSettings.UNIT
-	var col = Color(1, 0, 1)
-	var width = 100
-	_debug_draw_line(start, end, col, width)
