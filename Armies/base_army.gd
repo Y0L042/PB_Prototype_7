@@ -11,15 +11,14 @@ var _delta: float
 var _army_velocity: Vector2 = Vector2.ZERO
 
 #-------------------------------------------------------------------------------
+# Soldier-Related Variables
+#-------------------------------------------------------------------------------
+@onready @export var _soldier_manager: Resource# : set = set_soldier_manager # commented out debug 16:18 Mo, 28-11-2022
+
+#-------------------------------------------------------------------------------
 # % debug %
 #-------------------------------------------------------------------------------
 var _visual_debugger := VisualDebugger.new(self)
-
-#-------------------------------------------------------------------------------
-# Soldier-Related Variables
-#-------------------------------------------------------------------------------
-@export var _soldier_manager: Resource : set = set_soldier_manager
-
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
@@ -92,6 +91,7 @@ func _custom_init():
 	pass
 
 func _ready() -> void:
+	set_soldier_manager(_soldier_manager) # added debug 16:18 Mo, 28-11-2022
 	_custom_ready()
 #	set_global_position(get_position()) # for position offset debug sat, 21/11/2022 10:40
 #	set_army_position(get_global_position()) # for position offset debug sat, 21/11/2022 10:40

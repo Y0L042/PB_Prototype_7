@@ -1,17 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4twblvfambin"]
+[gd_scene load_steps=10 format=3 uid="uid://b4twblvfambin"]
 
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
 [ext_resource type="TileSet" uid="uid://0lfqmjlyfncj" path="res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres" id="1_o8cge"]
 [ext_resource type="PackedScene" uid="uid://mkk160r4og8j" path="res://UI/Pause Menu/ui_pause_menu.tscn" id="3_r0f5s"]
 [ext_resource type="PackedScene" uid="uid://bk0jag240ohc" path="res://Armies/EnemyArmy/enemy_army.tscn" id="5_v7s45"]
-[ext_resource type="Resource" uid="uid://brssk481x63mo" path="res://Armies/soldier_manager.tres" id="6_mv84v"]
 [ext_resource type="Script" path="res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd" id="6_odb7l"]
+[ext_resource type="Script" path="res://Armies/soldier_manager.gd" id="6_vluai"]
+[ext_resource type="Resource" uid="uid://dxmmsw7tgaco8" path="res://Troops/Army of Knights/army_of_knights.tres" id="7_kd0w7"]
 
-[sub_resource type="Resource" id="Resource_6ow88"]
+[sub_resource type="Resource" id="Resource_hxp34"]
 resource_local_to_scene = true
 script = ExtResource("6_odb7l")
 set_CHASE_DIST = 1.0
 FRIENDLY_AVOIDANCE_STRENGTH = 0.5
+
+[sub_resource type="Resource" id="Resource_v7cmr"]
+resource_local_to_scene = true
+script = ExtResource("6_vluai")
+soldier_troop = ExtResource("7_kd0w7")
 
 [node name="Map 1" type="Node2D"]
 script = ExtResource("1_kv8g2")
@@ -84,5 +90,5 @@ position = Vector2(1728, 1512)
 
 [node name="EnemyArmy" parent="." instance=ExtResource("5_v7s45")]
 position = Vector2(1080, 1296)
-_ai_module = SubResource("Resource_6ow88")
-_soldier_manager = ExtResource("6_mv84v")
+_ai_module = SubResource("Resource_hxp34")
+_soldier_manager = SubResource("Resource_v7cmr")

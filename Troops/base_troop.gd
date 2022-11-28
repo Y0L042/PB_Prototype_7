@@ -22,7 +22,7 @@ func set_troop_scenes(new_troop_scenes):
 func get_troop():
 	for scene_index in _troop_count:
 		for count in scene_index:
-			troop.append(_troop_scenes[scene_index])
+			troop.append(_troop_scenes[scene_index - 1])
 	return troop
 
 #---------------------------------------------------------------------------------------------------#

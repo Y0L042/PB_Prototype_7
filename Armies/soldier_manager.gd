@@ -36,12 +36,13 @@ func set_parent(new_parent):
 #-------------------------------------------------------------------------------
 func _custom_ready(): #resource doesn't have ready, process, so we hijack parent's
 	print("soldier manager is ready to spawn your soldiers.")
-	use_troop()
+	if soldier_troop != null:
+		use_troop()
 
 func use_troop():
 	var troop = soldier_troop.get_troop()
 	for scene in troop:
-		var soldier = SceneLib.spawn_child(scene, _parent)
+		var soldier = SceneLib.spawn_child(scene, _parent, _parent.get_army_position())
 		all_soldiers_array.append(soldier)
 	living_soldiers_array = all_soldiers_array.duplicate()
 #-------------------------------------------------------------------------------
