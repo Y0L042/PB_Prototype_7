@@ -17,7 +17,7 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"BaseAIModule",
 "language": &"GDScript",
-"path": "res://Armies/EnemyArmy/Resources/base_ai_module.gd"
+"path": "res://Armies/EnemyArmy/AI/base_ai_module.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"BaseSoldier",
@@ -33,6 +33,11 @@ _global_script_classes=[{
 "class": &"BaseStats",
 "language": &"GDScript",
 "path": "res://Soldiers/Resources/Stats/base_stats.gd"
+}, {
+"base": "Resource",
+"class": &"BaseTroop",
+"language": &"GDScript",
+"path": "res://Troops/base_troop.gd"
 }, {
 "base": "BaseStats",
 "class": &"DefaultSoldierStats",
@@ -62,7 +67,7 @@ _global_script_classes=[{
 "base": "BaseAIModule",
 "class": &"WanderAIModule",
 "language": &"GDScript",
-"path": "res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd"
+"path": "res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd"
 }]
 _global_script_class_icons={
 "Army": "",
@@ -70,6 +75,7 @@ _global_script_class_icons={
 "BaseSoldier": "",
 "BaseSoldierAIModule": "",
 "BaseStats": "",
+"BaseTroop": "",
 "DefaultSoldierStats": "",
 "GridObject": "",
 "SoldierManager": "",

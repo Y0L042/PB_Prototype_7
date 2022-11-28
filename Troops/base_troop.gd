@@ -1,32 +1,29 @@
+
 extends Resource
 
-class_name SoldierManager
-
+class_name BaseTroop
 
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-var _parent
+@export var _troop_scenes: Array[PackedScene] : set = set_troop_scenes
+@export var _troop_count: Array[int]
 
 
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
-@export_category("Soldier Spawning")
-## The initial troop of soldiers that will be spawned
-@export var soldier_troop: Resource
-
-
-var all_soldiers_array: Array = []
-var living_soldiers_array: Array = []
+var troop: Array : get = get_troop
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
-func set_parent(new_parent):
-	_parent = new_parent
-#	await  _parent.ready
-	_parent.ready.connect(_custom_ready)
-	_parent.get_tree().physics_frame.connect(_custom_physics_process)
+func set_troop_scenes(new_troop_scenes):
+	_troop_scenes = new_troop_scenes
+func get_troop():
+	for scene_index in _troop_count:
+		for count in scene_index:
+			troop.append(_troop_scenes[scene_index])
+	return troop
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -34,22 +31,11 @@ func set_parent(new_parent):
 #-------------------------------------------------------------------------------
 # Initialization
 #-------------------------------------------------------------------------------
-func _custom_ready(): #resource doesn't have ready, process, so we hijack parent's
-	print("soldier manager is ready to spawn your soldiers.")
-	use_troop()
-
-func use_troop():
-	var troop = soldier_troop.get_troop()
-	for scene in troop:
-		var soldier = SceneLib.spawn_child(scene, _parent)
-		all_soldiers_array.append(soldier)
-	living_soldiers_array = all_soldiers_array.duplicate()
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
-func _custom_physics_process():
-#	print("soldier manager physics process.")
-	pass
+
+
 #-------------------------------------------------------------------------------
 # Movement Functions
 #-------------------------------------------------------------------------------
@@ -62,49 +48,7 @@ func _custom_physics_process():
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
-#-------------------------------------------------------------------------------
-# Initialization
-#-------------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------------
-# Spawning Functions
-#-------------------------------------------------------------------------------
-func spawn_soldier_array(array_of_soldiers: Array):
-	for soldier in array_of_soldiers:
-		spawn_soldier(soldier)
-
-func spawn_soldier(new_soldier):
-	SceneLib.spawn_child(new_soldier.SCENE, _parent)
-
-func add_soldier_weapon_resources():
-	pass
 
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

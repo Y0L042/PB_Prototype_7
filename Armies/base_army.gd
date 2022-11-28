@@ -77,7 +77,7 @@ func set_soldier_manager(new_soldier_manager):
 		print("Error: Soldier manager scene is empty!")
 		return -1
 	_soldier_manager = new_soldier_manager
-#	_soldier_manager.set_parent(self)
+	_soldier_manager.set_parent(self)
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#

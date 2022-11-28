@@ -14,3 +14,11 @@ res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd
 res://Armies/base_army.tscn
 res://Armies/Army_Sight.gd
 res://Maps/Map 1/map_1.gd
+res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
+res://Armies/EnemyArmy/AI/Wander/wander.tres
+res://Autoloads/scene_lib.gd
+res://Autoloads/steering_behaviour.gd
+res://Troops/base_troop.gd
+res://Troops/base_troop.tres
+res://Troops/Army of Knights/army_of_knights.tres
+res://Armies/soldier_manager.gd

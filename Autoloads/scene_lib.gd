@@ -6,7 +6,7 @@ extends Node
 var PLAYER_ARMY: PackedScene = load("res://Armies/PlayerArmy/player_army.tscn")
 
 var ENEMY_ARMY: PackedScene = load("res://Armies/EnemyArmy/enemy_army.tscn")
-var WANDER_AI: Resource = load("res://Armies/EnemyArmy/Resources/Wander/wander.tres")
+var WANDER_AI: Resource = load("res://Armies/EnemyArmy/AI/Wander/wander.tres")
 
 #-------------------------------------------------------------------------------
 # Weapons

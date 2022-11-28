@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://csj1rq8gj007b"]
+[gd_scene load_steps=6 format=3 uid="uid://bk0jag240ohc"]
 
 [ext_resource type="Script" path="res://Armies/EnemyArmy/enemy_army.gd" id="1_6f123"]
 [ext_resource type="PackedScene" uid="uid://dedtsjl3a3pw" path="res://Armies/base_army.tscn" id="1_m4tr4"]
-[ext_resource type="Resource" uid="uid://b5m6kt2efa4y6" path="res://Armies/EnemyArmy/Resources/Wander/wander.tres" id="3_hwa1q"]
+[ext_resource type="Resource" uid="uid://omr28hqf6lnh" path="res://Armies/EnemyArmy/AI/Wander/wander.tres" id="3_hwa1q"]
 [ext_resource type="Script" path="res://Armies/soldier_manager.gd" id="4_405sj"]
-[ext_resource type="Texture2D" uid="uid://bw7w84re7skp6" path="res://icon.svg" id="5_17xv0"]
 
 [sub_resource type="Resource" id="Resource_i8i3r"]
 resource_local_to_scene = true
@@ -17,11 +16,3 @@ _soldier_manager = SubResource("Resource_i8i3r")
 faction = "Enemy"
 army_colour = Color(0.882353, 0, 0, 1)
 army_speed = 2.0
-
-[node name="Camera2D" type="Camera2D" parent="." index="1"]
-current = true
-zoom = Vector2(0.05, 0.05)
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-scale = Vector2(2, 2)
-texture = ExtResource("5_17xv0")

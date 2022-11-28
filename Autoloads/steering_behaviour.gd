@@ -20,9 +20,6 @@ func wander(
 	wander_theta_max_offset: float = 15.0,
 	weight: float = DEFAULT_WEIGHT
 	):
-#	var wander_offset: float = 750.0
-#	var wander_radius: float = 50000.0
-#	var wander_theta_max_offset: float = 15
 	var wander_pos: Vector2 = current_pos + (current_vel.normalized() * wander_offset)
 	var theta: float = 0 # zero ref is E, Clockwise
 	theta += randf_range(-wander_theta_max_offset, wander_theta_max_offset)

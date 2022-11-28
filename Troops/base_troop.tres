@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ciuqaru8bpqmq"]
+
+[ext_resource type="Script" path="res://Troops/base_troop.gd" id="1_rrwjb"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_rrwjb")
+_troop_scenes = null
+_troop_count = [5]
