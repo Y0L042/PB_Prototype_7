@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Soldiers/Soldier AI/standard_ai_module.gd" id="1_w4lqs"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_w4lqs")

@@ -22,3 +22,4 @@ res://Troops/base_troop.gd
 res://Troops/base_troop.tres
 res://Troops/Army of Knights/army_of_knights.tres
 res://Armies/soldier_manager.gd
+res://Soldiers/Soldier AI/standard_soldier_ai.tres

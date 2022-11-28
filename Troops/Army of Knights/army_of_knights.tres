@@ -7,4 +7,4 @@
 resource_local_to_scene = true
 script = ExtResource("1_tf2j8")
 _troop_scenes = [ExtResource("1_l0j47")]
-_troop_count = [1]
+_troop_count = [5]
