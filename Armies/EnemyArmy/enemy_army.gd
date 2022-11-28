@@ -47,9 +47,9 @@ func _ai_module_ready():
 #-------------------------------------------------------------------------------
 func _custom_process(delta: float):
 	_ai_module_process(delta)
-
 	_set_formation_rotation()
 
+	_debug()
 
 func _ai_module_process(delta: float):
 	# Run AI Module _physics
@@ -64,8 +64,6 @@ func _collision_avoidance_adjust(current_position, current_direction, new_distan
 	var new_dir: Vector2 = current_direction
 	var offset: float = deg_to_rad(new_degree_offset)
 	var isRaycastIntersected: bool = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
-	var _debug_vector: Callable = draw_line(current_position, current_position+(new_dir*distance), Color(1,0,0), 10.0)
-
 	var tmp = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
 	while isRaycastIntersected:
 		print("intersected_1")
@@ -86,6 +84,7 @@ func _collision_avoidance_bounce(current_position, current_direction, new_distan
 	var new_dir: Vector2 = current_direction
 	var offset: float = deg_to_rad(new_degree_offset)
 	var raycast = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
+#	_visual_debugger.debug_draw_line(current_position, current_position+(new_dir*distance), Color(1,0,0), 10.0)
 	var isRaycastIntersected: bool = !raycast.is_empty()
 	if !isRaycastIntersected:
 		return current_direction
@@ -134,3 +133,15 @@ func wander() -> Vector2:
 		wander_theta_max_offset
 		)
 	return vel
+
+#---------------------------------------------------------------------------------------------------#
+# Debug
+#---------------------------------------------------------------------------------------------------#
+func _debug():
+#	_visual_debugger.debug_draw_dot(_army_position)
+	pass
+
+@onready var global_pos = global_position#get_global_position()
+var local_pos = get_position()
+
+

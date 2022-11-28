@@ -7,13 +7,13 @@ class_name Army
 #---------------------------------------------------------------------------------------------------#
 const TYPE: String = "ARMY"
 var _delta: float
-var _army_position: Vector2 = Vector2.ZERO : set = set_army_position # Vector2.ZERO
+@onready var _army_position: Vector2 = get_global_position() : set = set_army_position # Vector2.ZERO
 var _army_velocity: Vector2 = Vector2.ZERO
 
 #-------------------------------------------------------------------------------
 # % debug %
 #-------------------------------------------------------------------------------
-var _visual_debugger := VisualDebugger.new()
+var _visual_debugger := VisualDebugger.new(self)
 
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables

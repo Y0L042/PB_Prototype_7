@@ -103,7 +103,6 @@ func _on_army_sight_area_exited(area: Area2D) -> void:
 func ai_module_ready():
 	_connect_to_parent_signals()
 
-	_set_up_debug()
 
 
 
@@ -112,53 +111,7 @@ func ai_module_ready():
 #-------------------------------------------------------------------------------
 func ai_module_physics_process(_delta: float):
 	_logic()
-	_draw_debug()
 
-
-#---------------------------------------------------------------------------------------------------#
-# %debug%
-#---------------------------------------------------------------------------------------------------#
-var debug_node: Node2D = Node2D.new()
-func _set_up_debug():
-	_parent.add_child(debug_node)
-	debug_node.draw.connect(_draw)
-
-func _draw_debug():
-	debug_node.queue_redraw()
-
-func _draw() -> void: #%Debug
-	_debug_draw_dot(_parent.get_army_position(), Color(1,0,int(enemy_army == null),0.5), 1.5 * GlobalSettings.UNIT)
-	_debug_draw_dot(_parent.get_army_position(), Color(0.5,0.5,int(enemy_army == null),0.25), CHASE_DIST)
-
-func _debug_draw_grid_dots(
-	grid: Array,
-	new_col = Color(0, 0, 1),
-	new_rad = int(GlobalSettings.UNIT/2)
-	):
-	var col = new_col
-	var rad = new_rad * GlobalSettings.UNIT
-	for spot in grid:
-		debug_node.draw_circle(spot, rad, col)
-
-func _debug_draw_dot(
-	new_pos: Vector2,
-	new_col = Color(0, 0, 1),
-	new_rad = int(GlobalSettings.UNIT/2)
-	):
-	var col = new_col
-	var rad = new_rad
-	debug_node.draw_circle(new_pos, rad, col)
-
-func _debug_draw_line(
-	start: Vector2,
-	end: Vector2,
-	new_col = Color(0, 1, 1),
-	new_width: float = 0.1
-	):
-	var col = new_col
-	var width = new_width
-	end += start
-	debug_node.draw_line(start, end, col, width)
 
 
 

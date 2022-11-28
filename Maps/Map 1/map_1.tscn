@@ -1,27 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://wk56xdoqcyf5"]
+[gd_scene load_steps=9 format=3 uid="uid://wk56xdoqcyf5"]
 
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
 [ext_resource type="TileSet" uid="uid://0lfqmjlyfncj" path="res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres" id="1_o8cge"]
-[ext_resource type="PackedScene" uid="uid://cde7ddgpbjev5" path="res://Soldiers/Knight/knight.tscn" id="2_akhyr"]
 [ext_resource type="PackedScene" uid="uid://mkk160r4og8j" path="res://UI/Pause Menu/ui_pause_menu.tscn" id="3_r0f5s"]
 [ext_resource type="PackedScene" uid="uid://csj1rq8gj007b" path="res://Armies/EnemyArmy/enemy_army.tscn" id="5_v7s45"]
 [ext_resource type="Script" path="res://Armies/EnemyArmy/Resources/Wander/wander_ai_module.gd" id="6_odb7l"]
 [ext_resource type="Script" path="res://Armies/soldier_manager.gd" id="6_vluai"]
 
-[sub_resource type="Resource" id="Resource_lrjma"]
+[sub_resource type="Resource" id="Resource_pwgbu"]
 resource_local_to_scene = true
 script = ExtResource("6_odb7l")
 set_CHASE_DIST = 1.0
 FRIENDLY_AVOIDANCE_STRENGTH = 0.5
 
-[sub_resource type="Resource" id="Resource_qxe58"]
+[sub_resource type="Resource" id="Resource_8p1cs"]
 resource_local_to_scene = true
 script = ExtResource("6_vluai")
 
 [node name="Map 1" type="Node2D"]
 script = ExtResource("1_kv8g2")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Map Items" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Map Items"]
 tile_set = ExtResource("1_o8cge")
 format = 2
 layer_0/name = "Floor -1"
@@ -61,34 +62,31 @@ layer_5/y_sort_origin = 0
 layer_5/z_index = 0
 layer_5/tile_data = PackedInt32Array(1441798, 262145, 0, 65546, 262145, 1, 65549, 262145, 1, 65540, 262145, 1, 655392, 196609, 0, 655397, 262145, 0, 655402, 196609, 0)
 
-[node name="Spawns" type="Node2D" parent="."]
+[node name="Spawns" type="Node2D" parent="Map Items"]
 
-[node name="Player Spawns" type="Node2D" parent="Spawns"]
+[node name="Player Spawns" type="Node2D" parent="Map Items/Spawns"]
 unique_name_in_owner = true
 
-[node name="Enemy Spawns" type="Node2D" parent="Spawns"]
+[node name="Enemy Spawns" type="Node2D" parent="Map Items/Spawns"]
 unique_name_in_owner = true
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Marker2D4" type="Marker2D" parent="Map Items/Spawns/Enemy Spawns"]
+position = Vector2(3672, 1512)
 
-[node name="Marker2D" type="Marker2D" parent="Items"]
-position = Vector2(1728, 1512)
-
-[node name="Marker2D2" type="Marker2D" parent="Items"]
-position = Vector2(3456, 3672)
-
-[node name="Marker2D3" type="Marker2D" parent="Items"]
+[node name="Marker2D3" type="Marker2D" parent="Map Items/Spawns/Enemy Spawns"]
 position = Vector2(1080, 3888)
 
-[node name="Marker2D4" type="Marker2D" parent="Items"]
-position = Vector2(3672, 1512)
+[node name="Marker2D2" type="Marker2D" parent="Map Items/Spawns/Enemy Spawns"]
+position = Vector2(3456, 3672)
+
+[node name="Marker2D" type="Marker2D" parent="Map Items/Spawns/Enemy Spawns"]
+position = Vector2(1728, 1512)
+
+[node name="Items" type="Node2D" parent="Map Items"]
 
 [node name="UI_Pause Menu" parent="." instance=ExtResource("3_r0f5s")]
 
-[node name="Knight" parent="." instance=ExtResource("2_akhyr")]
-position = Vector2(528, 648)
-
 [node name="EnemyArmy" parent="." instance=ExtResource("5_v7s45")]
-position = Vector2(1728, 3456)
-_ai_module = SubResource("Resource_lrjma")
-_soldier_manager = SubResource("Resource_qxe58")
+position = Vector2(1944, 2592)
+_ai_module = SubResource("Resource_pwgbu")
+_soldier_manager = SubResource("Resource_8p1cs")
