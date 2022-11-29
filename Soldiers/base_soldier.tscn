@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Soldiers/base_soldier.gd" id="1_67478"]
 
 [node name="BaseSoldier" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_67478")
 
 [node name="SoldierCollision" type="CollisionShape2D" parent="."]

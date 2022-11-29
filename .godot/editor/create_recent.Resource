@@ -1,3 +1,4 @@
+BaseFaction (base_faction.gd)
 BaseTroop (base_troop.gd)
 WanderAIModule (wander_ai_module.gd)
 SoldierManager (soldier_manager.gd)

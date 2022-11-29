@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://eg02jqmt2xsw"]
+
+[ext_resource type="Script" path="res://Factions/base_faction.gd" id="1_yo00e"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_yo00e")
+faction_name = null
+faction_id = null
+faction_color = null
