@@ -60,10 +60,9 @@ func set_blackboard(new_blackboard):
 
 func set_ai_module(new_ai_module):
 	if new_ai_module == null:
-		print("Error: AI module scene is empty! : ", self)
+#		print("Error: AI module scene is empty! : ", self)
 		return -1
 	_ai_module = new_ai_module
-#	_ai_module.set_local_to_scene(true) # delete
 	_ai_module.set_parent(self)
 #---------------------------------------------------------------------------------------------------#
 # Private Functions

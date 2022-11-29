@@ -66,15 +66,12 @@ func _collision_avoidance_adjust(current_position, current_direction, new_distan
 	var isRaycastIntersected: bool = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
 	var tmp = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
 	while isRaycastIntersected:
-		print("intersected_1")
 		new_dir = current_direction.rotated(offset)
 		isRaycastIntersected = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
 		if isRaycastIntersected:
-			print("intersected__2")
 			new_dir = current_direction.rotated(-offset)
 			isRaycastIntersected = !_do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD).is_empty()
 			if isRaycastIntersected:
-				print("intersected___3")
 				offset *= 2
 	return new_dir
 

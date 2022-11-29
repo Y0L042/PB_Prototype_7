@@ -1,18 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4twblvfambin"]
+[gd_scene load_steps=12 format=3 uid="uid://b4twblvfambin"]
 
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
 [ext_resource type="TileSet" uid="uid://0lfqmjlyfncj" path="res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres" id="1_o8cge"]
 [ext_resource type="PackedScene" uid="uid://mkk160r4og8j" path="res://UI/Pause Menu/ui_pause_menu.tscn" id="3_r0f5s"]
 [ext_resource type="PackedScene" uid="uid://c8hin0q46nqwm" path="res://Armies/PlayerArmy/player_army.tscn" id="4_lqo8v"]
 [ext_resource type="Script" path="res://Armies/soldier_manager.gd" id="6_vluai"]
+[ext_resource type="PackedScene" uid="uid://bk0jag240ohc" path="res://Armies/EnemyArmy/enemy_army.tscn" id="7_4q3il"]
 [ext_resource type="Resource" uid="uid://dxmmsw7tgaco8" path="res://Troops/Army of Knights/army_of_knights.tres" id="7_kd0w7"]
+[ext_resource type="Script" path="res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd" id="8_clgoj"]
 
-[sub_resource type="Resource" id="Resource_lir15"]
+[sub_resource type="Resource" id="Resource_tjsry"]
 resource_local_to_scene = true
 script = ExtResource("6_vluai")
 soldier_troop = ExtResource("7_kd0w7")
 
+[sub_resource type="Resource" id="Resource_diofy"]
+resource_local_to_scene = true
+script = ExtResource("8_clgoj")
+set_CHASE_DIST = 5
+FRIENDLY_AVOIDANCE_STRENGTH = 0.5
+
+[sub_resource type="Resource" id="Resource_7a4bd"]
+resource_local_to_scene = true
+script = ExtResource("6_vluai")
+
 [node name="Map 1" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_kv8g2")
 
 [node name="Map Items" type="Node2D" parent="."]
@@ -84,4 +97,9 @@ position = Vector2(1728, 1512)
 [node name="PlayerArmy" parent="." instance=ExtResource("4_lqo8v")]
 position = Vector2(2376, 2376)
 y_sort_enabled = false
-_soldier_manager = SubResource("Resource_lir15")
+_soldier_manager = SubResource("Resource_tjsry")
+
+[node name="EnemyArmy" parent="." instance=ExtResource("7_4q3il")]
+position = Vector2(8640, 4968)
+_ai_module = SubResource("Resource_diofy")
+_soldier_manager = SubResource("Resource_7a4bd")

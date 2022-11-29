@@ -44,7 +44,7 @@ class_name StandardSoldierAIModule
 # Initialize
 #-------------------------------------------------------------------------------
 func ai_module_ready():
-	print("Soldier ready")
+	pass
 
 #-------------------------------------------------------------------------------
 # Runtime

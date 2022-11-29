@@ -62,7 +62,6 @@ func _logic():
 		var dist_to_enemy: float = _parent.get_army_position().distance_to(enemy_army.get_army_position())
 		if dist_to_enemy > CHASE_DIST:
 			enemy_army = null
-			print("enemy lost")
 			return
 		move_target = enemy_army_target
 	_move_army(move_target - avoid_faction_armies)
@@ -79,7 +78,6 @@ func _on_army_sight_area_entered(area: Area2D) -> void:
 	var spotted_object = area.get_parent()
 	if spotted_object.is_in_group(_parent.TYPE):
 		if spotted_object.faction != _parent.faction:
-			print("enemy spotted")
 			enemy_army = spotted_object
 		if spotted_object.faction == _parent.faction:
 			friendly_armies.append(spotted_object)

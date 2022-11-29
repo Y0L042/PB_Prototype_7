@@ -97,8 +97,7 @@ func _custom_init():
 func _ready() -> void:
 	set_soldier_manager(_soldier_manager) # added debug 16:18 Mo, 28-11-2022
 	_custom_ready()
-#	set_global_position(get_position()) # for position offset debug sat, 21/11/2022 10:40
-#	set_army_position(get_global_position()) # for position offset debug sat, 21/11/2022 10:40
+
 
 func _custom_ready():
 	pass
