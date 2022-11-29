@@ -15,3 +15,5 @@ res://Armies/base_army.gd
 res://Soldiers/Knight/knight.gd
 res://Armies/base_army.tscn
 res://Armies/EnemyArmy/enemy_army.gd
+res://Weapons/base_weapon.tscn
+res://Weapons/base_weapon_script.gd

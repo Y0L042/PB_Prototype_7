@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcrvkane12a25"]
+
+[ext_resource type="PackedScene" uid="uid://c1kuij5np6vtn" path="res://Weapons/base_weapon.tscn" id="1_2ra2a"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_xylib"]
+
+[node name="basic sword" instance=ExtResource("1_2ra2a")]
+
+[node name="AnimationTree" parent="." index="1"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_xylib")
