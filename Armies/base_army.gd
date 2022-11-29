@@ -30,7 +30,7 @@ var blackboard: Dictionary = {
 	"army_id" : "INSERT ARMY INSTANCE ID HERE",
 
 	"formation" : GridObject.new(),
-	"army_colour" : army_colour,
+	"faction_colour" : army_colour,
 	"move_order" : Vector2.ZERO,
 }
 @onready var army_sight_area: Area2D = %Army_Sight
@@ -73,7 +73,7 @@ func set_army_id(new_id):
 
 func set_soldier_manager(new_soldier_manager):
 	if new_soldier_manager == null:
-		print("Error: Soldier manager scene is empty!")
+		print("Error: Soldier manager scene is empty!", self)
 		return -1
 	_soldier_manager = new_soldier_manager
 	_soldier_manager.set_parent(self)

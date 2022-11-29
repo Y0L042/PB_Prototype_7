@@ -8,6 +8,14 @@ class_name BaseSoldier
 #---------------------------------------------------------------------------------------------------#
 @export @onready var _ai_module: Resource : set = set_ai_module
 
+#-------------------------------------------------------------------------------
+# Blackboard Variables
+#-------------------------------------------------------------------------------
+var _faction
+var _army_id
+var _formation
+var _faction_colour
+var _move_order
 
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
@@ -39,10 +47,16 @@ var blackboard: Dictionary : set = set_blackboard
 #---------------------------------------------------------------------------------------------------#
 func set_blackboard(new_blackboard):
 	blackboard = new_blackboard
+	_faction = blackboard.faction
+	_army_id = blackboard.army_id
+	_faction_colour = blackboard.faction_colour
+	_formation = blackboard.formation
+
+
 
 func set_ai_module(new_ai_module):
 	if new_ai_module == null:
-		print("Error: AI module scene is empty!")
+		print("Error: AI module scene is empty! : ", self)
 		return -1
 	_ai_module = new_ai_module
 #	_ai_module.set_local_to_scene(true)

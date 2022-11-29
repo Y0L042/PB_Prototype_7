@@ -44,7 +44,7 @@ func use_troop():
 	for scene in troop:
 		var soldier = SceneLib.spawn_child(scene, _parent, _parent.get_army_position())
 		all_soldiers_array.append(soldier)
-	living_soldiers_array = all_soldiers_array.duplicate()
+	living_soldiers_array.append_array(all_soldiers_array.duplicate())
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
@@ -75,7 +75,8 @@ func spawn_soldier_array(array_of_soldiers: Array):
 		spawn_soldier(soldier)
 
 func spawn_soldier(new_soldier):
-	SceneLib.spawn_child(new_soldier.SCENE, _parent)
+	var soldier = SceneLib.spawn_child(new_soldier.SCENE, _parent)
+	soldier.blackboard = _parent.blackboard
 
 func add_soldier_weapon_resources():
 	pass

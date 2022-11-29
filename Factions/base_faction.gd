@@ -1,3 +1,4 @@
+@tool
 extends Resource
 
 class_name BaseFaction
@@ -16,15 +17,17 @@ class_name BaseFaction
 # Properties
 #-------------------------------------------------------------------------------
 @export var faction_name: String
-@export var faction_id: int = randi_range(1000, 9999)
+@export var faction_id: int
 @export_color_no_alpha var faction_color: Color
-
-
+@export var collision_layer: int : set = set_collision_layer
+@export var collision_mask: int = 0x7fffffff - collision_layer
 
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
-
+func set_collision_layer(new_layer):
+	collision_layer = clamp(new_layer, 0, 10)
+	collision_mask = 0x7fffffff - collision_layer
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
