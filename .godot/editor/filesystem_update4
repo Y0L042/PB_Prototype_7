@@ -7,13 +7,7 @@ res://Armies/soldier_manager.tres
 res://Armies/PlayerArmy/player_army.tscn
 res://Armies/EnemyArmy/enemy_army.tscn
 res://Soldiers/base_soldier.tscn
-res://Autoloads/scene_lib.gd
-res://Factions/base_faction.gd
-res://Factions/Player/player_faction.gd
-res://Factions/Player/player_faction.tres
-res://Armies/soldier_manager.gd
-res://Armies/base_army.gd
-res://Armies/EnemyArmy/enemy_army.gd
-res://Soldiers/base_soldier.gd
 res://Soldiers/Knight/knight.tscn
+res://Armies/soldier_manager.gd
+res://Soldiers/base_soldier.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd

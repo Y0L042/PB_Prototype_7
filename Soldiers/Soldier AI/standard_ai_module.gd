@@ -51,7 +51,7 @@ func ai_module_ready():
 #-------------------------------------------------------------------------------
 func ai_module_physics_process(_delta: float):
 	var direction = _parent.get_global_position().direction_to(_parent._formation.center_position)
-	_parent.velocity = Vector2(1,1) * GlobalSettings.UNIT
+	_parent.velocity = direction * GlobalSettings.UNIT * 4.75
 	_parent.move_and_slide()
 #---------------------------------------------------------------------------------------------------#
 # %debug%

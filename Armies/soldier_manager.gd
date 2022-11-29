@@ -42,8 +42,9 @@ func _custom_ready(): #resource doesn't have ready, process, so we hijack parent
 func use_troop():
 	var troop = soldier_troop.get_troop()
 	for scene in troop:
-		var soldier = SceneLib.spawn_child(scene, _parent, _parent.get_army_position())
-		all_soldiers_array.append(soldier)
+#		var soldier = SceneLib.spawn_child(scene, _parent, _parent.get_army_position())
+		var new_soldier = spawn_soldier(scene)
+		all_soldiers_array.append(new_soldier)
 	living_soldiers_array.append_array(all_soldiers_array.duplicate())
 #-------------------------------------------------------------------------------
 # Runtime
@@ -71,12 +72,16 @@ func _custom_physics_process():
 # Spawning Functions
 #-------------------------------------------------------------------------------
 func spawn_soldier_array(array_of_soldiers: Array):
+	var spawned_soldiers: Array = []
 	for soldier in array_of_soldiers:
-		spawn_soldier(soldier)
+		var new_soldier = spawn_soldier(soldier.SCENE)
+		spawned_soldiers.append(new_soldier)
+	return spawned_soldiers
 
 func spawn_soldier(new_soldier):
-	var soldier = SceneLib.spawn_child(new_soldier.SCENE, _parent)
-	soldier.blackboard = _parent.blackboard
+	var soldier = SceneLib.spawn_child(new_soldier, _parent, _parent.get_army_position())
+	soldier.init(_parent.blackboard)
+	return soldier
 
 func add_soldier_weapon_resources():
 	pass

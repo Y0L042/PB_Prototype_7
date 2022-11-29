@@ -7,6 +7,7 @@ class_name BaseSoldier
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
 @export @onready var _ai_module: Resource : set = set_ai_module
+var _parent
 
 #-------------------------------------------------------------------------------
 # Blackboard Variables
@@ -59,7 +60,7 @@ func set_ai_module(new_ai_module):
 		print("Error: AI module scene is empty! : ", self)
 		return -1
 	_ai_module = new_ai_module
-#	_ai_module.set_local_to_scene(true)
+#	_ai_module.set_local_to_scene(true) # delete
 	_ai_module.set_parent(self)
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -67,6 +68,10 @@ func set_ai_module(new_ai_module):
 #-------------------------------------------------------------------------------
 # Initialization
 #-------------------------------------------------------------------------------
+func init(new_blackboard) -> void:
+	blackboard = new_blackboard
+	return self
+
 func _ready() -> void:
 	_ai_module_ready()
 

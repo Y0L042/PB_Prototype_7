@@ -10,6 +10,9 @@ extends Node
 var PLAYER_COL_LAYER: int = 0b1011
 var ENEMY_1_COL_LAYER: int = 0b1100
 
+#---------------------------------------------------------------------------------------------------#
+# Armies
+#---------------------------------------------------------------------------------------------------#
 #-------------------------------------------------------------------------------
 # Army Scenes
 #-------------------------------------------------------------------------------
@@ -17,6 +20,10 @@ var PLAYER_ARMY: PackedScene = load("res://Armies/PlayerArmy/player_army.tscn")
 
 var ENEMY_ARMY: PackedScene = load("res://Armies/EnemyArmy/enemy_army.tscn")
 var WANDER_AI: Resource = load("res://Armies/EnemyArmy/AI/Wander/wander.tres")
+#-------------------------------------------------------------------------------
+# Soldiers
+#-------------------------------------------------------------------------------
+var SOLDIER_KNIGHT: PackedScene = load("res://Soldiers/Knight/knight.tscn")
 
 #-------------------------------------------------------------------------------
 # Weapons
