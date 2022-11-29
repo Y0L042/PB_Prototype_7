@@ -27,8 +27,9 @@ var _visual_debugger := VisualDebugger.new(self)
 #-------------------------------------------------------------------------------
 var blackboard: Dictionary = {
 	"faction" : "INSERT FACTION HERE",
+	"army" : self,
 	"army_id" : "INSERT ARMY INSTANCE ID HERE",
-
+	"active_soldiers" : [],
 	"formation" : GridObject.new(),
 	"faction_colour" : army_colour,
 	"move_order" : Vector2.ZERO,
@@ -70,6 +71,9 @@ func set_faction(new_faction):
 func set_army_id(new_id):
 	army_id = new_id
 	blackboard.army_id = army_id
+
+func set_formation_volume(new_volume):
+	formation.set_volume(new_volume)
 
 func set_soldier_manager(new_soldier_manager):
 	if new_soldier_manager == null:

@@ -8,11 +8,13 @@ class_name BaseSoldier
 #---------------------------------------------------------------------------------------------------#
 @export @onready var _ai_module: Resource : set = set_ai_module
 var _parent
+var _formation_index: int
 
 #-------------------------------------------------------------------------------
 # Blackboard Variables
 #-------------------------------------------------------------------------------
 var _faction
+var _army
 var _army_id
 var _formation
 var _faction_colour
@@ -49,6 +51,7 @@ var blackboard: Dictionary : set = set_blackboard
 func set_blackboard(new_blackboard):
 	blackboard = new_blackboard
 	_faction = blackboard.faction
+	_army = blackboard.army
 	_army_id = blackboard.army_id
 	_faction_colour = blackboard.faction_colour
 	_formation = blackboard.formation
@@ -84,7 +87,11 @@ func _ai_module_ready():
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
 	_ai_module_process(delta)
+	_base_process(delta)
 	_custom_process(delta)
+
+func _base_process(_delta: float):
+	_formation_index = get_position_in_formation()
 
 func _ai_module_process(_delta: float):
 	# Run AI Module _physics
@@ -92,10 +99,11 @@ func _ai_module_process(_delta: float):
 		_ai_module.ai_module_physics_process(_delta)
 
 func _custom_process(_delta: float):
-	pass
+	pass # leave empty for subclasses
+
 
 #-------------------------------------------------------------------------------
-# Movement Functions
+# Formation Functions
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -106,7 +114,16 @@ func _custom_process(_delta: float):
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
-
+#-------------------------------------------------------------------------------
+# Formation Functions
+#-------------------------------------------------------------------------------
+func get_position_in_formation():
+	var index: int = -1
+	for soldier_index in blackboard.active_soldiers.size():
+		if self.get_instance_id() == blackboard.active_soldiers[soldier_index].get_instance_id():
+			index = soldier_index
+			break
+	return index
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

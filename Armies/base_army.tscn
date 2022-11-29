@@ -8,6 +8,7 @@
 radius = 216.0
 
 [node name="BaseArmy" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_lxs6d")
 _soldier_manager = ExtResource("2_fh5ce")
 

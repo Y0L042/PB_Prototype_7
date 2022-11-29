@@ -18,7 +18,7 @@ var _parent
 
 
 var all_soldiers_array: Array = []
-var living_soldiers_array: Array = []
+var active_soldiers_array: Array = []
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
@@ -44,8 +44,7 @@ func use_troop():
 	for scene in troop:
 #		var soldier = SceneLib.spawn_child(scene, _parent, _parent.get_army_position())
 		var new_soldier = spawn_soldier(scene)
-		all_soldiers_array.append(new_soldier)
-	living_soldiers_array.append_array(all_soldiers_array.duplicate())
+	set_parent_formation_volume()
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
@@ -53,8 +52,9 @@ func _custom_physics_process():
 #	print("soldier manager physics process.")
 	pass
 #-------------------------------------------------------------------------------
-# Movement Functions
+# Formation Functions
 #-------------------------------------------------------------------------------
+
 
 #-------------------------------------------------------------------------------
 # Tools
@@ -76,16 +76,25 @@ func spawn_soldier_array(array_of_soldiers: Array):
 	for soldier in array_of_soldiers:
 		var new_soldier = spawn_soldier(soldier.SCENE)
 		spawned_soldiers.append(new_soldier)
+	set_parent_formation_volume()
 	return spawned_soldiers
 
 func spawn_soldier(new_soldier):
 	var soldier = SceneLib.spawn_child(new_soldier, _parent, _parent.get_army_position())
 	soldier.init(_parent.blackboard)
+	all_soldiers_array.append(soldier)
+	active_soldiers_array.append(soldier)
 	return soldier
 
 func add_soldier_weapon_resources():
 	pass
 
+func set_parent_formation_volume():
+	_parent.set_formation_volume(active_soldiers_array.size())
+	update_parent_blackboard()
+
+func update_parent_blackboard():
+	_parent.blackboard.active_soldiers = active_soldiers_array
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

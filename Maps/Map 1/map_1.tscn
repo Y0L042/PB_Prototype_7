@@ -83,4 +83,5 @@ position = Vector2(1728, 1512)
 
 [node name="PlayerArmy" parent="." instance=ExtResource("4_lqo8v")]
 position = Vector2(2376, 2376)
+y_sort_enabled = false
 _soldier_manager = SubResource("Resource_lir15")
