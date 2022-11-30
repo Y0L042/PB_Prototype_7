@@ -34,6 +34,7 @@ var _move_order
 @onready var body_sprite: Sprite2D = %BodySprite
 @onready var weapon_pivot: Marker2D = %WeaponPivot
 @onready var soldier_sight: Area2D = %Sight
+@onready var force_area: Area2D = %ForceArea
 
 var blackboard: Dictionary : set = set_blackboard
 #-------------------------------------------------------------------------------

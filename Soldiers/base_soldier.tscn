@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://galuiw0n6l36"]
+[gd_scene load_steps=3 format=3 uid="uid://galuiw0n6l36"]
 
 [ext_resource type="Script" path="res://Soldiers/base_soldier.gd" id="1_67478"]
+[ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="2_4shr0"]
 
 [node name="BaseSoldier" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_67478")
+
+[node name="ForceArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+script = ExtResource("2_4shr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForceArea"]
 
 [node name="SoldierCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -19,3 +29,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sight"]
+
+[connection signal="body_entered" from="ForceArea" to="ForceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="ForceArea" to="ForceArea" method="_on_body_exited"]
