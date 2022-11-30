@@ -15,3 +15,4 @@ res://Soldiers/Soldier AI/standard_ai_module.gd
 res://Soldiers/base_soldier_ai_module.gd
 res://Armies/base_army.gd
 res://Soldiers/base_soldier.gd
+res://Soldiers/Sight.gd

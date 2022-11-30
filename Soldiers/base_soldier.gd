@@ -69,7 +69,7 @@ func set_ai_module(new_ai_module):
 	_ai_module.set_parent(self)
 
 func get_attack_range():
-	return 1.5 * GlobalSettings.UNIT
+	return 3 * GlobalSettings.UNIT
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#

@@ -21,17 +21,20 @@ script = ExtResource("2_4shr0")
 [node name="SoldierCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 
+[node name="Sight" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 3
+collision_mask = 3
+monitorable = false
+script = ExtResource("3_qetyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+
 [node name="Pivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
 
 [node name="WeaponPivot" type="Marker2D" parent="Pivot"]
 unique_name_in_owner = true
-
-[node name="Sight" type="Area2D" parent="Pivot"]
-unique_name_in_owner = true
-script = ExtResource("3_qetyk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sight"]
 
 [connection signal="body_entered" from="ForceArea" to="ForceArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ForceArea" to="ForceArea" method="_on_body_exited"]

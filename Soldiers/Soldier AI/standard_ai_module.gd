@@ -5,7 +5,7 @@ class_name StandardSoldierAIModule
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-var _engaged_distance: float : set = set_engaged_distance
+var _engaged_distance: float = 4 * GlobalSettings.UNIT: set = set_engaged_distance
 var _isEngaged: bool : set = set_is_engaged
 
 var _recall_limit = 3 * GlobalSettings.UNIT
@@ -23,7 +23,7 @@ func set_is_engaged(is_engaged):
 	_isEngaged = is_engaged
 
 func get_enemy():
-	_parent.sight.sighted_enemy
+	return _parent.sight.sighted_enemy
 
 func get_army_target():
 	var target: Vector2
@@ -90,32 +90,42 @@ func basic_ai():
 	var distance_to_party_target = _parent.get_global_position().distance_to(get_army_target())
 	var attack_range: float = _parent.get_attack_range()
 	var enemy = get_enemy()
-	var distance_to_enemy = _parent.get_global_position().distance_to(enemy.get_global_position()) if enemy != null else -1
+	var distance_to_enemy = -1
+	if enemy != null:
+		distance_to_enemy = _parent.get_global_position().distance_to(enemy.get_global_position())
+
 	if !_parent.sight.sightings.is_empty() and enemy != null and\
 	distance_to_enemy <= _engaged_distance:
 		_isEngaged = true
+
 	if _isEngaged and enemy == null:
 		_isEngaged = false
+
 	if distance_to_enemy <=attack_range:
 		if _isEngaged or blackboard.isArmyAttacking:
 			isAttackPossible = true
 		else:
 			isAttackPossible = false
+
 	if _isEngaged and distance_to_party_target > _recall_limit:
 		_isRecalled = true
 		_isEngaged = false
+		isAttackPossible = false
 	else:
 		_isRecalled = false
 
 #do_actions
 	if isAttackPossible:
 		attack(enemy)
+		print("Attack enemy ", enemy)
 		return 1
 	if _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		simple_move(enemy.get_global_position())
+		print("pursue enemy ", enemy)
 		return 2
 	if _isRecalled:
 		simple_move(get_army_target())
+		print("is recalled")
 		return 3
 	simple_move(get_army_target())
 	return -1

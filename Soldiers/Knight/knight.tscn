@@ -292,7 +292,7 @@ radius = 216.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_642r8"]
 radius = 216.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hekvm"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvuww"]
 radius = 216.0
 
 [node name="Knight" instance=ExtResource("1_x6li2")]
@@ -321,6 +321,12 @@ position = Vector2(0, -57)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_642r8")
 
+[node name="Sight" parent="." index="4"]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" parent="Sight" index="0"]
+shape = SubResource("CircleShape2D_gvuww")
+
 [node name="BodySprite" type="Sprite2D" parent="Pivot" index="0"]
 unique_name_in_owner = true
 position = Vector2(0, -216)
@@ -329,7 +335,3 @@ texture = ExtResource("3_0i888")
 hframes = 4
 vframes = 3
 frame = 1
-
-[node name="CollisionShape2D" parent="Pivot/Sight" index="0"]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_hekvm")
