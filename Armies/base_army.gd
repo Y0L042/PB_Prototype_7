@@ -33,6 +33,7 @@ var blackboard: Dictionary = {
 	"formation" : GridObject.new(),
 	"faction_colour" : army_colour,
 	"move_order" : Vector2.ZERO,
+	"isArmyAttacking" : false
 }
 @onready var army_sight_area: Area2D = %Army_Sight
 @onready var formation = blackboard.formation

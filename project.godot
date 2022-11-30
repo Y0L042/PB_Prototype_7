@@ -64,6 +64,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Armies/soldier_manager.gd"
 }, {
+"base": "BaseSoldierAIModule",
+"class": &"StandardSoldierAIModule",
+"language": &"GDScript",
+"path": "res://Soldiers/Soldier AI/standard_ai_module.gd"
+}, {
 "base": "Node2D",
 "class": &"VisualDebugger",
 "language": &"GDScript",
@@ -86,6 +91,7 @@ _global_script_class_icons={
 "DefaultSoldierStats": "",
 "GridObject": "",
 "SoldierManager": "",
+"StandardSoldierAIModule": "",
 "VisualDebugger": "",
 "WanderAIModule": ""
 }
