@@ -6,9 +6,11 @@ class_name BaseSoldier
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
+signal CustomReady
 @export @onready var _ai_module: Resource : set = set_ai_module
 var _parent
 var _formation_index: int
+
 
 #-------------------------------------------------------------------------------
 # Blackboard Variables
@@ -76,6 +78,7 @@ func get_attack_range():
 #-------------------------------------------------------------------------------
 func init(new_blackboard) -> void:
 	blackboard = new_blackboard
+	CustomReady.emit(blackboard)
 	return self
 
 func _ready() -> void:

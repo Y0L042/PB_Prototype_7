@@ -18,8 +18,12 @@ var blackboard: Dictionary
 #---------------------------------------------------------------------------------------------------#
 func set_parent(new_parent):
 	_parent = new_parent
+	_parent.CustomReady.connect(set_blackboard)
 	await _parent.ready
-	blackboard = _parent.blackboard
+
+
+func set_blackboard(new_blackboard):
+	blackboard = new_blackboard
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#

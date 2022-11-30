@@ -5,8 +5,6 @@ class_name StandardSoldierAIModule
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-var _blackboard
-
 var _engaged_distance: float : set = set_engaged_distance
 var _isEngaged: bool : set = set_is_engaged
 
@@ -61,7 +59,7 @@ func get_army_target():
 # Initialize
 #-------------------------------------------------------------------------------
 func ai_module_ready():
-	_blackboard = _parent.blackboard
+	pass
 
 #-------------------------------------------------------------------------------
 # Runtime
@@ -90,16 +88,16 @@ func attack(enemy):
 func basic_ai():
 #set_conditions
 	var distance_to_party_target = _parent.get_global_position().distance_to(get_army_target())
-	var attack_range: Vector2 = _parent.get_attack_range()
+	var attack_range: float = _parent.get_attack_range()
 	var enemy = get_enemy()
-	var distance_to_enemy = _parent.get_global_position().distance_to(enemy.get_global_position())
+	var distance_to_enemy = _parent.get_global_position().distance_to(enemy.get_global_position()) if enemy != null else -1
 	if !_parent.sight.sightings.is_empty() and enemy != null and\
 	distance_to_enemy <= _engaged_distance:
 		_isEngaged = true
 	if _isEngaged and enemy == null:
 		_isEngaged = false
 	if distance_to_enemy <=attack_range:
-		if _isEngaged or _blackboard.isPartyAttacking:
+		if _isEngaged or blackboard.isArmyAttacking:
 			isAttackPossible = true
 		else:
 			isAttackPossible = false
