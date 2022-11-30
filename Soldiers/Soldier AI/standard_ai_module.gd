@@ -5,8 +5,8 @@ class_name StandardSoldierAIModule
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-
-
+var _engaged_distance: float : set = set_engaged_distance
+var _isEngaged: bool : set = set_is_engaged
 
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
@@ -15,7 +15,10 @@ class_name StandardSoldierAIModule
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
-
+func set_engaged_distance(new_engaged_distance):
+	_engaged_distance = new_engaged_distance * GlobalSettings.UNIT
+func set_is_engaged(is_engaged):
+	_isEngaged = is_engaged
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -70,8 +73,15 @@ func simple_move():
 	_parent.velocity = direction * GlobalSettings.UNIT * 4.75 * int(dist_check||army_move_check)
 	_parent.move_and_slide()
 
+#-------------------------------------------------------------------------------
+# AI
+#-------------------------------------------------------------------------------
 func basic_ai():
 	pass
+
+func set_conditions():
+	if !_parent.sight.sightings.is_empty() :
+
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

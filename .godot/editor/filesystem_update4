@@ -12,3 +12,6 @@ res://Armies/EnemyArmy/enemy_army.tscn
 res://Soldiers/base_soldier.tscn
 res://Soldiers/Knight/knight.tscn
 res://Weapons/base_weapon.tscn
+res://Soldiers/Knight/knight.gd
+res://Soldiers/Sight.gd
+res://Soldiers/base_soldier.gd

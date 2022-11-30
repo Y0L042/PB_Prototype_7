@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cde7ddgpbjev5"]
+[gd_scene load_steps=27 format=3 uid="uid://cde7ddgpbjev5"]
 
 [ext_resource type="PackedScene" uid="uid://galuiw0n6l36" path="res://Soldiers/base_soldier.tscn" id="1_x6li2"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_s1n8o"]
@@ -292,6 +292,9 @@ radius = 216.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_642r8"]
 radius = 216.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hekvm"]
+radius = 216.0
+
 [node name="Knight" instance=ExtResource("1_x6li2")]
 script = ExtResource("2_s1n8o")
 _ai_module = ExtResource("3_p5t1t")
@@ -326,3 +329,7 @@ texture = ExtResource("3_0i888")
 hframes = 4
 vframes = 3
 frame = 1
+
+[node name="CollisionShape2D" parent="Pivot/Sight" index="0"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_hekvm")

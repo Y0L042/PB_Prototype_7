@@ -33,7 +33,7 @@ var _move_order
 @onready var pivot: Marker2D = %Pivot
 @onready var body_sprite: Sprite2D = %BodySprite
 @onready var weapon_pivot: Marker2D = %WeaponPivot
-@onready var soldier_sight: Area2D = %Sight
+@onready var sight: Area2D = %Sight
 @onready var force_area: Area2D = %ForceArea
 
 var blackboard: Dictionary : set = set_blackboard
@@ -119,10 +119,11 @@ func _custom_process(_delta: float):
 #-------------------------------------------------------------------------------
 func get_position_in_formation():
 	var index: int = -1
-	for soldier_index in blackboard.active_soldiers.size():
-		if self.get_instance_id() == blackboard.active_soldiers[soldier_index].get_instance_id():
-			index = soldier_index
-			break
+#	for soldier_index in blackboard.active_soldiers.size():
+#		if self.get_instance_id() == blackboard.active_soldiers[soldier_index].get_instance_id():
+#			index = soldier_index
+#			break
+	index = blackboard.active_soldiers.find(self)
 	return index
 #---------------------------------------------------------------------------------------------------#
 # %debug%
