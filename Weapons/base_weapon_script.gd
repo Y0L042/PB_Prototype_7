@@ -6,7 +6,9 @@ class_name BaseWeapon
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-
+@onready var animation_player = %AnimationPlayer
+@onready var animation_tree = %AnimationTree
+@onready var animation_tree_mode = animation_tree["parameters/playback"]
 
 
 #---------------------------------------------------------------------------------------------------#

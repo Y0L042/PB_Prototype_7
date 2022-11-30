@@ -9,17 +9,7 @@ script = ExtResource("1_67478")
 [node name="SoldierCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-root_node = NodePath("../SoldierCollision")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-unique_name_in_owner = true
-
 [node name="Pivot" type="Marker2D" parent="."]
-unique_name_in_owner = true
-
-[node name="BodySprite" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
 
 [node name="WeaponPivot" type="Marker2D" parent="Pivot"]
