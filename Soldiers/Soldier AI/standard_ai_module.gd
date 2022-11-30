@@ -117,15 +117,15 @@ func basic_ai():
 #do_actions
 	if isAttackPossible:
 		attack(enemy)
-		print("Attack enemy ", enemy)
+#		print("Attack enemy ", enemy)
 		return 1
 	if _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		simple_move(enemy.get_global_position())
-		print("pursue enemy ", enemy)
+#		print("pursue enemy ", enemy)
 		return 2
 	if _isRecalled:
 		simple_move(get_army_target())
-		print("is recalled")
+#		print("is recalled")
 		return 3
 	simple_move(get_army_target())
 	return -1

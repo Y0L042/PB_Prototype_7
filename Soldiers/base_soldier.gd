@@ -45,7 +45,7 @@ var blackboard: Dictionary : set = set_blackboard
 @export_category("Arrays of Resources")
 @export var array_of_stats: Array = []
 @export var array_of_effects: Array = []
-@export var array_of_weapons: Array = []
+@onready @export var array_of_weapons: Array = weapon_pivot.get_children() : set = set_array_of_weapons
 @export var array_of_weapon_effects: Array = [] #? here or in Weapon??
 
 #---------------------------------------------------------------------------------------------------#
@@ -68,8 +68,17 @@ func set_ai_module(new_ai_module):
 	_ai_module = new_ai_module
 	_ai_module.set_parent(self)
 
+func set_array_of_weapons(new_array):
+	array_of_weapons = new_array
+
 func get_attack_range():
-	return 3 * GlobalSettings.UNIT
+	var attack_range: float = -1.0
+	for weapon in array_of_weapons:
+		if weapon.attack_range > attack_range:#replace with actual stat
+			attack_range = weapon.attack_range#replace with actual stat
+	return attack_range
+
+
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
