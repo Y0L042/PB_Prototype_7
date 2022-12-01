@@ -84,12 +84,16 @@ func get_attack_range():
 	return attack_range
 
 func set_health(new_health):
+	if new_health < health:
+		anim_hurt()
 	health = new_health
 	if health <= 0:
 		set_dead()
 
 func set_dead():
 	SceneLib.spawn_child(load("res://Fx/Sprites/blood_1.tscn"), get_parent(), get_global_position())
+	blackboard.active_soldiers.erase(self)
+	blackboard.formation.volume -= 1
 	self.queue_free()
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -166,5 +170,10 @@ func get_position_in_formation():
 	index = blackboard.active_soldiers.find(self)
 	return index
 #---------------------------------------------------------------------------------------------------#
-# %debug%
+# Animations
 #---------------------------------------------------------------------------------------------------#
+func anim_run():
+	pass
+
+func anim_hurt():
+	pass

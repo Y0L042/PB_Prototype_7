@@ -34,7 +34,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("Pivot:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -55,6 +55,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, -0.174533, 0.0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.17),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_hfm0u"]
@@ -261,6 +275,7 @@ range = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 unique_name_in_owner = true
+method_call_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_jeeek")
 }

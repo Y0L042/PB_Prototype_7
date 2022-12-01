@@ -48,6 +48,8 @@ func _custom_process(_delta: float):
 func anim_run():
 	animation_tree_mode.travel("Jog")
 
+func anim_hurt():
+	animation_tree_mode.travel("Hurt")
 
 func activate_collision():
 	if !_col_activated:

@@ -10,6 +10,8 @@ var _delta: float
 @onready var _army_position: Vector2 = get_global_position() : set = set_army_position # Vector2.ZERO
 var _army_velocity: Vector2 = Vector2.ZERO
 
+var _active_soldiers: Array = []
+
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
 #-------------------------------------------------------------------------------
@@ -34,12 +36,14 @@ var blackboard: Dictionary = {
 	"faction" : "INSERT FACTION HERE",
 	"army" : self,
 	"army_id" : "INSERT ARMY INSTANCE ID HERE",
-	"active_soldiers" : [],
+	"active_soldiers" : _active_soldiers,
 	"formation" : GridObject.new(),
 	"faction_colour" : army_colour,
 	"move_order" : Vector2.ZERO,
 	"isArmyAttacking" : false
 }
+
+
 @onready var army_sight_area: Area2D = %Army_Sight
 @onready var formation = blackboard.formation
 
@@ -83,6 +87,8 @@ func set_soldier_manager(new_soldier_manager):
 		return -1
 	_soldier_manager = new_soldier_manager
 	_soldier_manager.set_parent(self)
+
+
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
