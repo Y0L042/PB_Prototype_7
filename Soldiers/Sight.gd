@@ -11,7 +11,7 @@ func _ready() -> void:
 # Events
 #-------------------------------------------------------------------------------
 func _on_body_entered(body: Node2D) -> void:
-	if body._faction == _parent._faction: return
+	if body.faction == _parent.faction: return
 	sightings.append(body)
 	if sighted_enemy != null \
 	and get_global_position().distance_squared_to(body.get_global_position()) \
@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 		sighted_enemy = body
 
 func _on_body_exited(body: Node2D) -> void:
-	if body._faction == _parent._faction: return
+	if body.faction == _parent.faction: return
 	sightings.erase(body)
 	if sighted_enemy == body:
 		if !sightings.is_empty():

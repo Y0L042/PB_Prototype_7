@@ -15,7 +15,7 @@ var _formation_index: int
 #-------------------------------------------------------------------------------
 # Blackboard Variables
 #-------------------------------------------------------------------------------
-var _faction
+var faction
 var _army
 var _army_id
 var _formation
@@ -53,7 +53,7 @@ var blackboard: Dictionary : set = set_blackboard
 #---------------------------------------------------------------------------------------------------#
 func set_blackboard(new_blackboard):
 	blackboard = new_blackboard
-	_faction = blackboard.faction
+	faction = blackboard.faction
 	_army = blackboard.army
 	_army_id = blackboard.army_id
 	_faction_colour = blackboard.faction_colour
@@ -73,7 +73,7 @@ func set_array_of_weapons(new_array):
 	array_of_weapons = new_array
 
 func get_attack_range():
-	var attack_range: float = -1.0
+	var attack_range: float = 4 * GlobalSettings.UNIT#-1.0
 	for weapon in array_of_weapons:
 		if weapon.attack_range > attack_range:#replace with actual stat
 			attack_range = weapon.attack_range#replace with actual stat

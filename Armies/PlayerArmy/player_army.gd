@@ -28,7 +28,7 @@ var _rotate_formation_dir: int = 0
 func _custom_ready() -> void:
 	formation.set_volume(9)
 	formation.set_width(3)
-
+	set_y_sort_enabled(true)
 
 #-------------------------------------------------------------------------------
 # Runtime

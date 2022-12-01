@@ -10,7 +10,8 @@ extends Area2D
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
-var contacts: Array
+var contact_bodies: Array = []
+var contacts: Array = []
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
@@ -34,8 +35,16 @@ func get_collision_average_direction():
 # Events
 #-------------------------------------------------------------------------------
 func _on_body_entered(body: Node2D) -> void:
+	if body == get_parent(): return
+	if body.get_parent().faction != get_parent().faction: return
+#	if body.get_parent().faction != "hello": return
+#	if "hello" != get_parent()._faction: return
+	contact_bodies.append(body)
 	contacts.append(body.get_global_position())
 
 
 func _on_body_exited(body: Node2D) -> void:
-	contacts.erase(body.get_global_position())
+	var index: int = contact_bodies.find(body)
+	if index == -1: return
+	contact_bodies.erase(body)
+	contacts.remove_at(index)

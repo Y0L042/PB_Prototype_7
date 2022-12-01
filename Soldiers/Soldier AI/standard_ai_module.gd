@@ -5,10 +5,10 @@ class_name StandardSoldierAIModule
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-var _engaged_distance: float = 4 * GlobalSettings.UNIT: set = set_engaged_distance
+var _engaged_distance: float = 3 * GlobalSettings.UNIT: set = set_engaged_distance
 var _isEngaged: bool : set = set_is_engaged
 
-var _recall_limit = 3 * GlobalSettings.UNIT
+var _recall_limit = 4 * GlobalSettings.UNIT
 var _isRecalled: bool
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
@@ -72,6 +72,8 @@ func ai_module_physics_process(_delta: float):
 func move(vector):
 	_parent.velocity = vector * GlobalSettings.UNIT * 4.75
 	_parent.move_and_slide()
+	if _parent.velocity.length() > 20:
+		_parent.anim_run()
 
 func simple_move(target):
 	var direction: Vector2 = _parent.get_global_position().direction_to(target)
@@ -84,7 +86,22 @@ func simple_move_army(target):
 	var army_move_check: int = int(_parent._army._army_velocity.length() > 5)
 	return direction * int(dist_check||army_move_check)
 
-
+func check_friendly_collision(mov_vec: Vector2):
+	var collision_limit: float = 2 * GlobalSettings.UNIT
+	collision_limit *= collision_limit
+	var LIMIT: float = 0.75
+	if _parent.force_area.contacts.is_empty(): return mov_vec
+	var collisions: Array = _parent.force_area.contacts
+	var position: Vector2 = _parent.get_global_position()
+	for collision in collisions:
+		var col_dir: Vector2 = position.direction_to(collision)
+		var dot: float = col_dir.dot(mov_vec)
+		if dot > LIMIT:
+			if position.distance_squared_to(collision) <=collision_limit:
+				mov_vec -= col_dir
+#				mov_vec = Vector2.ZERO
+			return mov_vec
+	return mov_vec
 
 #	_parent.velocity = direction * GlobalSettings.UNIT * 4.75 * int(dist_check||army_move_check)
 #	_parent.move_and_slide()
@@ -131,8 +148,9 @@ func basic_ai():
 		return 1
 	if _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		mov_vec += simple_move(enemy.get_global_position())
-		mov_vec += simple_move_army(get_army_target()) * 0.25
+		mov_vec += simple_move_army(get_army_target()) * 0.35
 		mov_vec = mov_vec.normalized()
+		mov_vec = check_friendly_collision(mov_vec)
 		move(mov_vec)
 #		print("pursue enemy ", enemy)
 		return 2
@@ -144,6 +162,7 @@ func basic_ai():
 	mov_vec += simple_move_army(get_army_target())
 	move(mov_vec)
 	return -1
+
 
 
 #---------------------------------------------------------------------------------------------------#

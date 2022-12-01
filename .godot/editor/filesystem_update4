@@ -10,3 +10,10 @@ res://Armies/base_army.tscn
 res://Armies/PlayerArmy/player_army.tscn
 res://Armies/EnemyArmy/enemy_army.tscn
 res://Soldiers/base_soldier.tscn
+res://Soldiers/ForceArea.gd
+res://Soldiers/base_soldier.gd
+res://Soldiers/Sight.gd
+res://Troops/base_troop.tres
+res://Soldiers/Knight/knight.gd
+res://Armies/base_army.gd
+res://Armies/PlayerArmy/player_army.gd

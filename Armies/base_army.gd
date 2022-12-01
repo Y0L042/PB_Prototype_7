@@ -89,6 +89,7 @@ func set_soldier_manager(new_soldier_manager):
 # Initialization
 #-------------------------------------------------------------------------------
 func _init() -> void:
+	set_y_sort_enabled(true)
 	_custom_init()
 	add_to_group(TYPE)
 
