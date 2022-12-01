@@ -9,7 +9,7 @@ var _engaged_distance: float = 3 * GlobalSettings.UNIT: set = set_engaged_distan
 var _isEngaged: bool : set = set_is_engaged
 
 var _recall_limit = 4 * GlobalSettings.UNIT
-var _isRecalled: bool
+var _isRecalled: bool : set = set_is_engaged
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
@@ -19,19 +19,26 @@ var isAttackPossible: bool
 #---------------------------------------------------------------------------------------------------#
 func set_engaged_distance(new_engaged_distance):
 	_engaged_distance = new_engaged_distance * GlobalSettings.UNIT
-func set_is_engaged(is_engaged):
-	_isEngaged = is_engaged
+
 
 func get_enemy():
 	return _parent.sight.sighted_enemy
 
 func get_army_target():
+	if _parent == null: return
 	var target: Vector2
 	if _parent._formation_index == -1:
 		target = _parent._formation.center_position
 	else:
 		target = _parent._formation.vector_array[_parent._formation_index]
 	return target
+
+func set_is_engaged(new_engaged):
+	_isEngaged = new_engaged
+	if _isEngaged:
+		_parent.activate_collision()
+	if !_isEngaged:
+		_parent.deactivate_collision()
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -123,11 +130,11 @@ func basic_ai():
 	if !_parent.sight.sightings.is_empty() and enemy != null and\
 	distance_to_enemy <= _engaged_distance:
 		_isEngaged = true
-		_parent.activate_collision()
+
 
 	if _isEngaged and enemy == null:
 		_isEngaged = false
-		_parent.deactivate_collision()
+
 
 	if distance_to_enemy <=attack_range:
 		if _isEngaged or blackboard.isArmyAttacking:

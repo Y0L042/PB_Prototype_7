@@ -448,3 +448,4 @@ frame = 1
 [node name="AttackCollision" type="CollisionShape2D" parent="." index="6"]
 shape = SubResource("CircleShape2D_vdftl")
 disabled = true
+debug_color = Color(0.819608, 0.403922, 0, 0.419608)

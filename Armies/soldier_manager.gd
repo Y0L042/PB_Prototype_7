@@ -24,7 +24,6 @@ var active_soldiers_array: Array = []
 #---------------------------------------------------------------------------------------------------#
 func set_parent(new_parent):
 	_parent = new_parent
-#	await  _parent.ready
 	_parent.ready.connect(_custom_ready)
 	_parent.get_tree().physics_frame.connect(_custom_physics_process)
 
@@ -35,14 +34,14 @@ func set_parent(new_parent):
 # Initialization
 #-------------------------------------------------------------------------------
 func _custom_ready(): #resource doesn't have ready, process, so we hijack parent's
-	print("soldier manager is ready to spawn your soldiers.")
+	print("soldier manager is ready to spawn your soldiers: ", _parent)
 	if soldier_troop != null:
 		use_troop()
+
 
 func use_troop():
 	var troop = soldier_troop.get_troop()
 	for scene in troop:
-#		var soldier = SceneLib.spawn_child(scene, _parent, _parent.get_army_position())
 		var new_soldier = spawn_soldier(scene)
 	set_parent_formation_volume()
 #-------------------------------------------------------------------------------
@@ -84,11 +83,13 @@ func spawn_soldier(new_soldier):
 	soldier.init(_parent.blackboard)
 	all_soldiers_array.append(soldier)
 	active_soldiers_array.append(soldier)
+	print("soldier spawned: ", soldier)
 	return soldier
 
 func add_soldier_weapon_resources():
 	pass
 
+# tight integration
 func set_parent_formation_volume():
 	_parent.set_formation_volume(active_soldiers_array.size())
 	update_parent_blackboard()

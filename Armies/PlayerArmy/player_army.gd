@@ -56,6 +56,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			formation.increment_width(formation_stretch + formation_squash)
 			_increment_width_cooldown_timer = get_tree().create_timer(0.25)
 
+
+
 func _smooth_input_handling():
 	rotate_formation()
 #	_set_formation_rotation()

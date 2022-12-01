@@ -53,10 +53,12 @@ func activate_collision():
 	if !col_activated:
 		animation_player.play("FriendlyCollisionExpand")
 		col_activated = true
+		print("col ON")
 func deactivate_collision():
 	if col_activated:
 		animation_player.play_backwards("FriendlyCollisionExpand")
 		col_activated = false
+		print("col OFF")
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

@@ -23,6 +23,11 @@ var _visual_debugger := VisualDebugger.new(self)
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
 #-------------------------------------------------------------------------------
+# Properties
+#-------------------------------------------------------------------------------
+@export_color_no_alpha var army_colour: Color : set = set_army_colour# used with outline shader
+@export var army_speed: float : set = set_army_speed
+#-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
 var blackboard: Dictionary = {
@@ -40,11 +45,7 @@ var blackboard: Dictionary = {
 
 @export var faction: String : set = set_faction
 @onready var army_id: int = get_instance_id() : set = set_army_id
-#-------------------------------------------------------------------------------
-# Properties
-#-------------------------------------------------------------------------------
-@export_color_no_alpha var army_colour: Color : set = set_army_colour# used with outline shader
-@export var army_speed: float : set = set_army_speed
+
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#

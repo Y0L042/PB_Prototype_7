@@ -16,3 +16,9 @@ res://Weapons/Basic Sword/basic_sword.tscn
 res://Weapons/Basic Sword/basic_sword.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
 res://Soldiers/Knight/knight.gd
+res://Armies/PlayerArmy/player_army.gd
+res://Armies/base_army.gd
+res://Soldiers/base_soldier_ai_module.gd
+res://Armies/soldier_manager.gd
+res://Armies/EnemyArmy/enemy_army.gd
+res://Troops/base_troop.gd
