@@ -69,16 +69,25 @@ func ai_module_physics_process(_delta: float):
 #-------------------------------------------------------------------------------
 # Actions
 #-------------------------------------------------------------------------------
-
+func move(vector):
+	_parent.velocity = vector * GlobalSettings.UNIT * 4.75
+	_parent.move_and_slide()
 
 func simple_move(target):
 	var direction: Vector2 = _parent.get_global_position().direction_to(target)
+	var dist_check: int = int(_parent.get_global_position().distance_squared_to(target) > 10*10)
+	return direction * int(dist_check)
 
+func simple_move_army(target):
+	var direction: Vector2 = _parent.get_global_position().direction_to(target)
 	var dist_check: int = int(_parent.get_global_position().distance_squared_to(target) > 10*10)
 	var army_move_check: int = int(_parent._army._army_velocity.length() > 5)
+	return direction * int(dist_check||army_move_check)
 
-	_parent.velocity = direction * GlobalSettings.UNIT * 4.75 * int(dist_check||army_move_check)
-	_parent.move_and_slide()
+
+
+#	_parent.velocity = direction * GlobalSettings.UNIT * 4.75 * int(dist_check||army_move_check)
+#	_parent.move_and_slide()
 
 func attack(enemy):
 	_parent.attack(enemy)
@@ -115,19 +124,25 @@ func basic_ai():
 		_isRecalled = false
 
 #do_actions
+	var mov_vec: Vector2 = Vector2.ZERO
 	if isAttackPossible:
 		attack(enemy)
 #		print("Attack enemy ", enemy)
 		return 1
 	if _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
-		simple_move(enemy.get_global_position())
+		mov_vec += simple_move(enemy.get_global_position())
+		mov_vec += simple_move_army(get_army_target()) * 0.25
+		mov_vec = mov_vec.normalized()
+		move(mov_vec)
 #		print("pursue enemy ", enemy)
 		return 2
 	if _isRecalled:
-		simple_move(get_army_target())
+		mov_vec += simple_move_army(get_army_target())
+		move(mov_vec)
 #		print("is recalled")
 		return 3
-	simple_move(get_army_target())
+	mov_vec += simple_move_army(get_army_target())
+	move(mov_vec)
 	return -1
 
 
