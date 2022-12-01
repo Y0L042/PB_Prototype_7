@@ -26,6 +26,10 @@ var _move_order
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
 #-------------------------------------------------------------------------------
+# Stats
+#-------------------------------------------------------------------------------
+@export var health: float = 5.0 : set = set_health
+#-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
 @onready var soldier_collision_shape: CollisionShape2D = %SoldierCollision
@@ -73,13 +77,14 @@ func set_array_of_weapons(new_array):
 	array_of_weapons = new_array
 
 func get_attack_range():
-	var attack_range: float = 4 * GlobalSettings.UNIT#-1.0
+	var attack_range: float = 1 * GlobalSettings.UNIT#-1.0
 	for weapon in array_of_weapons:
-		if weapon.attack_range > attack_range:#replace with actual stat
-			attack_range = weapon.attack_range#replace with actual stat
+		if weapon.range > attack_range:#replace with actual stat
+			attack_range = weapon.range#replace with actual stat
 	return attack_range
 
-
+func set_health(new_health):
+	health = new_health
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -98,6 +103,9 @@ func _ai_module_ready():
 	# Run AI Module _ready
 	if _ai_module != null:
 		_ai_module.ai_module_ready()
+
+func set_faction_related_stuff():
+	pass
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
@@ -134,7 +142,12 @@ func _custom_process(_delta: float):
 # Actions
 #-------------------------------------------------------------------------------
 func attack(enemy):
-	pass
+	for weapon in array_of_weapons:
+		# add check to see if enemy is in range
+		weapon.attack(enemy)
+
+func hurt(damage):
+	health -= damage
 #-------------------------------------------------------------------------------
 # Formation Functions
 #-------------------------------------------------------------------------------

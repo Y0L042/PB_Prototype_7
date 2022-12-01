@@ -123,9 +123,11 @@ func basic_ai():
 	if !_parent.sight.sightings.is_empty() and enemy != null and\
 	distance_to_enemy <= _engaged_distance:
 		_isEngaged = true
+		_parent.activate_collision()
 
 	if _isEngaged and enemy == null:
 		_isEngaged = false
+		_parent.deactivate_collision()
 
 	if distance_to_enemy <=attack_range:
 		if _isEngaged or blackboard.isArmyAttacking:
@@ -144,13 +146,13 @@ func basic_ai():
 	var mov_vec: Vector2 = Vector2.ZERO
 	if isAttackPossible:
 		attack(enemy)
-#		print("Attack enemy ", enemy)
+		print("Attack enemy ", enemy)
 		return 1
 	if _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec += simple_move_army(get_army_target()) * 0.35
 		mov_vec = mov_vec.normalized()
-		mov_vec = check_friendly_collision(mov_vec)
+#		mov_vec = check_friendly_collision(mov_vec)
 		move(mov_vec)
 #		print("pursue enemy ", enemy)
 		return 2

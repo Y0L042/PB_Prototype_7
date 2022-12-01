@@ -17,6 +17,7 @@ monitorable = false
 script = ExtResource("2_4shr0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForceArea"]
+debug_color = Color(0.551091, 0.563798, 5.77569e-07, 0)
 
 [node name="SoldierCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -29,6 +30,7 @@ monitorable = false
 script = ExtResource("3_qetyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+debug_color = Color(0, 0.560784, 0.886275, 0.0392157)
 
 [node name="Pivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
