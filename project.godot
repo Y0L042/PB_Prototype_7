@@ -235,6 +235,10 @@ game_action_zoomin={
 2d_physics/layer_4="Specials"
 2d_physics/layer_5="Mobs"
 
+[physics]
+
+common/physics_ticks_per_second=30
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

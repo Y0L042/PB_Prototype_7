@@ -74,7 +74,7 @@ func ai_module_physics_process(_delta: float):
 # Actions
 #-------------------------------------------------------------------------------
 func move(vector):
-	_parent.velocity = vector * GlobalSettings.UNIT * 4.75
+	_parent.velocity = lerp(_parent.velocity, vector * GlobalSettings.UNIT * 4.75, 0.5)
 	_parent.move_and_slide()
 	if _parent.velocity.length() > 20:
 		_parent.anim_run()
@@ -86,7 +86,7 @@ func simple_move(target):
 
 func simple_move_army(target):
 	var direction: Vector2 = _parent.get_global_position().direction_to(target)
-	var dist_check: int = int(_parent.get_global_position().distance_squared_to(target) > 10*10)
+	var dist_check: int = int(_parent.get_global_position().distance_squared_to(target) > 25*25)
 	var army_move_check: int = int(_parent._army._army_velocity.length() > 5)
 	return direction * int(dist_check||army_move_check)
 

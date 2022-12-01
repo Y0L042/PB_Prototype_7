@@ -12,9 +12,14 @@ script = ExtResource("3_4y1x2")
 [node name="PlayerArmy" instance=ExtResource("1_ifu8s")]
 script = ExtResource("2_oemet")
 _soldier_manager = SubResource("Resource_5dbxo")
-faction = "Player"
 army_speed = 5.0
+faction = "Player"
 
 [node name="Camera2D" parent="." index="1" instance=ExtResource("3_5rvps")]
+texture_filter = 1
+process_callback = 0
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 zoom_level = 0.1
 setMaster = true

@@ -129,7 +129,7 @@ func _move():
 #-------------------------------------------------------------------------------
 func _set_formation_rotation():
 	if _army_velocity != Vector2.ZERO:
-		formation.set_rotation(_army_velocity.angle())
+		formation.set_rotation(  lerp_angle(formation.rotation, _army_velocity.angle(), 0.1)  )
 
 
 
