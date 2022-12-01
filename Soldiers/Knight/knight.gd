@@ -6,7 +6,7 @@ extends BaseSoldier
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
 var SCENE = SceneLib.SOLDIER_KNIGHT
-
+var _col_activated: bool = false
 
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
@@ -48,17 +48,19 @@ func _custom_process(_delta: float):
 func anim_run():
 	animation_tree_mode.travel("Jog")
 
-var col_activated: bool = false
+
 func activate_collision():
-	if !col_activated:
+	if !_col_activated:
 		animation_player.play("FriendlyCollisionExpand")
-		col_activated = true
+		_col_activated = true
 		print("col ON")
+	else: print("already active")
 func deactivate_collision():
-	if col_activated:
+	if _col_activated:
 		animation_player.play_backwards("FriendlyCollisionExpand")
-		col_activated = false
+		_col_activated = false
 		print("col OFF")
+	else: print("already not active")
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

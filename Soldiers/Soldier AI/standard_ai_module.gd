@@ -8,8 +8,8 @@ class_name StandardSoldierAIModule
 var _engaged_distance: float = 3 * GlobalSettings.UNIT: set = set_engaged_distance
 var _isEngaged: bool : set = set_is_engaged
 
-var _recall_limit = 4 * GlobalSettings.UNIT
-var _isRecalled: bool : set = set_is_engaged
+var _recall_limit = 6 * GlobalSettings.UNIT
+var _isRecalled: bool
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
@@ -35,10 +35,7 @@ func get_army_target():
 
 func set_is_engaged(new_engaged):
 	_isEngaged = new_engaged
-	if _isEngaged:
-		_parent.activate_collision()
-	if !_isEngaged:
-		_parent.deactivate_collision()
+
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -129,12 +126,11 @@ func basic_ai():
 
 	if !_parent.sight.sightings.is_empty() and enemy != null and\
 	distance_to_enemy <= _engaged_distance:
-		_isEngaged = true
-
+		set_is_engaged(true)#_isEngaged = true
 
 	if _isEngaged and enemy == null:
-		_isEngaged = false
-
+		set_is_engaged(false)#_isEngaged = false
+		pass
 
 	if distance_to_enemy <=attack_range:
 		if _isEngaged or blackboard.isArmyAttacking:
@@ -149,17 +145,24 @@ func basic_ai():
 	else:
 		_isRecalled = false
 
+#set_collision
+	if _isEngaged:
+		_parent.activate_collision()
+	else:
+		if _isRecalled:
+			_parent.deactivate_collision()
+
 #do_actions
 	var mov_vec: Vector2 = Vector2.ZERO
 	if isAttackPossible:
 		attack(enemy)
-		print("Attack enemy ", enemy)
+		_parent.activate_collision()
+#		print("Attack enemy ", enemy)
 		return 1
 	if _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec += simple_move_army(get_army_target()) * 0.35
 		mov_vec = mov_vec.normalized()
-#		mov_vec = check_friendly_collision(mov_vec)
 		move(mov_vec)
 #		print("pursue enemy ", enemy)
 		return 2
