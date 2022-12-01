@@ -69,6 +69,7 @@ func set_ai_module(new_ai_module):
 	_ai_module.set_parent(self)
 
 func set_array_of_weapons(new_array):
+	if new_array == null: return
 	array_of_weapons = new_array
 
 func get_attack_range():
