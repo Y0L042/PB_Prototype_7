@@ -68,7 +68,7 @@ func set_army_speed(new_army_speed: float):
 
 func set_army_colour(new_colour: Color):
 	army_colour = new_colour
-	blackboard.army_colour = army_colour
+	blackboard.faction_colour = army_colour
 
 func set_faction(new_faction):
 	faction = new_faction

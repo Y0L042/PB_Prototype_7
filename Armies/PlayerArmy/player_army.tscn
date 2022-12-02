@@ -12,6 +12,7 @@ script = ExtResource("3_4y1x2")
 [node name="PlayerArmy" instance=ExtResource("1_ifu8s")]
 script = ExtResource("2_oemet")
 _soldier_manager = SubResource("Resource_5dbxo")
+army_colour = Color(0.0823529, 0.560784, 0.694118, 1)
 army_speed = 5.0
 faction = "Player"
 

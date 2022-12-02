@@ -1,10 +1,21 @@
-[gd_scene load_steps=30 format=3 uid="uid://cde7ddgpbjev5"]
+[gd_scene load_steps=33 format=3 uid="uid://cde7ddgpbjev5"]
 
 [ext_resource type="PackedScene" uid="uid://galuiw0n6l36" path="res://Soldiers/base_soldier.tscn" id="1_x6li2"]
+[ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="2_3w8k1"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_s1n8o"]
 [ext_resource type="Texture2D" uid="uid://bcjck6wdvlqp8" path="res://Soldiers/Knight/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png" id="3_0i888"]
 [ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_p5t1t"]
+[ext_resource type="Material" uid="uid://xjhy3277eleg" path="res://Fx/outline_material.tres" id="4_q54mx"]
 [ext_resource type="PackedScene" uid="uid://bcrvkane12a25" path="res://Weapons/Basic Sword/basic_sword.tscn" id="5_pfrld"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
+resource_local_to_scene = true
+shader = ExtResource("2_3w8k1")
+shader_parameter/add_margins = false
+shader_parameter/color = null
+shader_parameter/inside = false
+shader_parameter/pattern = 1
+shader_parameter/width = 0.5
 
 [sub_resource type="Animation" id="Animation_208g4"]
 resource_name = "Dead"
@@ -401,6 +412,7 @@ radius = 216.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vdftl"]
 
 [node name="Knight" instance=ExtResource("1_x6li2")]
+material = SubResource("ShaderMaterial_ufi0m")
 z_index = 1
 script = ExtResource("2_s1n8o")
 _ai_module = ExtResource("3_p5t1t")
@@ -441,14 +453,21 @@ scale = Vector2(3, 3)
 [node name="CollisionShape2D" parent="Sight" index="0"]
 shape = SubResource("CircleShape2D_gvuww")
 
+[node name="Pivot" parent="." index="5"]
+use_parent_material = true
+
 [node name="BodySprite" type="Sprite2D" parent="Pivot" index="0"]
 unique_name_in_owner = true
+material = ExtResource("4_q54mx")
 position = Vector2(0, -216)
 scale = Vector2(15, 15)
 texture = ExtResource("3_0i888")
 hframes = 4
 vframes = 3
 frame = 1
+
+[node name="WeaponPivot" parent="Pivot" index="1"]
+use_parent_material = true
 
 [node name="basic sword" parent="Pivot/WeaponPivot" index="0" instance=ExtResource("5_pfrld")]
 position = Vector2(-53, -100)

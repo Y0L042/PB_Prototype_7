@@ -1,13 +1,18 @@
-res://Soldiers/Knight/knight.tscn
+res://Maps/Map 1/map_1.tscn
 res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
 res://Soldiers/Soldier AI/standard_ai_module.gd
 res://Soldiers/Soldier AI/standard_soldier_ai.tres
 res://Troops/Army of Knights/army_of_knights.tres
 res://Armies/soldier_manager.tres
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
-res://Maps/Map 1/map_1.tscn
+res://Soldiers/Knight/knight.tscn
 res://Armies/PlayerArmy/player_army.tscn
 res://Fx/Sprites/blood_1.tscn
 res://Weapons/Basic Sword/basic_sword.tscn
 res://Soldiers/base_soldier.gd
+res://Fx/outline_material.tres
+res://Soldiers/base_soldier.tscn
+res://Weapons/base_weapon.tscn
+res://Armies/EnemyArmy/enemy_army.tscn
+res://Fx/Shaders/faction_outline.gdshader
 res://Armies/base_army.gd

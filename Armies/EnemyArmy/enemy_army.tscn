@@ -13,6 +13,6 @@ script = ExtResource("4_405sj")
 script = ExtResource("1_6f123")
 _ai_module = ExtResource("3_hwa1q")
 _soldier_manager = SubResource("Resource_i8i3r")
-faction = "Enemy"
 army_colour = Color(0.882353, 0, 0, 1)
 army_speed = 2.0
+faction = "Enemy"

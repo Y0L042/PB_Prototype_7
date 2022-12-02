@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://galuiw0n6l36"]
+[gd_scene load_steps=5 format=3 uid="uid://galuiw0n6l36"]
 
 [ext_resource type="Script" path="res://Soldiers/base_soldier.gd" id="1_67478"]
+[ext_resource type="Material" uid="uid://xjhy3277eleg" path="res://Fx/outline_material.tres" id="1_vjshg"]
 [ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="2_4shr0"]
 [ext_resource type="Script" path="res://Soldiers/Sight.gd" id="3_qetyk"]
 
 [node name="BaseSoldier" type="CharacterBody2D"]
+material = ExtResource("1_vjshg")
 collision_layer = 2
 script = ExtResource("1_67478")
 

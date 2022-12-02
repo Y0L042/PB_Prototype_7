@@ -63,6 +63,10 @@ func set_blackboard(new_blackboard):
 	_faction_colour = blackboard.faction_colour
 	_formation = blackboard.formation
 
+	set_faction_stuff()
+
+
+
 
 
 func set_ai_module(new_ai_module):
@@ -93,8 +97,14 @@ func set_health(new_health):
 func set_dead():
 	SceneLib.spawn_child(load("res://Fx/Sprites/blood_1.tscn"), get_parent(), get_global_position())
 	blackboard.active_soldiers.erase(self)
-	blackboard.formation.volume -= 1
+#	blackboard.formation.volume -= 1
 	self.queue_free()
+
+func set_faction_stuff():
+	set_actor_faction_outline()
+
+func set_actor_faction_outline():
+	body_sprite.get_material().set_shader_parameter("color", _faction_colour)
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -104,6 +114,7 @@ func set_dead():
 func init(new_blackboard) -> void:
 	blackboard = new_blackboard
 	CustomReady.emit(blackboard)
+
 	return self
 
 func _ready() -> void:
@@ -114,8 +125,6 @@ func _ai_module_ready():
 	if _ai_module != null:
 		_ai_module.ai_module_ready()
 
-func set_faction_related_stuff():
-	pass
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
