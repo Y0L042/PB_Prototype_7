@@ -412,8 +412,8 @@ radius = 216.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vdftl"]
 
 [node name="Knight" instance=ExtResource("1_x6li2")]
-material = SubResource("ShaderMaterial_ufi0m")
 z_index = 1
+material = SubResource("ShaderMaterial_ufi0m")
 script = ExtResource("2_s1n8o")
 _ai_module = ExtResource("3_p5t1t")
 health = 10.0

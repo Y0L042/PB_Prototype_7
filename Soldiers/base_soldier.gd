@@ -83,8 +83,8 @@ func set_array_of_weapons(new_array):
 func get_attack_range():
 	var attack_range: float = 1 * GlobalSettings.UNIT#-1.0
 	for weapon in array_of_weapons:
-		if weapon.range > attack_range:#replace with actual stat
-			attack_range = weapon.range#replace with actual stat
+		if weapon.get_range() > attack_range:#replace with actual stat
+			attack_range = weapon.get_range()#replace with actual stat
 	return attack_range
 
 func set_health(new_health):

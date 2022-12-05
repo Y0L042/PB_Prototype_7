@@ -271,7 +271,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="basic sword" instance=ExtResource("1_2ra2a")]
 script = ExtResource("2_gmw3c")
 damage = 1.0
-range = 1.0
+range_ = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 unique_name_in_owner = true

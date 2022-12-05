@@ -22,7 +22,7 @@ func set_engaged_distance(new_engaged_distance):
 
 
 func get_enemy():
-	return _parent.sight.sighted_enemy
+	return _parent.sight.get_sighted_enemy()
 
 func get_army_target():
 	if _parent == null: return
