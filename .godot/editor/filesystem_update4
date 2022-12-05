@@ -18,3 +18,7 @@ res://Armies/base_army.gd
 res://Armies/PlayerArmy/player_army.gd
 res://Soldiers/base_soldier.gd
 res://Soldiers/base_soldier_ai_module.gd
+res://Armies/EnemyArmy/enemy_army.tscn
+res://Armies/soldier_manager.gd
+res://Armies/base_army.tscn
+res://Classes/GridClass.gd

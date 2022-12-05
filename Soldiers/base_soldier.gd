@@ -9,7 +9,7 @@ class_name BaseSoldier
 signal CustomReady
 @export @onready var _ai_module: Resource : set = set_ai_module
 var _parent
-var _formation_index: int
+var _formation_index: int : set = set_formation_index, get = get_formation_index
 
 
 #-------------------------------------------------------------------------------
@@ -57,17 +57,14 @@ var blackboard: ArmyBlackboard : set = set_blackboard
 #---------------------------------------------------------------------------------------------------#
 func set_blackboard(new_blackboard):
 	blackboard = new_blackboard
+	blackboard.FormationUpdate.connect(_get_index_from_formation)
 	faction = blackboard.faction
 	_army = blackboard.army
 	_army_id = blackboard.army_id
-	_faction_colour = blackboard.faction_colour
+	_faction_colour = blackboard.get_faction_colour()
 	_formation = blackboard.formation
 
 	set_faction_stuff()
-
-
-
-
 
 func set_ai_module(new_ai_module):
 	if new_ai_module == null:
@@ -97,7 +94,7 @@ func set_health(new_health):
 func set_dead():
 	SceneLib.spawn_child(load("res://Fx/Sprites/blood_1.tscn"), get_parent(), get_global_position())
 	blackboard.active_soldiers.erase(self)
-#	blackboard.formation.volume -= 1
+	blackboard.deregister_soldier(self)
 	self.queue_free()
 
 func set_faction_stuff():
@@ -105,6 +102,13 @@ func set_faction_stuff():
 
 func set_actor_faction_outline():
 	body_sprite.get_material().set_shader_parameter("color", _faction_colour)
+
+func _get_index_from_formation():
+	_formation_index = blackboard.active_soldiers.find(self)
+func set_formation_index(new_index):
+	_formation_index = new_index
+func get_formation_index():
+	return _formation_index
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#

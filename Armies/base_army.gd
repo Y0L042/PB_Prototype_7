@@ -10,7 +10,7 @@ var _delta: float
 @onready var _army_position: Vector2 = get_global_position() : set = set_army_position # Vector2.ZERO
 var _army_velocity: Vector2 = Vector2.ZERO
 
-var _active_soldiers: Array = []
+
 
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
@@ -35,12 +35,13 @@ var _visual_debugger := VisualDebugger.new(self)
 var blackboard: ArmyBlackboard
 @export var faction: String : set = set_faction
 @onready var army_id: int = get_instance_id() : set = set_army_id
-@export_color_no_alpha var faction_colour: Color : set = set_faction_colour# used with outline shader
+@export_color_no_alpha var faction_colour: Color = Color(0.5, 0.8, 0.5, 1) #: set = set_faction_colour# used with outline shader
+@onready var formation
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
 @onready var army_sight_area: Area2D = %Army_Sight
-@onready var formation
+
 
 #---------------------------------------------------------------------------------------------------#
 # SetGet
@@ -58,13 +59,11 @@ func set_army_speed(new_army_speed: float):
 	army_speed = new_army_speed
 	army_speed *= GlobalSettings.UNIT
 
-func set_faction_colour(new_colour: Color):
-	faction_colour = new_colour
-
-
 func set_faction(new_faction):
 	faction = new_faction
 
+#func set_faction_colour(new_color: Color):
+#	faction_colour = new_color
 
 func set_army_id(new_id):
 	army_id = new_id

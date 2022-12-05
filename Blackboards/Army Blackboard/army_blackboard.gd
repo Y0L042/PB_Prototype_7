@@ -7,6 +7,10 @@ class_name ArmyBlackboard
 # Variables
 #---------------------------------------------------------------------------------------------------#
 #-------------------------------------------------------------------------------
+# Signals
+#-------------------------------------------------------------------------------
+signal FormationUpdate
+#-------------------------------------------------------------------------------
 # Public
 #-------------------------------------------------------------------------------
 var faction: String : set = set_faction, get = get_faction
@@ -14,7 +18,7 @@ var army: Variant : set = set_army, get = get_army
 var army_id: Variant : set = set_army_id, get = get_army_id
 var active_soldiers: Array : set = set_active_soldiers, get = get_active_soldiers
 var formation: GridObject : set = set_formation, get = get_formation
-var faction_colour: Color : set = set_faction_colour, get = get_faction_colour
+var faction_colour: Color: set = set_faction_colour, get = get_faction_colour
 var move_order: Vector2 = Vector2.ZERO : set = set_move_order, get = get_move_order
 var isArmyAttacking: bool = false : set = set_isArmyAttacking, get = get_isArmyAttacking
 
@@ -41,10 +45,27 @@ func set_active_soldiers(new_array):
 func get_active_soldiers():
 	return active_soldiers
 
+func register_soldier_array(new_soldier_array: Array):
+	active_soldiers = new_soldier_array
+	adjust_formation_volume(active_soldiers.size())
+
+func register_soldier(new_soldier):
+#	active_soldiers.append(new_soldier) #soldiers appended in soldier_manager
+	adjust_formation_volume(active_soldiers.size())
+func deregister_soldier(new_soldier):
+	active_soldiers.erase(new_soldier)
+	adjust_formation_volume(active_soldiers.size())
+
+
+
 func set_formation(new_formation: GridObject):
 	formation = new_formation
 func get_formation():
 	return formation
+
+func adjust_formation_volume(new_volume):
+	formation.volume = new_volume
+	FormationUpdate.emit()
 
 func set_faction_colour(new_colour: Color):
 	faction_colour = new_colour

@@ -30,6 +30,7 @@ func get_army_target():
 	if _parent._formation_index == -1:
 		target = _parent._formation.center_position
 	else:
+		if _parent._formation.vector_array.is_empty(): return _parent._formation.center_position
 		target = _parent._formation.vector_array[_parent._formation_index]
 	return target
 
