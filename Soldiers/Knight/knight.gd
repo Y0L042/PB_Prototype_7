@@ -8,6 +8,10 @@ extends BaseSoldier
 var SCENE = SceneLib.SOLDIER_KNIGHT
 var _col_activated: bool = false
 
+@onready var attack_col = %AttackCollision
+
+
+
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
@@ -31,9 +35,33 @@ func _custom_process(_delta: float):
 	pass
 
 #-------------------------------------------------------------------------------
-# Movement Functions
+# Collision Functions
 #-------------------------------------------------------------------------------
+func activate_collision():
+	if !_col_activated:
+#
+		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(
+			attack_col,
+			"scale",
+			Vector2(10.8,10.8),
+			1
+		).from(Vector2.ZERO)
 
+		attack_col.set_disabled(false)
+
+		_col_activated = true
+		print("col ON")
+	else: print("already active")
+
+func deactivate_collision():
+	if _col_activated:
+#
+		attack_col.set_disabled(true)
+
+		_col_activated = false
+		print("col OFF")
+	else: print("already not active")
 #-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------
@@ -51,18 +79,7 @@ func anim_run():
 func anim_hurt():
 	animation_tree_mode.travel("Hurt")
 
-func activate_collision():
-	if !_col_activated:
-		animation_player.play("FriendlyCollisionExpand")
-		_col_activated = true
-		print("col ON")
-	else: print("already active")
-func deactivate_collision():
-	if _col_activated:
-		animation_player.play_backwards("FriendlyCollisionExpand")
-		_col_activated = false
-		print("col OFF")
-	else: print("already not active")
+
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

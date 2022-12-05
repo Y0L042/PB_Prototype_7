@@ -22,3 +22,4 @@ res://Armies/EnemyArmy/enemy_army.tscn
 res://Armies/soldier_manager.gd
 res://Armies/base_army.tscn
 res://Classes/GridClass.gd
+res://Soldiers/Knight/knight.gd

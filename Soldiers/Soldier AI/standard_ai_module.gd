@@ -159,23 +159,21 @@ func basic_ai():
 		attack(enemy)
 		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec = mov_vec.normalized()
-		move(mov_vec)
+#		move(mov_vec)
 		_parent.activate_collision()
 #		print("Attack enemy ", enemy)
-		return 1
-	if _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
+	elif _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec += simple_move_army(get_army_target()) * 0.35
 		mov_vec = mov_vec.normalized()
-		move(mov_vec)
+#		move(mov_vec)
 #		print("pursue enemy ", enemy)
-		return 2
-	if _isRecalled:
+	elif _isRecalled:
 		mov_vec += simple_move_army(get_army_target())
-		move(mov_vec)
+#		move(mov_vec)
 #		print("is recalled")
-		return 3
-	mov_vec += simple_move_army(get_army_target())
+	else:
+		mov_vec += simple_move_army(get_army_target())
 	move(mov_vec)
 	return -1
 

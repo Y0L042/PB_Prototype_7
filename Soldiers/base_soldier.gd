@@ -127,6 +127,10 @@ func init(new_blackboard) -> void:
 
 func _ready() -> void:
 	_ai_module_ready()
+	_custom_ready()
+
+func _custom_ready():
+	pass
 
 func _ai_module_ready():
 	# Run AI Module _ready

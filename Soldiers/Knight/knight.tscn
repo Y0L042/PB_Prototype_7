@@ -1,12 +1,14 @@
 [gd_scene load_steps=34 format=3 uid="uid://cde7ddgpbjev5"]
 
-[ext_resource type="PackedScene" uid="uid://galuiw0n6l36" path="res://Soldiers/base_soldier.tscn" id="1_x6li2"]
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="2_3w8k1"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_s1n8o"]
 [ext_resource type="Texture2D" uid="uid://bcjck6wdvlqp8" path="res://Soldiers/Knight/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png" id="3_0i888"]
 [ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_p5t1t"]
 [ext_resource type="Material" uid="uid://xjhy3277eleg" path="res://Fx/outline_material.tres" id="4_q54mx"]
+[ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="4_ypflr"]
+[ext_resource type="Script" path="res://Soldiers/Sight.gd" id="5_kkigk"]
 [ext_resource type="PackedScene" uid="uid://bcrvkane12a25" path="res://Weapons/Basic Sword/basic_sword.tscn" id="5_pfrld"]
+[ext_resource type="Texture2D" uid="uid://bw7w84re7skp6" path="res://icon.svg" id="9_u1av1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
 resource_local_to_scene = true
@@ -265,42 +267,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = false
-tracks/7/path = NodePath("AttackCollision:shape:radius")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [10.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = false
-tracks/8/path = NodePath("AttackCollision:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = false
-tracks/9/path = NodePath(".:collision_mask")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jb70k"]
 _data = {
@@ -369,95 +335,64 @@ radius = 216.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vdftl"]
 
-[sub_resource type="Animation" id="Animation_08evr"]
-resource_name = "AttackCollisionExpand"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:shape:radius")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [10.0, 108.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..:collision_mask")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2anx"]
-_data = {
-"AttackCollisionExpand": SubResource("Animation_08evr")
-}
-
-[node name="Knight" instance=ExtResource("1_x6li2")]
+[node name="Knight" type="CharacterBody2D"]
 z_index = 1
 material = SubResource("ShaderMaterial_ufi0m")
+collision_layer = 2
 script = ExtResource("2_s1n8o")
 _ai_module = ExtResource("3_p5t1t")
 health = 10.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_jb70k")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_5nnuu")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_okoax")
 
-[node name="ForceArea" parent="." index="2"]
+[node name="ForceArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 scale = Vector2(0.5, 0.5)
-monitoring = true
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+script = ExtResource("4_ypflr")
 
-[node name="CollisionShape2D" parent="ForceArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForceArea"]
 shape = SubResource("CircleShape2D_3gnnx")
 debug_color = Color(0.886275, 0, 0.803922, 0.419608)
 
-[node name="SoldierCollision" parent="." index="3"]
+[node name="SoldierCollision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -57)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_642r8")
 
-[node name="Sight" parent="." index="4"]
+[node name="Sight" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 scale = Vector2(3, 3)
+collision_layer = 3
+collision_mask = 3
+monitorable = false
+script = ExtResource("5_kkigk")
 
-[node name="CollisionShape2D" parent="Sight" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_gvuww")
+debug_color = Color(0, 0.560784, 0.886275, 0.0392157)
 
-[node name="Pivot" parent="." index="5"]
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
 use_parent_material = true
 
-[node name="BodySprite" type="Sprite2D" parent="Pivot" index="0"]
+[node name="BodySprite" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
 material = ExtResource("4_q54mx")
 position = Vector2(0, -216)
@@ -465,22 +400,25 @@ scale = Vector2(15, 15)
 texture = ExtResource("3_0i888")
 hframes = 4
 vframes = 3
-frame = 2
+frame = 1
 
-[node name="WeaponPivot" parent="Pivot" index="1"]
+[node name="WeaponPivot" type="Marker2D" parent="Pivot"]
+unique_name_in_owner = true
 use_parent_material = true
 
-[node name="basic sword" parent="Pivot/WeaponPivot" index="0" instance=ExtResource("5_pfrld")]
+[node name="basic sword" parent="Pivot/WeaponPivot" instance=ExtResource("5_pfrld")]
 position = Vector2(-53, -100)
 
-[node name="AttackCollision" type="CollisionShape2D" parent="." index="6"]
+[node name="AttackCollision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 modulate = Color(1, 0.45098, 0, 1)
 shape = SubResource("CircleShape2D_vdftl")
 disabled = true
 debug_color = Color(0.819608, 0.403922, 0.0156863, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AttackCollision" index="0"]
-reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_a2anx")
-}
+[node name="Sprite2D" type="Sprite2D" parent="AttackCollision"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("9_u1av1")
+
+[connection signal="body_entered" from="ForceArea" to="ForceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="ForceArea" to="ForceArea" method="_on_body_exited"]
