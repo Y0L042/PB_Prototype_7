@@ -29,6 +29,7 @@ var _move_order
 # Stats
 #-------------------------------------------------------------------------------
 @export var health: float = 5.0 : set = set_health
+@export var speed: float = 5.0 : set = set_speed
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
@@ -90,6 +91,9 @@ func set_health(new_health):
 	health = new_health
 	if health <= 0:
 		set_dead()
+
+func set_speed(new_speed):
+	speed = new_speed
 
 func set_dead():
 	SceneLib.spawn_child(load("res://Fx/Sprites/blood_1.tscn"), get_parent(), get_global_position())

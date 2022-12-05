@@ -75,7 +75,7 @@ func ai_module_physics_process(_delta: float):
 # Actions
 #-------------------------------------------------------------------------------
 func move(vector):
-	_parent.velocity = lerp(_parent.velocity, vector * GlobalSettings.UNIT * 4.75, 0.5)
+	_parent.velocity = lerp(_parent.velocity, vector * GlobalSettings.UNIT * _parent.speed, 0.5)
 	_parent.move_and_slide()
 	if _parent.velocity.length() > 20:
 		_parent.anim_run()
@@ -133,7 +133,7 @@ func basic_ai():
 		set_is_engaged(false)#_isEngaged = false
 		pass
 
-	if distance_to_enemy <=attack_range:
+	if distance_to_enemy <= attack_range:
 		if _isEngaged or blackboard.isArmyAttacking:
 			isAttackPossible = true
 		else:
@@ -157,6 +157,9 @@ func basic_ai():
 	var mov_vec: Vector2 = Vector2.ZERO
 	if isAttackPossible:
 		attack(enemy)
+		mov_vec += simple_move(enemy.get_global_position())
+		mov_vec = mov_vec.normalized()
+		move(mov_vec)
 		_parent.activate_collision()
 #		print("Attack enemy ", enemy)
 		return 1
