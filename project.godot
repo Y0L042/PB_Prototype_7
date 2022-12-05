@@ -14,6 +14,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Armies/base_army.gd"
 }, {
+"base": "RefCounted",
+"class": &"ArmyBlackboard",
+"language": &"GDScript",
+"path": "res://Blackboards/Army Blackboard/army_blackboard.gd"
+}, {
 "base": "Resource",
 "class": &"BaseAIModule",
 "language": &"GDScript",
@@ -81,6 +86,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Army": "",
+"ArmyBlackboard": "",
 "BaseAIModule": "",
 "BaseFaction": "",
 "BaseSoldier": "",

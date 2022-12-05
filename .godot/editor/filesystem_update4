@@ -13,3 +13,8 @@ res://Fx/Sprites/blood_1.tscn
 res://Weapons/Basic Sword/basic_sword.tscn
 res://Soldiers/base_soldier.tscn
 res://Weapons/base_weapon.tscn
+res://Blackboards/Army Blackboard/army_blackboard.gd
+res://Armies/base_army.gd
+res://Armies/PlayerArmy/player_army.gd
+res://Soldiers/base_soldier.gd
+res://Soldiers/base_soldier_ai_module.gd

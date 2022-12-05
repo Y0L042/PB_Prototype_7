@@ -42,7 +42,7 @@ var _move_order
 @onready var sight: Area2D = %Sight
 @onready var force_area: Area2D = %ForceArea
 
-var blackboard: Dictionary : set = set_blackboard
+var blackboard: ArmyBlackboard : set = set_blackboard
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
