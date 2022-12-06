@@ -15,7 +15,8 @@ var _army_velocity: Vector2 = Vector2.ZERO
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
 #-------------------------------------------------------------------------------
-@onready @export var _soldier_manager: Resource# : set = set_soldier_manager # commented out debug 16:18 Mo, 28-11-2022
+@export var _initial_troop: Resource
+var _soldier_manager: SoldierManager #: set = set_soldier_manager#: Resource# : set = set_soldier_manager # commented out debug 16:18 Mo, 28-11-2022
 
 #-------------------------------------------------------------------------------
 # % debug %
@@ -79,6 +80,9 @@ func set_soldier_manager(new_soldier_manager):
 	_soldier_manager = new_soldier_manager
 	_soldier_manager.set_parent(self)
 
+	if _initial_troop != null:
+		_soldier_manager.set_soldier_troop(_initial_troop)
+
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -91,11 +95,13 @@ func _init() -> void:
 	_custom_init()
 	add_to_group(TYPE)
 
+
 func _custom_init():
 	pass
 
 func _ready() -> void:
-	set_soldier_manager(_soldier_manager) # added debug 16:18 Mo, 28-11-2022
+	set_soldier_manager(SoldierManager.new())
+#	set_soldier_manager(_soldier_manager) # added debug 16:18 Mo, 28-11-2022
 	_create_blackboard()
 	formation = blackboard.formation
 	_custom_ready()

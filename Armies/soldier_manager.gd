@@ -1,4 +1,5 @@
-extends Resource
+#extends Resource
+extends RefCounted
 
 class_name SoldierManager
 
@@ -14,7 +15,7 @@ var _parent
 #---------------------------------------------------------------------------------------------------#
 @export_category("Soldier Spawning")
 ## The initial troop of soldiers that will be spawned
-@export var soldier_troop: Resource
+@export var soldier_troop: Resource : set = set_soldier_troop
 
 
 var all_soldiers_array: Array = []
@@ -27,6 +28,8 @@ func set_parent(new_parent):
 	_parent.ready.connect(_custom_ready)
 	_parent.get_tree().physics_frame.connect(_custom_physics_process)
 
+func set_soldier_troop(new_troop):
+	soldier_troop = new_troop
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
