@@ -75,13 +75,12 @@ func set_formation_volume(new_volume):
 
 func set_soldier_manager(new_soldier_manager):
 	if new_soldier_manager == null:
-		print("Error: Soldier manager scene is empty!", self)
+		printerr("Error: Soldier manager scene is empty!", self)
 		return -1
 	_soldier_manager = new_soldier_manager
 	_soldier_manager.set_parent(self)
-
-	if _initial_troop != null:
-		_soldier_manager.set_soldier_troop(_initial_troop)
+	if _initial_troop == null: return
+	_soldier_manager.set_soldier_troop(_initial_troop)
 
 
 #---------------------------------------------------------------------------------------------------#
@@ -101,7 +100,6 @@ func _custom_init():
 
 func _ready() -> void:
 	set_soldier_manager(SoldierManager.new())
-#	set_soldier_manager(_soldier_manager) # added debug 16:18 Mo, 28-11-2022
 	_create_blackboard()
 	formation = blackboard.formation
 	_custom_ready()

@@ -1,13 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://bcrvkane12a25"]
+[gd_scene load_steps=26 format=3 uid="uid://bcrvkane12a25"]
 
-[ext_resource type="PackedScene" uid="uid://c1kuij5np6vtn" path="res://Weapons/base_weapon.tscn" id="1_2ra2a"]
 [ext_resource type="Script" path="res://Weapons/Basic Sword/basic_sword.gd" id="2_gmw3c"]
 [ext_resource type="Texture2D" uid="uid://do45hloggxhk3" path="res://Weapons/Basic Sword/weapon_regular_sword.png" id="2_y37xf"]
+[ext_resource type="Texture2D" uid="uid://db170d24q7x5p" path="res://Weapons/Basic Sword/trail.png" id="3_joa0w"]
+[ext_resource type="Texture2D" uid="uid://n65x0ca5e7rm" path="res://Fx/Sprites/ice_particle_white.png" id="4_pgacq"]
 
 [sub_resource type="Animation" id="Animation_5grc8"]
 resource_name = "Attack_1"
 length = 0.6
-step = 0.01
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,10 +16,10 @@ tracks/0/path = NodePath("Pivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.17, 0.32),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.12, 0.2, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -54), Vector2(0, -118), Vector2(213, 64), Vector2(0, -54)]
+"values": [Vector2(0, -54), Vector2(0, -118), Vector2(213, 64), Vector2(213, 64), Vector2(0, -54)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -27,10 +28,10 @@ tracks/1/path = NodePath("Pivot:rotation")
 tracks/1/interp = 3
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.17, 0.32),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.12, 0.2, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.438237, 2.08321, 0.0]
+"values": [0.0, -0.438237, 2.08321, 2.08321, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -39,10 +40,10 @@ tracks/2/path = NodePath("Pivot:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.17, 0.32),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.12, 0.2, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.911766, 2.62342), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.911766, 2.62342), Vector2(0.911766, 2.62342), Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -51,10 +52,10 @@ tracks/3/path = NodePath("Pivot:skew")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.17, 0.32),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.12, 0.2, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.174533, 0.0]
+"values": [0.0, 0.0, -0.174533, -0.174533, 0.0]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -69,6 +70,30 @@ tracks/4/keys = {
 "args": [],
 "method": &"do_damage"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pivot/BodySprite2D/Smear:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.275),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pivot/BodySprite2D/GPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.175),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_hfm0u"]
@@ -203,6 +228,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BodySprite2D/Smear:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pivot/BodySprite2D/GPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jeeek"]
 _data = {
@@ -268,29 +317,68 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_fmp1r"]
 
-[node name="basic sword" instance=ExtResource("1_2ra2a")]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cn6ml"]
+particle_flag_disable_z = true
+spread = 35.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 350.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 1.5
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+
+[node name="basic sword" type="Node2D"]
+use_parent_material = true
 script = ExtResource("2_gmw3c")
 damage = 1.0
 range = 1.5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 method_call_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_jeeek")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xs4hn")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_fmp1r")
 
-[node name="Pivot" parent="." index="2"]
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -54)
 
-[node name="BodySprite2D" parent="Pivot" index="0"]
+[node name="BodySprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, -7.62939e-06)
 scale = Vector2(10, 10)
 texture = ExtResource("2_y37xf")
+
+[node name="Smear" type="Sprite2D" parent="Pivot/BodySprite2D"]
+visible = false
+show_behind_parent = true
+position = Vector2(-5.45392, -5.36938)
+rotation = -1.58825
+scale = Vector2(0.05, 0.0756217)
+texture = ExtResource("3_joa0w")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Pivot/BodySprite2D"]
+self_modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+rotation = -1.5708
+emitting = false
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.25
+randomness = 0.47
+trail_enabled = true
+trail_lifetime = 0.01
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_cn6ml")
+texture = ExtResource("4_pgacq")
