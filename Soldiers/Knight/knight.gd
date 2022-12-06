@@ -8,7 +8,7 @@ extends BaseSoldier
 var SCENE = SceneLib.SOLDIER_KNIGHT
 var _col_activated: bool = false
 
-@onready var attack_col = %AttackCollision
+@onready var force_area: Area2D = %SoldierCollision
 
 
 
@@ -40,15 +40,9 @@ func _custom_process(_delta: float):
 func activate_collision():
 	if !_col_activated:
 #
-		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(
-			attack_col,
-			"scale",
-			Vector2(10.8,10.8),
-			1
-		).from(Vector2.ZERO)
 
-		attack_col.set_disabled(false)
+
+
 
 		_col_activated = true
 		print("col ON")
@@ -57,7 +51,7 @@ func activate_collision():
 func deactivate_collision():
 	if _col_activated:
 #
-		attack_col.set_disabled(true)
+
 
 		_col_activated = false
 		print("col OFF")

@@ -33,7 +33,7 @@ var _move_order
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
-@onready var soldier_collision_shape: CollisionShape2D = %SoldierCollision
+@onready var base_collision_shape: CollisionShape2D = %BaseCollision
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var animation_tree: AnimationTree = %AnimationTree
 @onready var animation_tree_mode = animation_tree["parameters/playback"]
@@ -41,7 +41,8 @@ var _move_order
 @onready var body_sprite: Sprite2D = %BodySprite
 @onready var weapon_pivot: Marker2D = %WeaponPivot
 @onready var sight: Area2D = %Sight
-@onready var force_area: Area2D = %ForceArea
+
+
 
 var blackboard: ArmyBlackboard : set = set_blackboard
 #-------------------------------------------------------------------------------

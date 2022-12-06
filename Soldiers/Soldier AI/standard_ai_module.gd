@@ -91,11 +91,12 @@ func simple_move_army(target):
 	var army_move_check: int = int(_parent._army._army_velocity.length() > 5)
 	return direction * int(dist_check||army_move_check)
 
-func check_friendly_collision(mov_vec: Vector2):
-	var collision_limit: float = 2 * GlobalSettings.UNIT
+func check_force_collisions(mov_vec: Vector2):
+	var collision_limit: float = 0.5 * GlobalSettings.UNIT
 	collision_limit *= collision_limit
 	var LIMIT: float = 0.75
-	if _parent.force_area.contacts.is_empty(): return mov_vec
+	if _parent.force_area.contacts.is_empty():
+		return mov_vec
 	var collisions: Array = _parent.force_area.contacts
 	var position: Vector2 = _parent.get_global_position()
 	for collision in collisions:
@@ -103,13 +104,12 @@ func check_friendly_collision(mov_vec: Vector2):
 		var dot: float = col_dir.dot(mov_vec)
 		if dot > LIMIT:
 			if position.distance_squared_to(collision) <=collision_limit:
-				mov_vec -= col_dir
+				mov_vec = -col_dir * 1.5
 #				mov_vec = Vector2.ZERO
 			return mov_vec
 	return mov_vec
 
-#	_parent.velocity = direction * GlobalSettings.UNIT * 4.75 * int(dist_check||army_move_check)
-#	_parent.move_and_slide()
+
 
 func attack(enemy):
 	_parent.attack(enemy)
@@ -147,33 +147,29 @@ func basic_ai():
 		_isRecalled = false
 
 #set_collision
-	if _isEngaged:
-		_parent.activate_collision()
-	else:
-		if _isRecalled:
-			_parent.deactivate_collision()
+#	if _isEngaged:
+#		_parent.activate_collision()
+#	else:
+#		if _isRecalled:
+#			_parent.deactivate_collision()
 
 #do_actions
 	var mov_vec: Vector2 = Vector2.ZERO
 	if isAttackPossible:
 		attack(enemy)
-		mov_vec += simple_move(enemy.get_global_position())
+#		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec = mov_vec.normalized()
-#		move(mov_vec)
-		_parent.activate_collision()
-#		print("Attack enemy ", enemy)
+		check_force_collisions(mov_vec)
 	elif _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec += simple_move_army(get_army_target()) * 0.35
 		mov_vec = mov_vec.normalized()
-#		move(mov_vec)
-#		print("pursue enemy ", enemy)
+		check_force_collisions(mov_vec)
 	elif _isRecalled:
 		mov_vec += simple_move_army(get_army_target())
-#		move(mov_vec)
-#		print("is recalled")
 	else:
 		mov_vec += simple_move_army(get_army_target())
+		check_force_collisions(mov_vec)
 	move(mov_vec)
 	return -1
 
