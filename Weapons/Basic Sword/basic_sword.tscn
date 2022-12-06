@@ -86,7 +86,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Pivot/BodySprite2D/GPUParticles2D:emitting")
+tracks/6/path = NodePath("Pivot/BodySprite2D/BloodSpatter:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -243,7 +243,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Pivot/BodySprite2D/GPUParticles2D:emitting")
+tracks/5/path = NodePath("Pivot/BodySprite2D/BloodSpatter:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -368,7 +368,7 @@ rotation = -1.58825
 scale = Vector2(0.05, 0.0756217)
 texture = ExtResource("3_joa0w")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Pivot/BodySprite2D"]
+[node name="BloodSpatter" type="GPUParticles2D" parent="Pivot/BodySprite2D"]
 self_modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
 rotation = -1.5708
@@ -379,6 +379,7 @@ explosiveness = 0.25
 randomness = 0.47
 trail_enabled = true
 trail_lifetime = 0.01
-trail_section_subdivisions = 2
+trail_sections = 2
+trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_cn6ml")
 texture = ExtResource("4_pgacq")

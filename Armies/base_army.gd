@@ -10,7 +10,7 @@ var _delta: float
 @onready var _army_position: Vector2 = get_global_position() : set = set_army_position # Vector2.ZERO
 var _army_velocity: Vector2 = Vector2.ZERO
 
-
+@onready var audio_stream = $AudioStreamPlayer2D
 
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
@@ -146,6 +146,8 @@ func _move():
 	var delta: float = _delta
 	_army_position += _army_velocity * delta
 	formation.set_center_position(_army_position)
+
+
 
 #-------------------------------------------------------------------------------
 # Formation Functions
