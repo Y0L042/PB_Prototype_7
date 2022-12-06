@@ -96,23 +96,7 @@ func toggle_collision_mask(toggle = false):
 	_parent.set_collision_mask_value(2, toggle)
 
 
-#func check_force_collisions(mov_vec: Vector2):
-#	var collision_limit: float = 0.5 * GlobalSettings.UNIT
-#	collision_limit *= collision_limit
-#	var LIMIT: float = 0.75
-#	if _parent.force_area.contacts.is_empty():
-#		return mov_vec
-#	var collisions: Array = _parent.force_area.contacts
-#	var position: Vector2 = _parent.get_global_position()
-#	for collision in collisions:
-#		var col_dir: Vector2 = position.direction_to(collision)
-#		var dot: float = col_dir.dot(mov_vec)
-#		if dot > LIMIT:
-#			if position.distance_squared_to(collision) <=collision_limit:
-#				mov_vec = -col_dir * 1.5
-##				mov_vec = Vector2.ZERO
-#			return mov_vec
-#	return mov_vec
+
 
 
 
@@ -151,12 +135,7 @@ func basic_ai():
 	else:
 		_isRecalled = false
 
-#set_collision
-#	if _isEngaged:
-#		_parent.activate_collision()
-#	else:
-#		if _isRecalled:
-#			_parent.deactivate_collision()
+
 
 #do_actions
 	var mov_vec: Vector2 = Vector2.ZERO

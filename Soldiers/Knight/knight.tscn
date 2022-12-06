@@ -1,17 +1,19 @@
-[gd_scene load_steps=32 format=3 uid="uid://cde7ddgpbjev5"]
+[gd_scene load_steps=35 format=3 uid="uid://cde7ddgpbjev5"]
 
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="2_3w8k1"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_s1n8o"]
 [ext_resource type="Texture2D" uid="uid://bcjck6wdvlqp8" path="res://Soldiers/Knight/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png" id="3_0i888"]
 [ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_p5t1t"]
-[ext_resource type="Material" uid="uid://xjhy3277eleg" path="res://Fx/outline_material.tres" id="4_q54mx"]
 [ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="4_ypflr"]
 [ext_resource type="Script" path="res://Soldiers/Sight.gd" id="5_kkigk"]
 [ext_resource type="PackedScene" uid="uid://bcrvkane12a25" path="res://Weapons/Basic Sword/basic_sword.tscn" id="5_pfrld"]
+[ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="6_rqbx3"]
+[ext_resource type="Texture2D" uid="uid://uiyiif4kyq0e" path="res://Fx/Sprites/shadow.png" id="7_1sqnr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
 resource_local_to_scene = true
 shader = ExtResource("2_3w8k1")
+shader_parameter/active = null
 shader_parameter/add_margins = false
 shader_parameter/color = null
 shader_parameter/inside = false
@@ -329,6 +331,21 @@ graph_offset = Vector2(-3, -24)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvuww"]
 radius = 216.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nhtx"]
+resource_local_to_scene = true
+shader = ExtResource("2_3w8k1")
+shader_parameter/active = false
+shader_parameter/add_margins = null
+shader_parameter/color = null
+shader_parameter/inside = true
+shader_parameter/pattern = null
+shader_parameter/width = 25.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63qgb"]
+resource_local_to_scene = true
+shader = ExtResource("6_rqbx3")
+shader_parameter/active = false
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_20s78"]
 radius = 108.0
 
@@ -374,9 +391,19 @@ debug_color = Color(0.580392, 0.384314, 1, 0.262745)
 unique_name_in_owner = true
 use_parent_material = true
 
+[node name="Shadow" type="Sprite2D" parent="Pivot"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.513726)
+show_behind_parent = true
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_1nhtx")
+position = Vector2(0, -9.15527e-05)
+scale = Vector2(1.23, 0.615)
+texture = ExtResource("7_1sqnr")
+
 [node name="BodySprite" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
-material = ExtResource("4_q54mx")
+material = SubResource("ShaderMaterial_63qgb")
 position = Vector2(0, -216)
 scale = Vector2(15, 15)
 texture = ExtResource("3_0i888")

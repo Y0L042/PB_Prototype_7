@@ -38,7 +38,7 @@ bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
 	
 	return false;
 }
-
+uniform bool active = false;
 void fragment() {
 	vec2 uv = UV;
 	

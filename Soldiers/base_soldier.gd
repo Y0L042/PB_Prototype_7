@@ -38,6 +38,7 @@ var _move_order
 @onready var animation_tree: AnimationTree = %AnimationTree
 @onready var animation_tree_mode = animation_tree["parameters/playback"]
 @onready var pivot: Marker2D = %Pivot
+@onready var shadow: Sprite2D =
 @onready var body_sprite: Sprite2D = %BodySprite
 @onready var weapon_pivot: Marker2D = %WeaponPivot
 @onready var sight: Area2D = %Sight
@@ -173,6 +174,12 @@ func _custom_process(_delta: float):
 #-------------------------------------------------------------------------------
 # Actions
 #-------------------------------------------------------------------------------
+func move(vector):
+	velocity = velocity + lerp(velocity, vector * GlobalSettings.UNIT * speed, 0.5)
+	move_and_slide()
+	if velocity.length() > 20:
+		anim_run()
+
 func attack(enemy):
 	for weapon in array_of_weapons:
 		# add check to see if enemy is in range
@@ -180,6 +187,7 @@ func attack(enemy):
 
 func hurt(damage):
 	health -= damage
+	anim_hurt()
 #-------------------------------------------------------------------------------
 # Formation Functions
 #-------------------------------------------------------------------------------
