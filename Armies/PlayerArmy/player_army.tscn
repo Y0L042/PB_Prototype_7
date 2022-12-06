@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8hin0q46nqwm"]
+[gd_scene load_steps=7 format=3 uid="uid://c8hin0q46nqwm"]
 
 [ext_resource type="PackedScene" uid="uid://dedtsjl3a3pw" path="res://Armies/base_army.tscn" id="1_ifu8s"]
 [ext_resource type="Script" path="res://Armies/PlayerArmy/player_army.gd" id="2_oemet"]
 [ext_resource type="Script" path="res://Armies/soldier_manager.gd" id="3_4y1x2"]
 [ext_resource type="PackedScene" uid="uid://b26x8d8pllql7" path="res://Camera/camera_2d.tscn" id="3_5rvps"]
+[ext_resource type="Resource" uid="uid://bl7c2bhiw7uax" path="res://Troops/Player Troops/player_knight_troop.tres" id="4_sohq4"]
 
 [sub_resource type="Resource" id="Resource_5dbxo"]
 resource_local_to_scene = true
 script = ExtResource("3_4y1x2")
+soldier_troop = ExtResource("4_sohq4")
 
 [node name="PlayerArmy" instance=ExtResource("1_ifu8s")]
 script = ExtResource("2_oemet")
@@ -18,9 +20,6 @@ faction_colour = Color(0, 0.6, 0.631373, 1)
 
 [node name="Camera2D" parent="." index="1" instance=ExtResource("3_5rvps")]
 texture_filter = 1
-process_callback = 0
-position_smoothing_enabled = true
 editor_draw_limits = true
-editor_draw_drag_margin = true
 zoom_level = 0.1
 setMaster = true

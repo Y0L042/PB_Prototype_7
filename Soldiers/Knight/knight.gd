@@ -13,7 +13,10 @@ signal CustomReady
 var _parent
 var _formation_index: int : set = set_formation_index, get = get_formation_index
 
+var SCENE = SceneLib.SOLDIER_KNIGHT
+var _col_activated: bool = false
 
+@onready var force_area: Area2D = %SoldierCollision
 #-------------------------------------------------------------------------------
 # Blackboard Variables
 #-------------------------------------------------------------------------------
@@ -109,7 +112,7 @@ func set_faction_stuff():
 	set_actor_faction_outline()
 
 func set_actor_faction_outline():
-	body_sprite.get_material().set_shader_parameter("color", _faction_colour)
+	shadow.get_material().set_shader_parameter("color", _faction_colour)
 
 func _get_index_from_formation():
 	_formation_index = blackboard.active_soldiers.find(self)
@@ -161,15 +164,6 @@ func _custom_process(_delta: float):
 	pass # leave empty for subclasses
 
 
-#-------------------------------------------------------------------------------
-# Formation Functions
-#-------------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------------
-# Tools
-#-------------------------------------------------------------------------------
-
-
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
@@ -201,19 +195,6 @@ func get_position_in_formation():
 #			break
 	index = blackboard.active_soldiers.find(self)
 	return index
-
-
-
-
-#---------------------------------------------------------------------------------------------------#
-# Private Variables
-#---------------------------------------------------------------------------------------------------#
-var SCENE = SceneLib.SOLDIER_KNIGHT
-var _col_activated: bool = false
-
-@onready var force_area: Area2D = %SoldierCollision
-
-
 
 
 

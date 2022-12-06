@@ -15,4 +15,4 @@ drag_bottom_margin = 0.1
 editor_draw_drag_margin = true
 script = ExtResource("1_uvkav")
 ZOOM_SPEED = 0.15
-ZOOM_INCREMENT = 2.5
+ZOOM_INCREMENT = 2.0
