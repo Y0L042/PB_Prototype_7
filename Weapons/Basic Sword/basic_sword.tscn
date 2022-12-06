@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bcrvkane12a25"]
+[gd_scene load_steps=27 format=3 uid="uid://bcrvkane12a25"]
 
 [ext_resource type="Script" path="res://Weapons/Basic Sword/basic_sword.gd" id="2_gmw3c"]
 [ext_resource type="Texture2D" uid="uid://do45hloggxhk3" path="res://Weapons/Basic Sword/weapon_regular_sword.png" id="2_y37xf"]
 [ext_resource type="Texture2D" uid="uid://db170d24q7x5p" path="res://Weapons/Basic Sword/trail.png" id="3_joa0w"]
 [ext_resource type="Texture2D" uid="uid://n65x0ca5e7rm" path="res://Fx/Sprites/ice_particle_white.png" id="4_pgacq"]
+[ext_resource type="AudioStream" uid="uid://duk5my3lwpk2v" path="res://Fx/Sounds/620354__marb7e__whoosh-sword-hit-flesh.wav" id="5_fulun"]
 
 [sub_resource type="Animation" id="Animation_5grc8"]
 resource_name = "Attack_1"
@@ -94,6 +95,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.575),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_hfm0u"]
@@ -252,6 +265,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jeeek"]
 _data = {
@@ -383,3 +408,6 @@ trail_sections = 2
 trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_cn6ml")
 texture = ExtResource("4_pgacq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fulun")

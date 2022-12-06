@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Troops/base_troop.gd" id="1_tf2j8"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_tf2j8")
 _troop_scenes = [ExtResource("1_edooi")]
-_troop_count = [5]
+_troop_count = [1]
