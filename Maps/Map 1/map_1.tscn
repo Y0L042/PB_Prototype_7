@@ -9,18 +9,18 @@
 [ext_resource type="Resource" uid="uid://dxmmsw7tgaco8" path="res://Troops/Army of Knights/army_of_knights.tres" id="7_kd0w7"]
 [ext_resource type="Script" path="res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd" id="8_clgoj"]
 
-[sub_resource type="Resource" id="Resource_jx8js"]
+[sub_resource type="Resource" id="Resource_a3gbh"]
 resource_local_to_scene = true
 script = ExtResource("6_vluai")
 soldier_troop = ExtResource("7_kd0w7")
 
-[sub_resource type="Resource" id="Resource_v2uom"]
+[sub_resource type="Resource" id="Resource_gb1ax"]
 resource_local_to_scene = true
 script = ExtResource("8_clgoj")
 set_CHASE_DIST = 5
 FRIENDLY_AVOIDANCE_STRENGTH = 0.5
 
-[sub_resource type="Resource" id="Resource_67egh"]
+[sub_resource type="Resource" id="Resource_6lydn"]
 resource_local_to_scene = true
 script = ExtResource("6_vluai")
 soldier_troop = ExtResource("7_kd0w7")
@@ -99,9 +99,9 @@ position = Vector2(1728, 1512)
 [node name="PlayerArmy" parent="." instance=ExtResource("4_lqo8v")]
 y_sort_enabled = false
 position = Vector2(2376, 2376)
-_soldier_manager = SubResource("Resource_jx8js")
+_soldier_manager = SubResource("Resource_a3gbh")
 
 [node name="EnemyArmy" parent="." instance=ExtResource("7_4q3il")]
 position = Vector2(8424, 3888)
-_ai_module = SubResource("Resource_v2uom")
-_soldier_manager = SubResource("Resource_67egh")
+_ai_module = SubResource("Resource_gb1ax")
+_soldier_manager = SubResource("Resource_6lydn")

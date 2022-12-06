@@ -360,7 +360,6 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_okoax")
 
 [node name="Sight" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
 scale = Vector2(3, 3)
 collision_layer = 3
 collision_mask = 3
@@ -369,7 +368,7 @@ script = ExtResource("5_kkigk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_gvuww")
-debug_color = Color(0, 0.560784, 0.886275, 0.0392157)
+debug_color = Color(0.580392, 0.384314, 1, 0.262745)
 
 [node name="Pivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
