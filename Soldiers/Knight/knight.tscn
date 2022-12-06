@@ -19,7 +19,7 @@ shader_parameter/pattern = 1
 shader_parameter/width = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_642r8"]
-radius = 216.0
+radius = 108.0
 
 [sub_resource type="Animation" id="Animation_208g4"]
 resource_name = "Dead"
@@ -343,7 +343,6 @@ health = 10.0
 [node name="BaseCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -57)
-scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_642r8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -395,9 +394,12 @@ position = Vector2(-53, -100)
 
 [node name="SoldierCollision" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 2
+monitoring = false
+monitorable = false
 script = ExtResource("4_ypflr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoldierCollision"]

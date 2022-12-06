@@ -91,23 +91,28 @@ func simple_move_army(target):
 	var army_move_check: int = int(_parent._army._army_velocity.length() > 5)
 	return direction * int(dist_check||army_move_check)
 
-func check_force_collisions(mov_vec: Vector2):
-	var collision_limit: float = 0.5 * GlobalSettings.UNIT
-	collision_limit *= collision_limit
-	var LIMIT: float = 0.75
-	if _parent.force_area.contacts.is_empty():
-		return mov_vec
-	var collisions: Array = _parent.force_area.contacts
-	var position: Vector2 = _parent.get_global_position()
-	for collision in collisions:
-		var col_dir: Vector2 = position.direction_to(collision)
-		var dot: float = col_dir.dot(mov_vec)
-		if dot > LIMIT:
-			if position.distance_squared_to(collision) <=collision_limit:
-				mov_vec = -col_dir * 1.5
-#				mov_vec = Vector2.ZERO
-			return mov_vec
-	return mov_vec
+
+func toggle_collision_mask(toggle = false):
+	_parent.set_collision_mask_value(2, toggle)
+
+
+#func check_force_collisions(mov_vec: Vector2):
+#	var collision_limit: float = 0.5 * GlobalSettings.UNIT
+#	collision_limit *= collision_limit
+#	var LIMIT: float = 0.75
+#	if _parent.force_area.contacts.is_empty():
+#		return mov_vec
+#	var collisions: Array = _parent.force_area.contacts
+#	var position: Vector2 = _parent.get_global_position()
+#	for collision in collisions:
+#		var col_dir: Vector2 = position.direction_to(collision)
+#		var dot: float = col_dir.dot(mov_vec)
+#		if dot > LIMIT:
+#			if position.distance_squared_to(collision) <=collision_limit:
+#				mov_vec = -col_dir * 1.5
+##				mov_vec = Vector2.ZERO
+#			return mov_vec
+#	return mov_vec
 
 
 
@@ -159,17 +164,19 @@ func basic_ai():
 		attack(enemy)
 #		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec = mov_vec.normalized()
-		check_force_collisions(mov_vec)
+		toggle_collision_mask(true)
 	elif _isEngaged and (distance_to_enemy >= attack_range and enemy != null):
 		mov_vec += simple_move(enemy.get_global_position())
 		mov_vec += simple_move_army(get_army_target()) * 0.35
 		mov_vec = mov_vec.normalized()
-		check_force_collisions(mov_vec)
+		toggle_collision_mask(true)
 	elif _isRecalled:
 		mov_vec += simple_move_army(get_army_target())
+		toggle_collision_mask(false)
 	else:
 		mov_vec += simple_move_army(get_army_target())
-		check_force_collisions(mov_vec)
+		toggle_collision_mask(false)
+
 	move(mov_vec)
 	return -1
 
