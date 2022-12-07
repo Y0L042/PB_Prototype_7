@@ -32,6 +32,8 @@ func set_parent(new_parent):
 
 func set_soldier_troop(new_troop):
 	soldier_troop = new_troop
+#	if _parent != null:
+#		use_troop()
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#

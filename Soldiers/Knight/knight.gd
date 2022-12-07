@@ -9,6 +9,7 @@ extends CharacterBody2D
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
 signal CustomReady
+signal BlackboardIsReady
 signal SoldierIsDead
 @export @onready var _ai_module: Resource : set = set_ai_module
 var _parent
@@ -74,6 +75,8 @@ func set_blackboard(new_blackboard):
 	_formation = blackboard.formation
 
 	set_faction_stuff()
+
+	BlackboardIsReady.emit() # make _ready wait for blackboard, avoid bugs with ai starting too soon
 
 func set_ai_module(new_ai_module):
 	if new_ai_module == null:
@@ -141,6 +144,10 @@ func init(new_blackboard) -> void:
 func _ready() -> void:
 	_ai_module_ready()
 	_custom_ready()
+	set_physics_process(false) #physics process starts before blackboard is ready
+	await BlackboardIsReady
+	print("blackboard is ready")
+	set_physics_process(true)
 
 func _custom_ready():
 	pass

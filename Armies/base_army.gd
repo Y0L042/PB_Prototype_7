@@ -5,6 +5,8 @@ class_name Army
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
+signal IAMREADY
+
 const TYPE: String = "ARMY"
 var _delta: float
 @onready var _army_position: Vector2 = get_global_position() : set = set_army_position # Vector2.ZERO
@@ -15,7 +17,7 @@ var _army_velocity: Vector2 = Vector2.ZERO
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
 #-------------------------------------------------------------------------------
-@export var _initial_troop: Resource
+@export var _initial_troop: Resource : set = set_initial_troop
 var _soldier_manager: SoldierManager #: set = set_soldier_manager#: Resource# : set = set_soldier_manager # commented out debug 16:18 Mo, 28-11-2022
 
 #-------------------------------------------------------------------------------
@@ -48,6 +50,12 @@ var blackboard: ArmyBlackboard
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
+func set_initial_troop(new_troop):
+	_initial_troop = new_troop
+	if _soldier_manager != null:
+		_soldier_manager.set_soldier_troop(_initial_troop)
+
+
 func set_army_position(new_army_position: Vector2):
 	_army_position = new_army_position
 	# update move_order
@@ -100,10 +108,11 @@ func _custom_init():
 	pass
 
 func _ready() -> void:
-	set_soldier_manager(SoldierManager.new())
 	_create_blackboard()
 	formation = blackboard.formation
+	set_soldier_manager(SoldierManager.new())
 	_custom_ready()
+
 
 
 func _custom_ready():

@@ -1,4 +1,5 @@
-res://Maps/Map 2
+res://Maps/Map Items/Spawn Nodes
+res://Maps/Map Items
 res://UI/HUD
 res://Troops/Player Troops
 res://Troops/Army of Knights
@@ -15,7 +16,6 @@ res://Soldiers/Knight
 res://Soldiers
 res://Armies/EnemyArmy
 res://Armies/PlayerArmy
-res://Maps/Map 1/Assets
 res://Maps/Map 1
 res://Main
 res://Autoloads

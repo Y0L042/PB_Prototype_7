@@ -33,6 +33,7 @@ var SOLDIER_KNIGHT: PackedScene = load("res://Soldiers/Knight/knight.tscn")
 #-------------------------------------------------------------------------------
 # Maps
 #-------------------------------------------------------------------------------
+var MAP_0: PackedScene = load("res://Maps/Map 0/map_0.tscn")
 var MAP_1: PackedScene = load("res://Maps/Map 1/map_1.tscn")
 
 #-------------------------------------------------------------------------------

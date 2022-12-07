@@ -1,3 +1,4 @@
+Marker2D
 HBoxContainer
 Label
 NinePatchRect
@@ -11,7 +12,6 @@ StaticBody2D
 Area2D
 AnimationPlayer
 AnimationTree
-Marker2D
 Node2D
 Camera2D
 CharacterBody2D

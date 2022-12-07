@@ -25,7 +25,8 @@ func get_enemy():
 	return _parent.sight.sighted_enemy
 
 func get_army_target():
-	if _parent == null: return
+	if _parent == null: return Vector2.ZERO
+	if _parent._formation == null: return Vector2.ZERO
 	var target: Vector2
 	if _parent._formation_index == -1:
 		target = _parent._formation.center_position

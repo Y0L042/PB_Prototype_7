@@ -5,3 +5,15 @@ res://Fx/Shaders/faction_outline.gdshader
 res://Soldiers/Soldier AI/standard_soldier_ai.tres
 res://Troops/Player Troops/player_knights.tres
 res://Troops/Army of Knights/army_of_knights.tres
+res://Maps/Map 1/map_1.tscn
+res://Maps/Map 2/map_2.tscn
+res://Autoloads/scene_lib.gd
+res://Maps/Map 0/map_0.tscn
+res://Maps/Map Items/Spawn Nodes/player_spawn_node.tscn
+res://Armies/PlayerArmy/player_army.tscn
+res://Maps/Map Items/Spawn Nodes/player_spawn_node.gd
+res://Armies/base_army.gd
+res://Armies/soldier_manager.gd
+res://UI/Main Menu/ui_main_menu.gd
+res://Soldiers/Knight/knight.gd
+res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.gd

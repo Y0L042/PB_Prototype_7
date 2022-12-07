@@ -9,4 +9,4 @@ func set_faction_colour(new_colour: Color):
 	faction_colour.b = new_colour.b
 	faction_colour.a = get_modulate().a
 	set_modulate(faction_colour)
-	set
+

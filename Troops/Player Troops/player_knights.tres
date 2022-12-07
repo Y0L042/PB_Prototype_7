@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("1_6aobs")
 _troop_scenes = [ExtResource("1_6icgp")]
-_troop_count = [25]
+_troop_count = [1]
