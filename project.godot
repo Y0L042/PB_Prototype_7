@@ -109,6 +109,7 @@ GlobalSettings="*res://Autoloads/global_settings.gd"
 SceneLib="*res://Autoloads/scene_lib.gd"
 Tools="*res://Autoloads/tools.gd"
 SteeringBehaviour="*res://Autoloads/steering_behaviour.gd"
+HudStats="*res://Autoloads/hud_stats.gd"
 
 [debug]
 

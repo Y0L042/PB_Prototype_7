@@ -40,14 +40,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
-layout_mode = 2
 offset_left = 512.0
 offset_top = 246.0
 offset_right = 640.0
 offset_bottom = 401.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/PanelContainer"]
-layout_mode = 2
 offset_right = 128.0
 offset_bottom = 155.0
 theme_override_constants/margin_left = 16
@@ -56,7 +54,6 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 112.0
@@ -65,7 +62,6 @@ alignment = 1
 
 [node name="MenuTitle" type="Label" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_right = 96.0
 offset_bottom = 26.0
 text = "Pause Menu"
@@ -73,7 +69,6 @@ horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 30.0
 offset_right = 96.0
 offset_bottom = 61.0
@@ -83,7 +78,6 @@ script = ExtResource("2_2s133")
 
 [node name="MainMenu" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 65.0
 offset_right = 96.0
 offset_bottom = 96.0
@@ -91,7 +85,6 @@ text = "Main Menu"
 
 [node name="Quit" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 100.0
 offset_right = 96.0
 offset_bottom = 131.0

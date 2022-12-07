@@ -9,6 +9,7 @@ extends CharacterBody2D
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
 signal CustomReady
+signal SoldierIsDead
 @export @onready var _ai_module: Resource : set = set_ai_module
 var _parent
 var _formation_index: int : set = set_formation_index, get = get_formation_index
@@ -103,7 +104,8 @@ func set_speed(new_speed):
 	speed = new_speed
 
 func set_dead():
-	SceneLib.spawn_child(load("res://Fx/Sprites/blood_1.tscn"), get_parent(), get_global_position())
+	SoldierIsDead.emit()
+	_spawn_blood_splatter()
 	blackboard.active_soldiers.erase(self)
 	blackboard.deregister_soldier(self)
 	self.queue_free()
@@ -167,7 +169,12 @@ func _ai_module_process(_delta: float):
 func _custom_process(_delta: float):
 	pass # leave empty for subclasses
 
-
+#-------------------------------------------------------------------------------
+# Events
+#-------------------------------------------------------------------------------
+func _spawn_blood_splatter():
+	var blood_splatter = SceneLib.spawn_child(SceneLib.fx_sprite_blood_splatter_1, get_tree().get_root(), get_global_position())
+	blood_splatter.set_faction_colour(_faction_colour)
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
@@ -215,6 +222,8 @@ func activate_collision():
 		_col_activated = true
 		print("col ON")
 	else: print("already active")
+
+
 
 func deactivate_collision():
 	if _col_activated:

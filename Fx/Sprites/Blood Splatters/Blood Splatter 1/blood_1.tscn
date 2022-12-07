@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyv6u0vllwvan"]
+
+[ext_resource type="Texture2D" uid="uid://bbje4nkctytlw" path="res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood-vector-png-10-1690415632.png" id="1_w80e3"]
+[ext_resource type="Script" path="res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.gd" id="2_2d0mq"]
+
+[node name="blood_1" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = -1
+y_sort_enabled = true
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_w80e3")
+script = ExtResource("2_2d0mq")

@@ -1,22 +1,26 @@
-res://Maps/Map 1/map_1.tscn
+res://UI/HUD/soldier_counter.tscn
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
 res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
 res://Fx/Shaders/faction_outline.gdshader
 res://Soldiers/Soldier AI/standard_soldier_ai.tres
-res://Troops/Player Troops/player_knight_troop.tres
+res://Troops/Player Troops/player_knights.tres
+res://Troops/Army of Knights/army_of_knights.tres
+res://Autoloads/hud_stats.gd
+res://UI/HUD/hud.tscn
+res://UI/HUD/hud.gd
+res://Soldiers/Knight/knight.tscn
+res://Armies/soldier_manager.gd
+res://Maps/Map 1/map_1.tscn
 res://Fx/Sprites/blood_1.tscn
 res://Weapons/Basic Sword/basic_sword.tscn
-res://Soldiers/Knight/knight.tscn
 res://Armies/base_army.tscn
 res://Armies/EnemyArmy/enemy_army.tscn
 res://Armies/PlayerArmy/player_army.tscn
-res://Soldiers/Sight.gd
 res://Camera/camera_2d.tscn
-res://Troops/Army of Knights/army_of_knights.tres
-res://Armies/base_army.gd
-res://Troops/Player Troops/player_knights.tres
-res://Fx/Shaders/hurt_shader.gdshader
+res://UI/Pause Menu/ui_pause_menu.tscn
 res://Soldiers/Knight/knight.gd
-res://Armies/soldier_manager.gd
-res://Armies/EnemyArmy/enemy_army.gd
+res://Fx/Sprites/blood_1.gd
+res://Autoloads/scene_lib.gd
+res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.tscn
+res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.gd

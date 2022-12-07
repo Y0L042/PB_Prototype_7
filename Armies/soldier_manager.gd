@@ -105,7 +105,16 @@ func spawn_soldier(new_soldier, auto_register_soldier = true):
 	print("soldier spawned: ", soldier)
 	if auto_register_soldier:
 		_parent.blackboard.register_soldier(soldier)
+
+	connect_to_signals(soldier)
+	update_hud()
+
 	return soldier
+
+func connect_to_signals(new_soldier):
+	new_soldier.SoldierIsDead.connect(soldier_is_dead)
+
+
 
 func add_soldier_weapon_resources():
 	pass
@@ -113,9 +122,14 @@ func add_soldier_weapon_resources():
 func register_soldier_array():
 	_parent.blackboard.register_soldier_array(active_soldiers_array)
 #---------------------------------------------------------------------------------------------------#
-# %debug%
+# Events
 #---------------------------------------------------------------------------------------------------#
+func soldier_is_dead():
+	update_hud()
 
+func update_hud():
+	if _parent.faction == "Player":
+		HudStats.UpdateSoldierCount.emit(active_soldiers_array.size())
 
 
 

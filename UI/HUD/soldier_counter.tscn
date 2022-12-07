@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bctc3xm0q60ig"]
+
+[ext_resource type="Script" path="res://UI/HUD/soldier_counter.gd" id="1_mg3jr"]
+
+[node name="SoldierCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mg3jr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SoldierCount" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_top = 7.0
+offset_right = 10.0
+offset_bottom = 33.0
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoldierLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 76.0
+offset_bottom = 33.0
+size_flags_horizontal = 0
+text = "Soldiers"
+horizontal_alignment = 1
+vertical_alignment = 1
