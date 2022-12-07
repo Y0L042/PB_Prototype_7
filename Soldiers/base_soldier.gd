@@ -9,7 +9,7 @@ class_name BaseSoldier
 signal CustomReady
 @export @onready var _ai_module: Resource : set = set_ai_module
 var _parent
-var _formation_index: int : set = set_formation_index, get = get_formation_index
+var _formation_index: int
 
 
 #-------------------------------------------------------------------------------
@@ -29,23 +29,20 @@ var _move_order
 # Stats
 #-------------------------------------------------------------------------------
 @export var health: float = 5.0 : set = set_health
-@export var speed: float = 5.0 : set = set_speed
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
-@onready var base_collision_shape: CollisionShape2D = %BaseCollision
+@onready var soldier_collision_shape: CollisionShape2D = %SoldierCollision
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var animation_tree: AnimationTree = %AnimationTree
 @onready var animation_tree_mode = animation_tree["parameters/playback"]
 @onready var pivot: Marker2D = %Pivot
-@onready var shadow: Sprite2D =
 @onready var body_sprite: Sprite2D = %BodySprite
 @onready var weapon_pivot: Marker2D = %WeaponPivot
 @onready var sight: Area2D = %Sight
+@onready var force_area: Area2D = %ForceArea
 
-
-
-var blackboard: ArmyBlackboard : set = set_blackboard
+var blackboard: Dictionary : set = set_blackboard
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
@@ -60,14 +57,17 @@ var blackboard: ArmyBlackboard : set = set_blackboard
 #---------------------------------------------------------------------------------------------------#
 func set_blackboard(new_blackboard):
 	blackboard = new_blackboard
-	blackboard.FormationUpdate.connect(_get_index_from_formation)
 	faction = blackboard.faction
 	_army = blackboard.army
 	_army_id = blackboard.army_id
-	_faction_colour = blackboard.get_faction_colour()
+	_faction_colour = blackboard.faction_colour
 	_formation = blackboard.formation
 
 	set_faction_stuff()
+
+
+
+
 
 func set_ai_module(new_ai_module):
 	if new_ai_module == null:
@@ -83,8 +83,8 @@ func set_array_of_weapons(new_array):
 func get_attack_range():
 	var attack_range: float = 1 * GlobalSettings.UNIT#-1.0
 	for weapon in array_of_weapons:
-		if weapon.range > attack_range:#replace with actual stat
-			attack_range = weapon.range#replace with actual stat
+		if weapon.get_range() > attack_range:#replace with actual stat
+			attack_range = weapon.get_range()#replace with actual stat
 	return attack_range
 
 func set_health(new_health):
@@ -94,13 +94,10 @@ func set_health(new_health):
 	if health <= 0:
 		set_dead()
 
-func set_speed(new_speed):
-	speed = new_speed
-
 func set_dead():
 	SceneLib.spawn_child(load("res://Fx/Sprites/blood_1.tscn"), get_parent(), get_global_position())
 	blackboard.active_soldiers.erase(self)
-	blackboard.deregister_soldier(self)
+#	blackboard.formation.volume -= 1
 	self.queue_free()
 
 func set_faction_stuff():
@@ -108,13 +105,6 @@ func set_faction_stuff():
 
 func set_actor_faction_outline():
 	body_sprite.get_material().set_shader_parameter("color", _faction_colour)
-
-func _get_index_from_formation():
-	_formation_index = blackboard.active_soldiers.find(self)
-func set_formation_index(new_index):
-	_formation_index = new_index
-func get_formation_index():
-	return _formation_index
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -129,10 +119,6 @@ func init(new_blackboard) -> void:
 
 func _ready() -> void:
 	_ai_module_ready()
-	_custom_ready()
-
-func _custom_ready():
-	pass
 
 func _ai_module_ready():
 	# Run AI Module _ready
@@ -174,12 +160,6 @@ func _custom_process(_delta: float):
 #-------------------------------------------------------------------------------
 # Actions
 #-------------------------------------------------------------------------------
-func move(vector):
-	velocity = velocity + lerp(velocity, vector * GlobalSettings.UNIT * speed, 0.5)
-	move_and_slide()
-	if velocity.length() > 20:
-		anim_run()
-
 func attack(enemy):
 	for weapon in array_of_weapons:
 		# add check to see if enemy is in range
@@ -187,7 +167,6 @@ func attack(enemy):
 
 func hurt(damage):
 	health -= damage
-	anim_hurt()
 #-------------------------------------------------------------------------------
 # Formation Functions
 #-------------------------------------------------------------------------------

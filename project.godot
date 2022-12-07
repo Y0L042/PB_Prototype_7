@@ -14,11 +14,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Armies/base_army.gd"
 }, {
-"base": "RefCounted",
-"class": &"ArmyBlackboard",
-"language": &"GDScript",
-"path": "res://Blackboards/Army Blackboard/army_blackboard.gd"
-}, {
 "base": "Resource",
 "class": &"BaseAIModule",
 "language": &"GDScript",
@@ -28,6 +23,11 @@ _global_script_classes=[{
 "class": &"BaseFaction",
 "language": &"GDScript",
 "path": "res://Factions/base_faction.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"BaseSoldier",
+"language": &"GDScript",
+"path": "res://Soldiers/base_soldier.gd"
 }, {
 "base": "Resource",
 "class": &"BaseSoldierAIModule",
@@ -59,7 +59,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Classes/GridClass.gd"
 }, {
-"base": "RefCounted",
+"base": "Resource",
 "class": &"SoldierManager",
 "language": &"GDScript",
 "path": "res://Armies/soldier_manager.gd"
@@ -81,9 +81,9 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Army": "",
-"ArmyBlackboard": "",
 "BaseAIModule": "",
 "BaseFaction": "",
+"BaseSoldier": "",
 "BaseSoldierAIModule": "",
 "BaseStats": "",
 "BaseTroop": "",
@@ -124,7 +124,6 @@ gdscript/warnings/integer_division=0
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [input]
@@ -219,13 +218,13 @@ game_action_f_stretch={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
 ]
 }
-game_action_zoomin={
+game_action_zoomout={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
-game_action_zoomout={
+game_action_zoomin={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":false,"script":null)

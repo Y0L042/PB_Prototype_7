@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://xjhy3277eleg"]
+
+[ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_3mwc5"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_3mwc5")
+shader_parameter/add_margins = null
+shader_parameter/color = null
+shader_parameter/inside = false
+shader_parameter/pattern = null
+shader_parameter/width = null

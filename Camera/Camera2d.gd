@@ -4,14 +4,13 @@ extends Camera2D
 var master : get = get_master
 var target_position: Vector2 = Vector2.ZERO : set = set_target_position, get = get_target_position
 @export var zoom_level: float = 3 : set = set_zoom_level, get = get_zoom_level
-@onready var zoom_target: float = zoom_level : set = set_zoom_target, get = get_zoom_target
-@export var MAX_ZOOMIN: float = 0.5
-@export var MAX_ZOOMOUT: float = 0.075
-@export_range (0,1) var ZOOM_SPEED: float = 0.5
-@export_range (1,5) var ZOOM_INCREMENT: float = 1.5
+@export var MIN_ZOOM: float = 0.7
+@export var MAX_ZOOM: float = 10.0
+@export var ZOOM_RATE: float = 5.0
+@export var ZOOM_INCREMENT: float = 0.1
 @export var setMaster: bool = false
 
-
+var desired_zoom: float = zoom_level
 
 #-------------------------------------------------------------------------------
 # SetGet
@@ -22,14 +21,9 @@ func get_master():
 	return master
 
 func set_zoom_level(new_zoom_level):
-	zoom_level = clampf(new_zoom_level, MAX_ZOOMOUT, MAX_ZOOMIN)
+	zoom_level = new_zoom_level
 func get_zoom_level():
 	return zoom_level
-
-func set_zoom_target(new_target_level):
-	zoom_target = clampf(new_target_level, MAX_ZOOMOUT, MAX_ZOOMIN)
-func get_zoom_target():
-	return zoom_target
 
 func set_target_position(new_target_position: Vector2):
 	target_position = new_target_position
@@ -49,25 +43,27 @@ func _ready() -> void:
 # Runtime
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
-	if master != null:
+	if master:
 		set_target_position(get_master().get_army_position())
-	zoom_level = lerpf(zoom_level, zoom_target, ZOOM_SPEED)
+
+#	zoom_level = lerp(zoom_level, desired_zoom, ZOOM_RATE * delta)
 	set_zoom(Vector2(zoom_level, zoom_level))
 
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("game_action_zoomin"):
-		zoom_in()
 	if Input.is_action_just_pressed("game_action_zoomout"):
+		zoom_level *= 2
 		zoom_out()
-
+	if Input.is_action_just_pressed("game_action_zoomin"):
+		zoom_level /= 2
+		zoom_in()
 
 
 func zoom_in():
-	zoom_target *= ZOOM_INCREMENT
-
+	if (desired_zoom - ZOOM_INCREMENT) >= MIN_ZOOM:
+		desired_zoom -= ZOOM_INCREMENT
 
 func zoom_out():
-	zoom_target /= ZOOM_INCREMENT
-
+	if (desired_zoom - ZOOM_INCREMENT) <= MAX_ZOOM:
+		desired_zoom += ZOOM_INCREMENT
