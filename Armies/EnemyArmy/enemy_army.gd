@@ -47,8 +47,18 @@ func _ai_module_ready():
 func _custom_process(delta: float):
 	_ai_module_process(delta)
 	_set_formation_rotation()
-
 	_debug()
+	play_marching()
+
+func play_marching():#temp
+	audio_stream.set_global_position(_army_position)
+	audio_stream.set_volume_db(-10)
+	#play marching sound, temp
+	if _army_velocity.length_squared() > 15*15:
+		if !audio_stream.is_playing():
+			audio_stream._set_playing(true)
+	else:
+		audio_stream.stop()
 
 func _ai_module_process(delta: float):
 	# Run AI Module _physics

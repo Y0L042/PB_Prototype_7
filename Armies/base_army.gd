@@ -10,12 +10,13 @@ var _delta: float
 @onready var _army_position: Vector2 = get_global_position() : set = set_army_position # Vector2.ZERO
 var _army_velocity: Vector2 = Vector2.ZERO
 
-var _active_soldiers: Array = []
+@onready var audio_stream = $AudioStreamPlayer2D
 
 #-------------------------------------------------------------------------------
 # Soldier-Related Variables
 #-------------------------------------------------------------------------------
-@onready @export var _soldier_manager: Resource# : set = set_soldier_manager # commented out debug 16:18 Mo, 28-11-2022
+@export var _initial_troop: Resource
+var _soldier_manager: SoldierManager #: set = set_soldier_manager#: Resource# : set = set_soldier_manager # commented out debug 16:18 Mo, 28-11-2022
 
 #-------------------------------------------------------------------------------
 # % debug %
@@ -27,28 +28,21 @@ var _visual_debugger := VisualDebugger.new(self)
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
-@export_color_no_alpha var army_colour: Color : set = set_army_colour# used with outline shader
+
 @export var army_speed: float : set = set_army_speed
+#-------------------------------------------------------------------------------
+# Blackboard
+#-------------------------------------------------------------------------------
+var blackboard: ArmyBlackboard
+@export var faction: String : set = set_faction
+@onready var army_id: int = get_instance_id() : set = set_army_id
+@export_color_no_alpha var faction_colour: Color = Color(0.5, 0.8, 0.5, 1) #: set = set_faction_colour# used with outline shader
+@onready var formation
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
-var blackboard: Dictionary = {
-	"faction" : "INSERT FACTION HERE",
-	"army" : self,
-	"army_id" : "INSERT ARMY INSTANCE ID HERE",
-	"active_soldiers" : _active_soldiers,
-	"formation" : GridObject.new(),
-	"faction_colour" : army_colour,
-	"move_order" : Vector2.ZERO,
-	"isArmyAttacking" : false
-}
-
-
 @onready var army_sight_area: Area2D = %Army_Sight
-@onready var formation = blackboard.formation
 
-@export var faction: String : set = set_faction
-@onready var army_id: int = get_instance_id() : set = set_army_id
 
 #---------------------------------------------------------------------------------------------------#
 # SetGet
@@ -66,27 +60,27 @@ func set_army_speed(new_army_speed: float):
 	army_speed = new_army_speed
 	army_speed *= GlobalSettings.UNIT
 
-func set_army_colour(new_colour: Color):
-	army_colour = new_colour
-	blackboard.faction_colour = army_colour
-
 func set_faction(new_faction):
 	faction = new_faction
-	blackboard.faction = faction
+
+#func set_faction_colour(new_color: Color):
+#	faction_colour = new_color
 
 func set_army_id(new_id):
 	army_id = new_id
-	blackboard.army_id = army_id
+
 
 func set_formation_volume(new_volume):
 	formation.set_volume(new_volume)
 
 func set_soldier_manager(new_soldier_manager):
 	if new_soldier_manager == null:
-		print("Error: Soldier manager scene is empty!", self)
+		printerr("Error: Soldier manager scene is empty!", self)
 		return -1
 	_soldier_manager = new_soldier_manager
 	_soldier_manager.set_parent(self)
+	if _initial_troop == null: return
+	_soldier_manager.set_soldier_troop(_initial_troop)
 
 
 #---------------------------------------------------------------------------------------------------#
@@ -100,16 +94,39 @@ func _init() -> void:
 	_custom_init()
 	add_to_group(TYPE)
 
+
 func _custom_init():
 	pass
 
 func _ready() -> void:
-	set_soldier_manager(_soldier_manager) # added debug 16:18 Mo, 28-11-2022
+	set_soldier_manager(SoldierManager.new())
+	_create_blackboard()
+	formation = blackboard.formation
 	_custom_ready()
 
 
 func _custom_ready():
 	pass
+
+func _create_blackboard():
+	var new_faction = faction
+	var new_army = self
+	var new_army_id = army_id
+	var new_active_soldiers = []
+	var new_formation = GridObject.new()
+	var new_faction_colour = faction_colour
+	var new_move_order = Vector2.ZERO
+	var new_isArmyAttacking = false
+	blackboard = ArmyBlackboard.new(
+		new_faction,
+		new_army,
+		new_army_id,
+		new_active_soldiers,
+		new_formation,
+		new_faction_colour,
+		new_move_order,
+		new_isArmyAttacking,
+	)
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
@@ -129,6 +146,8 @@ func _move():
 	var delta: float = _delta
 	_army_position += _army_velocity * delta
 	formation.set_center_position(_army_position)
+
+
 
 #-------------------------------------------------------------------------------
 # Formation Functions

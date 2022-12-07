@@ -1,4 +1,5 @@
-extends Resource
+#extends Resource
+extends RefCounted
 
 class_name SoldierManager
 
@@ -14,7 +15,7 @@ var _parent
 #---------------------------------------------------------------------------------------------------#
 @export_category("Soldier Spawning")
 ## The initial troop of soldiers that will be spawned
-@export var soldier_troop: Resource
+@export var soldier_troop: Resource : set = set_soldier_troop
 
 
 var all_soldiers_array: Array = []
@@ -27,6 +28,8 @@ func set_parent(new_parent):
 	_parent.ready.connect(_custom_ready)
 	_parent.get_tree().physics_frame.connect(_custom_physics_process)
 
+func set_soldier_troop(new_troop):
+	soldier_troop = new_troop
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -40,10 +43,11 @@ func _custom_ready(): #resource doesn't have ready, process, so we hijack parent
 
 
 func use_troop():
-	var troop = soldier_troop.get_troop()
-	for scene in troop:
-		var new_soldier = spawn_soldier(scene)
-	set_parent_formation_volume()
+	var troop_scenes = soldier_troop.get_troop()
+	spawn_soldier_array(troop_scenes)
+#	for scene in troop:
+#		var new_soldier = spawn_soldier(scene)
+#	register_soldier_array()
 #-------------------------------------------------------------------------------
 # Runtime
 #-------------------------------------------------------------------------------
@@ -64,38 +68,39 @@ func _custom_physics_process():
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
 #-------------------------------------------------------------------------------
-# Initialization
+# Other Functions
 #-------------------------------------------------------------------------------
-
+func get_all_soldiers_scenes():
+	var scenes_array: Array = []
+	for soldier in all_soldiers_array:
+		scenes_array.append(soldier.SCENE)
+	return scenes_array
 #-------------------------------------------------------------------------------
 # Spawning Functions
 #-------------------------------------------------------------------------------
-func spawn_soldier_array(array_of_soldiers: Array):
+func spawn_soldier_array(array_of_soldier_scenes: Array):
 	var spawned_soldiers: Array = []
-	for soldier in array_of_soldiers:
-		var new_soldier = spawn_soldier(soldier.SCENE)
+	for scene in array_of_soldier_scenes:
+		var new_soldier = spawn_soldier(scene, false)
 		spawned_soldiers.append(new_soldier)
-	set_parent_formation_volume()
+	register_soldier_array()
 	return spawned_soldiers
 
-func spawn_soldier(new_soldier):
+func spawn_soldier(new_soldier, auto_register_soldier = true):
 	var soldier = SceneLib.spawn_child(new_soldier, _parent, _parent.get_army_position())
 	soldier.init(_parent.blackboard)
 	all_soldiers_array.append(soldier)
 	active_soldiers_array.append(soldier)
 	print("soldier spawned: ", soldier)
+	if auto_register_soldier:
+		_parent.blackboard.register_soldier(soldier)
 	return soldier
 
 func add_soldier_weapon_resources():
 	pass
 
-# tight integration
-func set_parent_formation_volume():
-	_parent.set_formation_volume(active_soldiers_array.size())
-	update_parent_blackboard()
-
-func update_parent_blackboard():
-	_parent.blackboard.active_soldiers = active_soldiers_array
+func register_soldier_array():
+	_parent.blackboard.register_soldier_array(active_soldiers_array)
 #---------------------------------------------------------------------------------------------------#
 # %debug%
 #---------------------------------------------------------------------------------------------------#

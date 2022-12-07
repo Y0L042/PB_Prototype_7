@@ -17,20 +17,16 @@ class_name BaseWeapon
 #-------------------------------------------------------------------------------
 # Stats
 #-------------------------------------------------------------------------------
-@export var damage: float = 0.0 : set = set_damage, get = get_damage
-@export var range_: float = 2 * GlobalSettings.UNIT : set = set_range, get = get_range
+@export var damage: float = 0.0 : set = set_damage
+@export var range: float = 2 * GlobalSettings.UNIT : set = set_range
 #---------------------------------------------------------------------------------------------------#
 # SetGet
 #---------------------------------------------------------------------------------------------------#
 func set_damage(new_damage):
 	damage = new_damage
-func get_damage():
-	return damage
 
 func set_range(new_range):
-	range_ = new_range * GlobalSettings.UNIT
-func get_range():
-	return range_
+	range = new_range * GlobalSettings.UNIT
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
