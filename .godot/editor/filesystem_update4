@@ -17,3 +17,5 @@ res://Armies/soldier_manager.gd
 res://UI/Main Menu/ui_main_menu.gd
 res://Soldiers/Knight/knight.gd
 res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.gd
+res://Maps/Map Items/Spawn Markers/player_spawn_marker.tscn
+res://Maps/Map Items/Spawn Markers/Player Spawn Marker.gd

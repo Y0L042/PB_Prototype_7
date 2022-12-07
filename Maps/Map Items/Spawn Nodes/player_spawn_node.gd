@@ -1,9 +1,6 @@
 extends Node2D
 
+@export var _troops: Array[Resource] : get = get_troops
 
-func _spawn_players():
-	for child in get_children():
-		var _spawn_point: Vector2 = child.get_global_position()
-		var army = SceneLib.spawn_child(SceneLib.PLAYER_ARMY, self)
-
-		army.set_army_position(_spawn_point)
+func get_troops():
+	return _troops

@@ -32,8 +32,8 @@ func set_parent(new_parent):
 
 func set_soldier_troop(new_troop):
 	soldier_troop = new_troop
-#	if _parent != null:
-#		use_troop()
+	if _parent != null:
+		use_troop()
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -42,8 +42,8 @@ func set_soldier_troop(new_troop):
 #-------------------------------------------------------------------------------
 func _custom_ready(): #resource doesn't have ready, process, so we hijack parent's
 	print("soldier manager is ready to spawn your soldiers: ", _parent)
-	if soldier_troop != null:
-		use_troop()
+#	if soldier_troop != null:
+#		use_troop()
 
 
 func use_troop():
