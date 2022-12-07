@@ -1,5 +1,6 @@
 #extends Resource
-extends RefCounted
+#extends RefCounted
+extends Node2D
 
 class_name SoldierManager
 
@@ -9,7 +10,7 @@ class_name SoldierManager
 #---------------------------------------------------------------------------------------------------#
 var _parent
 
-
+signal ArmyIsDefeated
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
 #---------------------------------------------------------------------------------------------------#
@@ -17,7 +18,7 @@ var _parent
 ## The initial troop of soldiers that will be spawned
 @export var soldier_troop: Resource : set = set_soldier_troop
 
-
+var all_soldiers_scenes: Array = []
 var all_soldiers_array: Array = []
 var active_soldiers_array: Array = []
 #---------------------------------------------------------------------------------------------------#
@@ -25,6 +26,7 @@ var active_soldiers_array: Array = []
 #---------------------------------------------------------------------------------------------------#
 func set_parent(new_parent):
 	_parent = new_parent
+#	owner = _parent#only valid for extends Node
 	_parent.ready.connect(_custom_ready)
 	_parent.get_tree().physics_frame.connect(_custom_physics_process)
 
@@ -52,8 +54,15 @@ func use_troop():
 # Runtime
 #-------------------------------------------------------------------------------
 func _custom_physics_process():
-#	print("soldier manager physics process.")
-	pass
+	if active_soldiers_array.is_empty() and !all_soldiers_scenes.is_empty():
+		ArmyIsDefeated.emit(get_all_soldiers_scenes())
+		if _parent.enemy_army != null:
+			var enemy_army = _parent.enemy_army
+			if enemy_army.has_method("receive_necromanced_army"):
+				enemy_army.receive_necromanced_army(get_all_soldiers_scenes())
+		_parent.queue_free()
+		print(self, "  is ded")
+		self.queue_free()
 #-------------------------------------------------------------------------------
 # Formation Functions
 #-------------------------------------------------------------------------------
@@ -71,10 +80,11 @@ func _custom_physics_process():
 # Other Functions
 #-------------------------------------------------------------------------------
 func get_all_soldiers_scenes():
-	var scenes_array: Array = []
-	for soldier in all_soldiers_array:
-		scenes_array.append(soldier.SCENE)
-	return scenes_array
+	return all_soldiers_scenes
+
+func necromance_army(new_soldier_scenes):
+	spawn_soldier_array(new_soldier_scenes)
+	print(self, "   is necromancing army")
 #-------------------------------------------------------------------------------
 # Spawning Functions
 #-------------------------------------------------------------------------------
@@ -89,6 +99,7 @@ func spawn_soldier_array(array_of_soldier_scenes: Array):
 func spawn_soldier(new_soldier, auto_register_soldier = true):
 	var soldier = SceneLib.spawn_child(new_soldier, _parent, _parent.get_army_position())
 	soldier.init(_parent.blackboard)
+	all_soldiers_scenes.append(soldier.SCENE)
 	all_soldiers_array.append(soldier)
 	active_soldiers_array.append(soldier)
 	print("soldier spawned: ", soldier)

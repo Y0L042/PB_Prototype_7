@@ -6,7 +6,7 @@ class_name WanderAIModule
 #---------------------------------------------------------------------------------------------------#
 # Private Variables
 #---------------------------------------------------------------------------------------------------#
-var enemy_army: Variant = null
+var enemy_army: Variant = null : set = set_enemy_army
 var friendly_armies: Array = []
 
 
@@ -32,6 +32,9 @@ var CHASE_DIST: float = set_CHASE_DIST * GlobalSettings.UNIT : set = set_chase_d
 func set_chase_distance(new_chase_distance: float):
 	CHASE_DIST = new_chase_distance * GlobalSettings.UNIT
 
+func set_enemy_army(new_enemy_army):
+	enemy_army = new_enemy_army
+	_parent.enemy_army = enemy_army
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#

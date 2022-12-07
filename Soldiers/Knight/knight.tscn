@@ -347,6 +347,8 @@ shader_parameter/width = 25.0
 resource_local_to_scene = true
 shader = ExtResource("6_rqbx3")
 shader_parameter/active = false
+shader_parameter/tint_color = Color(1, 0, 0, 1)
+shader_parameter/tint_effect_factor = 0.75
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ntb2x"]
 emission_shape = 1
@@ -432,6 +434,7 @@ frame = 1
 
 [node name="Dust" type="GPUParticles2D" parent="Pivot"]
 emitting = false
+amount = 16
 lifetime = 0.5
 one_shot = true
 explosiveness = 0.1

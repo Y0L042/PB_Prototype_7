@@ -1,25 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4twblvfambin"]
+[gd_scene load_steps=10 format=3 uid="uid://b4twblvfambin"]
 
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
 [ext_resource type="TileSet" uid="uid://0lfqmjlyfncj" path="res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres" id="1_o8cge"]
 [ext_resource type="PackedScene" uid="uid://mkk160r4og8j" path="res://UI/Pause Menu/ui_pause_menu.tscn" id="3_r0f5s"]
 [ext_resource type="PackedScene" uid="uid://c8hin0q46nqwm" path="res://Armies/PlayerArmy/player_army.tscn" id="4_lqo8v"]
+[ext_resource type="Resource" uid="uid://bml04j3foddfq" path="res://Troops/Player Troops/player_knights.tres" id="5_t5gat"]
 [ext_resource type="PackedScene" uid="uid://bk0jag240ohc" path="res://Armies/EnemyArmy/enemy_army.tscn" id="7_4q3il"]
-[ext_resource type="PackedScene" uid="uid://cde7ddgpbjev5" path="res://Soldiers/Knight/knight.tscn" id="7_83k2g"]
 [ext_resource type="Script" path="res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd" id="8_clgoj"]
-[ext_resource type="Script" path="res://Troops/base_troop.gd" id="8_dte1p"]
+[ext_resource type="Resource" uid="uid://cstj1pxj68c6a" path="res://Troops/Army of Knights/army_of_knights.tres" id="8_ktg0s"]
 
-[sub_resource type="Resource" id="Resource_7abi7"]
+[sub_resource type="Resource" id="Resource_2j5af"]
 resource_local_to_scene = true
 script = ExtResource("8_clgoj")
 set_CHASE_DIST = 5
 FRIENDLY_AVOIDANCE_STRENGTH = 0.5
-
-[sub_resource type="Resource" id="Resource_xenca"]
-resource_local_to_scene = true
-script = ExtResource("8_dte1p")
-_troop_scenes = [ExtResource("7_83k2g")]
-_troop_count = [5]
 
 [node name="Map 1" type="Node2D"]
 z_index = -1
@@ -95,8 +89,9 @@ position = Vector2(1728, 1512)
 [node name="PlayerArmy" parent="." instance=ExtResource("4_lqo8v")]
 y_sort_enabled = false
 position = Vector2(2376, 2376)
+_initial_troop = ExtResource("5_t5gat")
 
 [node name="EnemyArmy" parent="." instance=ExtResource("7_4q3il")]
 position = Vector2(8424, 3888)
-_ai_module = SubResource("Resource_7abi7")
-_initial_troop = SubResource("Resource_xenca")
+_ai_module = SubResource("Resource_2j5af")
+_initial_troop = ExtResource("8_ktg0s")

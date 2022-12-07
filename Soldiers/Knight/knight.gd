@@ -110,9 +110,13 @@ func set_dead():
 
 func set_faction_stuff():
 	set_actor_faction_outline()
+	set_actor_tint_colour()
 
 func set_actor_faction_outline():
 	shadow.get_material().set_shader_parameter("color", _faction_colour)
+
+func set_actor_tint_colour():
+	body_sprite.get_material().set_shader_parameter("tint_color", _faction_colour)
 
 func _get_index_from_formation():
 	_formation_index = blackboard.active_soldiers.find(self)
