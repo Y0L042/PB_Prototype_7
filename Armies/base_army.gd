@@ -149,7 +149,6 @@ func _move():
 	formation.set_center_position(_army_position)
 
 
-
 #-------------------------------------------------------------------------------
 # Formation Functions
 #-------------------------------------------------------------------------------
@@ -167,7 +166,7 @@ func receive_necromanced_army(new_army):
 #-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------
-func _calc_soldier_array_center(arr: Array):
+func _calc_soldier_array_center(arr: Array = _soldier_manager.active_soldiers_array):
 	var avg := Vector2.ZERO
 	for soldier in arr:
 		avg += soldier.get_global_position()

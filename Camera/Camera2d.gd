@@ -50,7 +50,10 @@ func _ready() -> void:
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
 	if master != null:
-		set_target_position(get_master().get_army_position())
+		var spawn_pos: Vector2 = master._calc_soldier_array_center()
+		if is_nan(spawn_pos.x) or is_nan(spawn_pos.y):
+			spawn_pos = master.get_army_position()
+		set_target_position(spawn_pos)#get_master().get_army_position())
 	zoom_level = lerpf(zoom_level, zoom_target, ZOOM_SPEED)
 	set_zoom(Vector2(zoom_level, zoom_level))
 

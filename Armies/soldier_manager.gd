@@ -97,7 +97,12 @@ func spawn_soldier_array(array_of_soldier_scenes: Array):
 	return spawned_soldiers
 
 func spawn_soldier(new_soldier, auto_register_soldier = true):
-	var soldier = SceneLib.spawn_child(new_soldier, _parent, _parent.get_army_position())
+
+	var spawn_pos: Vector2 = _parent._calc_soldier_array_center(active_soldiers_array)
+	if is_nan(spawn_pos.x) or is_nan(spawn_pos.y) or spawn_pos == null or spawn_pos == Vector2.ZERO:
+		spawn_pos = _parent.get_army_position()
+
+	var soldier = SceneLib.spawn_child(new_soldier, _parent, spawn_pos)#_parent.get_army_position())
 	soldier.init(_parent.blackboard)
 	all_soldiers_scenes.append(soldier.SCENE)
 	all_soldiers_array.append(soldier)

@@ -16,3 +16,7 @@ res://UI/HUD/hud.tscn
 res://UI/Pause Menu/ui_pause_menu.tscn
 res://UI/HUD/soldier_counter.tscn
 res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.tscn
+res://Armies/base_army.gd
+res://Armies/soldier_manager.gd
+res://Armies/PlayerArmy/player_army.gd
+res://Camera/Camera2d.gd

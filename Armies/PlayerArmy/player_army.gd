@@ -39,6 +39,31 @@ func _custom_process(delta: float):
 	_smooth_input_handling()
 	play_marching()
 
+
+func _move():
+	clamp_army_position() #testing clamping
+	return #testing clamping
+	var delta: float = _delta
+	_army_position += _army_velocity * delta
+	formation.set_center_position(_army_position)
+
+
+func clamp_army_position(): # testing clamping
+	# clamps _army_position to (near) the actual location of the army
+	# it is not perfect; it works like a joystick.
+	# It will still trigger enemy armies, even when your soldiers are further away
+	# It will also escape enemy armies easier
+	# Decision pending if this system should be changed
+
+	var LENGTH: float = 6 * GlobalSettings.UNIT
+	var LERP_STRENGTH: float = 0.1
+	var delta: float = _delta
+	var army_center: Vector2 = _calc_soldier_array_center(_soldier_manager.active_soldiers_array)
+	var target: Vector2 = army_center + _army_velocity.normalized() * LENGTH
+	_army_position = lerp(_army_position, target, LERP_STRENGTH) if _army_velocity != Vector2.ZERO else target
+	formation.set_center_position(_army_position)
+
+
 func play_marching():#temp
 	#play marching sound, temp
 	audio_stream.set_global_position(_army_position)
