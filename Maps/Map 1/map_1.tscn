@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd" id="8_clgoj"]
 [ext_resource type="Script" path="res://Troops/base_troop.gd" id="8_dte1p"]
 
-[sub_resource type="Resource" id="Resource_1fylj"]
+[sub_resource type="Resource" id="Resource_7abi7"]
 resource_local_to_scene = true
 script = ExtResource("8_clgoj")
 set_CHASE_DIST = 5
@@ -98,5 +98,5 @@ position = Vector2(2376, 2376)
 
 [node name="EnemyArmy" parent="." instance=ExtResource("7_4q3il")]
 position = Vector2(8424, 3888)
-_ai_module = SubResource("Resource_1fylj")
+_ai_module = SubResource("Resource_7abi7")
 _initial_troop = SubResource("Resource_xenca")
