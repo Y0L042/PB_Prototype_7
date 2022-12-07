@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 res://Maps/Map 1/map_1.tscn
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
@@ -17,3 +18,19 @@ res://Armies/EnemyArmy/enemy_army.tscn
 res://Weapons/base_weapon_script.gd
 res://Soldiers/base_soldier.gd
 res://Soldiers/Sight.gd
+=======
+res://Weapons/Basic Sword/basic_sword.tscn
+res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
+res://Soldiers/Soldier AI/standard_ai_module.gd
+res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres
+res://Fx/Shaders/faction_outline.gdshader
+res://Soldiers/Soldier AI/standard_soldier_ai.tres
+res://Troops/Player Troops/player_knight_troop.tres
+res://Troops/Army of Knights/army_of_knights.tres
+res://Maps/Map 1/map_1.tscn
+res://Fx/Sprites/blood_1.tscn
+res://Armies/PlayerArmy/player_army.tscn
+res://Armies/EnemyArmy/enemy_army.tscn
+res://Soldiers/Knight/knight.tscn
+res://Armies/base_army.tscn
+>>>>>>> 590637c8c814537e811e1d593b79c4985ff88756

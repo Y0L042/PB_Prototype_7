@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bl7c2bhiw7uax"]
+
+[ext_resource type="Script" path="res://Troops/base_troop.gd" id="1_aigpp"]
+[ext_resource type="PackedScene" uid="uid://cde7ddgpbjev5" path="res://Soldiers/Knight/knight.tscn" id="1_nk1oa"]
+
+[resource]
+script = ExtResource("1_aigpp")
+_troop_scenes = [ExtResource("1_nk1oa")]
+_troop_count = [5]

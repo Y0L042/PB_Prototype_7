@@ -14,7 +14,7 @@ var _ref_vector_array: Array
 # Public Variables
 #-------------------------------------------------------------------------------
 var is_grid_active: bool = false
-var width: int = 1 : set = set_width
+var width: int = 4 : set = set_width
 var height: int : set = set_height
 var volume: int : set = set_volume
 var spacing = 1 * UNIT : set = set_spacing

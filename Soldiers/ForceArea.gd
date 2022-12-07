@@ -20,6 +20,12 @@ var contacts: Array = []
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+	area_entered.connect(_on_area_entered)
+	area_exited.connect(_on_area_exited)
+
 func get_collision_sum():
 	var sum := Vector2.ZERO
 	for contact in contacts:
@@ -36,14 +42,26 @@ func get_collision_average_direction():
 #-------------------------------------------------------------------------------
 func _on_body_entered(body: Node2D) -> void:
 	if body == get_parent(): return
-	if body.get_parent().faction != get_parent().faction: return
-#	if body.get_parent().faction != "hello": return
-#	if "hello" != get_parent()._faction: return
 	contact_bodies.append(body)
 	contacts.append(body.get_global_position())
 
 
 func _on_body_exited(body: Node2D) -> void:
+	var index: int = contact_bodies.find(body)
+	if index == -1: return
+	contact_bodies.erase(body)
+	contacts.remove_at(index)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	var body = area.get_parent()
+	if body == get_parent(): return
+	contact_bodies.append(body)
+	contacts.append(body.get_global_position())
+
+
+func _on_area_exited(area: Area2D) -> void:
+	var body = area.get_parent()
 	var index: int = contact_bodies.find(body)
 	if index == -1: return
 	contact_bodies.erase(body)
