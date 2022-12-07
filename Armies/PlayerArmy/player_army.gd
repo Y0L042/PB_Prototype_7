@@ -26,10 +26,9 @@ var _rotate_formation_dir: int = 0
 # Initialization
 #-------------------------------------------------------------------------------
 func _custom_ready() -> void:
-#	formation.set_volume(0)
-#	formation.set_width(3)
+	formation.set_volume(9)
+	formation.set_width(3)
 	set_y_sort_enabled(true)
-
 
 #-------------------------------------------------------------------------------
 # Runtime
@@ -37,16 +36,8 @@ func _custom_ready() -> void:
 func _custom_process(delta: float):
 	_move_army()
 	_smooth_input_handling()
-	play_marching()
 
-func play_marching():#temp
-	#play marching sound, temp
-	audio_stream.set_global_position(_army_position)
-	if _army_velocity.length_squared() > 15*15:
-		if !audio_stream.is_playing():
-			audio_stream._set_playing(true)
-	else:
-		audio_stream.stop()
+
 
 #-------------------------------------------------------------------------------
 # Events

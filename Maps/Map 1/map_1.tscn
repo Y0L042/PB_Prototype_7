@@ -1,38 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4twblvfambin"]
+[gd_scene load_steps=12 format=3 uid="uid://b4twblvfambin"]
 
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
 [ext_resource type="TileSet" uid="uid://0lfqmjlyfncj" path="res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres" id="1_o8cge"]
 [ext_resource type="PackedScene" uid="uid://mkk160r4og8j" path="res://UI/Pause Menu/ui_pause_menu.tscn" id="3_r0f5s"]
 [ext_resource type="PackedScene" uid="uid://c8hin0q46nqwm" path="res://Armies/PlayerArmy/player_army.tscn" id="4_lqo8v"]
+[ext_resource type="Script" path="res://Armies/soldier_manager.gd" id="6_vluai"]
 [ext_resource type="PackedScene" uid="uid://bk0jag240ohc" path="res://Armies/EnemyArmy/enemy_army.tscn" id="7_4q3il"]
-[ext_resource type="PackedScene" uid="uid://cde7ddgpbjev5" path="res://Soldiers/Knight/knight.tscn" id="7_83k2g"]
+[ext_resource type="Resource" uid="uid://dxmmsw7tgaco8" path="res://Troops/Army of Knights/army_of_knights.tres" id="7_kd0w7"]
 [ext_resource type="Script" path="res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd" id="8_clgoj"]
-[ext_resource type="Script" path="res://Troops/base_troop.gd" id="8_dte1p"]
 
-<<<<<<< HEAD
 [sub_resource type="Resource" id="Resource_3aunq"]
 resource_local_to_scene = true
 script = ExtResource("6_vluai")
 soldier_troop = ExtResource("7_kd0w7")
 
 [sub_resource type="Resource" id="Resource_21iam"]
-=======
-[sub_resource type="Resource" id="Resource_1fylj"]
->>>>>>> 590637c8c814537e811e1d593b79c4985ff88756
 resource_local_to_scene = true
 script = ExtResource("8_clgoj")
 set_CHASE_DIST = 5
 FRIENDLY_AVOIDANCE_STRENGTH = 0.5
 
-<<<<<<< HEAD
 [sub_resource type="Resource" id="Resource_r6ky5"]
-=======
-[sub_resource type="Resource" id="Resource_xenca"]
->>>>>>> 590637c8c814537e811e1d593b79c4985ff88756
 resource_local_to_scene = true
-script = ExtResource("8_dte1p")
-_troop_scenes = [ExtResource("7_83k2g")]
-_troop_count = [5]
+script = ExtResource("6_vluai")
+soldier_troop = ExtResource("7_kd0w7")
 
 [node name="Map 1" type="Node2D"]
 z_index = -1
@@ -108,17 +99,9 @@ position = Vector2(1728, 1512)
 [node name="PlayerArmy" parent="." instance=ExtResource("4_lqo8v")]
 y_sort_enabled = false
 position = Vector2(2376, 2376)
-<<<<<<< HEAD
 _soldier_manager = SubResource("Resource_3aunq")
 
 [node name="EnemyArmy" parent="." instance=ExtResource("7_4q3il")]
 position = Vector2(8640, 4968)
 _ai_module = SubResource("Resource_21iam")
 _soldier_manager = SubResource("Resource_r6ky5")
-=======
-
-[node name="EnemyArmy" parent="." instance=ExtResource("7_4q3il")]
-position = Vector2(8424, 3888)
-_ai_module = SubResource("Resource_1fylj")
-_initial_troop = SubResource("Resource_xenca")
->>>>>>> 590637c8c814537e811e1d593b79c4985ff88756

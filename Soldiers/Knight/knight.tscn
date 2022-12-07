@@ -1,28 +1,21 @@
-[gd_scene load_steps=37 format=3 uid="uid://cde7ddgpbjev5"]
+[gd_scene load_steps=33 format=3 uid="uid://cde7ddgpbjev5"]
 
+[ext_resource type="PackedScene" uid="uid://galuiw0n6l36" path="res://Soldiers/base_soldier.tscn" id="1_x6li2"]
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="2_3w8k1"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_s1n8o"]
 [ext_resource type="Texture2D" uid="uid://bcjck6wdvlqp8" path="res://Soldiers/Knight/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png" id="3_0i888"]
 [ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_p5t1t"]
-[ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="4_ypflr"]
-[ext_resource type="Script" path="res://Soldiers/Sight.gd" id="5_kkigk"]
+[ext_resource type="Material" uid="uid://xjhy3277eleg" path="res://Fx/outline_material.tres" id="4_q54mx"]
 [ext_resource type="PackedScene" uid="uid://bcrvkane12a25" path="res://Weapons/Basic Sword/basic_sword.tscn" id="5_pfrld"]
-[ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="6_rqbx3"]
-[ext_resource type="Texture2D" uid="uid://uiyiif4kyq0e" path="res://Fx/Sprites/shadow.png" id="7_1sqnr"]
-[ext_resource type="Texture2D" uid="uid://n65x0ca5e7rm" path="res://Fx/Sprites/ice_particle_white.png" id="8_jukxo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
 resource_local_to_scene = true
 shader = ExtResource("2_3w8k1")
-shader_parameter/active = null
 shader_parameter/add_margins = false
 shader_parameter/color = null
 shader_parameter/inside = false
 shader_parameter/pattern = 1
 shader_parameter/width = 0.5
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_642r8"]
-radius = 108.0
 
 [sub_resource type="Animation" id="Animation_208g4"]
 resource_name = "Dead"
@@ -88,10 +81,50 @@ tracks/4/keys = {
 "values": [0.0, 0.584685, 1.309]
 }
 
+[sub_resource type="Animation" id="Animation_qb327"]
+resource_name = "FriendlyCollisionExpand"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackCollision:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 108.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackCollision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 3]
+}
+
 [sub_resource type="Animation" id="Animation_dqbnh"]
 resource_name = "Hurt"
 length = 0.4
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -107,14 +140,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/BodySprite:material:shader_parameter/active")
+tracks/1/path = NodePath("Pivot/BodySprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false]
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BodySprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_0bvin"]
@@ -174,18 +219,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(15, 15), Vector2(15, 15.84), Vector2(15, 15), Vector2(15, 13.6)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/Dust:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false]
-}
 
 [sub_resource type="Animation" id="Animation_m6rfm"]
 length = 0.001
@@ -204,43 +237,43 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/BodySprite:position")
+tracks/1/path = NodePath("Pivot/BodySprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -216)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/BodySprite:rotation")
+tracks/2/path = NodePath("Pivot/BodySprite:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/BodySprite:scale")
+tracks/3/path = NodePath("Pivot/BodySprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15, 15)]
+"values": [Vector2(0, -216)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Pivot/BodySprite:skew")
+tracks/4/path = NodePath("Pivot/BodySprite:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -252,31 +285,68 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Pivot/BodySprite:material:shader_parameter/active")
+tracks/5/path = NodePath("Pivot/BodySprite:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(15, 15)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Pivot/Dust:emitting")
+tracks/6/path = NodePath("Pivot/BodySprite:skew")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AttackCollision:shape:radius")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AttackCollision:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:collision_mask")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jb70k"]
 _data = {
 "Dead": SubResource("Animation_208g4"),
+"FriendlyCollisionExpand": SubResource("Animation_qb327"),
 "Hurt": SubResource("Animation_dqbnh"),
 "Idle": SubResource("Animation_0bvin"),
 "Jog": SubResource("Animation_xx4r6"),
@@ -330,105 +400,65 @@ graph_offset = Vector2(-3, -24)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_okoax"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gnnx"]
+radius = 216.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_642r8"]
+radius = 216.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvuww"]
 radius = 216.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nhtx"]
-resource_local_to_scene = true
-shader = ExtResource("2_3w8k1")
-shader_parameter/active = false
-shader_parameter/add_margins = null
-shader_parameter/color = null
-shader_parameter/inside = true
-shader_parameter/pattern = null
-shader_parameter/width = 25.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdftl"]
 
-<<<<<<< HEAD
 [node name="Knight" instance=ExtResource("1_x6li2")]
 z_index = 1
 material = SubResource("ShaderMaterial_ufi0m")
-=======
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_63qgb"]
-resource_local_to_scene = true
-shader = ExtResource("6_rqbx3")
-shader_parameter/active = false
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ntb2x"]
-emission_shape = 1
-emission_sphere_radius = 75.0
-particle_flag_disable_z = true
-direction = Vector3(0, 0, 0)
-spread = 180.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 15.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_max = 360.0
-scale_max = 3.0
-color = Color(0.870588, 0.843137, 0.764706, 0.639216)
-hue_variation_min = -0.01
-hue_variation_max = 0.01
-turbulence_enabled = true
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_20s78"]
-radius = 108.0
-
-[node name="Knight" type="CharacterBody2D"]
-z_index = 1
-material = SubResource("ShaderMaterial_ufi0m")
-collision_layer = 2
->>>>>>> 590637c8c814537e811e1d593b79c4985ff88756
 script = ExtResource("2_s1n8o")
 _ai_module = ExtResource("3_p5t1t")
 health = 10.0
 
-[node name="BaseCollision" type="CollisionShape2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -57)
-shape = SubResource("CircleShape2D_642r8")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_jb70k")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_5nnuu")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_okoax")
 
-[node name="Sight" type="Area2D" parent="."]
-unique_name_in_owner = true
+[node name="ForceArea" parent="." index="2"]
+visible = false
+scale = Vector2(0.5, 0.5)
+monitoring = true
+
+[node name="CollisionShape2D" parent="ForceArea" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_3gnnx")
+debug_color = Color(0.886275, 0, 0.803922, 0.419608)
+
+[node name="SoldierCollision" parent="." index="3"]
+position = Vector2(0, -57)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_642r8")
+
+[node name="Sight" parent="." index="4"]
+visible = false
 scale = Vector2(3, 3)
-collision_layer = 3
-collision_mask = 3
-monitorable = false
-script = ExtResource("5_kkigk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+[node name="CollisionShape2D" parent="Sight" index="0"]
 shape = SubResource("CircleShape2D_gvuww")
-debug_color = Color(0.580392, 0.384314, 1, 0.262745)
 
-[node name="Pivot" type="Marker2D" parent="."]
-unique_name_in_owner = true
+[node name="Pivot" parent="." index="5"]
 use_parent_material = true
 
-[node name="Shadow" type="Sprite2D" parent="Pivot"]
+[node name="BodySprite" type="Sprite2D" parent="Pivot" index="0"]
 unique_name_in_owner = true
-show_behind_parent = true
-y_sort_enabled = true
-material = SubResource("ShaderMaterial_1nhtx")
-position = Vector2(0, -9.15527e-05)
-scale = Vector2(1.23, 0.615)
-texture = ExtResource("7_1sqnr")
-
-[node name="BodySprite" type="Sprite2D" parent="Pivot"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_63qgb")
+material = ExtResource("4_q54mx")
 position = Vector2(0, -216)
 scale = Vector2(15, 15)
 texture = ExtResource("3_0i888")
@@ -436,31 +466,14 @@ hframes = 4
 vframes = 3
 frame = 1
 
-[node name="Dust" type="GPUParticles2D" parent="Pivot"]
-emitting = false
-lifetime = 0.5
-one_shot = true
-explosiveness = 0.1
-randomness = 0.25
-process_material = SubResource("ParticleProcessMaterial_ntb2x")
-texture = ExtResource("8_jukxo")
-
-[node name="WeaponPivot" type="Marker2D" parent="Pivot"]
-unique_name_in_owner = true
+[node name="WeaponPivot" parent="Pivot" index="1"]
 use_parent_material = true
 
-[node name="basic sword" parent="Pivot/WeaponPivot" instance=ExtResource("5_pfrld")]
+[node name="basic sword" parent="Pivot/WeaponPivot" index="0" instance=ExtResource("5_pfrld")]
 position = Vector2(-53, -100)
 
-[node name="SoldierCollision" type="Area2D" parent="."]
-unique_name_in_owner = true
+[node name="AttackCollision" type="CollisionShape2D" parent="." index="6"]
 visible = false
-scale = Vector2(3, 3)
-collision_layer = 2
-collision_mask = 2
-monitoring = false
-monitorable = false
-script = ExtResource("4_ypflr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SoldierCollision"]
-shape = SubResource("CircleShape2D_20s78")
+shape = SubResource("CircleShape2D_vdftl")
+disabled = true
+debug_color = Color(0.819608, 0.403922, 0, 0.419608)
