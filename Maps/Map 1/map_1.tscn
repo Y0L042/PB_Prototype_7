@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4twblvfambin"]
+[gd_scene load_steps=12 format=3 uid="uid://b4twblvfambin"]
 
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
 [ext_resource type="TileSet" uid="uid://0lfqmjlyfncj" path="res://Maps/Map 1/Assets/pixel_art_dungeon_216.tres" id="1_o8cge"]
@@ -10,7 +10,13 @@
 [ext_resource type="Script" path="res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd" id="8_clgoj"]
 [ext_resource type="Resource" uid="uid://cstj1pxj68c6a" path="res://Troops/Army of Knights/army_of_knights.tres" id="8_ktg0s"]
 
-[sub_resource type="Resource" id="Resource_o54wq"]
+[sub_resource type="Resource" id="Resource_heb8p"]
+resource_local_to_scene = true
+script = ExtResource("8_clgoj")
+set_CHASE_DIST = 5
+FRIENDLY_AVOIDANCE_STRENGTH = 0.5
+
+[sub_resource type="Resource" id="Resource_jxaxh"]
 resource_local_to_scene = true
 script = ExtResource("8_clgoj")
 set_CHASE_DIST = 5
@@ -96,10 +102,10 @@ _initial_troop = ExtResource("5_t5gat")
 
 [node name="EnemyArmy" parent="." instance=ExtResource("7_4q3il")]
 position = Vector2(8424, 3888)
-_ai_module = SubResource("Resource_o54wq")
+_ai_module = SubResource("Resource_heb8p")
 _initial_troop = ExtResource("8_ktg0s")
 
 [node name="EnemyArmy2" parent="." instance=ExtResource("7_4q3il")]
 position = Vector2(3456, 5832)
-_ai_module = SubResource("Resource_o54wq")
+_ai_module = SubResource("Resource_jxaxh")
 _initial_troop = ExtResource("8_ktg0s")
