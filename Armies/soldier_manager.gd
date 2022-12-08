@@ -63,7 +63,7 @@ func _custom_physics_process():
 			if enemy_army.has_method("receive_necromanced_army"):
 				enemy_army.receive_necromanced_army(get_all_soldiers_scenes())
 		_parent.queue_free()
-		print(self, "  is ded")
+		print("Army:   ", self, "  is ded")
 		self.queue_free()
 #-------------------------------------------------------------------------------
 # Formation Functions

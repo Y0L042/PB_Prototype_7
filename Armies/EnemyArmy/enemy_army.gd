@@ -20,6 +20,7 @@ func set_ai_module(new_ai_module):
 		return -1
 	_ai_module = new_ai_module
 	_ai_module.set_parent(self)
+	_ai_module_ready()
 
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
@@ -28,7 +29,8 @@ func set_ai_module(new_ai_module):
 # Initialization
 #-------------------------------------------------------------------------------
 func _custom_ready() -> void:
-	_ai_module_ready()
+#	_ai_module_ready()
+	pass
 
 
 

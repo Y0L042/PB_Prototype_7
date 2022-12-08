@@ -18,3 +18,6 @@ res://Armies/soldier_manager.gd
 res://Troops/Army of Knights/army_of_knights.tres
 res://Armies/EnemyArmy/AI/Wander/wander.tres
 res://Armies/EnemyArmy/enemy_army.tscn
+res://Armies/base_army.gd
+res://Armies/EnemyArmy/AI/base_ai_module.gd
+res://Armies/EnemyArmy/enemy_army.gd
