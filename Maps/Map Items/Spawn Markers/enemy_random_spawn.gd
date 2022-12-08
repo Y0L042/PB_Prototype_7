@@ -103,7 +103,7 @@ func get_troops():
 
 func disable_zone_entered(area: Area2D):
 	var spotted_object = area.get_parent()
-	if spotted_object.faction == "Player":
+	if spotted_object.is_in_group("Army") and spotted_object.faction == "Player":
 		active = false
 		print("zone entered")
 
@@ -111,7 +111,7 @@ func disable_zone_entered(area: Area2D):
 
 func disable_zone_exited(area: Area2D):
 	var spotted_object = area.get_parent()
-	if spotted_object.faction == "Player":
+	if spotted_object.is_in_group("Army") and spotted_object.faction == "Player":
 		active = true
 		print("zone exited")
 

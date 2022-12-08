@@ -15,6 +15,7 @@ func set_mission_name(new_name: String):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	btn_mission.pressed.connect(load_mission)
+	grab_focus()
 
 
 func load_mission():

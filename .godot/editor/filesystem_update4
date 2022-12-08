@@ -11,3 +11,4 @@ res://Troops/Player Troops/player_knights.tres
 res://Maps/Map 1/map_1.tscn
 res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn
 res://Autoloads/scene_lib.gd
+res://UI/Mission Selection Menu/Mission Box/mission_box.gd
