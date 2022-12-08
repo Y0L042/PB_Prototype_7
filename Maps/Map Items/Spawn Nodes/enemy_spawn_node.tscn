@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://by3wese2rdfh0"]
+[gd_scene load_steps=2 format=3 uid="uid://by3wese2rdfh0"]
+
+[ext_resource type="Script" path="res://Maps/Map Items/Spawn Nodes/enemy_spawn_node.gd" id="1_wl57e"]
 
 [node name="Enemy Spawn Node" type="Node2D"]
+script = ExtResource("1_wl57e")

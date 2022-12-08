@@ -2,11 +2,10 @@ extends Marker2D
 
 
 var _parent
-var _troops: Array = []
+@export var _troops: Array[Resource] : get = get_troops
 
 func _ready() -> void:
 	_parent = get_parent()
-	_troops = _parent.get_troops()
 	_spawn_players()
 
 func _spawn_players():
@@ -17,4 +16,10 @@ func _spawn_players():
 	army.set_army_position(_spawn_point)
 	for troop in _troops:
 		army.set_initial_troop(troop)
+
+
+
+func get_troops():
+	return _troops
+
 

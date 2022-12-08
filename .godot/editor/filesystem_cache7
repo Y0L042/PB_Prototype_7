@@ -1,9 +1,8 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1670443469
+::res://::1670481187
 header_comment_template.gd::GDScript::-1::1669299043::0::1::::<>RefCounted<>::
 icon.svg::CompressedTexture2D::3998031586563503381::1669039689::1670421225::1::::<><>::
 README.md::TextFile::-1::1669039779::0::1::::<><>::
-Player Spawn Marker.gd::GDScript::-1::1670447545::0::1::::<>Marker2D<>::
 ::res://Armies/::1670447235
 Army_Sight.gd::GDScript::-1::1670222825::0::1::::<>Area2D<>::
 base_army.gd::GDScript::-1::1670446107::0::1::::Army<>Node2D<>::
@@ -18,13 +17,13 @@ base_ai_module.gd::GDScript::-1::1670222825::0::1::::BaseAIModule<>Resource<>::
 ::res://Armies/EnemyArmy/AI/Wander/::1670442060
 wander.tres::Resource::1008498494112698485::1670222825::0::1::::<><>::res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 wander_ai_module.gd::GDScript::-1::1670442060::0::1::::WanderAIModule<>BaseAIModule<>::
-::res://Armies/PlayerArmy/::1670447235
+::res://Armies/PlayerArmy/::1670480913
 player_army.gd::GDScript::-1::1670427772::0::1::::<>Army<>::
-player_army.tscn::PackedScene::7104034142142792752::1670447235::0::1::::<><>::uid://dedtsjl3a3pw<>res://Armies/PlayerArmy/player_army.gd<>uid://b26x8d8pllql7
-::res://Autoloads/::1670443503
+player_army.tscn::PackedScene::7104034142142792752::1670480913::0::1::::<><>::uid://dedtsjl3a3pw<>res://Armies/PlayerArmy/player_army.gd<>uid://b26x8d8pllql7
+::res://Autoloads/::1670448388
 global_settings.gd::GDScript::-1::1669126790::0::1::::<>Node<>::
 hud_stats.gd::GDScript::-1::1670421197::0::1::::<>Node<>::
-scene_lib.gd::GDScript::-1::1670443503::0::1::::<>Node<>::
+scene_lib.gd::GDScript::-1::1670448388::0::1::::<>Node<>::
 steering_behaviour.gd::GDScript::-1::1670222825::0::1::::<>Node<>::
 tools.gd::GDScript::-1::1669126045::0::1::::<>Node<>::
 ::res://Blackboards/::1670395487
@@ -63,9 +62,9 @@ blood_1.tscn::PackedScene::6502644836228117601::1670428042::0::1::::<><>::uid://
 ::res://Main/::1670394821
 main.tscn::PackedScene::3789670626454827212::1670394821::0::1::::<><>::uid://cxcf7dgraqck0
 ::res://Maps/::1670443459
-::res://Maps/Map 0/::1670447235
+::res://Maps/Map 0/::1670480912
 map_0.gd::GDScript::-1::1670222825::0::1::::<>Node2D<>::
-map_0.tscn::PackedScene::8661670325573521736::1670447235::0::1::::<><>::res://Maps/Map 0/map_0.gd<>uid://bfs3bvgkvh8gk<>uid://mo3bm821vkro<>uid://mkk160r4og8j<>uid://c8hin0q46nqwm<>uid://bml04j3foddfq
+map_0.tscn::PackedScene::8661670325573521736::1670480912::0::1::::<><>::res://Maps/Map 0/map_0.gd<>uid://bfs3bvgkvh8gk<>uid://mo3bm821vkro<>uid://mkk160r4og8j<>uid://c8hin0q46nqwm<>uid://bml04j3foddfq
 ::res://Maps/Map 0/Assets/::1670443403
 pixel_art_dungeon_216.tres::TileSet::2776226675789615138::1670443403::0::1::::<><>::uid://c3xi3kqj1tmo6
 ::res://Maps/Map 0/Assets/v1.1 dungeon crawler 16X16 pixel pack/::1670443406
@@ -271,16 +270,18 @@ menu_button_press.png::CompressedTexture2D::4742937787661013852::1669126046::167
 pause_button.png::CompressedTexture2D::2431706842046049519::1669126046::1670443405::1::::<><>::
 pause_button_press.png::CompressedTexture2D::3555779101020157283::1669126046::1670443405::1::::<><>::
 progress bar.png::CompressedTexture2D::100942067116417053::1669126046::1670443405::1::::<><>::
-::res://Maps/Map 1/::1670447235
+::res://Maps/Map 1/::1670480913
 map_1.gd::GDScript::-1::1670443758::0::1::::<>Node2D<>::
-map_1.tscn::PackedScene::9076406234756485238::1670447235::0::1::::<><>::uid://bfs3bvgkvh8gk<>res://Maps/Map 1/map_1.gd
+map_1.tscn::PackedScene::9076406234756485238::1670480913::0::1::::<><>::uid://bfs3bvgkvh8gk<>res://Maps/Map 1/map_1.gd<>uid://bacc6h7lxtvfr<>uid://bunj5ihii822c<>uid://bml04j3foddfq
 ::res://Maps/Map Items/::1670444093
 map_items.tscn::PackedScene::-1::1670443403::0::1::::<><>::res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
-::res://Maps/Map Items/Spawn Markers/::1670444093
-player_spawn_marker.tscn::PackedScene::8029496311437634654::1670447573::0::1::::<><>::res://Player Spawn Marker.gd
-::res://Maps/Map Items/Spawn Nodes/::1670447235
-player_spawn_node.tscn::PackedScene::2390726650426294263::1670447501::0::1::::<><>::res://Maps/Map Items/Spawn Nodes/player_spawn_node.gd
-player_spawn_node.gd::GDScript::-1::1670447501::0::1::::<>Node2D<>::
+::res://Maps/Map Items/Spawn Markers/::1670480913
+Player Spawn Marker.gd::GDScript::-1::1670480896::0::1::::<>Marker2D<>::
+player_spawn_marker.tscn::PackedScene::3817634925384506188::1670480913::0::1::::<><>::res://Maps/Map Items/Spawn Markers/Player Spawn Marker.gd
+::res://Maps/Map Items/Spawn Nodes/::1670481062
+enemy_spawn_node.tscn::PackedScene::4130099377985152163::1670481062::0::1::::<><>::
+player_spawn_node.gd::GDScript::-1::1670447663::0::1::::<>Node2D<>::
+player_spawn_node.tscn::PackedScene::2390726650426294263::1670480913::0::1::::<><>::res://Maps/Map Items/Spawn Nodes/player_spawn_node.gd
 ::res://Soldiers/::1670421197
 base_soldier.gd::GDScript::-1::1670395488::0::1::::<><>::
 base_soldier.tscn::PackedScene::-1::1670395488::0::1::::<><>::res://Soldiers/base_soldier.gd<>uid://cduwsdimfh00e<>res://Soldiers/ForceArea.gd<>res://Soldiers/Sight.gd

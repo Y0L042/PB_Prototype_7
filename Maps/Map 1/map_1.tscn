@@ -1,18 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2kxc42nibgss"]
+[gd_scene load_steps=8 format=3 uid="uid://d2kxc42nibgss"]
 
 [ext_resource type="TileSet" uid="uid://bfs3bvgkvh8gk" path="res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres" id="1_flb2k"]
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
 [ext_resource type="PackedScene" uid="uid://bacc6h7lxtvfr" path="res://Maps/Map Items/Spawn Nodes/player_spawn_node.tscn" id="3_mcr0f"]
 [ext_resource type="PackedScene" uid="uid://bunj5ihii822c" path="res://Maps/Map Items/Spawn Markers/player_spawn_marker.tscn" id="5_lskqw"]
 [ext_resource type="Resource" uid="uid://bml04j3foddfq" path="res://Troops/Player Troops/player_knights.tres" id="5_t5gat"]
+[ext_resource type="PackedScene" uid="uid://by3wese2rdfh0" path="res://Maps/Map Items/Spawn Nodes/enemy_spawn_node.tscn" id="6_joq4r"]
+[ext_resource type="PackedScene" uid="uid://bq42f24tl5l80" path="res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn" id="7_lmwyr"]
 
 [node name="Map 1" type="Node2D"]
 script = ExtResource("1_kv8g2")
-
-[node name="TempCam" type="Camera2D" parent="."]
-position = Vector2(7560, 5616)
-current = true
-zoom = Vector2(0.1, 0.1)
 
 [node name="Map Items" type="Node2D" parent="."]
 
@@ -58,12 +55,14 @@ layer_5/tile_data = PackedInt32Array(589836, 262145, 1, 589837, 262145, 1, 58983
 
 [node name="Spawns" type="Node2D" parent="Map Items"]
 
-[node name="Enemy Spawns" type="Node2D" parent="Map Items/Spawns"]
-
 [node name="Player Spawn Node" parent="Map Items/Spawns" instance=ExtResource("3_mcr0f")]
-_troops = [ExtResource("5_t5gat")]
 
 [node name="Player Spawn Marker" parent="Map Items/Spawns/Player Spawn Node" instance=ExtResource("5_lskqw")]
 position = Vector2(7560, 3456)
+_troops = [ExtResource("5_t5gat")]
+
+[node name="Enemy Spawn Node" parent="Map Items/Spawns" instance=ExtResource("6_joq4r")]
+
+[node name="Enemy Random Spawn" parent="Map Items/Spawns/Enemy Spawn Node" instance=ExtResource("7_lmwyr")]
 
 [node name="Items" type="Node2D" parent="Map Items"]

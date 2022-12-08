@@ -57,7 +57,7 @@ func use_troop():
 #-------------------------------------------------------------------------------
 func _custom_physics_process():
 	if active_soldiers_array.is_empty() and !all_soldiers_scenes.is_empty():
-		ArmyIsDefeated.emit(get_all_soldiers_scenes())
+		ArmyIsDefeated.emit(get_all_soldiers_scenes(), _parent)
 		if _parent.enemy_army != null:
 			var enemy_army = _parent.enemy_army
 			if enemy_army.has_method("receive_necromanced_army"):
