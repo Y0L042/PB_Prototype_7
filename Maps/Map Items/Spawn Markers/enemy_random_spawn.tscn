@@ -4,3 +4,5 @@
 
 [node name="Enemy Random Spawn" type="Marker2D"]
 script = ExtResource("1_yqjay")
+
+[node name="Timer" type="Timer" parent="."]

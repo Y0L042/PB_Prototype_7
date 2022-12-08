@@ -1,4 +1,4 @@
-res://UI/Main Menu/ui_main_menu.tscn
+res://Maps/Map 0/map_0.tscn
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 res://Maps/Map Items/Spawn Markers/enemy_random_spawn.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
@@ -8,17 +8,6 @@ res://Soldiers/Soldier AI/standard_soldier_ai.tres
 res://Troops/Army of Knights/army_of_knights.tres
 res://Armies/EnemyArmy/AI/Wander/wander.tres
 res://Troops/Player Troops/player_knights.tres
-res://Maps/Map 0/map_0.tscn
 res://Maps/Map 1/map_1.tscn
-res://UI/Main Menu/main_menu.tscn
-res://UI/Mission Selection Menu/mission_selection_menu.tscn
-res://UI/Mission Selection Menu/Level Box/level_box.tscn
+res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn
 res://Autoloads/scene_lib.gd
-res://UI/Main Menu/main_menu.gd
-res://UI/Main Menu/ui_main_menu.gd
-res://UI/Mission Selection Menu/mission_selection_menu.gd
-res://UI/Settings Menu/ui_settings_menu.tscn
-res://UI/Settings Menu/ui_settings_menu.gd
-res://UI/Mission Selection Menu/Level Box/level_box.gd
-res://UI/Mission Selection Menu/Mission Box/mission_box.tscn
-res://UI/Mission Selection Menu/Mission Box/mission_box.gd

@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1670500578
+::res://::1670503147
 header_comment_template.gd::GDScript::-1::1669299043::0::1::::<>RefCounted<>::
 icon.svg::CompressedTexture2D::3998031586563503381::1669039689::1670421225::1::::<><>::
 README.md::TextFile::-1::1669039779::0::1::::<><>::
@@ -62,9 +62,9 @@ blood_1.tscn::PackedScene::6502644836228117601::1670428042::0::1::::<><>::uid://
 ::res://Main/::1670394821
 main.tscn::PackedScene::3789670626454827212::1670394821::0::1::::<><>::uid://cxcf7dgraqck0
 ::res://Maps/::1670443459
-::res://Maps/Map 0/::1670500401
+::res://Maps/Map 0/::1670502986
 map_0.gd::GDScript::-1::1670222825::0::1::::<>Node2D<>::
-map_0.tscn::PackedScene::8661670325573521736::1670500401::0::1::::<><>::res://Maps/Map 0/map_0.gd<>uid://bfs3bvgkvh8gk<>uid://mo3bm821vkro<>uid://bq42f24tl5l80<>uid://mkk160r4og8j<>uid://cstj1pxj68c6a<>uid://omr28hqf6lnh<>uid://c8hin0q46nqwm
+map_0.tscn::PackedScene::8661670325573521736::1670502986::0::1::::<><>::res://Maps/Map 0/map_0.gd<>uid://bfs3bvgkvh8gk<>uid://mo3bm821vkro<>uid://bq42f24tl5l80<>uid://mkk160r4og8j<>uid://cstj1pxj68c6a<>uid://omr28hqf6lnh
 ::res://Maps/Map 0/Assets/::1670497130
 pixel_art_dungeon_216.tres::TileSet::2776226675789615138::1670497130::0::1::::<><>::uid://c3xi3kqj1tmo6
 ::res://Maps/Map 0/Assets/v1.1 dungeon crawler 16X16 pixel pack/::1670443406
@@ -270,9 +270,9 @@ menu_button_press.png::CompressedTexture2D::4742937787661013852::1669126046::167
 pause_button.png::CompressedTexture2D::2431706842046049519::1669126046::1670443405::1::::<><>::
 pause_button_press.png::CompressedTexture2D::3555779101020157283::1669126046::1670443405::1::::<><>::
 progress bar.png::CompressedTexture2D::100942067116417053::1669126046::1670443405::1::::<><>::
-::res://Maps/Map 1/::1670500402
+::res://Maps/Map 1/::1670503024
 map_1.gd::GDScript::-1::1670443758::0::1::::<>Node2D<>::
-map_1.tscn::PackedScene::9076406234756485238::1670500401::0::1::::<><>::uid://bfs3bvgkvh8gk<>res://Maps/Map 1/map_1.gd<>uid://bacc6h7lxtvfr<>uid://bunj5ihii822c<>uid://bml04j3foddfq<>uid://by3wese2rdfh0<>uid://bq42f24tl5l80<>uid://cstj1pxj68c6a<>uid://omr28hqf6lnh
+map_1.tscn::PackedScene::9076406234756485238::1670503024::0::1::::<><>::uid://bfs3bvgkvh8gk<>res://Maps/Map 1/map_1.gd<>uid://bacc6h7lxtvfr<>uid://bunj5ihii822c<>uid://bml04j3foddfq<>uid://by3wese2rdfh0<>uid://bq42f24tl5l80<>uid://cstj1pxj68c6a<>uid://omr28hqf6lnh
 ::res://Maps/Map Items/::1670444093
 map_items.tscn::PackedScene::-1::1670443403::0::1::::<><>::res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
 ::res://Maps/Map Items/Spawn Markers/::1670497050
@@ -320,23 +320,23 @@ hud.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 hud.tscn::PackedScene::872869956325677536::1670428042::0::1::::<><>::res://UI/HUD/hud.gd<>uid://bctc3xm0q60ig
 soldier_counter.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 soldier_counter.tscn::PackedScene::2566194212244392466::1670428042::0::1::::<><>::res://UI/HUD/soldier_counter.gd
-::res://UI/Main Menu/::1670500402
-main_menu.gd::GDScript::-1::1670500103::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::5546433520910272496::1670500402::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>res://UI/focus_grab.gd
+::res://UI/Main Menu/::1670502840
+main_menu.gd::GDScript::-1::1670502728::0::1::::<>Control<>::
+main_menu.tscn::PackedScene::5546433520910272496::1670502840::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>res://UI/focus_grab.gd
 ui_main_menu.gd::GDScript::-1::1670499236::0::1::::<>Control<>::
-ui_main_menu.tscn::PackedScene::6391674424549766165::1670500402::0::1::::<><>::res://UI/Main Menu/ui_main_menu.gd
-::res://UI/Mission Selection Menu/::1670500578
-mission_selection_menu.gd::GDScript::-1::1670499417::0::1::::<>Control<>::
-mission_selection_menu.tscn::PackedScene::7082311677278199425::1670500578::0::1::::<><>::res://UI/Mission Selection Menu/mission_selection_menu.gd
-::res://UI/Mission Selection Menu/Mission Box/::1670500578
-level_box.gd::GDScript::-1::1670500511::0::1::::<>Button<>::
-mission_box.tscn::PackedScene::5222276813857587671::1670500590::0::1::::<><>::res://UI/Mission Selection Menu/Mission Box/level_box.gd<>uid://dvn1pefqu4dn1
+ui_main_menu.tscn::PackedScene::6391674424549766165::1670502840::0::1::::<><>::res://UI/Main Menu/ui_main_menu.gd
+::res://UI/Mission Selection Menu/::1670502840
+mission_selection_menu.gd::GDScript::-1::1670502586::0::1::::<>Control<>::
+mission_selection_menu.tscn::PackedScene::7082311677278199425::1670502840::0::1::::<><>::res://UI/Mission Selection Menu/mission_selection_menu.gd<>uid://ciuow2ljbjjmw<>uid://dvn1pefqu4dn1<>uid://d2kxc42nibgss
+::res://UI/Mission Selection Menu/Mission Box/::1670502840
+mission_box.gd::GDScript::-1::1670502470::0::1::::<>Button<>::
+mission_box.tscn::PackedScene::5376530432470217098::1670502840::0::1::::<><>::res://UI/Mission Selection Menu/Mission Box/mission_box.gd
 ::res://UI/Pause Menu/::1670428042
 ui_pause_menu.gd::GDScript::-1::1669126046::0::1::::<>Control<>::
 ui_pause_menu.tscn::PackedScene::863565169421857443::1670428042::0::1::::<><>::res://UI/Pause Menu/ui_pause_menu.gd<>res://UI/focus_grab.gd
-::res://UI/Settings Menu/::1670500402
+::res://UI/Settings Menu/::1670502840
 ui_settings_menu.gd::GDScript::-1::1670499479::0::1::::<>Control<>::
-ui_settings_menu.tscn::PackedScene::4761227547186209683::1670500402::0::1::::<><>::res://UI/Settings Menu/ui_settings_menu.gd
+ui_settings_menu.tscn::PackedScene::4761227547186209683::1670502840::0::1::::<><>::res://UI/Settings Menu/ui_settings_menu.gd
 ::res://Weapons/::1670395488
 base_weapon.tscn::PackedScene::6619624225388442991::1670395179::0::1::::<><>::res://Weapons/base_weapon_script.gd
 base_weapon_script.gd::GDScript::-1::1670395488::0::1::::BaseWeapon<>Node2D<>::

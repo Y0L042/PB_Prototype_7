@@ -5,5 +5,5 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ub6gf")
-set_CHASE_DIST = 5
+set_CHASE_DIST = 15.0
 FRIENDLY_AVOIDANCE_STRENGTH = 0.5
