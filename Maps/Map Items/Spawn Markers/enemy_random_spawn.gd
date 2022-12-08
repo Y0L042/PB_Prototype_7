@@ -28,22 +28,24 @@ func _ready() -> void:
 func _custom_process():
 
 	while active:
+		var temp_timer = get_tree().create_timer(delay)
+		await temp_timer.timeout
 		if waves == 0:
 			active = false
 			return
 
-		if !active_instances.is_empty() and max_active_instances <= active_instances.size():
-			return
+		var skip: bool = false
+		if !active_instances.is_empty() and max_active_instances == active_instances.size():
+			skip = true
+		else: skip = false
 
-		var temp_timer = get_tree().create_timer(delay)
-		await temp_timer.timeout
+		if !skip:# dirty hack. try to use process or something to solve return problem
+			var army = _spawn_enemies()
+			army._soldier_manager.ArmyIsDefeated.connect(remove_army_from_active_instances)
+			active_instances.append(army)
 
-		var army = _spawn_enemies()
-		army._soldier_manager.ArmyIsDefeated.connect(remove_army_from_active_instances)
-		active_instances.append(army)
-
-		if waves != -1:
-			waves -= 1
+			if waves != -1:
+				waves -= 1
 
 
 

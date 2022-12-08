@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2kxc42nibgss"]
+[gd_scene load_steps=10 format=3 uid="uid://d2kxc42nibgss"]
 
 [ext_resource type="TileSet" uid="uid://bfs3bvgkvh8gk" path="res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres" id="1_flb2k"]
 [ext_resource type="Script" path="res://Maps/Map 1/map_1.gd" id="1_kv8g2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://bml04j3foddfq" path="res://Troops/Player Troops/player_knights.tres" id="5_t5gat"]
 [ext_resource type="PackedScene" uid="uid://by3wese2rdfh0" path="res://Maps/Map Items/Spawn Nodes/enemy_spawn_node.tscn" id="6_joq4r"]
 [ext_resource type="PackedScene" uid="uid://bq42f24tl5l80" path="res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn" id="7_lmwyr"]
+[ext_resource type="Resource" uid="uid://cstj1pxj68c6a" path="res://Troops/Army of Knights/army_of_knights.tres" id="8_tpjwi"]
+[ext_resource type="Resource" uid="uid://omr28hqf6lnh" path="res://Armies/EnemyArmy/AI/Wander/wander.tres" id="9_r7umt"]
 
 [node name="Map 1" type="Node2D"]
 script = ExtResource("1_kv8g2")
@@ -64,5 +66,38 @@ _troops = [ExtResource("5_t5gat")]
 [node name="Enemy Spawn Node" parent="Map Items/Spawns" instance=ExtResource("6_joq4r")]
 
 [node name="Enemy Random Spawn" parent="Map Items/Spawns/Enemy Spawn Node" instance=ExtResource("7_lmwyr")]
+position = Vector2(3456, 7128)
+_troops = [ExtResource("8_tpjwi")]
+_ai = ExtResource("9_r7umt")
+delay = 10.0
+max_active_instances = 2
+
+[node name="Enemy Random Spawn2" parent="Map Items/Spawns/Enemy Spawn Node" instance=ExtResource("7_lmwyr")]
+position = Vector2(3456, 11880)
+_troops = [ExtResource("8_tpjwi")]
+_ai = ExtResource("9_r7umt")
+delay = 10.0
+max_active_instances = 2
+
+[node name="Enemy Random Spawn3" parent="Map Items/Spawns/Enemy Spawn Node" instance=ExtResource("7_lmwyr")]
+position = Vector2(7560, 12096)
+_troops = [ExtResource("8_tpjwi")]
+_ai = ExtResource("9_r7umt")
+delay = 10.0
+max_active_instances = 2
+
+[node name="Enemy Random Spawn4" parent="Map Items/Spawns/Enemy Spawn Node" instance=ExtResource("7_lmwyr")]
+position = Vector2(11664, 12096)
+_troops = [ExtResource("8_tpjwi")]
+_ai = ExtResource("9_r7umt")
+delay = 10.0
+max_active_instances = 2
+
+[node name="Enemy Random Spawn5" parent="Map Items/Spawns/Enemy Spawn Node" instance=ExtResource("7_lmwyr")]
+position = Vector2(11664, 7128)
+_troops = [ExtResource("8_tpjwi")]
+_ai = ExtResource("9_r7umt")
+delay = 10.0
+max_active_instances = 2
 
 [node name="Items" type="Node2D" parent="Map Items"]
