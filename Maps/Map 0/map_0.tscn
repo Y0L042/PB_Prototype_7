@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvn1pefqu4dn1"]
+[gd_scene load_steps=9 format=3 uid="uid://dvn1pefqu4dn1"]
 
 [ext_resource type="Script" path="res://Maps/Map 0/map_0.gd" id="1_fs8s5"]
 [ext_resource type="TileSet" uid="uid://bfs3bvgkvh8gk" path="res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres" id="2_yrvy3"]
@@ -8,7 +8,6 @@
 [ext_resource type="Resource" uid="uid://cstj1pxj68c6a" path="res://Troops/Army of Knights/army_of_knights.tres" id="4_m7tie"]
 [ext_resource type="Resource" uid="uid://omr28hqf6lnh" path="res://Armies/EnemyArmy/AI/Wander/wander.tres" id="5_03g22"]
 [ext_resource type="PackedScene" uid="uid://c8hin0q46nqwm" path="res://Armies/PlayerArmy/player_army.tscn" id="5_3oqfk"]
-[ext_resource type="Resource" uid="uid://bml04j3foddfq" path="res://Troops/Player Troops/player_knights.tres" id="6_m8h6q"]
 
 [node name="Map 0" type="Node2D"]
 z_index = -1
@@ -93,4 +92,3 @@ position = Vector2(1728, 1512)
 [node name="PlayerArmy" parent="." instance=ExtResource("5_3oqfk")]
 y_sort_enabled = false
 position = Vector2(2376, 2376)
-_initial_troop = ExtResource("6_m8h6q")

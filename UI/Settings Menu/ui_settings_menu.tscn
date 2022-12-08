@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://b83mysys76utf"]
+
+[ext_resource type="Script" path="res://UI/Settings Menu/ui_settings_menu.gd" id="1_c7sfj"]
+
+[node name="UI Settings Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7sfj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.486275, 0.486275, 0.486275, 0.458824)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer"]
+offset_left = 545.0
+offset_top = 311.0
+offset_right = 607.0
+offset_bottom = 337.0
+text = "Settings"
+
+[node name="Back" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 80.0
+offset_top = 575.0
+offset_right = 125.0
+offset_bottom = 606.0
+text = "Back
+"

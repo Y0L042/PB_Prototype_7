@@ -47,6 +47,11 @@ var fx_sprite_blood_splatter_1: PackedScene = load("res://Fx/Sprites/Blood Splat
 var SCENE_MAIN_MENU: PackedScene = load("res://Main/main.tscn")
 
 var UI_MAIN_MENU: PackedScene = load("res://UI/Main Menu/ui_main_menu.tscn")
+
+var MAIN_MENU: PackedScene = load("res://UI/Main Menu/main_menu.tscn")
+var MISSION_SELECT: PackedScene = load("res://UI/Mission Selection Menu/mission_selection_menu.tscn")
+var SETTINGS_MENU: PackedScene = load("res://UI/Settings Menu/ui_settings_menu.tscn")
+
 var UI_PAUSE_MENU: PackedScene = load("res://UI/Pause Menu/ui_pause_menu.tscn")
 var UI_GAME_END: PackedScene = load("res://UI/Game End Menu/ui_game_end.tscn")
 
