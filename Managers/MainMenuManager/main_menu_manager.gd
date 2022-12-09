@@ -1,11 +1,12 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
+func _init() -> void:
+	add_to_group(SceneLib.Root_Manager_Group)
+
 func _ready() -> void:
-	pass # Replace with function body.
+	# I used call_deferred, because this node's _ready() would be called before SceneLib.spawn_child()
+	# returned the scene_manager's root_manager: spawn_scene would then give an error
+	SceneManager.call_deferred("spawn_scene", SceneLib.MAIN_MENU)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

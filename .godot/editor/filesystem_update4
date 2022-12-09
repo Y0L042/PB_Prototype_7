@@ -19,3 +19,6 @@ res://Managers/GameManager/game_manager.tscn
 res://Managers/SceneManager/scene_manager.tscn
 res://_blank.tscn
 res://Managers/SceneManager/scene_manager.gd
+res://UI/Main Menu/main_menu.tscn
+res://Managers/MainMenuManager/main_menu_manager.gd
+res://Managers/GameManager/game_manager.gd

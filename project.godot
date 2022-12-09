@@ -99,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PB_Prototype_7"
-run/main_scene="res://_blank.tscn"
+run/main_scene="res://Managers/MainMenuManager/main_menu_manager.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -4,6 +4,7 @@ extends Node
 #---------------------------------------------------------------------------------------------------#
 # Managers
 #---------------------------------------------------------------------------------------------------#
+@export var Root_Manager_Group: String = "Root_Manager"
 var MainMenuManager: PackedScene = load("res://Managers/MainMenuManager/main_menu_manager.tscn")
 var GameManager: PackedScene = load("res://Managers/GameManager/game_manager.tscn")
 
