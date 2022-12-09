@@ -14,11 +14,14 @@
 radius = 216.0
 
 [node name="Map 1" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_kv8g2")
 
 [node name="Map Items" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Map Items"]
+z_index = -1
+y_sort_enabled = true
 tile_set = ExtResource("1_flb2k")
 format = 2
 layer_0/name = "Floor -1"
@@ -144,6 +147,22 @@ disable_zone = NodePath("Area2D5")
 scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Items/Spawns/Enemy Spawn Node/Enemy Random Spawn5/Area2D5"]
+shape = SubResource("CircleShape2D_sh5nt")
+
+[node name="Large Enemy Army" parent="Map Items/Spawns/Enemy Spawn Node" node_paths=PackedStringArray("disable_zone") instance=ExtResource("7_lmwyr")]
+position = Vector2(7560, 3456)
+_troops = [ExtResource("5_t5gat")]
+_ai = ExtResource("9_r7umt")
+spawn_immediately = false
+delay = 60.0
+waves = 5
+enable_disable_zone = true
+disable_zone = NodePath("Area2D5")
+
+[node name="Area2D5" type="Area2D" parent="Map Items/Spawns/Enemy Spawn Node/Large Enemy Army"]
+scale = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Items/Spawns/Enemy Spawn Node/Large Enemy Army/Area2D5"]
 shape = SubResource("CircleShape2D_sh5nt")
 
 [node name="Items" type="Node2D" parent="Map Items"]

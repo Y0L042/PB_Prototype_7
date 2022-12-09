@@ -62,6 +62,7 @@ func clamp_army_position(): # testing clamping
 	var target: Vector2 = army_center + _army_velocity.normalized() * LENGTH
 	_army_position = lerp(_army_position, target, LERP_STRENGTH) if _army_velocity != Vector2.ZERO else target
 	formation.set_center_position(_army_position)
+#	formation.set_center_position(lerp(army_center, _army_position, 0.5))
 
 
 func play_marching():#temp

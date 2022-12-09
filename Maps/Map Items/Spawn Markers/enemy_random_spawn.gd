@@ -8,14 +8,18 @@ var active_instances: Array = []
 @export var _troops: Array[Resource] : get = get_troops
 @export var _ai: Resource
 #@export_category("Spawn Config")
+@export var spawn_immediately: bool = true
 @export_range(1,60) var delay: float = 1 : set = set_delay
 @export var waves: int = -1
 @export var max_active_instances: int = -1
-@export var active: bool = true
+@export var DisableSpawn: bool = false : set = set_disable_spawn
+var active: bool = true
 @export_group("Event Settings")
 @export var enable_disable_zone: bool = false
-@export var disable_zone: Area2D
+@export var disable_zone: Area2D : set = set_disabled_zone
 
+func set_disable_spawn(isDisabled: bool):
+	DisableSpawn = isDisabled
 
 func set_delay(new_delay: float):
 	delay = new_delay
@@ -28,6 +32,9 @@ func set_waves(new_waves: int):
 func set_max_active_instances(new_max_active_instances: int):
 	max_active_instances = new_max_active_instances
 
+func set_disabled_zone(new_zone: Area2D):
+	disable_zone = new_zone
+
 
 func _ready() -> void:
 	_parent = get_parent()
@@ -36,47 +43,44 @@ func _ready() -> void:
 	if enable_disable_zone and disable_zone != null:
 		disable_zone.area_entered.connect(disable_zone_entered)
 		disable_zone.area_exited.connect(disable_zone_exited)
+	if spawn_immediately and !DisableSpawn:
+		call_deferred("_spawn_enemies")
 
 func timer_timeout():
+	active = active && !DisableSpawn
 	if active:
 		if waves == 0:
 			active = false
 			return
-
 		var LIMIT_REACHED: bool = false
-		if !active_instances.is_empty() and max_active_instances == active_instances.size():
+		if !active_instances.is_empty() and max_active_instances <= active_instances.size():
 			LIMIT_REACHED = true
 		else: LIMIT_REACHED = false
 		if !LIMIT_REACHED:# dirty hack. try to use process or something to solve return problem
 			var army = _spawn_enemies()
-			army._soldier_manager.ArmyIsDefeated.connect(remove_army_from_active_instances)
-			active_instances.append(army)
-			if waves != -1:
-				waves -= 1
+#			army._soldier_manager.ArmyIsDefeated.connect(remove_army_from_active_instances)
+#			active_instances.append(army)
+#			if waves != -1:
+#				waves -= 1
 	timer.start(delay)
 
-func _physics_process(delta: float) -> void:
-#	random_spawning()
-	pass
 
-func random_spawning():
+func random_spawning(): # depreciated
 	var temp_timer = get_tree().create_timer(delay)
 	await temp_timer.timeout
 	if waves == 0:
 		active = false
 		return
 
-	if !active_instances.is_empty() and max_active_instances == active_instances.size():
-		active = true
-	else: active = false
+	if !active_instances.is_empty() and max_active_instances <= active_instances.size():
+		active = false
+	else: active = true
 
 	if !active:# dirty hack. try to use process or something to solve return problem
 		var army = _spawn_enemies()
-		army._soldier_manager.ArmyIsDefeated.connect(remove_army_from_active_instances)
-		active_instances.append(army)
 
-		if waves != -1:
-			waves -= 1
+
+
 
 
 
@@ -89,6 +93,13 @@ func _spawn_enemies():
 		army.set_ai_module(_ai)
 	if !_troops.is_empty():
 		army.set_initial_troop(_troops[get_troop_index()])
+
+	army._soldier_manager.ArmyIsDefeated.connect(remove_army_from_active_instances)
+	active_instances.append(army)
+
+	if waves != -1:
+		waves -= 1
+
 	return army
 
 func get_troop_index():
@@ -103,7 +114,11 @@ func get_troops():
 
 func disable_zone_entered(area: Area2D):
 	var spotted_object = area.get_parent()
-	if spotted_object.is_in_group("Army") and spotted_object.faction == "Player":
+	var isInArmy: bool = spotted_object.is_in_group("ARMY")
+	var factionIsPlayer: bool = false
+	if isInArmy:
+		factionIsPlayer = spotted_object.faction == "Player"
+	if isInArmy and factionIsPlayer:
 		active = false
 		print("zone entered")
 
@@ -111,7 +126,7 @@ func disable_zone_entered(area: Area2D):
 
 func disable_zone_exited(area: Area2D):
 	var spotted_object = area.get_parent()
-	if spotted_object.is_in_group("Army") and spotted_object.faction == "Player":
+	if spotted_object.is_in_group("ARMY") and spotted_object.faction == "Player":
 		active = true
 		print("zone exited")
 
