@@ -1,5 +1,12 @@
 extends Node
 
+
+#---------------------------------------------------------------------------------------------------#
+# Managers
+#---------------------------------------------------------------------------------------------------#
+var MainMenuManager: PackedScene = load("res://Managers/MainMenuManager/main_menu_manager.tscn")
+var GameManager: PackedScene = load("res://Managers/GameManager/game_manager.tscn")
+
 #---------------------------------------------------------------------------------------------------#
 # Layers
 #---------------------------------------------------------------------------------------------------#
@@ -37,6 +44,11 @@ var SOLDIER_KNIGHT: PackedScene = load("res://Soldiers/Knight/knight.tscn")
 var MAP_0: PackedScene = load("res://Maps/Map 0/map_0.tscn")
 var MAP_1: PackedScene = load("res://Maps/Map 1/map_1.tscn")
 
+var MAP_ARRAY: Array[PackedScene] = [
+	MAP_0,
+	MAP_1
+]
+
 #-------------------------------------------------------------------------------
 # FX
 #-------------------------------------------------------------------------------
@@ -65,6 +77,9 @@ func spawn_child(child: PackedScene, parent, _new_global_position: Vector2 = Vec
 	child_instance.set_global_position(_new_global_position)
 	return child_instance
 
+
+
+#TODO:
 
 func return_random_scene(new_array: Array):
 	var rand_index = randi_range(0, new_array.size() - 1)

@@ -2,7 +2,7 @@ extends Marker2D
 
 
 var _parent
-var active_instances: Array = []
+var active_instances: Array = [] # keeps track of the armies it spawned
 @onready var timer: Timer = $Timer
 
 @export var _troops: Array[Resource] : get = get_troops
@@ -93,14 +93,13 @@ func _spawn_enemies():
 		army.set_ai_module(_ai)
 	if !_troops.is_empty():
 		army.set_initial_troop(_troops[get_troop_index()])
-
 	army._soldier_manager.ArmyIsDefeated.connect(remove_army_from_active_instances)
 	active_instances.append(army)
-
 	if waves != -1:
 		waves -= 1
-
 	return army
+
+
 
 func get_troop_index():
 	return 0

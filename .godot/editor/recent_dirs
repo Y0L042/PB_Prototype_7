@@ -1,6 +1,10 @@
+res://
+res://Managers/SceneManager
+res://Managers/MainMenuManager
+res://Managers/GameManager
+res://Autoloads
 res://UI/Main Menu
 res://UI/Settings Menu
-res://UI/Mission Selection Menu/Level Box
 res://UI/Mission Selection Menu
 res://Maps/Map Items/Spawn Markers
 res://Maps/Map Items/Spawn Nodes
@@ -16,7 +20,3 @@ res://Troops
 res://Armies/EnemyArmy/AI/Wander
 res://Armies
 res://Soldiers/Soldier AI
-res://Soldiers/Resources/Stats
-res://Soldiers/Knight
-res://Soldiers
-res://Armies/EnemyArmy

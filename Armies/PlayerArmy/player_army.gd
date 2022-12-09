@@ -43,9 +43,9 @@ func _custom_process(delta: float):
 func _move():
 	clamp_army_position() #testing clamping
 	return #testing clamping
-	var delta: float = _delta
-	_army_position += _army_velocity * delta
-	formation.set_center_position(_army_position)
+#	var delta: float = _delta
+#	_army_position += _army_velocity * delta
+#	formation.set_center_position(_army_position)
 
 
 func clamp_army_position(): # testing clamping

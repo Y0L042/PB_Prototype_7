@@ -12,3 +12,10 @@ res://Maps/Map 0/map_0.tscn
 res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn
 res://Armies/PlayerArmy/player_army.gd
 res://Armies/PlayerArmy/player_army.tscn
+res://Autoloads/scene_lib.gd
+res://Autoloads/scene_manager.gd
+res://Managers/MainMenuManager/main_menu_manager.tscn
+res://Managers/GameManager/game_manager.tscn
+res://Managers/SceneManager/scene_manager.tscn
+res://_blank.tscn
+res://Managers/SceneManager/scene_manager.gd

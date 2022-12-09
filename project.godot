@@ -99,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PB_Prototype_7"
-run/main_scene="res://Main/main.tscn"
+run/main_scene="res://_blank.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -110,6 +110,7 @@ SceneLib="*res://Autoloads/scene_lib.gd"
 Tools="*res://Autoloads/tools.gd"
 SteeringBehaviour="*res://Autoloads/steering_behaviour.gd"
 HudStats="*res://Autoloads/hud_stats.gd"
+SceneManager="*res://Managers/SceneManager/scene_manager.tscn"
 
 [debug]
 
