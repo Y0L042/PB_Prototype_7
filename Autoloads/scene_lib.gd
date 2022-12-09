@@ -78,7 +78,10 @@ func spawn_child(child: PackedScene, parent, _new_global_position: Vector2 = Vec
 	child_instance.set_global_position(_new_global_position)
 	return child_instance
 
-
+func pack_node(new_node):
+	var scene = PackedScene.new()
+	scene.pack(new_node)
+	return scene
 
 #TODO:
 

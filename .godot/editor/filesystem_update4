@@ -22,3 +22,7 @@ res://Managers/SceneManager/scene_manager.gd
 res://UI/Main Menu/main_menu.tscn
 res://Managers/MainMenuManager/main_menu_manager.gd
 res://Managers/GameManager/game_manager.gd
+res://UI/Main Menu/main_menu.gd
+res://UI/Settings Menu/ui_settings_menu.gd
+res://UI/Settings Menu/ui_settings_menu.tscn
+res://UI/Mission Selection Menu/mission_selection_menu.tscn

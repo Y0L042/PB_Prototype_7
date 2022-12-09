@@ -7,6 +7,6 @@ func _init() -> void:
 func _ready() -> void:
 	# I used call_deferred, because this node's _ready() would be called before SceneLib.spawn_child()
 	# returned the scene_manager's root_manager: spawn_scene would then give an error
-	SceneManager.call_deferred("spawn_scene", SceneLib.MAIN_MENU)
+	SceneManager.SpawnScene.emit(SceneLib.MAIN_MENU)
 
 

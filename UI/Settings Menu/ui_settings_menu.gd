@@ -7,6 +7,4 @@ func _ready() -> void:
 	btn_back.pressed.connect(_on_back_button_pressed)
 
 func _on_back_button_pressed() -> void:
-	SceneLib.spawn_child(SceneLib.MAIN_MENU, get_parent())
-	queue_free()
-
+	SceneManager.SwitchScene.emit(SceneLib.MAIN_MENU, self)
