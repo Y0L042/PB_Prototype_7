@@ -1,8 +1,8 @@
-[gd_resource type="Resource" load_steps=2 format=3]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dd6jsirwy2b7b"]
 
-[ext_resource type="Script" path="res://Maps/Map Items/map_meta_data.gd" id="1_paa1w"]
+[ext_resource type="Script" path="res://Maps/Map Items/mission_meta_data.gd" id="1_a0dsw"]
 
 [resource]
-script = ExtResource("1_paa1w")
-map_name = "Dev Testing Map"
-map_description = "A testing map for the developer to mess around in."
+script = ExtResource("1_a0dsw")
+mission_name = "Mission Dev"
+mission_description = "Dev Sandbox."

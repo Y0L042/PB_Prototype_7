@@ -60,14 +60,14 @@ _global_script_classes=[{
 "path": "res://Classes/GridClass.gd"
 }, {
 "base": "Resource",
-"class": &"MapMetaData",
+"class": &"MissionMetaData",
 "language": &"GDScript",
-"path": "res://Maps/Map Items/map_meta_data.gd"
+"path": "res://Maps/Map Items/mission_meta_data.gd"
 }, {
 "base": "Resource",
-"class": &"MapPackageRes",
+"class": &"MissionPackageRes",
 "language": &"GDScript",
-"path": "res://Maps/Map Items/MapPackageResource.gd"
+"path": "res://Maps/Map Items/mission_package_resource.gd"
 }, {
 "base": "Node2D",
 "class": &"SoldierManager",
@@ -100,8 +100,8 @@ _global_script_class_icons={
 "BaseWeapon": "",
 "DefaultSoldierStats": "",
 "GridObject": "",
-"MapMetaData": "",
-"MapPackageRes": "",
+"MissionMetaData": "",
+"MissionPackageRes": "",
 "SoldierManager": "",
 "StandardSoldierAIModule": "",
 "VisualDebugger": "",

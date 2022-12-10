@@ -19,10 +19,12 @@ var _switched_scene_packed
 # Signals
 #-------------------------------------------------------------------------------
 signal SpawnScene
+signal DespawnScene
 signal SwitchScene
 
 func _set_signals():
 	self.SpawnScene.connect(spawn_scene)
+	self.DespawnScene.connect(despawn_scene)
 	self.SwitchScene.connect(switch_scene)
 #-------------------------------------------------------------------------------
 # Others

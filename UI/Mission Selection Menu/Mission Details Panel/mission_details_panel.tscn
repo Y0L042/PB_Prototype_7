@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5w6g4vdlgupy"]
+
+[ext_resource type="Script" path="res://UI/Mission Selection Menu/Mission Details Panel/mission_details_panel.gd" id="1_slsot"]
+
+[node name="MissionDetailsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_slsot")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Mission Name" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Mission Description" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 27.0
+offset_right = 40.0
+offset_bottom = 50.0
+autowrap_mode = 3
