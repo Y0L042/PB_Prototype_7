@@ -69,6 +69,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Maps/Map Items/mission_package_resource.gd"
 }, {
+"base": "Node",
+"class": &"MissionSetupData",
+"language": &"GDScript",
+"path": "res://Classes/MissionSetupData.gd"
+}, {
 "base": "Node2D",
 "class": &"SoldierManager",
 "language": &"GDScript",
@@ -102,6 +107,7 @@ _global_script_class_icons={
 "GridObject": "",
 "MissionMetaData": "",
 "MissionPackageRes": "",
+"MissionSetupData": "",
 "SoldierManager": "",
 "StandardSoldierAIModule": "",
 "VisualDebugger": "",

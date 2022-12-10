@@ -34,6 +34,14 @@ grow_vertical = 0
 text = "Back
 "
 
+[node name="Next Button" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 824.0
+offset_top = 593.0
+offset_right = 1139.0
+offset_bottom = 624.0
+text = "Start *TODO make customization menu"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = 15
