@@ -1,4 +1,4 @@
-res://Maps/Map 1/map_1.tscn
+res://UI/Mission Selection Menu/mission_selection_menu.tscn
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 res://Maps/Map Items/Spawn Markers/enemy_random_spawn.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
@@ -8,21 +8,10 @@ res://Soldiers/Soldier AI/standard_soldier_ai.tres
 res://Troops/Army of Knights/army_of_knights.tres
 res://Armies/EnemyArmy/AI/Wander/wander.tres
 res://Troops/Player Troops/player_knights.tres
-res://Maps/Map 0/map_0.tscn
-res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn
-res://Armies/PlayerArmy/player_army.gd
-res://Armies/PlayerArmy/player_army.tscn
+res://Maps/MapPackageResource.gd
+res://Maps/map_meta_data.gd
+res://Maps/Map 0/map_0_package.tres
+res://Maps/Map 0/map_0_meta_data.tres
+res://Maps/Map 1/map_1_meta_data.tres
+res://Maps/Map 1/map_1_package.tres
 res://Autoloads/scene_lib.gd
-res://Autoloads/scene_manager.gd
-res://Managers/MainMenuManager/main_menu_manager.tscn
-res://Managers/GameManager/game_manager.tscn
-res://Managers/SceneManager/scene_manager.tscn
-res://_blank.tscn
-res://Managers/SceneManager/scene_manager.gd
-res://UI/Main Menu/main_menu.tscn
-res://Managers/MainMenuManager/main_menu_manager.gd
-res://Managers/GameManager/game_manager.gd
-res://UI/Main Menu/main_menu.gd
-res://UI/Settings Menu/ui_settings_menu.gd
-res://UI/Settings Menu/ui_settings_menu.tscn
-res://UI/Mission Selection Menu/mission_selection_menu.tscn

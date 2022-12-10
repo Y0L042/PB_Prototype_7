@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_oyp4i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -54,60 +55,33 @@ grow_vertical = 2
 alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
-offset_bottom = 96.0
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
-offset_left = 4.0
-offset_right = 114.0
-offset_bottom = 96.0
+layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
-offset_right = 110.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Mission Select
 "
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
-offset_top = 30.0
-offset_right = 110.0
-offset_bottom = 96.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Levels Grid" type="GridContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer"]
-offset_left = 14.0
-offset_right = 95.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Level Box" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer/Levels Grid" instance=ExtResource("2_wsiqt")]
-anchors_preset = 0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 0.0
-offset_right = 81.0
-offset_bottom = 31.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 2
 text = "Test Map"
 mission_scene = ExtResource("3_01rge")
 mission_name = "Test Map"
 
 [node name="Level Box2" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer/Levels Grid" instance=ExtResource("2_wsiqt")]
-anchors_preset = 0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 35.0
-offset_right = 81.0
-offset_bottom = 66.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 2
 text = "Mission 1"
 mission_scene = ExtResource("4_sb8j7")
 mission_name = "Mission 1"

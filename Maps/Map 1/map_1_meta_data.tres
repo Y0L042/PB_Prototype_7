@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Maps/Map Items/map_meta_data.gd" id="1_q8itd"]
+
+[resource]
+script = ExtResource("1_q8itd")
+map_name = "Map 1"
+map_description = "Battle waves of knights. Can you survive 15 minutes?"

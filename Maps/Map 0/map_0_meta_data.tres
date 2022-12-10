@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Maps/Map Items/map_meta_data.gd" id="1_paa1w"]
+
+[resource]
+script = ExtResource("1_paa1w")
+map_name = "Dev Testing Map"
+map_description = "A testing map for the developer to mess around in."

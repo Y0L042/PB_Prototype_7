@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="PackedScene" uid="uid://d2kxc42nibgss" path="res://Maps/Map 1/map_1.tscn" id="1_kdyy0"]
+[ext_resource type="Script" path="res://Maps/Map Items/MapPackageResource.gd" id="1_p8605"]
+[ext_resource type="Resource" uid="uid://b3jysq31uskqx" path="res://Maps/Map 1/map_1_meta_data.tres" id="2_7j2q4"]
+
+[resource]
+script = ExtResource("1_p8605")
+meta_data = ExtResource("2_7j2q4")
+map_scene = ExtResource("1_kdyy0")

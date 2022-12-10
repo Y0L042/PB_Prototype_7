@@ -42,12 +42,15 @@ var SOLDIER_KNIGHT: PackedScene = load("res://Soldiers/Knight/knight.tscn")
 #-------------------------------------------------------------------------------
 # Maps
 #-------------------------------------------------------------------------------
+var MAP_0_PACKAGE_RES: Resource = load("res://Maps/Map 0/map_0_package.tres")
 var MAP_0: PackedScene = load("res://Maps/Map 0/map_0.tscn")
+
+var MAP_1_PACKAGE_RES: Resource = load("res://Maps/Map 1/map_1_package.tres")
 var MAP_1: PackedScene = load("res://Maps/Map 1/map_1.tscn")
 
-var MAP_ARRAY: Array[PackedScene] = [
-	MAP_0,
-	MAP_1
+var MAP_PACKAGE_RES_ARRAY: Array[PackedScene] = [
+	MAP_0_PACKAGE_RES,
+	MAP_1_PACKAGE_RES
 ]
 
 #-------------------------------------------------------------------------------
