@@ -12,7 +12,6 @@ grow_vertical = 2
 script = ExtResource("1_oyp4i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,24 +23,6 @@ color = Color(0.164706, 0.164706, 0.164706, 0.54902)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Back Button" type="Button" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_left = 42.0
-offset_top = 574.0
-offset_right = 163.0
-offset_bottom = 628.0
-grow_vertical = 0
-text = "Back
-"
-
-[node name="Next Button" type="Button" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_left = 824.0
-offset_top = 593.0
-offset_right = 1139.0
-offset_bottom = 624.0
-text = "Start *TODO make customization menu"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = 15
@@ -52,24 +33,65 @@ grow_vertical = 2
 alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
+offset_left = 390.0
+offset_right = 390.0
+offset_bottom = 648.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
+offset_left = 394.0
+offset_top = 287.0
+offset_right = 762.0
+offset_bottom = 360.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 368.0
+offset_bottom = 26.0
 text = "Mission Select
 "
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 30.0
+offset_right = 368.0
+offset_bottom = 73.0
 
-[node name="Levels Grid" type="GridContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer"]
+offset_right = 368.0
+offset_bottom = 43.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer/VSplitContainer"]
+offset_right = 368.0
+offset_bottom = 31.0
+
+[node name="Back Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer/VSplitContainer/HBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_right = 45.0
+offset_bottom = 31.0
+grow_vertical = 0
+text = "Back
+"
+
+[node name="Levels Grid" type="GridContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer/VSplitContainer/HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 49.0
+offset_top = 15.0
+offset_right = 49.0
+offset_bottom = 15.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Next Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer/VSplitContainer/HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 53.0
+offset_right = 368.0
+offset_bottom = 31.0
+disabled = true
+text = "Start *TODO make customization menu"
+
+[node name="DetailsRef" type="PanelContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/CenterContainer/VSplitContainer"]
+unique_name_in_owner = true
+offset_top = 43.0
+offset_right = 368.0
+offset_bottom = 43.0

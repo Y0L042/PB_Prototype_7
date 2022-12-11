@@ -18,11 +18,17 @@ var _switched_scene_packed
 #-------------------------------------------------------------------------------
 # Signals
 #-------------------------------------------------------------------------------
+signal SwitchRootManager
+signal SwitchToGameManager
+
 signal SpawnScene
 signal DespawnScene
 signal SwitchScene
 
 func _set_signals():
+	self.SwitchRootManager.connect(_switch_root_manager)
+	self.SwitchToGameManager.connect(_switch_to_GameManager)
+
 	self.SpawnScene.connect(spawn_scene)
 	self.DespawnScene.connect(despawn_scene)
 	self.SwitchScene.connect(switch_scene)
@@ -50,8 +56,6 @@ func _init() -> void:
 func _ready() -> void:
 	_fetch_starting_root_manager()
 
-#	call_deferred("_spawn_root_manager", SceneLib.MainMenuManager)
-#	await get_tree().create_timer(3).timeout
 
 
 
@@ -59,10 +63,14 @@ func _ready() -> void:
 #-------------------------------------------------------------------------------
 # Spawn Managers
 #-------------------------------------------------------------------------------
+func _switch_to_GameManager(new_mission_setup_data: MissionSetupData):
+	var game_manager = _spawn_root_manager(SceneLib.GameManager)
+	game_manager.set_mission_setup_data(new_mission_setup_data)
+	_despawn_prev_root_manager()
+
 func _switch_root_manager(new_manager):
 	_spawn_root_manager(new_manager)
 	_despawn_prev_root_manager()
-
 
 func _fetch_starting_root_manager():
 	for child in get_tree().get_root().get_children():
@@ -81,6 +89,7 @@ func _despawn_prev_root_manager():
 
 func _spawn_root_manager(new_manager):
 	_root_manager = SceneLib.spawn_child(new_manager, _tree_root)
+	return _root_manager
 
 
 #-------------------------------------------------------------------------------

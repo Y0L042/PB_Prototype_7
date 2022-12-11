@@ -1,3 +1,6 @@
+PanelContainer
+VSplitContainer
+HBoxContainer
 Button
 VBoxContainer
 Label
@@ -11,9 +14,7 @@ CenterContainer
 CanvasLayer
 MarginContainer
 Control
-HBoxContainer
 GridContainer
-PanelContainer
 Marker2D
 Camera2D
 NinePatchRect

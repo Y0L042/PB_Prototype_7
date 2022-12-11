@@ -22,7 +22,7 @@ func setup():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.pressed.connect(_emit_custom_pressed)
-	grab_focus()
+#	grab_focus()
 
 func _emit_custom_pressed():
 	CustomPressed.emit(mission_package_res)

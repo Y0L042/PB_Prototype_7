@@ -1,5 +1,7 @@
 extends Control
 
+
+
 var mission_button = preload("res://UI/Mission Selection Menu/Mission Button/mission_button.tscn")
 var mission_details_panel = preload("res://UI/Mission Selection Menu/Mission Details Panel/mission_details_panel.tscn")
 
@@ -7,7 +9,8 @@ var mission_details_panel = preload("res://UI/Mission Selection Menu/Mission Det
 @onready var btn_next = %"Next Button"
 
 @onready var dynamic_missions_ref_node = %"Levels Grid"
-@onready var mission_details_panel_ref_node = %HBoxContainer
+@onready var mission_details_panel_ref_node = %DetailsRef
+@onready var _parent = get_parent()
 
 var active_mission_details_panel = null
 var selected_mission_package_res = null
@@ -30,13 +33,21 @@ func _generate_mission_button_list():
 		mission_btn.set_mission_package_res(mission_package)
 
 func _mission_btn_pressed(new_mission_package_res: Resource):
+	btn_next.set_disabled(false)
 	if active_mission_details_panel != null:
 		SceneManager.DespawnScene.emit(active_mission_details_panel)
 	active_mission_details_panel = SceneLib.spawn_child(mission_details_panel, mission_details_panel_ref_node)
 	active_mission_details_panel.set_mission_package_res(new_mission_package_res)
 	selected_mission_package_res = new_mission_package_res
+	set_mission_setup_data()
+
+func set_mission_setup_data():
+	# how do I know I am getting MainMenuManager, with mission_setup_data? TODO fix it
+	if _parent == null: return
+	var setup_data = _parent.get_mission_setup_data()
+	setup_data.set_mission_package_res(selected_mission_package_res)
 
 func _next():
 	# this will load the army customization menu
 	# but for now it will simply start the game
-	pass
+	_parent.switch_to_GameManager()
