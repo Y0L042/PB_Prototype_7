@@ -37,3 +37,6 @@ res://Armies/soldier_manager.gd
 res://Armies/base_army.gd
 res://UI/Mission Selection Menu/mission_selection_menu.gd
 res://Soldiers/Archer/archer.tscn
+res://Weapons/Basic Bow/basic_bow.tscn
+res://Weapons/Basic Sword/basic_sword.tscn
+res://Weapons/Basic Bow/basic_bow.gd

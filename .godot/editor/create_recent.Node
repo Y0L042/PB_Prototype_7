@@ -1,5 +1,7 @@
-AnimationPlayer
+Sprite2D
+Marker2D
 AnimationTree
+AnimationPlayer
 CollisionShape2D
 CharacterBody2D
 Node2D
@@ -20,10 +22,8 @@ CanvasLayer
 MarginContainer
 Control
 GridContainer
-Marker2D
 NinePatchRect
 AudioStreamPlayer2D
 GPUParticles2D
-Sprite2D
 StaticBody2D
 TileMap

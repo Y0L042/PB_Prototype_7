@@ -310,8 +310,8 @@ base_soldier.tscn::PackedScene::-1::1670395488::0::1::::<><>::res://Soldiers/bas
 base_soldier_ai_module.gd::GDScript::-1::1670395488::0::1::::BaseSoldierAIModule<>Resource<>::
 ForceArea.gd::GDScript::-1::1670395488::0::1::::<>Area2D<>::
 Sight.gd::GDScript::-1::1670421197::0::1::::<>Area2D<>::
-::res://Soldiers/Archer/::1670839612
-archer.tscn::PackedScene::7493531881528751697::1670839571::0::1::::<><>::res://Fx/Shaders/faction_outline.gdshader<>res://Soldiers/Knight/knight.gd<>uid://d2jgdb1r55t1i<>res://Soldiers/Sight.gd<>uid://uiyiif4kyq0e<>res://Fx/Shaders/hurt_shader.gdshader<>uid://bcjck6wdvlqp8<>uid://n65x0ca5e7rm<>uid://bcrvkane12a25<>res://Soldiers/ForceArea.gd
+::res://Soldiers/Archer/::1670839648
+archer.tscn::PackedScene::7493531881528751697::1670839648::0::1::::<><>::res://Fx/Shaders/faction_outline.gdshader<>res://Soldiers/Knight/knight.gd<>uid://d2jgdb1r55t1i<>res://Soldiers/Sight.gd<>uid://uiyiif4kyq0e<>res://Fx/Shaders/hurt_shader.gdshader<>uid://de5jscn3h5np1<>uid://n65x0ca5e7rm<>res://Soldiers/ForceArea.gd
 knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0_archeranims.png::CompressedTexture2D::7502527481890310892::1670839604::1670839613::1::::<><>::
 ::res://Soldiers/Knight/::1670839612
 knight.gd::GDScript::-1::1670834535::0::1::::<>CharacterBody2D<>::
@@ -362,11 +362,16 @@ ui_pause_menu.tscn::PackedScene::863565169421857443::1670831114::0::1::::<><>::r
 ::res://UI/Settings Menu/::1670694043
 ui_settings_menu.gd::GDScript::-1::1670594304::0::1::::<>Control<>::
 ui_settings_menu.tscn::PackedScene::4761227547186209683::1670694043::0::1::::<><>::res://UI/Settings Menu/ui_settings_menu.gd
-::res://Weapons/::1670838364
+::res://Weapons/::1670839989
 base_weapon.tscn::PackedScene::6619624225388442991::1670395179::0::1::::<><>::res://Weapons/base_weapon_script.gd
 base_weapon_script.gd::GDScript::-1::1670395488::0::1::::BaseWeapon<>Node2D<>::
-::res://Weapons/Basic Bow/::1670839410
-basic_bow.tscn::PackedScene::3542730390220297697::1670839410::0::1::::<><>::
+::res://Weapons/Arrows/::1670839998
+::res://Weapons/Arrows/Basic Arrow/::1670840110
+basic_arrow.tscn::PackedScene::8888851024607037570::1670840044::0::1::::<><>::
+Ice Bow Set.svg::CompressedTexture2D::1347477528837611439::1670839914::1670840112::1::::<><>::
+::res://Weapons/Basic Bow/::1670839957
+basic_bow.tscn::PackedScene::3542730390220297697::1670839756::0::1::::<><>::
+Ice Bow Set.svg::CompressedTexture2D::8395927122290987430::1670839914::1670839957::1::::<><>::
 ::res://Weapons/Basic Sword/::1670428041
 basic_sword.gd::GDScript::-1::1670222825::0::1::::<>BaseWeapon<>::
 basic_sword.tscn::PackedScene::2563185727875332716::1670428041::0::1::::<><>::res://Weapons/Basic Sword/basic_sword.gd<>uid://do45hloggxhk3<>uid://db170d24q7x5p<>uid://n65x0ca5e7rm

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://de06m02u5x1ar"]
+[gd_scene load_steps=37 format=3 uid="uid://de06m02u5x1ar"]
 
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_2enko"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_qlj4o"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="6_u8wok"]
 [ext_resource type="Texture2D" uid="uid://de5jscn3h5np1" path="res://Soldiers/Archer/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0_archeranims.png" id="7_coe1c"]
 [ext_resource type="Texture2D" uid="uid://n65x0ca5e7rm" path="res://Fx/Sprites/ice_particle_white.png" id="8_i12ne"]
+[ext_resource type="PackedScene" uid="uid://bqqeith03velt" path="res://Weapons/Basic Bow/basic_bow.tscn" id="9_v5ebd"]
 [ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="10_7o7m4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
@@ -445,6 +446,9 @@ texture = ExtResource("8_i12ne")
 [node name="WeaponPivot" type="Marker2D" parent="Pivot"]
 unique_name_in_owner = true
 use_parent_material = true
+
+[node name="Basic Bow" parent="Pivot/WeaponPivot" instance=ExtResource("9_v5ebd")]
+position = Vector2(43, -128)
 
 [node name="SoldierCollision" type="Area2D" parent="."]
 unique_name_in_owner = true

@@ -1,3 +1,135 @@
-[gd_scene format=3 uid="uid://bqqeith03velt"]
+[gd_scene load_steps=14 format=3 uid="uid://bqqeith03velt"]
+
+[ext_resource type="Script" path="res://Weapons/Basic Bow/basic_bow.gd" id="1_kn771"]
+[ext_resource type="Texture2D" uid="uid://drvbxtfnogq43" path="res://Weapons/Basic Bow/Ice Bow Set.svg" id="1_mvgir"]
+
+[sub_resource type="Animation" id="Animation_vfcda"]
+resource_name = "Attack_1"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 0.0220971, 1),
+"update": 0,
+"values": [Vector2(-0.5, 0.5), Vector2(-1.1, 0.34), Vector2(-0.58794, 0.600354), Vector2(-0.5, 0.5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire_arrow"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_p7ku5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1m017"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, -57), Vector2(-3, 51), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50khp"]
+_data = {
+"Attack_1": SubResource("Animation_vfcda"),
+"Idle": SubResource("Animation_1m017"),
+"RESET": SubResource("Animation_p7ku5")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l2idf"]
+animation = &"Attack_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7k7mp"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mkcd"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h6dk5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5t3pi"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_81r5a"]
+states/Attack_1/node = SubResource("AnimationNodeAnimation_l2idf")
+states/Attack_1/position = Vector2(345, 30)
+states/Idle/node = SubResource("AnimationNodeAnimation_7k7mp")
+states/Idle/position = Vector2(360, 95)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7mkcd"), "Idle", "Attack_1", SubResource("AnimationNodeStateMachineTransition_h6dk5"), "Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_5t3pi")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_q6jer"]
 
 [node name="Basic Bow" type="Node2D"]
+script = ExtResource("1_kn771")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_50khp")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+tree_root = SubResource("AnimationNodeStateMachine_81r5a")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_q6jer")
+
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("1_mvgir")
+region_enabled = true
+region_rect = Rect2(13.7305, 4.69989, 423.659, 1048.73)
