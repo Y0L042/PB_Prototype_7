@@ -97,6 +97,11 @@ func _smooth_input_handling():
 	rotate_formation()
 #	_set_formation_rotation()
 
+func army_is_dead():
+	activate_game_over()
+
+func activate_game_over():
+	SceneManager._root_manager.GameOver.emit()
 #-------------------------------------------------------------------------------
 # Movement Functions
 #-------------------------------------------------------------------------------

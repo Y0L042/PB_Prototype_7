@@ -15,6 +15,8 @@ var mission_details_panel = preload("res://UI/Mission Selection Menu/Mission Det
 var active_mission_details_panel = null
 var selected_mission_package_res = null
 
+var mission_btn_list: Array = []
+
 func _ready() -> void:
 	_connect_to_signals()
 	_generate_mission_button_list()
@@ -31,6 +33,11 @@ func _generate_mission_button_list():
 		var mission_btn = SceneLib.spawn_child(mission_button, dynamic_missions_ref_node)
 		mission_btn.CustomPressed.connect(_mission_btn_pressed)
 		mission_btn.set_mission_package_res(mission_package)
+		mission_btn_list.append(mission_btn)
+	if !mission_btn_list.is_empty():
+		mission_btn_list[0].grab_focus()
+	else:
+		btn_back.grab_focus()
 
 func _mission_btn_pressed(new_mission_package_res: Resource):
 	btn_next.set_disabled(false)

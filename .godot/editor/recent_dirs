@@ -1,3 +1,5 @@
+res://Weapons/Basic Bow
+res://Soldiers/Archer
 res://Maps/Map 1
 res://Maps/Map 0
 res://
@@ -18,5 +20,3 @@ C:/Users/vlamf/AppData/Local/Programs/Microsoft VS Code
 res://Weapons/Basic Sword
 res://Weapons
 res://Factions/Player
-res://Troops
-res://Armies/EnemyArmy/AI/Wander

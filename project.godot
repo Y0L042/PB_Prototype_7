@@ -29,6 +29,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Factions/base_faction.gd"
 }, {
+"base": "Node2D",
+"class": &"BaseMap",
+"language": &"GDScript",
+"path": "res://Maps/Map Items/base_map_script.gd"
+}, {
 "base": "Resource",
 "class": &"BaseSoldierAIModule",
 "language": &"GDScript",
@@ -99,6 +104,7 @@ _global_script_class_icons={
 "ArmyBlackboard": "",
 "BaseAIModule": "",
 "BaseFaction": "",
+"BaseMap": "",
 "BaseSoldierAIModule": "",
 "BaseStats": "",
 "BaseTroop": "",

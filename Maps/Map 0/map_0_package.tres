@@ -1,10 +1,10 @@
-[gd_resource type="Resource" load_steps=4 format=3]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://vcgvtq5claf"]
 
 [ext_resource type="Script" path="res://Maps/Map Items/mission_package_resource.gd" id="1_usnis"]
 [ext_resource type="PackedScene" uid="uid://dvn1pefqu4dn1" path="res://Maps/Map 0/map_0.tscn" id="1_xnjhk"]
-[ext_resource type="Resource" path="res://Maps/Map 0/map_0_meta_data.tres" id="2_ny2fu"]
+[ext_resource type="Resource" uid="uid://dd6jsirwy2b7b" path="res://Maps/Map 0/map_0_meta_data.tres" id="2_ny2fu"]
 
 [resource]
 script = ExtResource("1_usnis")
 meta_data = ExtResource("2_ny2fu")
-map_scene = ExtResource("1_xnjhk")
+mission_scene = ExtResource("1_xnjhk")

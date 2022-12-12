@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvn1pefqu4dn1"]
+[gd_scene load_steps=9 format=3 uid="uid://dvn1pefqu4dn1"]
 
 [ext_resource type="Script" path="res://Maps/Map 0/map_0.gd" id="1_fs8s5"]
 [ext_resource type="TileSet" uid="uid://bfs3bvgkvh8gk" path="res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres" id="2_yrvy3"]
-[ext_resource type="PackedScene" uid="uid://mo3bm821vkro" path="res://UI/HUD/hud.tscn" id="3_r6e4m"]
 [ext_resource type="PackedScene" uid="uid://bq42f24tl5l80" path="res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn" id="3_wvl2d"]
-[ext_resource type="PackedScene" uid="uid://mkk160r4og8j" path="res://UI/Pause Menu/ui_pause_menu.tscn" id="4_by2ie"]
 [ext_resource type="Resource" uid="uid://cstj1pxj68c6a" path="res://Troops/Army of Knights/army_of_knights.tres" id="4_m7tie"]
 [ext_resource type="Resource" uid="uid://omr28hqf6lnh" path="res://Armies/EnemyArmy/AI/Wander/wander.tres" id="5_03g22"]
 [ext_resource type="PackedScene" uid="uid://c8hin0q46nqwm" path="res://Armies/PlayerArmy/player_army.tscn" id="8_p2ihq"]
@@ -82,10 +80,6 @@ scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Items/Spawns/Enemy Spawns/Enemy Random Spawn/Area2D"]
 shape = SubResource("CircleShape2D_ncr3v")
-
-[node name="HUD" parent="." instance=ExtResource("3_r6e4m")]
-
-[node name="UI_Pause Menu" parent="." instance=ExtResource("4_by2ie")]
 
 [node name="PlayerArmy" parent="." instance=ExtResource("8_p2ihq")]
 position = Vector2(2376, 1944)

@@ -1,0 +1,460 @@
+[gd_scene load_steps=36 format=3 uid="uid://de06m02u5x1ar"]
+
+[ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_2enko"]
+[ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_qlj4o"]
+[ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_2345v"]
+[ext_resource type="Script" path="res://Soldiers/Sight.gd" id="4_fweye"]
+[ext_resource type="Texture2D" uid="uid://uiyiif4kyq0e" path="res://Fx/Sprites/shadow.png" id="5_7xipc"]
+[ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="6_u8wok"]
+[ext_resource type="Texture2D" uid="uid://de5jscn3h5np1" path="res://Soldiers/Archer/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0_archeranims.png" id="7_coe1c"]
+[ext_resource type="Texture2D" uid="uid://n65x0ca5e7rm" path="res://Fx/Sprites/ice_particle_white.png" id="8_i12ne"]
+[ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="10_7o7m4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
+resource_local_to_scene = true
+shader = ExtResource("1_2enko")
+shader_parameter/active = null
+shader_parameter/add_margins = false
+shader_parameter/color = null
+shader_parameter/inside = false
+shader_parameter/pattern = 1
+shader_parameter/width = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_642r8"]
+radius = 108.0
+
+[sub_resource type="Animation" id="Animation_208g4"]
+resource_name = "Dead"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/BodySprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -216), Vector2(108, -177), Vector2(182, -57)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BodySprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/BodySprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 15)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BodySprite:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.584685, 1.309]
+}
+
+[sub_resource type="Animation" id="Animation_dqbnh"]
+resource_name = "Hurt"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/BodySprite:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_0bvin"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_xx4r6"]
+resource_name = "Jog"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/BodySprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -216), Vector2(0, -269), Vector2(0, -216), Vector2(0, -195)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BodySprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(15, 15), Vector2(15, 15.84), Vector2(15, 15), Vector2(15, 13.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Dust:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_m6rfm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/BodySprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -216)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BodySprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/BodySprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 15)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BodySprite:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pivot/BodySprite:material:shader_parameter/active")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pivot/Dust:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jb70k"]
+_data = {
+"Dead": SubResource("Animation_208g4"),
+"Hurt": SubResource("Animation_dqbnh"),
+"Idle": SubResource("Animation_0bvin"),
+"Jog": SubResource("Animation_xx4r6"),
+"RESET": SubResource("Animation_m6rfm")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m3u1y"]
+animation = &"Dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5yxdq"]
+animation = &"Hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lic5r"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_411c2"]
+animation = &"Jog"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yr6rp"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r3vdt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_paqm1"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_07no1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mmobk"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_86xtc"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6sdx3"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5nnuu"]
+states/Dead/node = SubResource("AnimationNodeAnimation_m3u1y")
+states/Dead/position = Vector2(605, 100)
+states/Hurt/node = SubResource("AnimationNodeAnimation_5yxdq")
+states/Hurt/position = Vector2(355, 185)
+states/Idle/node = SubResource("AnimationNodeAnimation_lic5r")
+states/Idle/position = Vector2(355, 100)
+states/Jog/node = SubResource("AnimationNodeAnimation_411c2")
+states/Jog/position = Vector2(355, 18)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_yr6rp"), "Idle", "Jog", SubResource("AnimationNodeStateMachineTransition_r3vdt"), "Jog", "Idle", SubResource("AnimationNodeStateMachineTransition_paqm1"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_07no1"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_mmobk"), "Idle", "Dead", SubResource("AnimationNodeStateMachineTransition_86xtc"), "Dead", "End", SubResource("AnimationNodeStateMachineTransition_6sdx3")]
+graph_offset = Vector2(-3, -24)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_okoax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvuww"]
+radius = 216.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nhtx"]
+resource_local_to_scene = true
+shader = ExtResource("1_2enko")
+shader_parameter/active = false
+shader_parameter/add_margins = null
+shader_parameter/color = null
+shader_parameter/inside = true
+shader_parameter/pattern = null
+shader_parameter/width = 25.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63qgb"]
+resource_local_to_scene = true
+shader = ExtResource("6_u8wok")
+shader_parameter/active = false
+shader_parameter/tint_color = Color(1, 0, 0, 1)
+shader_parameter/tint_effect_factor = 0.75
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ntb2x"]
+emission_shape = 1
+emission_sphere_radius = 75.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 360.0
+scale_max = 3.0
+color = Color(0.870588, 0.843137, 0.764706, 0.639216)
+hue_variation_min = -0.01
+hue_variation_max = 0.01
+turbulence_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20s78"]
+radius = 108.0
+
+[node name="Archer" type="CharacterBody2D"]
+z_index = 1
+material = SubResource("ShaderMaterial_ufi0m")
+collision_layer = 2
+script = ExtResource("2_qlj4o")
+_ai_module = ExtResource("3_2345v")
+health = 10.0
+
+[node name="BaseCollision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -57)
+shape = SubResource("CircleShape2D_642r8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_jb70k")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+tree_root = SubResource("AnimationNodeStateMachine_5nnuu")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_okoax")
+
+[node name="Sight" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(3, 3)
+collision_layer = 3
+collision_mask = 3
+monitorable = false
+script = ExtResource("4_fweye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_gvuww")
+debug_color = Color(0.580392, 0.384314, 1, 0.262745)
+
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+use_parent_material = true
+
+[node name="Shadow" type="Sprite2D" parent="Pivot"]
+unique_name_in_owner = true
+show_behind_parent = true
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_1nhtx")
+position = Vector2(0, -9.15527e-05)
+scale = Vector2(1.23, 0.615)
+texture = ExtResource("5_7xipc")
+
+[node name="BodySprite" type="Sprite2D" parent="Pivot"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_63qgb")
+position = Vector2(0, -216)
+scale = Vector2(15, 15)
+texture = ExtResource("7_coe1c")
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="Dust" type="GPUParticles2D" parent="Pivot"]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.1
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_ntb2x")
+texture = ExtResource("8_i12ne")
+
+[node name="WeaponPivot" type="Marker2D" parent="Pivot"]
+unique_name_in_owner = true
+use_parent_material = true
+
+[node name="SoldierCollision" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+monitorable = false
+script = ExtResource("10_7o7m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoldierCollision"]
+shape = SubResource("CircleShape2D_20s78")

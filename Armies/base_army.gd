@@ -172,6 +172,11 @@ func _set_formation_rotation():
 func receive_necromanced_army(new_army):
 	if _soldier_manager != null:
 		_soldier_manager.necromance_army(new_army)
+
+func army_is_dead():
+#		_soldier_manager.queue_free()
+		print("Army:   ", self, "  is ded")
+		self.queue_free()
 #-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------

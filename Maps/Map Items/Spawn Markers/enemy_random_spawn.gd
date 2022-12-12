@@ -36,7 +36,10 @@ func set_disabled_zone(new_zone: Area2D):
 	disable_zone = new_zone
 
 
-func _ready() -> void:
+func _init() -> void:
+	add_to_group(SceneLib.Map_Item_Group)
+
+func start_map_item() -> void:
 	_parent = get_parent()
 	timer.timeout.connect(timer_timeout)
 	timer.start(delay)
@@ -86,7 +89,7 @@ func random_spawning(): # depreciated
 
 func _spawn_enemies():
 	var _spawn_point: Vector2 = get_global_position()
-	var army = SceneLib.spawn_child(SceneLib.ENEMY_ARMY, get_tree().get_root(), _spawn_point)
+	var army = SceneLib.spawn_child(SceneLib.ENEMY_ARMY, SceneManager._root_manager.current_map, _spawn_point)
 	army.set_army_position(_spawn_point)
 	if _ai != null:
 		_ai = _ai.duplicate()

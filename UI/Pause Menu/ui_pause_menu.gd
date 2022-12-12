@@ -9,8 +9,14 @@ var isPaused: bool = false
 @onready var btn_MainMenu := %MainMenu
 @onready var btn_Quit := %Quit
 
+@export var _visible: bool = false : set = _set_visible
+
+func _set_visible(isVisible: bool):
+	_visible = isVisible
+	canvas_layer.set_visible(_visible)
+
 func _ready() -> void:
-	canvas_layer.set_visible(false)
+	_visible = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -23,7 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_packed(SceneLib.SCENE_MAIN_MENU)
+	SceneManager._switch_root_manager(SceneLib.MainMenuManager)
 
 
 func _on_resume_pressed() -> void:

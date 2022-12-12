@@ -179,8 +179,8 @@ func _custom_process(_delta: float):
 #-------------------------------------------------------------------------------
 # Events
 #-------------------------------------------------------------------------------
-func _spawn_blood_splatter():
-	var blood_splatter = SceneLib.spawn_child(SceneLib.fx_sprite_blood_splatter_1, get_tree().get_root(), get_global_position())
+func _spawn_blood_splatter(): # temp
+	var blood_splatter = SceneLib.spawn_child(SceneLib.fx_sprite_blood_splatter_1, SceneManager._root_manager.current_map, get_global_position())
 	blood_splatter.set_faction_colour(_faction_colour)
 #---------------------------------------------------------------------------------------------------#
 # Public Functions

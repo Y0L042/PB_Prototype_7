@@ -18,6 +18,8 @@ var _switched_scene_packed
 #-------------------------------------------------------------------------------
 # Signals
 #-------------------------------------------------------------------------------
+signal SwitchRootManagerComplete
+
 signal SwitchRootManager
 signal SwitchToGameManager
 
@@ -41,6 +43,7 @@ func _set_signals():
 func set_root_manager(new_root_manager):
 	_prev_root_manager = _root_manager
 	_root_manager = new_root_manager
+	SwitchRootManagerComplete.emit()
 
 
 #---------------------------------------------------------------------------------------------------#
@@ -68,9 +71,11 @@ func _switch_to_GameManager(new_mission_setup_data: MissionSetupData):
 	game_manager.set_mission_setup_data(new_mission_setup_data)
 	_despawn_prev_root_manager()
 
+
 func _switch_root_manager(new_manager):
 	_spawn_root_manager(new_manager)
 	_despawn_prev_root_manager()
+
 
 func _fetch_starting_root_manager():
 	for child in get_tree().get_root().get_children():

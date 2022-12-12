@@ -42,6 +42,8 @@ var SOLDIER_KNIGHT: PackedScene = load("res://Soldiers/Knight/knight.tscn")
 #-------------------------------------------------------------------------------
 # Maps
 #-------------------------------------------------------------------------------
+var Map_Item_Group: String = "MAP_ITEM"
+
 var MAP_0_PACKAGE_RES: Resource = load("res://Maps/Map 0/map_0_package.tres")
 var MAP_0: PackedScene = load("res://Maps/Map 0/map_0.tscn")
 
@@ -74,6 +76,7 @@ var SETTINGS_MENU: PackedScene = load("res://UI/Settings Menu/ui_settings_menu.t
 var UI_PAUSE_MENU: PackedScene = load("res://UI/Pause Menu/ui_pause_menu.tscn")
 var UI_GAME_END: PackedScene = load("res://UI/Game End Menu/ui_game_end.tscn")
 
+var UI_HUD: PackedScene = load("res://UI/HUD/hud.tscn")
 #-------------------------------------------------------------------------------
 # Scene Tools
 #-------------------------------------------------------------------------------
