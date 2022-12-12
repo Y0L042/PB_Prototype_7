@@ -128,6 +128,7 @@ func basic_ai():
 			isAttackPossible = true
 		else:
 			isAttackPossible = false
+	_parent.set_isAttacking(isAttackPossible)
 
 	if _isEngaged and distance_to_party_target > _recall_limit:
 		_isRecalled = true

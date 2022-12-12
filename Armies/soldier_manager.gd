@@ -56,6 +56,8 @@ func use_troop():
 # Runtime
 #-------------------------------------------------------------------------------
 func _custom_physics_process():
+	_parent.set_isArmyAttacking(check_isArmyAttacking_status())
+
 	if active_soldiers_array.is_empty() and !all_soldiers_scenes.is_empty():
 		ArmyIsDefeated.emit(get_all_soldiers_scenes(), _parent)
 		if _parent.enemy_army != null:
@@ -69,6 +71,15 @@ func _custom_physics_process():
 #		_parent.queue_free()
 #		print("Army:   ", self, "  is ded")
 #		self.queue_free()
+
+
+func check_isArmyAttacking_status():
+	var status: bool = false
+	for soldier in active_soldiers_array:
+		if soldier.has_method("get_isAttacking"):
+			status = status or soldier.get_isAttacking()
+	return status
+
 #-------------------------------------------------------------------------------
 # Formation Functions
 #-------------------------------------------------------------------------------

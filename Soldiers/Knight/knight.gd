@@ -14,6 +14,7 @@ signal SoldierIsDead
 @export @onready var _ai_module: Resource : set = set_ai_module
 var _parent
 var _formation_index: int : set = set_formation_index, get = get_formation_index
+var isAttacking: bool = false : set = set_isAttacking, get = get_isAttacking
 
 var SCENE = SceneLib.SOLDIER_KNIGHT
 var _col_activated: bool = false
@@ -73,10 +74,13 @@ func set_blackboard(new_blackboard):
 	_army_id = blackboard.army_id
 	_faction_colour = blackboard.get_faction_colour()
 	_formation = blackboard.formation
-
 	set_faction_stuff()
-
 	BlackboardIsReady.emit() # make _ready wait for blackboard, avoid bugs with ai starting too soon
+
+func set_isAttacking(is_attacking):
+	isAttacking = is_attacking
+func get_isAttacking():
+	return isAttacking
 
 func set_ai_module(new_ai_module):
 	if new_ai_module == null:

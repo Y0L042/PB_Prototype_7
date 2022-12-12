@@ -1,5 +1,7 @@
 extends Area2D
 
+
+
 @onready var _parent = get_parent()
 var sightings: Array
 var sighted_enemy = null : get = get_sighted_enemy

@@ -52,7 +52,7 @@ func do_damage():
 		_enemy.hurt(damage)
 
 func fire_arrow():
-	var arrow = SceneLib.spawn_child(arrow_scene, SceneManager._root_manager.current_map)
+	var arrow = SceneLib.spawn_child(arrow_scene, SceneManager._root_manager.current_map, get_global_position())
 	arrow.set_target(_enemy)
 #-------------------------------------------------------------------------------
 # Animations

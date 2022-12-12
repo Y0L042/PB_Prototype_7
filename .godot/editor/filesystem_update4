@@ -45,3 +45,4 @@ res://Soldiers/Knight/knight.tscn
 res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
 res://Weapons/Arrows/Basic Arrow/basic_arrow.gd
 res://Troops/Player Troops/archers.tres
+res://Soldiers/Sight.gd

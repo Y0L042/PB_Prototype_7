@@ -6,8 +6,11 @@
 [node name="Basic Arrow" type="CharacterBody2D"]
 script = ExtResource("1_wunie")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.35, 0.35)
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+scale = Vector2(1.5, 1)
 texture = ExtResource("1_fpovt")
 region_enabled = true
 region_rect = Rect2(487.433, 150.842, 169.302, 684.904)

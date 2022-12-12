@@ -1,6 +1,6 @@
+Marker2D
 CharacterBody2D
 Sprite2D
-Marker2D
 AnimationTree
 AnimationPlayer
 CollisionShape2D

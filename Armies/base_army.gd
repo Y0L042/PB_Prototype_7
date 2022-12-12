@@ -41,6 +41,7 @@ var blackboard: ArmyBlackboard
 @onready var army_id: int = get_instance_id() : set = set_army_id
 @export_color_no_alpha var faction_colour: Color = Color(0.5, 0.8, 0.5, 1) #: set = set_faction_colour# used with outline shader
 @onready var formation
+var isArmyAttacking: bool = false : set = set_isArmyAttacking
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
@@ -55,6 +56,9 @@ func set_initial_troop(new_troop):
 	if _soldier_manager != null:
 		_soldier_manager.set_soldier_troop(_initial_troop)
 
+func set_isArmyAttacking(isAttacking: bool):
+	isArmyAttacking = isAttacking
+	blackboard.isArmyAttacking = isArmyAttacking
 
 func set_army_position(new_army_position: Vector2):
 	_army_position = new_army_position
@@ -126,7 +130,7 @@ func _create_blackboard():
 	var new_formation = GridObject.new()
 	var new_faction_colour = faction_colour
 	var new_move_order = Vector2.ZERO
-	var new_isArmyAttacking = false
+	var new_isArmyAttacking = isArmyAttacking
 	blackboard = ArmyBlackboard.new(
 		new_faction,
 		new_army,
@@ -148,6 +152,8 @@ func _physics_process(delta: float) -> void:
 @warning_ignore(unused_parameter)
 func _custom_process(delta: float):
 	pass
+
+
 
 #-------------------------------------------------------------------------------
 # Movement Functions
