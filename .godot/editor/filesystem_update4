@@ -40,3 +40,8 @@ res://Soldiers/Archer/archer.tscn
 res://Weapons/Basic Bow/basic_bow.tscn
 res://Weapons/Basic Sword/basic_sword.tscn
 res://Weapons/Basic Bow/basic_bow.gd
+res://Troops/Player Troops/basic_mixed_troop.tres
+res://Soldiers/Knight/knight.tscn
+res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
+res://Weapons/Arrows/Basic Arrow/basic_arrow.gd
+res://Troops/Player Troops/archers.tres

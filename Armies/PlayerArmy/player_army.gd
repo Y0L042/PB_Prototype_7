@@ -98,6 +98,7 @@ func _smooth_input_handling():
 #	_set_formation_rotation()
 
 func army_is_dead():
+	set_physics_process(false)
 	activate_game_over()
 
 func activate_game_over():

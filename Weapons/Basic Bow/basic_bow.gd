@@ -5,6 +5,8 @@ extends BaseWeapon
 #---------------------------------------------------------------------------------------------------#
 var _enemy
 
+@export var arrow_scene: PackedScene
+
 
 #---------------------------------------------------------------------------------------------------#
 # Public Variables
@@ -50,7 +52,8 @@ func do_damage():
 		_enemy.hurt(damage)
 
 func fire_arrow():
-	pass
+	var arrow = SceneLib.spawn_child(arrow_scene, SceneManager._root_manager.current_map)
+	arrow.set_target(_enemy)
 #-------------------------------------------------------------------------------
 # Animations
 #-------------------------------------------------------------------------------

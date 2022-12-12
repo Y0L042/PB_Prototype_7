@@ -1,5 +1,3 @@
-MapMetaData (map_meta_data.gd)
-MapPackageRes (MapPackageResource.gd)
 BaseTroop (base_troop.gd)
 Shader
 BaseFaction (base_faction.gd)

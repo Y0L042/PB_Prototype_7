@@ -111,6 +111,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Basic Bow" type="Node2D"]
 script = ExtResource("1_kn771")
+range = 7.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bq42f24tl5l80" path="res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn" id="3_wvl2d"]
 [ext_resource type="Resource" uid="uid://cstj1pxj68c6a" path="res://Troops/Army of Knights/army_of_knights.tres" id="4_m7tie"]
 [ext_resource type="Resource" uid="uid://omr28hqf6lnh" path="res://Armies/EnemyArmy/AI/Wander/wander.tres" id="5_03g22"]
+[ext_resource type="Resource" uid="uid://cqdiekh1b4cxm" path="res://Troops/Player Troops/archers.tres" id="7_50wg8"]
 [ext_resource type="PackedScene" uid="uid://c8hin0q46nqwm" path="res://Armies/PlayerArmy/player_army.tscn" id="8_p2ihq"]
-[ext_resource type="Resource" uid="uid://bml04j3foddfq" path="res://Troops/Player Troops/player_knights.tres" id="9_0ankq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ncr3v"]
 radius = 216.0
@@ -70,8 +70,8 @@ unique_name_in_owner = true
 position = Vector2(8424, 4536)
 _troops = [ExtResource("4_m7tie")]
 _ai = ExtResource("5_03g22")
-delay = 5.0
-max_active_instances = 5
+delay = 15.0
+max_active_instances = 1
 enable_disable_zone = true
 disable_zone = NodePath("Area2D")
 
@@ -83,4 +83,4 @@ shape = SubResource("CircleShape2D_ncr3v")
 
 [node name="PlayerArmy" parent="." instance=ExtResource("8_p2ihq")]
 position = Vector2(2376, 1944)
-_initial_troop = ExtResource("9_0ankq")
+_initial_troop = ExtResource("7_50wg8")
