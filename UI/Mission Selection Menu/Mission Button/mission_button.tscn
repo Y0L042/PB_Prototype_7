@@ -1,15 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwl4ymwepbepk"]
+[gd_scene load_steps=3 format=3 uid="uid://xlddwd0yuqxt"]
 
 [ext_resource type="Script" path="res://UI/Mission Selection Menu/Mission Button/mission_button.gd" id="1_50smr"]
+[ext_resource type="PackedScene" uid="uid://hdlfqmo5anwi" path="res://UI/Elements/Buttons/button.tscn" id="2_4u3lt"]
 
-[node name="Mission Button" type="Button"]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Level X"
+[node name="Mission Button" instance=ExtResource("2_4u3lt")]
 script = ExtResource("1_50smr")
+mission_package_res = null
+mission_name = null

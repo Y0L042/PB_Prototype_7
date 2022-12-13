@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1670932859
+::res://::1670940943
 header_comment_template.gd::GDScript::-1::1669299043::0::1::::<>RefCounted<>::
 icon.svg::CompressedTexture2D::3998031586563503381::1669039689::1670421225::1::::<><>::
 README.md::TextFile::-1::1669039779::0::1::::<><>::
@@ -15,16 +15,16 @@ enemy_army.gd::GDScript::-1::1670487400::0::1::::<>Army<>::
 enemy_army.tscn::PackedScene::92366628678271520::1670489322::0::1::::<><>::res://Armies/EnemyArmy/enemy_army.gd<>uid://dedtsjl3a3pw
 ::res://Armies/EnemyArmy/AI/::1670487324
 base_ai_module.gd::GDScript::-1::1670487324::0::1::::BaseAIModule<>Resource<>::
-::res://Armies/EnemyArmy/AI/Wander/::1670932858
+::res://Armies/EnemyArmy/AI/Wander/::1670938856
 wander.tres::Resource::1008498494112698485::1670932858::0::1::::<><>::res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
-wander_ai_module.gd::GDScript::-1::1670932858::0::1::::WanderAIModule<>BaseAIModule<>::
+wander_ai_module.gd::GDScript::-1::1670938856::0::1::::WanderAIModule<>BaseAIModule<>::
 ::res://Armies/PlayerArmy/::1670932951
 player_army.gd::GDScript::-1::1670923601::0::1::::<>Army<>::
 player_army.tscn::PackedScene::7104034142142792752::1670932951::0::1::::<><>::uid://dedtsjl3a3pw<>res://Armies/PlayerArmy/player_army.gd<>uid://b26x8d8pllql7
-::res://Autoloads/::1670829581
+::res://Autoloads/::1670940181
 global_settings.gd::GDScript::-1::1669126790::0::1::::<>Node<>::
 hud_stats.gd::GDScript::-1::1670421197::0::1::::<>Node<>::
-scene_lib.gd::GDScript::-1::1670829581::0::1::::<>Node<>::
+scene_lib.gd::GDScript::-1::1670940181::0::1::::<>Node<>::
 steering_behaviour.gd::GDScript::-1::1670222825::0::1::::<>Node<>::
 tools.gd::GDScript::-1::1669126045::0::1::::<>Node<>::
 ::res://Blackboards/::1670395487
@@ -294,8 +294,8 @@ base_map_script.gd::GDScript::-1::1670829301::0::1::::BaseMap<>Node2D<>::
 map_items.tscn::PackedScene::-1::1670443403::0::1::::<><>::res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
 mission_meta_data.gd::GDScript::-1::1670693844::0::1::::MissionMetaData<>Resource<>::
 mission_package_resource.gd::GDScript::-1::1670693921::0::1::::MissionPackageRes<>Resource<>::
-::res://Maps/Map Items/Spawn Markers/::1670932858
-enemy_random_spawn.gd::GDScript::-1::1670932858::0::1::::<>Marker2D<>::
+::res://Maps/Map Items/Spawn Markers/::1670938856
+enemy_random_spawn.gd::GDScript::-1::1670938856::0::1::::<>Marker2D<>::
 enemy_random_spawn.tscn::PackedScene::3570958888352519399::1670595565::0::1::::<><>::res://Maps/Map Items/Spawn Markers/enemy_random_spawn.gd
 Player Spawn Marker.gd::GDScript::-1::1670833903::0::1::::<>Marker2D<>::
 player_spawn_marker.tscn::PackedScene::3817634925384506188::1670828140::0::1::::<><>::res://Maps/Map Items/Spawn Markers/Player Spawn Marker.gd
@@ -324,8 +324,8 @@ knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png::CompressedTexture2D::254551872
 base_stats.gd::GDScript::-1::1670222825::0::1::::BaseStats<>Resource<>::
 default_soldier_stats.gd::GDScript::-1::1670922889::0::1::::DefaultSoldierStats<>BaseStats<>::
 default_soldier_stats.tres::Resource::4377124999811144317::1670222825::0::1::::<><>::res://Soldiers/Resources/Stats/default_soldier_stats.gd
-::res://Soldiers/Soldier AI/::1670932858
-standard_ai_module.gd::GDScript::-1::1670932858::0::1::::StandardSoldierAIModule<>BaseSoldierAIModule<>::
+::res://Soldiers/Soldier AI/::1670938856
+standard_ai_module.gd::GDScript::-1::1670938856::0::1::::StandardSoldierAIModule<>BaseSoldierAIModule<>::
 standard_soldier_ai.tres::Resource::9073309981932988216::1670932858::0::1::::<><>::res://Soldiers/Soldier AI/standard_ai_module.gd
 ::res://Troops/::1670421197
 base_troop.gd::GDScript::-1::1670222825::0::1::::BaseTroop<>Resource<>::
@@ -337,11 +337,15 @@ large_mixed_boss.tres::Resource::2194437271434981577::1670932859::0::1::::<><>::
 archers.tres::Resource::5902549415205583514::1670932858::0::1::::<><>::uid://vrlt33chl33d<>res://Troops/base_troop.gd
 basic_mixed_troop.tres::Resource::6175076568705622281::1670932858::0::1::::<><>::uid://csdlxh14u7ryr<>res://Troops/base_troop.gd<>uid://vrlt33chl33d
 player_knights.tres::Resource::3252965191697233118::1670932858::0::1::::<><>::res://Troops/base_troop.gd<>uid://csdlxh14u7ryr
-::res://UI/::1670936102
+::res://UI/::1670940320
 focus_grab.gd::GDScript::-1::1669126046::0::1::::<>Button<>::
-test_theme_1.tres::Theme::8639379172929992241::1670935514::0::1::::<><>::
+test_1_flat_stylebox.tres::StyleBoxFlat::3609240292820425722::1670936289::0::1::::<><>::
+test_theme_1.tres::Theme::8639379172929992241::1670940320::0::1::::<><>::uid://bqkxu0c1ufddk
+::res://UI/Elements/::1670938249
+::res://UI/Elements/Buttons/::1670938250
+button.tscn::PackedScene::498192714205818696::1670938250::0::1::::<><>::uid://dvc8kvsj3jvm4<>res://UI/focus_grab.gd
 ::res://UI/Fonts/::1670936085
-::res://UI/Fonts/public-pixel-font/::1670936085
+::res://UI/Fonts/public-pixel-font/::1670936104
 info.txt::TextFile::-1::1670113230::0::1::::<><>::
 PublicPixel-z84yD.ttf::FontFile::3531519483535553828::1670113230::1670936104::1::::<><>::
 ::res://UI/Game End Menu/::1670836774
@@ -352,17 +356,16 @@ hud.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 hud.tscn::PackedScene::872869956325677536::1670428042::0::1::::<><>::res://UI/HUD/hud.gd<>uid://bctc3xm0q60ig
 soldier_counter.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 soldier_counter.tscn::PackedScene::2566194212244392466::1670428042::0::1::::<><>::res://UI/HUD/soldier_counter.gd
-::res://UI/Main Menu/::1670935514
+::res://UI/Main Menu/::1670940847
 main_menu.gd::GDScript::-1::1670594804::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::5546433520910272496::1670935514::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>uid://dvc8kvsj3jvm4<>res://UI/focus_grab.gd
+main_menu.tscn::PackedScene::5546433520910272496::1670940847::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>uid://dvc8kvsj3jvm4<>uid://hdlfqmo5anwi
 ui_main_menu.gd::GDScript::-1::1670499236::0::1::::<>Control<>::
-ui_main_menu.tscn::PackedScene::6391674424549766165::1670502840::0::1::::<><>::res://UI/Main Menu/ui_main_menu.gd
-::res://UI/Mission Selection Menu/::1670836774
-mission_selection_menu.gd::GDScript::-1::1670836774::0::1::::<>Control<>::
-mission_selection_menu.tscn::PackedScene::1872914795040110906::1670831114::0::1::::<><>::res://UI/Mission Selection Menu/mission_selection_menu.gd
-::res://UI/Mission Selection Menu/Mission Button/::1670831114
-mission_button.gd::GDScript::-1::1670750952::0::1::::<>Button<>::
-mission_button.tscn::PackedScene::8727929082722348176::1670831114::0::1::::<><>::res://UI/Mission Selection Menu/Mission Button/mission_button.gd
+::res://UI/Mission Selection Menu/::1670940847
+mission_selection_menu.gd::GDScript::-1::1670940815::0::1::::<>Control<>::
+mission_selection_menu.tscn::PackedScene::1872914795040110906::1670940847::0::1::::<><>::res://UI/Mission Selection Menu/mission_selection_menu.gd
+::res://UI/Mission Selection Menu/Mission Button/::1670940847
+mission_button.gd::GDScript::-1::1670940755::0::1::::<>Button<>::
+mission_button.tscn::PackedScene::3573727993117521669::1670940847::0::1::::<><>::res://UI/Mission Selection Menu/Mission Button/mission_button.gd<>uid://hdlfqmo5anwi
 ::res://UI/Mission Selection Menu/Mission Details Panel/::1670831114
 mission_details_panel.gd::GDScript::-1::1670696008::0::1::::<>Control<>::
 mission_details_panel.tscn::PackedScene::4539396800731889766::1670831114::0::1::::<><>::res://UI/Mission Selection Menu/Mission Details Panel/mission_details_panel.gd
@@ -379,7 +382,7 @@ Thank You for Purchasing!.txt::TextFile::-1::1658348442::0::1::::<><>::
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/::1670934458
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/::1670934458
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/Aseprite/::1670934458
-::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/Spritesheet/::1670934460
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/Spritesheet/::1670936104
 gui_flat.png::CompressedTexture2D::4865954300432918958::1649002724::1670936104::1::::<><>::
 gui_flat_animated_button1.png::CompressedTexture2D::7416937008566810739::1658329416::1670936104::1::::<><>::
 gui_flat_animated_button2.png::CompressedTexture2D::8291832409721645084::1658329428::1670936104::1::::<><>::
@@ -387,14 +390,14 @@ gui_flat_animated_selection1.png::CompressedTexture2D::3931224106070491683::1658
 gui_flat_animated_selection2.png::CompressedTexture2D::9152036106110111188::1658329278::1670936104::1::::<><>::
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/::1670934458
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/Aseprite/::1670934458
-::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/Spritesheet/::1670934460
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/Spritesheet/::1670936104
 gui_gradient.png::CompressedTexture2D::542023317040073835::1660136014::1670936104::1::::<><>::
 gui_gradient_animated_button.png::CompressedTexture2D::3913064444133467754::1660136172::1670936104::1::::<><>::
 gui_gradient_animated_selection.png::CompressedTexture2D::3847462275365711263::1660136084::1670936104::1::::<><>::
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/::1670934458
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/::1670934458
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Aseprite/::1670934458
-::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Spritesheet/::1670934461
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Spritesheet/::1670936104
 gui_paper.png::CompressedTexture2D::4262920291682461272::1658843894::1670936104::1::::<><>::
 gui_paper_animated_button1.png::CompressedTexture2D::7700981879048424612::1648637572::1670936104::1::::<><>::
 gui_paper_animated_button2.png::CompressedTexture2D::2035117455329455530::1648637668::1670936104::1::::<><>::
@@ -402,7 +405,7 @@ gui_paper_animated_selection1.png::CompressedTexture2D::6278549768039035136::164
 gui_paper_animated_selection2.png::CompressedTexture2D::7165588254378729465::1648636916::1670936104::1::::<><>::
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/Font/::1670934458
 ::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/Font/Aseprite/::1670934458
-::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/Font/TTF/::1670934460
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/Font/TTF/::1670936104
 Toriko.ttf::FontFile::4505996066638190949::1648820462::1670936104::1::::<><>::
 ::res://Weapons/::1670839989
 base_weapon.tscn::PackedScene::6619624225388442991::1670395179::0::1::::<><>::res://Weapons/base_weapon_script.gd

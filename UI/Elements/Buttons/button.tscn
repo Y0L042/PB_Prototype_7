@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://hdlfqmo5anwi"]
+
+[ext_resource type="Theme" uid="uid://dvc8kvsj3jvm4" path="res://UI/test_theme_1.tres" id="1_kkahc"]
+[ext_resource type="Script" path="res://UI/focus_grab.gd" id="2_yprcf"]
+
+[node name="Start" type="Button"]
+unique_name_in_owner = true
+theme = ExtResource("1_kkahc")
+text = "Start
+"
+script = ExtResource("2_yprcf")

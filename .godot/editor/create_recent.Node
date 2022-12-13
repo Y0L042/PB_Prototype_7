@@ -1,3 +1,10 @@
+AspectRatioContainer
+Container
+Control
+VBoxContainer
+TextureRect
+MarginContainer
+HBoxContainer
 Marker2D
 CharacterBody2D
 Sprite2D
@@ -8,9 +15,7 @@ Node2D
 Camera2D
 PanelContainer
 VSplitContainer
-HBoxContainer
 Button
-VBoxContainer
 Label
 Node
 Area2D
@@ -19,8 +24,6 @@ ColorRect
 CanvasModulate
 CenterContainer
 CanvasLayer
-MarginContainer
-Control
 GridContainer
 NinePatchRect
 AudioStreamPlayer2D

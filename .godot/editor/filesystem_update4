@@ -1,25 +1,8 @@
-res://Soldiers/Knight/knight.tscn
+res://UI/Main Menu/main_menu.tscn
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 res://Maps/Map Items/Spawn Markers/enemy_random_spawn.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
-res://Fx/Shaders/faction_outline.gdshader
-res://Soldiers/Soldier AI/standard_soldier_ai.tres
-res://Soldiers/Knight/basic_knight_stats.tres
-res://Soldiers/Archer/basic_archer_stats.tres
-res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
-res://Troops/Army of Knights/army_of_knights.tres
-res://Armies/EnemyArmy/AI/Wander/wander.tres
-res://Troops/Player Troops/basic_mixed_troop.tres
-res://Troops/Player Troops/player_knights.tres
-res://Troops/Player Troops/archers.tres
-res://Troops/Army of Knights/large_mixed_boss.tres
-res://Soldiers/Archer/archer.tscn
-res://Weapons/Basic Sword/basic_sword.tscn
-res://Weapons/Basic Bow/basic_bow.tscn
-res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
-res://Armies/PlayerArmy/player_army.tscn
-res://Maps/Map 0/map_0.tscn
-res://Maps/Map 1/map_1.tscn
-res://UI/Main Menu/main_menu.tscn
 res://UI/test_theme_1.tres
-res://Autoloads/scene_lib.gd
+res://UI/Mission Selection Menu/mission_selection_menu.tscn
+res://UI/Mission Selection Menu/Mission Button/mission_button.tscn
+res://UI/Mission Selection Menu/Mission Button/mission_button.gd
