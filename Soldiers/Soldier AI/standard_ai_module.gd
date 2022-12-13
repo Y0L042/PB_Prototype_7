@@ -123,12 +123,13 @@ func basic_ai():
 		set_is_engaged(false)#_isEngaged = false
 		pass
 
-	if distance_to_enemy <= attack_range:
-		if _isEngaged or blackboard.isArmyAttacking:
-			isAttackPossible = true
-		else:
-			isAttackPossible = false
+	if distance_to_enemy != -1 and distance_to_enemy <= attack_range \
+		and (_isEngaged or blackboard.isArmyAttacking):
+		isAttackPossible = true
+	else:
+		isAttackPossible = false
 	_parent.set_isAttacking(isAttackPossible)
+
 
 	if _isEngaged and distance_to_party_target > _recall_limit:
 		_isRecalled = true
@@ -144,6 +145,7 @@ func basic_ai():
 	if isAttackPossible:
 		attack(enemy)
 #		mov_vec += simple_move(enemy.get_global_position())
+		mov_vec += simple_move_army(get_army_target()) * 0.1
 		mov_vec = mov_vec.normalized()
 		toggle_collision_mask(true)
 	elif _isEngaged and (distance_to_enemy >= attack_range and enemy != null):

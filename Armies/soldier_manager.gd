@@ -115,7 +115,8 @@ func spawn_soldier_array(array_of_soldier_scenes: Array):
 
 func spawn_soldier(new_soldier, auto_register_soldier = true):
 
-	var spawn_pos: Vector2 = _parent._calc_soldier_array_center(active_soldiers_array)
+#	var spawn_pos: Vector2 = _parent._calc_soldier_array_center(active_soldiers_array)
+	var spawn_pos: Vector2 = calc_spawn_pos_offset(_parent._calc_soldier_array_center(active_soldiers_array))
 	if is_nan(spawn_pos.x) or is_nan(spawn_pos.y) or spawn_pos == null or spawn_pos == Vector2.ZERO:
 		spawn_pos = _parent.get_army_position()
 
@@ -131,6 +132,8 @@ func spawn_soldier(new_soldier, auto_register_soldier = true):
 	connect_to_signals(soldier)
 	update_hud()
 
+	soldier.set_collision_mask_value(2, false)
+
 	return soldier
 
 func connect_to_signals(new_soldier):
@@ -143,6 +146,12 @@ func add_soldier_weapon_resources():
 
 func register_soldier_array():
 	_parent.blackboard.register_soldier_array(active_soldiers_array)
+
+func calc_spawn_pos_offset(position: Vector2):
+	var offset_range: float = 2 * GlobalSettings.UNIT
+	var offset: Vector2 = Vector2(randf_range(-offset_range, offset_range), randf_range(-offset_range, offset_range))
+	position += offset
+	return position
 #---------------------------------------------------------------------------------------------------#
 # Events
 #---------------------------------------------------------------------------------------------------#

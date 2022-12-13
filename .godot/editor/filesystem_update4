@@ -1,48 +1,16 @@
-res://Managers/SceneManager/scene_manager.tscn
+res://Maps/Map 0/map_0.tscn
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 res://Maps/Map Items/Spawn Markers/enemy_random_spawn.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
-res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
 res://Fx/Shaders/faction_outline.gdshader
 res://Soldiers/Soldier AI/standard_soldier_ai.tres
-res://Troops/Player Troops/player_knights.tres
+res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
 res://Troops/Army of Knights/army_of_knights.tres
 res://Armies/EnemyArmy/AI/Wander/wander.tres
-res://Managers/GameManager/game_manager.tscn
-res://Managers/MainMenuManager/main_menu_manager.tscn
-res://UI/Mission Selection Menu/mission_selection_menu.tscn
-res://UI/Mission Selection Menu/Mission Button/mission_button.tscn
-res://UI/Mission Selection Menu/Mission Details Panel/mission_details_panel.tscn
-res://Maps/Map 1/map_1.tscn
-res://Maps/Map Items/Spawn Markers/Player Spawn Marker.gd
-res://Managers/GameManager/game_manager.gd
-res://Maps/Map Items/mission_setup_node.gd
-res://Maps/Map Items/Spawn Markers/player_spawn_marker.tscn
-res://Maps/Map 1/map_1.gd
-res://Autoloads/scene_lib.gd
-res://Maps/Map 0/map_0_package.tres
-res://Maps/Map 0/map_0.gd
-res://Maps/Map Items/base_map_script.gd
-res://Maps/Map 0/map_0.tscn
-res://UI/Pause Menu/ui_pause_menu.gd
-res://UI/Pause Menu/ui_pause_menu.tscn
-res://Managers/SceneManager/scene_manager.gd
-res://Managers/MainMenuManager/main_menu_manager.gd
-res://UI/Game End Menu/ui_game_end.tscn
-res://UI/Game End Menu/ui_game_end.gd
-res://Armies/PlayerArmy/player_army.gd
-res://Armies/PlayerArmy/player_army.tscn
-res://Soldiers/Knight/knight.gd
-res://Armies/soldier_manager.gd
-res://Armies/base_army.gd
-res://UI/Mission Selection Menu/mission_selection_menu.gd
+res://Troops/Player Troops/archers.tres
+res://Soldiers/Knight/knight.tscn
+res://Weapons/Basic Sword/basic_sword.tscn
 res://Soldiers/Archer/archer.tscn
 res://Weapons/Basic Bow/basic_bow.tscn
-res://Weapons/Basic Sword/basic_sword.tscn
-res://Weapons/Basic Bow/basic_bow.gd
-res://Troops/Player Troops/basic_mixed_troop.tres
-res://Soldiers/Knight/knight.tscn
 res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
-res://Weapons/Arrows/Basic Arrow/basic_arrow.gd
-res://Troops/Player Troops/archers.tres
-res://Soldiers/Sight.gd
+res://Armies/soldier_manager.gd
