@@ -163,6 +163,7 @@ func init(new_blackboard) -> void:
 	return self
 
 func _ready() -> void:
+	self.set_visible(false)
 	set_SCENE()
 	_ai_module_ready()
 	_custom_ready()

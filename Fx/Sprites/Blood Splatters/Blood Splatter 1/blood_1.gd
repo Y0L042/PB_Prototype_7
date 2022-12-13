@@ -12,6 +12,7 @@ func set_faction_colour(new_colour: Color):
 	set_modulate(faction_colour)
 
 func _ready() -> void:
+	self.set_visible(false)
 	visibility_notifier.screen_exited.connect(visibility_turn_off)
 	visibility_notifier.screen_entered.connect(visibility_turn_on)
 
