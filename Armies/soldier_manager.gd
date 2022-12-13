@@ -58,6 +58,7 @@ func use_troop():
 func _custom_physics_process():
 	if !is_instance_valid(_parent):
 		self.queue_free() # sm is not in tree; has to be manually queue_free()
+		return
 	_parent.set_isArmyAttacking(check_isArmyAttacking_status())
 
 	if active_soldiers_array.is_empty() and !all_soldiers_scenes.is_empty():

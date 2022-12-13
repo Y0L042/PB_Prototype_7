@@ -1,6 +1,6 @@
+BaseTroop (base_troop.gd)
 DefaultSoldierStats (default_soldier_stats.gd)
 BaseStats (base_stats.gd)
-BaseTroop (base_troop.gd)
 Shader
 BaseFaction (base_faction.gd)
 WanderAIModule (wander_ai_module.gd)

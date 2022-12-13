@@ -1,25 +1,22 @@
-res://Maps/Map 0/map_0.tscn
+res://Soldiers/Knight/knight.tscn
 res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
 res://Maps/Map Items/Spawn Markers/enemy_random_spawn.gd
 res://Soldiers/Soldier AI/standard_ai_module.gd
 res://Fx/Shaders/faction_outline.gdshader
 res://Soldiers/Soldier AI/standard_soldier_ai.tres
+res://Soldiers/Knight/basic_knight_stats.tres
+res://Soldiers/Archer/basic_archer_stats.tres
 res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
 res://Troops/Army of Knights/army_of_knights.tres
 res://Armies/EnemyArmy/AI/Wander/wander.tres
+res://Troops/Player Troops/basic_mixed_troop.tres
+res://Troops/Player Troops/player_knights.tres
 res://Troops/Player Troops/archers.tres
-res://Soldiers/Knight/knight.tscn
+res://Troops/Army of Knights/large_mixed_boss.tres
 res://Weapons/Basic Sword/basic_sword.tscn
 res://Soldiers/Archer/archer.tscn
 res://Weapons/Basic Bow/basic_bow.tscn
 res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
-res://Armies/soldier_manager.gd
-res://Soldiers/Knight/knight.gd
-res://Soldiers/Resources/Stats/default_soldier_stats.gd
-res://Soldiers/Archer/basic_archer_stats.tres
-res://Soldiers/Knight/basic_knight_stats.tres
-res://Classes/GridClass.gd
-res://Armies/base_army.gd
-res://Troops/Player Troops/basic_mixed_troop.tres
 res://Armies/PlayerArmy/player_army.tscn
-res://Armies/PlayerArmy/player_army.gd
+res://Maps/Map 0/map_0.tscn
+res://Maps/Map 1/map_1.tscn

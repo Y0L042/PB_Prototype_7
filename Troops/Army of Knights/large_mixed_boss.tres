@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://6jacc2lta1ib"]
+
+[ext_resource type="Script" path="res://Troops/base_troop.gd" id="1_bowc4"]
+[ext_resource type="PackedScene" uid="uid://cde7ddgpbjev5" path="res://Soldiers/Knight/knight.tscn" id="1_vmhx0"]
+[ext_resource type="PackedScene" uid="uid://de06m02u5x1ar" path="res://Soldiers/Archer/archer.tscn" id="2_l2trv"]
+
+[resource]
+script = ExtResource("1_bowc4")
+_troop_scenes = [ExtResource("1_vmhx0"), ExtResource("2_l2trv")]
+_troop_count = [25, 10]
