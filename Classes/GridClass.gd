@@ -6,6 +6,7 @@ class_name GridObject
 #-------------------------------------------------------------------------------
 # Private Variables
 #-------------------------------------------------------------------------------
+
 var UNIT = GlobalSettings.UNIT # dependency on another library, set to unit pixel size
 var _ref_vector_array: Array
 
@@ -13,6 +14,8 @@ var _ref_vector_array: Array
 #-------------------------------------------------------------------------------
 # Public Variables
 #-------------------------------------------------------------------------------
+signal GridGenerated
+
 var is_grid_active: bool = false
 var width: int = 4 : set = set_width
 var height: int : set = set_height
@@ -118,6 +121,7 @@ func generate_box_grid() -> Array:
 	set_grid_rotation(grid, rotation)
 	vector_array = grid
 	set_grid_center_position(center_position)
+	GridGenerated.emit()
 	return grid
 
 func trim_grid_to_volume(new_grid, new_volume):

@@ -14,3 +14,12 @@ res://Soldiers/Archer/archer.tscn
 res://Weapons/Basic Bow/basic_bow.tscn
 res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
 res://Armies/soldier_manager.gd
+res://Soldiers/Knight/knight.gd
+res://Soldiers/Resources/Stats/default_soldier_stats.gd
+res://Soldiers/Archer/basic_archer_stats.tres
+res://Soldiers/Knight/basic_knight_stats.tres
+res://Classes/GridClass.gd
+res://Armies/base_army.gd
+res://Troops/Player Troops/basic_mixed_troop.tres
+res://Armies/PlayerArmy/player_army.tscn
+res://Armies/PlayerArmy/player_army.gd

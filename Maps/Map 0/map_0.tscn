@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bq42f24tl5l80" path="res://Maps/Map Items/Spawn Markers/enemy_random_spawn.tscn" id="3_wvl2d"]
 [ext_resource type="Resource" uid="uid://cstj1pxj68c6a" path="res://Troops/Army of Knights/army_of_knights.tres" id="4_m7tie"]
 [ext_resource type="Resource" uid="uid://omr28hqf6lnh" path="res://Armies/EnemyArmy/AI/Wander/wander.tres" id="5_03g22"]
-[ext_resource type="Resource" uid="uid://cqdiekh1b4cxm" path="res://Troops/Player Troops/archers.tres" id="7_50wg8"]
+[ext_resource type="Resource" uid="uid://ct8iux5cpm0l6" path="res://Troops/Player Troops/basic_mixed_troop.tres" id="7_b74u2"]
 [ext_resource type="PackedScene" uid="uid://c8hin0q46nqwm" path="res://Armies/PlayerArmy/player_army.tscn" id="8_p2ihq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ncr3v"]
@@ -19,6 +19,7 @@ script = ExtResource("1_fs8s5")
 [node name="Map Items" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Map Items"]
+z_index = -1
 tile_set = ExtResource("2_yrvy3")
 format = 2
 layer_0/name = "Floor -1"
@@ -84,4 +85,4 @@ shape = SubResource("CircleShape2D_ncr3v")
 
 [node name="PlayerArmy" parent="." instance=ExtResource("8_p2ihq")]
 position = Vector2(2376, 1944)
-_initial_troop = ExtResource("7_50wg8")
+_initial_troop = ExtResource("7_b74u2")

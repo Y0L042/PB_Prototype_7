@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://de06m02u5x1ar"]
+[gd_scene load_steps=39 format=3 uid="uid://de06m02u5x1ar"]
 
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_2enko"]
 [ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_qlj4o"]
 [ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_2345v"]
 [ext_resource type="Script" path="res://Soldiers/Sight.gd" id="4_fweye"]
+[ext_resource type="Resource" uid="uid://by30f4df0uxsa" path="res://Soldiers/Archer/basic_archer_stats.tres" id="4_vf34j"]
 [ext_resource type="Texture2D" uid="uid://uiyiif4kyq0e" path="res://Fx/Sprites/shadow.png" id="5_7xipc"]
 [ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="6_u8wok"]
 [ext_resource type="Texture2D" uid="uid://de5jscn3h5np1" path="res://Soldiers/Archer/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0_archeranims.png" id="7_coe1c"]
@@ -378,6 +379,7 @@ material = SubResource("ShaderMaterial_ufi0m")
 collision_layer = 2
 script = ExtResource("2_qlj4o")
 _ai_module = ExtResource("3_2345v")
+base_stats = ExtResource("4_vf34j")
 health = 10.0
 
 [node name="BaseCollision" type="CollisionShape2D" parent="."]

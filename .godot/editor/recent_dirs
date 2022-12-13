@@ -1,7 +1,9 @@
+res://Soldiers/Knight
+res://Soldiers
+res://Soldiers/Archer
 res://Troops/Player Troops
 res://Weapons/Arrows/Basic Arrow
 res://Weapons/Basic Bow
-res://Soldiers/Archer
 res://Maps/Map 1
 res://Maps/Map 0
 res://
@@ -18,5 +20,3 @@ res://Maps/Map Items
 res://UI/HUD
 res://Troops/Army of Knights
 C:/Users/vlamf/AppData/Local/Programs/Microsoft VS Code
-res://Weapons/Basic Sword
-res://Weapons

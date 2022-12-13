@@ -56,6 +56,8 @@ func use_troop():
 # Runtime
 #-------------------------------------------------------------------------------
 func _custom_physics_process():
+	if !is_instance_valid(_parent):
+		self.queue_free() # sm is not in tree; has to be manually queue_free()
 	_parent.set_isArmyAttacking(check_isArmyAttacking_status())
 
 	if active_soldiers_array.is_empty() and !all_soldiers_scenes.is_empty():
@@ -101,7 +103,7 @@ func get_all_soldiers_scenes():
 
 func necromance_army(new_soldier_scenes):
 	spawn_soldier_array(new_soldier_scenes)
-	print(self, "   is necromancing army")
+	print(self, "   is necromancing army ", _parent)
 #-------------------------------------------------------------------------------
 # Spawning Functions
 #-------------------------------------------------------------------------------
@@ -111,6 +113,8 @@ func spawn_soldier_array(array_of_soldier_scenes: Array):
 		var new_soldier = spawn_soldier(scene, false)
 		spawned_soldiers.append(new_soldier)
 	register_soldier_array()
+	print("soldiers_spawned ", _parent)
+	_parent.set_flag_sort_formation_true()
 	return spawned_soldiers
 
 func spawn_soldier(new_soldier, auto_register_soldier = true):
@@ -125,7 +129,7 @@ func spawn_soldier(new_soldier, auto_register_soldier = true):
 	all_soldiers_scenes.append(soldier.SCENE)
 	all_soldiers_array.append(soldier)
 	active_soldiers_array.append(soldier)
-	print("soldier spawned: ", soldier)
+#	print("soldier spawned: ", soldier)
 	if auto_register_soldier:
 		_parent.blackboard.register_soldier(soldier)
 

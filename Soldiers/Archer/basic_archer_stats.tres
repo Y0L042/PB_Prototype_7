@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://by30f4df0uxsa"]
+
+[ext_resource type="Script" path="res://Soldiers/Resources/Stats/default_soldier_stats.gd" id="1_s3vfr"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_s3vfr")
+health = 5.0
+speed = 4.5
+order = 1.0

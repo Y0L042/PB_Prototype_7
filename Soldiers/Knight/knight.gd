@@ -36,8 +36,10 @@ var _move_order
 #-------------------------------------------------------------------------------
 # Stats
 #-------------------------------------------------------------------------------
+@export var base_stats: Resource : set = set_base_stats
 @export var health: float = 5.0 : set = set_health
 @export var speed: float = 5.0 : set = set_speed
+@export var formation_order: float = 1.0 : set = set_formation_order
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
@@ -76,6 +78,15 @@ func set_blackboard(new_blackboard):
 	_formation = blackboard.formation
 	set_faction_stuff()
 	BlackboardIsReady.emit() # make _ready wait for blackboard, avoid bugs with ai starting too soon
+
+func set_base_stats(new_base_stats: Resource):
+	base_stats = new_base_stats
+	health = base_stats.health
+	speed = base_stats.speed
+	formation_order = base_stats.order
+
+func set_formation_order(new_order):
+	formation_order = new_order
 
 func set_isAttacking(is_attacking):
 	isAttacking = is_attacking
@@ -170,7 +181,8 @@ func _physics_process(delta: float) -> void:
 	_custom_process(delta)
 
 func _base_process(_delta: float):
-	_formation_index = get_position_in_formation()
+#	_formation_index = get_position_in_formation()
+	pass
 
 func _ai_module_process(_delta: float):
 	# Run AI Module _physics

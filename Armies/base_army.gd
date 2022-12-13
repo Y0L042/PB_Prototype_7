@@ -41,6 +41,7 @@ var blackboard: ArmyBlackboard
 @onready var army_id: int = get_instance_id() : set = set_army_id
 @export_color_no_alpha var faction_colour: Color = Color(0.5, 0.8, 0.5, 1) #: set = set_faction_colour# used with outline shader
 @onready var formation
+var flag_sort_formation: bool = true : set = set_flag_sort_formation
 var isArmyAttacking: bool = false : set = set_isArmyAttacking
 #-------------------------------------------------------------------------------
 # "Features"
@@ -86,6 +87,11 @@ func set_army_id(new_id):
 func set_formation_volume(new_volume):
 	formation.set_volume(new_volume)
 
+func set_flag_sort_formation(flag):
+	flag_sort_formation = flag
+func set_flag_sort_formation_true():
+	flag_sort_formation = true
+
 func set_soldier_manager(new_soldier_manager):
 	if new_soldier_manager == null:
 		printerr("Error: Soldier manager scene is empty!", self)
@@ -114,6 +120,7 @@ func _custom_init():
 func _ready() -> void:
 	_create_blackboard()
 	formation = blackboard.formation
+#	formation.GridGenerated.connect(set_flag_sort_formation_true)
 	set_soldier_manager(SoldierManager.new())
 	_custom_ready()
 
@@ -146,7 +153,10 @@ func _create_blackboard():
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
 	_delta = delta
+	if _soldier_manager != null:
+		sort_and_set_soldier_index()
 	_custom_process(delta)
+
 
 
 @warning_ignore(unused_parameter)
@@ -171,6 +181,21 @@ func _set_formation_rotation():
 	if _army_velocity != Vector2.ZERO:
 		formation.set_rotation(  lerp_angle(formation.rotation, _army_velocity.angle(), 0.1)  )
 
+func sort_and_set_soldier_index():
+	if !isArmyAttacking and flag_sort_formation:
+		print("army_sorted ", self)
+		var array: Array = _soldier_manager.active_soldiers_array
+		for idx_i in array.size():
+			var idx_j = idx_i
+			while idx_j > 0 and array[idx_j - 1].formation_order > array[idx_j].formation_order:
+				var temp = array[idx_j] #swap
+				array[idx_j] = array[idx_j - 1]
+				array[idx_j - 1] = temp
+				idx_j -= 1
+		for soldier_idx in array.size():
+			array[soldier_idx]._formation_index = soldier_idx
+
+		flag_sort_formation = false
 
 #-------------------------------------------------------------------------------
 # Events

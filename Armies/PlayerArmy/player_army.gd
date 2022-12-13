@@ -41,11 +41,11 @@ func _custom_process(delta: float):
 
 
 func _move():
-	clamp_army_position() #testing clamping
-	return #testing clamping
-#	var delta: float = _delta
-#	_army_position += _army_velocity * delta
-#	formation.set_center_position(_army_position)
+#	clamp_army_position() #testing clamping
+#	return #testing clamping
+	var delta: float = _delta
+	_army_position += _army_velocity * delta
+	formation.set_center_position(_army_position)
 
 
 func clamp_army_position(): # testing clamping
@@ -60,7 +60,11 @@ func clamp_army_position(): # testing clamping
 	var delta: float = _delta
 	var army_center: Vector2 = _calc_soldier_array_center(_soldier_manager.active_soldiers_array)
 	var target: Vector2 = army_center + _army_velocity.normalized() * LENGTH
-	_army_position = lerp(_army_position, target, LERP_STRENGTH) if _army_velocity != Vector2.ZERO else target
+	if _army_velocity != Vector2.ZERO:
+		_army_position = lerp(_army_position, target, LERP_STRENGTH)
+	else:
+		_army_position = target
+#	_army_position = lerp(_army_position, target, LERP_STRENGTH) if _army_velocity != Vector2.ZERO else target
 	formation.set_center_position(_army_position)
 #	formation.set_center_position(lerp(army_center, _army_position, 0.5))
 
