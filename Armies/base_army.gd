@@ -166,6 +166,7 @@ func check_flags():
 		sort_and_set_soldier_index()
 	if blackboard != null and _soldier_manager != null:
 		update_formation_volume()
+#		call_deferred("update_formation_volume")
 
 @warning_ignore(unused_parameter)
 func _custom_process(delta: float):

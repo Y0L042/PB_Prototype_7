@@ -1,3 +1,5 @@
+VisibleOnScreenNotifier2D
+VisibleOnScreenEnabler2D
 Node2D
 AspectRatioContainer
 Container
@@ -28,4 +30,3 @@ NinePatchRect
 AudioStreamPlayer2D
 GPUParticles2D
 StaticBody2D
-TileMap

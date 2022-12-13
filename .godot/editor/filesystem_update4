@@ -17,3 +17,7 @@ res://Blackboards/Army Blackboard/army_blackboard.gd
 res://Armies/base_army.gd
 res://Armies/soldier_manager.gd
 res://measurements.physics.translation
+res://Troops/Army of Knights/army_of_knights.tres
+res://Camera/Camera2d.gd
+res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.tscn
+res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.gd

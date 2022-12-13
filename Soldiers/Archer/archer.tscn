@@ -383,6 +383,8 @@ _ai_module = ExtResource("3_2345v")
 base_stats = ExtResource("4_vf34j")
 health = 10.0
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [node name="BaseCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -57)

@@ -20,6 +20,8 @@ var isAttacking: bool = false : set = set_isAttacking, get = get_isAttacking
 @onready var SCENE: PackedScene
 func set_SCENE():
 	SCENE = TYPE.TYPE
+@onready var flag_visibility_notifier = $VisibleOnScreenNotifier2D
+var debug_isVisible: bool = false
 
 var _col_activated: bool = false
 
@@ -164,10 +166,16 @@ func _ready() -> void:
 	set_SCENE()
 	_ai_module_ready()
 	_custom_ready()
+	connect_to_signals()
 	set_physics_process(false) #physics process starts before blackboard is ready
 	await BlackboardIsReady
 	print("blackboard is ready")
 	set_physics_process(true)
+
+func connect_to_signals():
+	flag_visibility_notifier.screen_exited.connect(visibility_turn_off)
+	flag_visibility_notifier.screen_entered.connect(visibility_turn_on)
+
 
 func _custom_ready():
 	pass
@@ -203,6 +211,13 @@ func _custom_process(_delta: float):
 func _spawn_blood_splatter(): # temp
 	var blood_splatter = SceneLib.spawn_child(SceneLib.fx_sprite_blood_splatter_1, SceneManager._root_manager.current_map, get_global_position())
 	blood_splatter.set_faction_colour(_faction_colour)
+
+func visibility_turn_on():
+	self.set_visible(true)
+	debug_isVisible = self.visible
+func visibility_turn_off():
+	self.set_visible(false)
+	debug_isVisible = self.visible
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#

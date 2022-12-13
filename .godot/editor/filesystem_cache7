@@ -1,15 +1,15 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1670963766
+::res://::1670965266
 header_comment_template.gd::GDScript::-1::1669299043::0::1::::<>RefCounted<>::
 icon.svg::CompressedTexture2D::3998031586563503381::1669039689::1670421225::1::::<><>::
-measurements.csv::Translation::6851264864991114151::1670963024::1670963950::1::::<><>::
+measurements.csv::Translation::6851264864991114151::1670963024::1670965293::1::::<><>::
 README.md::TextFile::-1::1669039779::0::1::::<><>::
-measurements.physics.translation::OptimizedTranslation::6701132068284030596::1670963950::0::1::::<><>::
+measurements.physics.translation::OptimizedTranslation::6701132068284030596::1670965293::0::1::::<><>::
 _blank.tscn::PackedScene::7227745419749475980::1670585902::0::1::::<><>::
-::res://Armies/::1670963763
+::res://Armies/::1670965263
 Army_Sight.gd::GDScript::-1::1670222825::0::1::::<>Area2D<>::
-base_army.gd::GDScript::-1::1670962594::0::1::::Army<>Node2D<>::
-base_army.tscn::PackedScene::219041082853610980::1670963763::0::1::::<><>::res://Armies/base_army.gd<>res://Armies/Army_Sight.gd
+base_army.gd::GDScript::-1::1670964410::0::1::::Army<>Node2D<>::
+base_army.tscn::PackedScene::219041082853610980::1670965263::0::1::::<><>::res://Armies/base_army.gd<>res://Armies/Army_Sight.gd
 soldier_manager.gd::GDScript::-1::1670962510::0::1::::SoldierManager<>Node2D<>::
 soldier_manager.tres::Resource::3617902164290580734::1670395487::0::1::::<><>::res://Armies/soldier_manager.gd
 ::res://Armies/EnemyArmy/::1670489322
@@ -306,7 +306,7 @@ enemy_spawn_node.gd::GDScript::-1::1670481945::0::1::::<>Node2D<>::
 enemy_spawn_node.tscn::PackedScene::4130099377985152163::1670489322::0::1::::<><>::res://Maps/Map Items/Spawn Nodes/enemy_spawn_node.gd
 player_spawn_node.gd::GDScript::-1::1670481687::0::1::::<>Node2D<>::
 player_spawn_node.tscn::PackedScene::2390726650426294263::1670489322::0::1::::<><>::res://Maps/Map Items/Spawn Nodes/player_spawn_node.gd
-::res://Soldiers/::1670961292
+::res://Soldiers/::1670965260
 base_soldier.gd::GDScript::-1::1670395488::0::1::::<><>::
 base_soldier.tscn::PackedScene::-1::1670395488::0::1::::<><>::res://Soldiers/base_soldier.gd<>uid://cduwsdimfh00e<>res://Soldiers/ForceArea.gd<>res://Soldiers/Sight.gd
 base_soldier_ai_module.gd::GDScript::-1::1670395488::0::1::::BaseSoldierAIModule<>Resource<>::
@@ -314,15 +314,15 @@ ForceArea.gd::GDScript::-1::1670395488::0::1::::<>Area2D<>::
 SCENE.gd::GDScript::-1::1670945188::0::1::::<>Node2D<>::
 scene.tscn::PackedScene::5197980424471649932::1670946769::0::1::::<><>::res://Soldiers/SCENE.gd
 Sight.gd::GDScript::-1::1670850997::0::1::::<>Area2D<>::
-soldier.gd::GDScript::-1::1670961292::0::1::::<>CharacterBody2D<>::
-::res://Soldiers/Archer/::1670963763
-archer.tscn::PackedScene::8902110042365622421::1670963763::0::1::::<><>::res://Fx/Shaders/faction_outline.gdshader<>res://Soldiers/soldier.gd<>uid://d2jgdb1r55t1i<>res://Soldiers/Sight.gd<>uid://by30f4df0uxsa<>uid://uiyiif4kyq0e<>res://Fx/Shaders/hurt_shader.gdshader<>uid://de5jscn3h5np1<>uid://n65x0ca5e7rm<>uid://bqqeith03velt<>res://Soldiers/ForceArea.gd<>uid://dyv3cv23qt8t7<>res://Soldiers/Archer/TYPE.gd
+soldier.gd::GDScript::-1::1670965260::0::1::::<>CharacterBody2D<>::
+::res://Soldiers/Archer/::1670965262
+archer.tscn::PackedScene::8902110042365622421::1670965262::0::1::::<><>::res://Fx/Shaders/faction_outline.gdshader<>res://Soldiers/soldier.gd<>uid://d2jgdb1r55t1i<>res://Soldiers/Sight.gd<>uid://by30f4df0uxsa<>uid://uiyiif4kyq0e<>res://Fx/Shaders/hurt_shader.gdshader<>uid://de5jscn3h5np1<>uid://n65x0ca5e7rm<>uid://bqqeith03velt<>res://Soldiers/ForceArea.gd<>uid://dyv3cv23qt8t7<>res://Soldiers/Archer/TYPE.gd
 basic_archer_stats.tres::Resource::4130283889981204304::1670961292::0::1::::<><>::res://Soldiers/Resources/Stats/default_soldier_stats.gd
 knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0_archeranims.png::CompressedTexture2D::7502527481890310892::1670839604::1670839613::1::::<><>::
 TYPE.gd::GDScript::-1::1670947302::0::1::::<>Node2D<>::
-::res://Soldiers/Knight/::1670963763
+::res://Soldiers/Knight/::1670965263
 basic_knight_stats.tres::Resource::8817553316224957653::1670961292::0::1::::<><>::res://Soldiers/Resources/Stats/default_soldier_stats.gd
-knight.tscn::PackedScene::5411705791152500362::1670963763::0::1::::<><>::res://Fx/Shaders/faction_outline.gdshader<>res://Soldiers/soldier.gd<>uid://bcjck6wdvlqp8<>uid://d2jgdb1r55t1i<>uid://dxvj2x8fq4xbp<>res://Soldiers/ForceArea.gd<>res://Soldiers/Sight.gd<>uid://bcrvkane12a25<>res://Fx/Shaders/hurt_shader.gdshader<>uid://uiyiif4kyq0e<>uid://n65x0ca5e7rm<>res://Soldiers/Knight/TYPE.gd
+knight.tscn::PackedScene::5411705791152500362::1670965263::0::1::::<><>::res://Fx/Shaders/faction_outline.gdshader<>res://Soldiers/soldier.gd<>uid://bcjck6wdvlqp8<>uid://d2jgdb1r55t1i<>uid://dxvj2x8fq4xbp<>res://Soldiers/ForceArea.gd<>res://Soldiers/Sight.gd<>uid://bcrvkane12a25<>res://Fx/Shaders/hurt_shader.gdshader<>uid://uiyiif4kyq0e<>uid://n65x0ca5e7rm<>res://Soldiers/Knight/TYPE.gd
 knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png::CompressedTexture2D::2545518725054658023::1670222825::1670222825::1::::<><>::
 TYPE.gd::GDScript::-1::1670947418::0::1::::<>Node2D<>::
 ::res://Soldiers/Resources/::1670222825
@@ -362,16 +362,16 @@ hud.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 hud.tscn::PackedScene::872869956325677536::1670428042::0::1::::<><>::res://UI/HUD/hud.gd<>uid://bctc3xm0q60ig
 soldier_counter.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 soldier_counter.tscn::PackedScene::2566194212244392466::1670428042::0::1::::<><>::res://UI/HUD/soldier_counter.gd
-::res://UI/Main Menu/::1670963762
+::res://UI/Main Menu/::1670965262
 main_menu.gd::GDScript::-1::1670594804::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::5546433520910272496::1670963762::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>uid://dvc8kvsj3jvm4<>uid://hdlfqmo5anwi
+main_menu.tscn::PackedScene::5546433520910272496::1670965262::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>uid://dvc8kvsj3jvm4<>uid://hdlfqmo5anwi
 ui_main_menu.gd::GDScript::-1::1670499236::0::1::::<>Control<>::
-::res://UI/Mission Selection Menu/::1670963763
+::res://UI/Mission Selection Menu/::1670965262
 mission_selection_menu.gd::GDScript::-1::1670940815::0::1::::<>Control<>::
-mission_selection_menu.tscn::PackedScene::1872914795040110906::1670963763::0::1::::<><>::res://UI/Mission Selection Menu/mission_selection_menu.gd
-::res://UI/Mission Selection Menu/Mission Button/::1670963763
+mission_selection_menu.tscn::PackedScene::1872914795040110906::1670965262::0::1::::<><>::res://UI/Mission Selection Menu/mission_selection_menu.gd
+::res://UI/Mission Selection Menu/Mission Button/::1670965262
 mission_button.gd::GDScript::-1::1670941585::0::1::::<>Button<>::
-mission_button.tscn::PackedScene::1637240228646295905::1670963763::0::1::::<><>::res://UI/Mission Selection Menu/Mission Button/mission_button.gd<>uid://hdlfqmo5anwi
+mission_button.tscn::PackedScene::1637240228646295905::1670965262::0::1::::<><>::res://UI/Mission Selection Menu/Mission Button/mission_button.gd<>uid://hdlfqmo5anwi
 ::res://UI/Mission Selection Menu/Mission Details Panel/::1670831114
 mission_details_panel.gd::GDScript::-1::1670696008::0::1::::<>Control<>::
 mission_details_panel.tscn::PackedScene::4539396800731889766::1670831114::0::1::::<><>::res://UI/Mission Selection Menu/Mission Details Panel/mission_details_panel.gd

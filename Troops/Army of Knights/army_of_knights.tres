@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://cstj1pxj68c6a"]
 
-[ext_resource type="PackedScene" uid="uid://csdlxh14u7ryr" path="res://Soldiers/Knight/knight.tscn" id="1_edooi"]
+[ext_resource type="PackedScene" uid="uid://cjdqaekhnr1v7" path="res://Soldiers/Knight/knight.tscn" id="1_edooi"]
 [ext_resource type="Script" path="res://Troops/base_troop.gd" id="1_tf2j8"]
 
 [resource]
