@@ -375,8 +375,8 @@ turbulence_enabled = true
 radius = 108.0
 
 [node name="Archer" type="CharacterBody2D"]
-material = SubResource("ShaderMaterial_ufi0m")
 z_index = 1
+material = SubResource("ShaderMaterial_ufi0m")
 collision_layer = 2
 script = ExtResource("2_v13jg")
 _ai_module = ExtResource("3_2345v")
@@ -421,10 +421,10 @@ scale = Vector2(1, 1.25)
 [node name="Shadow" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
 show_behind_parent = true
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_1nhtx")
 position = Vector2(0, -9.15527e-05)
 scale = Vector2(1.23, 0.615)
-y_sort_enabled = true
 texture = ExtResource("5_7xipc")
 
 [node name="BodySprite" type="Sprite2D" parent="Pivot"]

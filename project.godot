@@ -151,6 +151,7 @@ gdscript/warnings/integer_division=0
 [display]
 
 window/size/mode=2
+window/vsync/vsync_mode=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

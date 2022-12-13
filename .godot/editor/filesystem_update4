@@ -1,15 +1,19 @@
-res://Soldiers/Knight/knight.tscn
+res://UI/Main Menu/main_menu.tscn
+res://Armies/EnemyArmy/AI/Wander/wander_ai_module.gd
+res://Maps/Map Items/Spawn Markers/enemy_random_spawn.gd
+res://Soldiers/Soldier AI/standard_ai_module.gd
+res://Soldiers/soldier.gd
 res://UI/test_theme_1.tres
 res://Fx/Shaders/faction_outline.gdshader
-res://Soldiers/soldier.gd
-res://Soldiers/Soldier AI/standard_ai_module.gd
 res://Soldiers/Soldier AI/standard_soldier_ai.tres
 res://Soldiers/Archer/basic_archer_stats.tres
 res://Soldiers/Knight/basic_knight_stats.tres
-res://Autoloads/scene_lib.gd
-res://Soldiers/Archer/archer.tscn
-res://Soldiers/Archer/TYPE.gd
-res://Soldiers/Knight/TYPE.gd
-res://UI/Main Menu/main_menu.tscn
 res://UI/Mission Selection Menu/mission_selection_menu.tscn
 res://UI/Mission Selection Menu/Mission Button/mission_button.tscn
+res://Soldiers/Archer/archer.tscn
+res://Soldiers/Knight/knight.tscn
+res://Armies/base_army.tscn
+res://Blackboards/Army Blackboard/army_blackboard.gd
+res://Armies/base_army.gd
+res://Armies/soldier_manager.gd
+res://measurements.physics.translation

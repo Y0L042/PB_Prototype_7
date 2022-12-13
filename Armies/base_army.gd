@@ -42,6 +42,7 @@ var blackboard: ArmyBlackboard
 @export_color_no_alpha var faction_colour: Color = Color(0.5, 0.8, 0.5, 1) #: set = set_faction_colour# used with outline shader
 @onready var formation
 var flag_sort_formation: bool = true : set = set_flag_sort_formation
+var flag_update_formation_volume: bool = true
 var isArmyAttacking: bool = false : set = set_isArmyAttacking
 #-------------------------------------------------------------------------------
 # "Features"
@@ -91,6 +92,10 @@ func set_flag_sort_formation(flag):
 	flag_sort_formation = flag
 func set_flag_sort_formation_true():
 	flag_sort_formation = true
+func set_flag_update_formation_volume(flag):
+	flag_update_formation_volume = flag
+func set_flag_update_formation_volume_true():
+	flag_update_formation_volume = true
 
 func set_soldier_manager(new_soldier_manager):
 	if new_soldier_manager == null:
@@ -153,11 +158,14 @@ func _create_blackboard():
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
 	_delta = delta
-	if _soldier_manager != null:
-		sort_and_set_soldier_index()
+	check_flags()
 	_custom_process(delta)
 
-
+func check_flags():
+	if _soldier_manager != null:
+		sort_and_set_soldier_index()
+	if blackboard != null and _soldier_manager != null:
+		update_formation_volume()
 
 @warning_ignore(unused_parameter)
 func _custom_process(delta: float):
@@ -195,6 +203,11 @@ func sort_and_set_soldier_index():
 		for soldier_idx in array.size():
 			array[soldier_idx]._formation_index = soldier_idx
 
+		flag_sort_formation = false
+
+func update_formation_volume():
+	if !isArmyAttacking and flag_update_formation_volume:
+		blackboard.adjust_formation_volume(blackboard.active_soldiers.size())
 		flag_sort_formation = false
 
 #-------------------------------------------------------------------------------

@@ -138,7 +138,7 @@ func spawn_soldier(new_soldier, auto_register_soldier = true):
 	update_hud()
 
 	soldier.set_collision_mask_value(2, false)
-
+	_parent.set_flag_update_formation_volume_true()
 	return soldier
 
 func connect_to_signals(new_soldier):
@@ -162,6 +162,7 @@ func calc_spawn_pos_offset(position: Vector2):
 #---------------------------------------------------------------------------------------------------#
 func soldier_is_dead():
 	update_hud()
+	_parent.set_flag_update_formation_volume_true()
 
 func update_hud():
 	if _parent.faction == "Player":

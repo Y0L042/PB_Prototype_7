@@ -47,14 +47,15 @@ func get_active_soldiers():
 
 func register_soldier_array(new_soldier_array: Array):
 	active_soldiers = new_soldier_array
-	adjust_formation_volume(active_soldiers.size())
+#	adjust_formation_volume(active_soldiers.size())
 
 func register_soldier(new_soldier):
 #	active_soldiers.append(new_soldier) #soldiers appended in soldier_manager
-	adjust_formation_volume(active_soldiers.size())
+#	adjust_formation_volume(active_soldiers.size())
+	pass
 func deregister_soldier(new_soldier):
 	active_soldiers.erase(new_soldier)
-	adjust_formation_volume(active_soldiers.size())
+#	adjust_formation_volume(active_soldiers.size())
 
 
 
