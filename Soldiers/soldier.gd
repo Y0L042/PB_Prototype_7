@@ -16,7 +16,11 @@ var _parent
 var _formation_index: int : set = set_formation_index, get = get_formation_index
 var isAttacking: bool = false : set = set_isAttacking, get = get_isAttacking
 
-@export var SCENE: PackedScene
+@onready var TYPE = %TYPE
+@onready var SCENE: PackedScene
+func set_SCENE():
+	SCENE = TYPE.TYPE
+
 var _col_activated: bool = false
 
 @onready var force_area: Area2D = %SoldierCollision
@@ -157,6 +161,7 @@ func init(new_blackboard) -> void:
 	return self
 
 func _ready() -> void:
+	set_SCENE()
 	_ai_module_ready()
 	_custom_ready()
 	set_physics_process(false) #physics process starts before blackboard is ready

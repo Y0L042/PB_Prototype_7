@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cjdqaekhnr1v7"]
+[gd_scene load_steps=39 format=3 uid="uid://cjdqaekhnr1v7"]
 
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="2_3w8k1"]
 [ext_resource type="Script" path="res://Soldiers/soldier.gd" id="2_owi4f"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="6_rqbx3"]
 [ext_resource type="Texture2D" uid="uid://uiyiif4kyq0e" path="res://Fx/Sprites/shadow.png" id="7_1sqnr"]
 [ext_resource type="Texture2D" uid="uid://n65x0ca5e7rm" path="res://Fx/Sprites/ice_particle_white.png" id="8_jukxo"]
+[ext_resource type="Script" path="res://Soldiers/Knight/TYPE.gd" id="12_x7nwe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
 resource_local_to_scene = true
@@ -373,8 +374,8 @@ turbulence_enabled = true
 radius = 108.0
 
 [node name="Knight" type="CharacterBody2D"]
-z_index = 1
 material = SubResource("ShaderMaterial_ufi0m")
+z_index = 1
 collision_layer = 2
 script = ExtResource("2_owi4f")
 _ai_module = ExtResource("3_p5t1t")
@@ -419,10 +420,10 @@ use_parent_material = true
 [node name="Shadow" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
 show_behind_parent = true
-y_sort_enabled = true
 material = SubResource("ShaderMaterial_1nhtx")
 position = Vector2(0, -9.15527e-05)
 scale = Vector2(1.23, 0.615)
+y_sort_enabled = true
 texture = ExtResource("7_1sqnr")
 
 [node name="BodySprite" type="Sprite2D" parent="Pivot"]
@@ -464,3 +465,7 @@ script = ExtResource("4_ypflr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoldierCollision"]
 shape = SubResource("CircleShape2D_20s78")
+
+[node name="TYPE" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("12_x7nwe")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dy3ipmi5ft5hh"]
+[gd_scene load_steps=40 format=3 uid="uid://dy3ipmi5ft5hh"]
 
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_2enko"]
 [ext_resource type="Script" path="res://Soldiers/soldier.gd" id="2_v13jg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bqqeith03velt" path="res://Weapons/Basic Bow/basic_bow.tscn" id="9_v5ebd"]
 [ext_resource type="Script" path="res://Soldiers/ForceArea.gd" id="10_7o7m4"]
 [ext_resource type="PackedScene" uid="uid://dyv3cv23qt8t7" path="res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn" id="10_pyd0g"]
+[ext_resource type="Script" path="res://Soldiers/Archer/TYPE.gd" id="13_x3jut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
 resource_local_to_scene = true
@@ -374,8 +375,8 @@ turbulence_enabled = true
 radius = 108.0
 
 [node name="Archer" type="CharacterBody2D"]
-z_index = 1
 material = SubResource("ShaderMaterial_ufi0m")
+z_index = 1
 collision_layer = 2
 script = ExtResource("2_v13jg")
 _ai_module = ExtResource("3_2345v")
@@ -420,10 +421,10 @@ scale = Vector2(1, 1.25)
 [node name="Shadow" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
 show_behind_parent = true
-y_sort_enabled = true
 material = SubResource("ShaderMaterial_1nhtx")
 position = Vector2(0, -9.15527e-05)
 scale = Vector2(1.23, 0.615)
+y_sort_enabled = true
 texture = ExtResource("5_7xipc")
 
 [node name="BodySprite" type="Sprite2D" parent="Pivot"]
@@ -465,3 +466,7 @@ script = ExtResource("10_7o7m4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoldierCollision"]
 shape = SubResource("CircleShape2D_20s78")
+
+[node name="TYPE" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("13_x3jut")

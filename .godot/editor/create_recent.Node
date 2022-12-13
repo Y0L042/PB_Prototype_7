@@ -1,3 +1,4 @@
+Node2D
 AspectRatioContainer
 Container
 Control
@@ -11,11 +12,9 @@ Sprite2D
 AnimationTree
 AnimationPlayer
 CollisionShape2D
-Node2D
 Camera2D
 PanelContainer
 VSplitContainer
-Button
 Label
 Node
 Area2D
