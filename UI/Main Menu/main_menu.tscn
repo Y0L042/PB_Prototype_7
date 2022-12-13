@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://clay7j514adka"]
+[gd_scene load_steps=4 format=3 uid="uid://clay7j514adka"]
 
 [ext_resource type="Script" path="res://UI/Main Menu/main_menu.gd" id="1_0n57f"]
+[ext_resource type="Theme" uid="uid://dvc8kvsj3jvm4" path="res://UI/test_theme_1.tres" id="1_586go"]
 [ext_resource type="Script" path="res://UI/focus_grab.gd" id="1_u54fw"]
 
 [node name="Main Menu" type="Control"]
@@ -10,9 +11,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_586go")
 script = ExtResource("1_0n57f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,30 +38,40 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/PanelContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
 
 [node name="MenuLabel" type="Label" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "Main Menu"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_586go")
 text = "Start
 "
 script = ExtResource("1_u54fw")
 
 [node name="Settings" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_586go")
 text = "Settings"
 
 [node name="Quit" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_586go")
 text = "Quit"

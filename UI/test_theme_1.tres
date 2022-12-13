@@ -1,3 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://dvc8kvsj3jvm4"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dvc8kvsj3jvm4"]
+
+[ext_resource type="FontFile" uid="uid://bqkxu0c1ufddk" path="res://UI/Fonts/public-pixel-font/PublicPixel-z84yD.ttf" id="1_rhysc"]
 
 [resource]
+Button/constants/h_separation = 6
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_rhysc")

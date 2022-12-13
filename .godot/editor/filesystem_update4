@@ -20,3 +20,6 @@ res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
 res://Armies/PlayerArmy/player_army.tscn
 res://Maps/Map 0/map_0.tscn
 res://Maps/Map 1/map_1.tscn
+res://UI/Main Menu/main_menu.tscn
+res://UI/test_theme_1.tres
+res://Autoloads/scene_lib.gd

@@ -1,3 +1,4 @@
+res://UI/Main Menu
 res://UI
 res://Troops/Army of Knights
 res://Soldiers/Knight
@@ -13,7 +14,6 @@ res://Managers/SceneManager
 res://Managers/MainMenuManager
 res://Managers/GameManager
 res://Autoloads
-res://UI/Main Menu
 res://UI/Settings Menu
 res://UI/Mission Selection Menu
 res://Maps/Map Items/Spawn Markers

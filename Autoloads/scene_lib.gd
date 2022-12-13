@@ -65,7 +65,7 @@ var fx_sprite_blood_splatter_1: PackedScene = load("res://Fx/Sprites/Blood Splat
 #-------------------------------------------------------------------------------
 var SCENE_MAIN_MENU: PackedScene = load("res://Main/main.tscn")
 
-var UI_MAIN_MENU: PackedScene = load("res://UI/Main Menu/ui_main_menu.tscn")
+#var UI_MAIN_MENU: PackedScene = load("res://UI/Main Menu/ui_main_menu.tscn")
 
 var MAIN_MENU: PackedScene = load("res://UI/Main Menu/main_menu.tscn")
 

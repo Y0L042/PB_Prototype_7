@@ -337,51 +337,24 @@ large_mixed_boss.tres::Resource::2194437271434981577::1670932859::0::1::::<><>::
 archers.tres::Resource::5902549415205583514::1670932858::0::1::::<><>::uid://vrlt33chl33d<>res://Troops/base_troop.gd
 basic_mixed_troop.tres::Resource::6175076568705622281::1670932858::0::1::::<><>::uid://csdlxh14u7ryr<>res://Troops/base_troop.gd<>uid://vrlt33chl33d
 player_knights.tres::Resource::3252965191697233118::1670932858::0::1::::<><>::res://Troops/base_troop.gd<>uid://csdlxh14u7ryr
-::res://UI/::1670934458
+::res://UI/::1670936102
 focus_grab.gd::GDScript::-1::1669126046::0::1::::<>Button<>::
-test_theme_1.tres::Theme::8639379172929992241::1670934141::0::1::::<><>::
+test_theme_1.tres::Theme::8639379172929992241::1670935514::0::1::::<><>::
+::res://UI/Fonts/::1670936085
+::res://UI/Fonts/public-pixel-font/::1670936085
+info.txt::TextFile::-1::1670113230::0::1::::<><>::
+PublicPixel-z84yD.ttf::FontFile::3531519483535553828::1670113230::1670936104::1::::<><>::
 ::res://UI/Game End Menu/::1670836774
 ui_game_end.gd::GDScript::-1::1670835097::0::1::::<>Control<>::
 ui_game_end.tscn::PackedScene::7956475156155619599::1670836774::0::1::::<><>::res://UI/Game End Menu/ui_game_end.gd<>res://UI/focus_grab.gd
-::res://UI/GUI_Essential_Free_v1.1/::1670934458
-License.txt::TextFile::-1::1665606822::0::1::::<><>::
-Thank You for Purchasing!.txt::TextFile::-1::1658348442::0::1::::<><>::
-::res://UI/GUI_Essential_Free_v1.1/1.Basic Collection/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/Aseprite/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/Spritesheet/::1670934458
-gui_flat.png::CompressedTexture2D::4865954300432918958::1649002724::1670934460::1::::<><>::
-gui_flat_animated_button1.png::CompressedTexture2D::7416937008566810739::1658329416::1670934460::1::::<><>::
-gui_flat_animated_button2.png::CompressedTexture2D::8291832409721645084::1658329428::1670934460::1::::<><>::
-gui_flat_animated_selection1.png::CompressedTexture2D::3931224106070491683::1658329266::1670934460::1::::<><>::
-gui_flat_animated_selection2.png::CompressedTexture2D::9152036106110111188::1658329278::1670934460::1::::<><>::
-::res://UI/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/Aseprite/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/Spritesheet/::1670934458
-gui_gradient.png::CompressedTexture2D::542023317040073835::1660136014::1670934460::1::::<><>::
-gui_gradient_animated_button.png::CompressedTexture2D::3913064444133467754::1660136172::1670934460::1::::<><>::
-gui_gradient_animated_selection.png::CompressedTexture2D::3847462275365711263::1660136084::1670934460::1::::<><>::
-::res://UI/GUI_Essential_Free_v1.1/2.Paper Collection/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Aseprite/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Spritesheet/::1670934458
-gui_paper.png::CompressedTexture2D::4262920291682461272::1658843894::1670934461::1::::<><>::
-gui_paper_animated_button1.png::CompressedTexture2D::7700981879048424612::1648637572::1670934460::1::::<><>::
-gui_paper_animated_button2.png::CompressedTexture2D::2035117455329455530::1648637668::1670934460::1::::<><>::
-gui_paper_animated_selection1.png::CompressedTexture2D::6278549768039035136::1648636902::1670934460::1::::<><>::
-gui_paper_animated_selection2.png::CompressedTexture2D::7165588254378729465::1648636916::1670934460::1::::<><>::
-::res://UI/GUI_Essential_Free_v1.1/Font/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/Font/Aseprite/::1670934458
-::res://UI/GUI_Essential_Free_v1.1/Font/TTF/::1670934458
-Toriko.ttf::FontFile::4505996066638190949::1648820462::1670934460::1::::<><>::
 ::res://UI/HUD/::1670428042
 hud.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 hud.tscn::PackedScene::872869956325677536::1670428042::0::1::::<><>::res://UI/HUD/hud.gd<>uid://bctc3xm0q60ig
 soldier_counter.gd::GDScript::-1::1670421197::0::1::::<>Control<>::
 soldier_counter.tscn::PackedScene::2566194212244392466::1670428042::0::1::::<><>::res://UI/HUD/soldier_counter.gd
-::res://UI/Main Menu/::1670694043
+::res://UI/Main Menu/::1670935514
 main_menu.gd::GDScript::-1::1670594804::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::5546433520910272496::1670694043::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>res://UI/focus_grab.gd
+main_menu.tscn::PackedScene::5546433520910272496::1670935514::0::1::::<><>::res://UI/Main Menu/main_menu.gd<>uid://dvc8kvsj3jvm4<>res://UI/focus_grab.gd
 ui_main_menu.gd::GDScript::-1::1670499236::0::1::::<>Control<>::
 ui_main_menu.tscn::PackedScene::6391674424549766165::1670502840::0::1::::<><>::res://UI/Main Menu/ui_main_menu.gd
 ::res://UI/Mission Selection Menu/::1670836774
@@ -399,6 +372,38 @@ ui_pause_menu.tscn::PackedScene::863565169421857443::1670831114::0::1::::<><>::r
 ::res://UI/Settings Menu/::1670694043
 ui_settings_menu.gd::GDScript::-1::1670594304::0::1::::<>Control<>::
 ui_settings_menu.tscn::PackedScene::4761227547186209683::1670694043::0::1::::<><>::res://UI/Settings Menu/ui_settings_menu.gd
+::res://UI/Theme Graphics/::1670936102
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/::1670934458
+License.txt::TextFile::-1::1665606822::0::1::::<><>::
+Thank You for Purchasing!.txt::TextFile::-1::1658348442::0::1::::<><>::
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/Aseprite/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Flat Theme/Spritesheet/::1670934460
+gui_flat.png::CompressedTexture2D::4865954300432918958::1649002724::1670936104::1::::<><>::
+gui_flat_animated_button1.png::CompressedTexture2D::7416937008566810739::1658329416::1670936104::1::::<><>::
+gui_flat_animated_button2.png::CompressedTexture2D::8291832409721645084::1658329428::1670936104::1::::<><>::
+gui_flat_animated_selection1.png::CompressedTexture2D::3931224106070491683::1658329266::1670936104::1::::<><>::
+gui_flat_animated_selection2.png::CompressedTexture2D::9152036106110111188::1658329278::1670936104::1::::<><>::
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/Aseprite/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/1.Basic Collection/Gradient Theme/Spritesheet/::1670934460
+gui_gradient.png::CompressedTexture2D::542023317040073835::1660136014::1670936104::1::::<><>::
+gui_gradient_animated_button.png::CompressedTexture2D::3913064444133467754::1660136172::1670936104::1::::<><>::
+gui_gradient_animated_selection.png::CompressedTexture2D::3847462275365711263::1660136084::1670936104::1::::<><>::
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Aseprite/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Spritesheet/::1670934461
+gui_paper.png::CompressedTexture2D::4262920291682461272::1658843894::1670936104::1::::<><>::
+gui_paper_animated_button1.png::CompressedTexture2D::7700981879048424612::1648637572::1670936104::1::::<><>::
+gui_paper_animated_button2.png::CompressedTexture2D::2035117455329455530::1648637668::1670936104::1::::<><>::
+gui_paper_animated_selection1.png::CompressedTexture2D::6278549768039035136::1648636902::1670936104::1::::<><>::
+gui_paper_animated_selection2.png::CompressedTexture2D::7165588254378729465::1648636916::1670936104::1::::<><>::
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/Font/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/Font/Aseprite/::1670934458
+::res://UI/Theme Graphics/GUI_Essential_Free_v1.1/Font/TTF/::1670934460
+Toriko.ttf::FontFile::4505996066638190949::1648820462::1670936104::1::::<><>::
 ::res://Weapons/::1670839989
 base_weapon.tscn::PackedScene::6619624225388442991::1670395179::0::1::::<><>::res://Weapons/base_weapon_script.gd
 base_weapon_script.gd::GDScript::-1::1670395488::0::1::::BaseWeapon<>Node2D<>::
