@@ -13,8 +13,8 @@ res://Troops/Player Troops/basic_mixed_troop.tres
 res://Troops/Player Troops/player_knights.tres
 res://Troops/Player Troops/archers.tres
 res://Troops/Army of Knights/large_mixed_boss.tres
-res://Weapons/Basic Sword/basic_sword.tscn
 res://Soldiers/Archer/archer.tscn
+res://Weapons/Basic Sword/basic_sword.tscn
 res://Weapons/Basic Bow/basic_bow.tscn
 res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
 res://Armies/PlayerArmy/player_army.tscn

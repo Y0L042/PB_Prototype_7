@@ -1,7 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://de06m02u5x1ar"]
+[gd_scene load_steps=39 format=3 uid="uid://dy3ipmi5ft5hh"]
 
 [ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_2enko"]
-[ext_resource type="Script" path="res://Soldiers/Knight/knight.gd" id="2_qlj4o"]
+[ext_resource type="Script" path="res://Soldiers/soldier.gd" id="2_v13jg"]
 [ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_2345v"]
 [ext_resource type="Script" path="res://Soldiers/Sight.gd" id="4_fweye"]
 [ext_resource type="Resource" uid="uid://by30f4df0uxsa" path="res://Soldiers/Archer/basic_archer_stats.tres" id="4_vf34j"]
@@ -377,7 +377,7 @@ radius = 108.0
 z_index = 1
 material = SubResource("ShaderMaterial_ufi0m")
 collision_layer = 2
-script = ExtResource("2_qlj4o")
+script = ExtResource("2_v13jg")
 _ai_module = ExtResource("3_2345v")
 base_stats = ExtResource("4_vf34j")
 health = 10.0
