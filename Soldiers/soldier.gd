@@ -25,7 +25,7 @@ var debug_isVisible: bool = false
 
 var _col_activated: bool = false
 
-@onready var force_area: Area2D = %SoldierCollision
+
 #-------------------------------------------------------------------------------
 # Blackboard Variables
 #-------------------------------------------------------------------------------
@@ -112,9 +112,15 @@ func set_array_of_weapons(new_array):
 
 func get_attack_range():
 	var attack_range: float = 1 * GlobalSettings.UNIT#-1.0
-	for weapon in array_of_weapons:
-		if weapon.range > attack_range:#replace with actual stat
-			attack_range = weapon.range#replace with actual stat
+	#OPTIMIZATION
+	if array_of_weapons.is_empty():
+		return attack_range
+	attack_range = array_of_weapons.front().range
+
+
+#	for weapon in array_of_weapons:
+#		if weapon.range > attack_range:#replace with actual stat
+#			attack_range = weapon.range#replace with actual stat
 	return attack_range
 
 func set_health(new_health):
@@ -146,7 +152,7 @@ func set_actor_tint_colour():
 
 func _get_index_from_formation():
 	_formation_index = blackboard.active_soldiers.find(self)
-func set_formation_index(new_index):
+func set_formation_index(new_index: int):
 	_formation_index = new_index
 func get_formation_index():
 	return _formation_index

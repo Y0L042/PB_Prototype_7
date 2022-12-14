@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bcrvkane12a25"]
+[gd_scene load_steps=24 format=3 uid="uid://bcrvkane12a25"]
 
 [ext_resource type="Script" path="res://Weapons/Basic Sword/basic_sword.gd" id="2_gmw3c"]
 [ext_resource type="Texture2D" uid="uid://do45hloggxhk3" path="res://Weapons/Basic Sword/weapon_regular_sword.png" id="2_y37xf"]
 [ext_resource type="Texture2D" uid="uid://db170d24q7x5p" path="res://Weapons/Basic Sword/trail.png" id="3_joa0w"]
-[ext_resource type="Texture2D" uid="uid://n65x0ca5e7rm" path="res://Fx/Sprites/ice_particle_white.png" id="4_pgacq"]
 
 [sub_resource type="Animation" id="Animation_5grc8"]
 resource_name = "Attack_1"
@@ -82,18 +81,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Pivot/BodySprite2D/BloodSpatter:emitting")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.175),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_hfm0u"]
@@ -240,18 +227,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Pivot/BodySprite2D/BloodSpatter:emitting")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jeeek"]
 _data = {
@@ -317,20 +292,6 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_fmp1r"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cn6ml"]
-particle_flag_disable_z = true
-spread = 35.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 350.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_max = 1.5
-hue_variation_min = -0.05
-hue_variation_max = 0.05
-turbulence_enabled = true
-turbulence_noise_strength = 5.0
-
 [node name="basic sword" type="Node2D"]
 use_parent_material = true
 script = ExtResource("2_gmw3c")
@@ -367,20 +328,3 @@ position = Vector2(-5.45392, -5.36938)
 rotation = -1.58825
 scale = Vector2(0.05, 0.0756217)
 texture = ExtResource("3_joa0w")
-
-[node name="BloodSpatter" type="GPUParticles2D" parent="Pivot/BodySprite2D"]
-visible = false
-self_modulate = Color(1, 0, 0, 1)
-show_behind_parent = true
-rotation = -1.5708
-emitting = false
-lifetime = 0.2
-one_shot = true
-explosiveness = 0.25
-randomness = 0.47
-trail_enabled = true
-trail_lifetime = 0.1
-trail_sections = 2
-trail_section_subdivisions = 1
-process_material = SubResource("ParticleProcessMaterial_cn6ml")
-texture = ExtResource("4_pgacq")

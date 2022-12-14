@@ -90,11 +90,12 @@ func set_grid_center_position(new_center_position: Vector2 = center_position):
 		vector_array[index] += _offset
 
 
-func set_grid_rotation(new_grid, new_rotation: float):
+func set_grid_rotation(new_grid: Array, new_rotation: float):
+	if vector_array.is_empty(): return
 	for index in new_grid.size():
 		var new_vector: Vector2 = _ref_vector_array[index].rotated(new_rotation)
-		new_grid[index] = new_vector
-	set_grid_center_position(center_position)
+		new_grid[index] = new_vector + vector_array.front()
+#	set_grid_center_position(center_position)
 
 
 func increment_grid_rotation(new_grid, new_rotation: float):
@@ -114,7 +115,8 @@ func generate_box_grid() -> Array:
 		for x in width:
 			# add hollow grid
 			var pos: Vector2
-			if int(y) % 2 == 0:
+#			if int(y) % 2 == 0:
+			if int(y) % 2 != 0: # now (0, 0) ref_array is at the front of array
 				pos = Vector2(width - x -1, -y)
 			else:
 				pos = Vector2(x, -y)

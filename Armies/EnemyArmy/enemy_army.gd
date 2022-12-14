@@ -87,11 +87,11 @@ func _collision_avoidance_adjust(current_position, current_direction, new_distan
 	return new_dir
 
 
-func _collision_avoidance_bounce(current_position, current_direction, new_distance, new_degree_offset = 36):
-	var distance = new_distance * GlobalSettings.UNIT
+func _collision_avoidance_bounce(current_position: Vector2, current_direction: Vector2, new_distance: float, new_degree_offset: int = 36):
+	var distance: float = new_distance * GlobalSettings.UNIT
 	var new_dir: Vector2 = current_direction
 	var offset: float = deg_to_rad(new_degree_offset)
-	var raycast = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
+	var raycast: Dictionary = _do_line_raycast(current_position, current_position+(new_dir*distance), GlobalSettings.COL_LAYER.WORLD)
 #	_visual_debugger.debug_draw_line(current_position, current_position+(new_dir*distance), Color(1,0,0), 10.0)
 	var isRaycastIntersected: bool = !raycast.is_empty()
 	if !isRaycastIntersected:
@@ -106,7 +106,7 @@ func _collision_avoidance_bounce(current_position, current_direction, new_distan
 #-------------------------------------------------------------------------------
 func _do_line_raycast(from: Vector2, to: Vector2, col_mask = 0xFFFFFFFF):
 	var ray_query := PhysicsRayQueryParameters2D.create(from, to, col_mask)
-	var raycast = get_world_2d().direct_space_state.intersect_ray(ray_query)
+	var raycast: Dictionary = get_world_2d().direct_space_state.intersect_ray(ray_query)
 	return raycast
 
 #---------------------------------------------------------------------------------------------------#

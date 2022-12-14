@@ -21,3 +21,5 @@ res://Camera/camera_2d.tscn
 res://Armies/PlayerArmy/player_army.gd
 res://Armies/soldier_manager.gd
 res://Classes/GridClass.gd
+res://Soldiers/Sight.gd
+res://Armies/EnemyArmy/enemy_army.gd

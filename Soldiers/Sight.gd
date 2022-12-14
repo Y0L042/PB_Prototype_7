@@ -9,6 +9,13 @@ var sighted_enemy = null : get = get_sighted_enemy
 func get_sighted_enemy():
 	if sightings.is_empty(): return null
 	sighted_enemy = sightings[0]
+
+	# OPTIMIZATION test
+	if _parent.get_global_position().distance_squared_to(sightings.front().get_global_position()) \
+	> _parent.get_global_position().distance_squared_to(sightings.back().get_global_position()):
+		sighted_enemy = sightings.back()
+	return sighted_enemy
+
 	for enemy in sightings:
 		if _parent.get_global_position().distance_squared_to(enemy.get_global_position()) \
 		< get_global_position().distance_squared_to(sighted_enemy.get_global_position()):
