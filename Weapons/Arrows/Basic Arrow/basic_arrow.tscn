@@ -11,13 +11,11 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, 114)
-scale = Vector2(1.35, 0.9)
+scale = Vector2(0.75, 0.5)
 texture = ExtResource("2_dj872")
 region_rect = Rect2(487.433, 150.842, 169.302, 684.904)
 
 [node name="PointLight2D" type="PointLight2D" parent="Pivot/Sprite2D"]
-scale = Vector2(1.1, 1.1)
 color = Color(0.960784, 0.94902, 0, 1)
 energy = 15.0
 texture = ExtResource("2_dj872")
-texture_scale = 2.5

@@ -61,7 +61,6 @@ var blackboard: ArmyBlackboard : set = set_blackboard
 # Properties
 #-------------------------------------------------------------------------------
 @export_category("Arrays of Resources")
-@export var array_of_stats: Array = []
 @export var array_of_effects: Array = []
 @onready @export var array_of_weapons: Array = weapon_pivot.get_children() : set = set_array_of_weapons
 @export var array_of_weapon_effects: Array = [] #? here or in Weapon??
