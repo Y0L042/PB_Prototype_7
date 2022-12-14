@@ -13,11 +13,11 @@ res://UI/Mission Selection Menu/Mission Button/mission_button.tscn
 res://Soldiers/Archer/archer.tscn
 res://Soldiers/Knight/knight.tscn
 res://Armies/base_army.tscn
-res://Blackboards/Army Blackboard/army_blackboard.gd
-res://Armies/base_army.gd
-res://Armies/soldier_manager.gd
-res://measurements.physics.translation
-res://Troops/Army of Knights/army_of_knights.tres
-res://Camera/Camera2d.gd
 res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.tscn
-res://Fx/Sprites/Blood Splatters/Blood Splatter 1/blood_1.gd
+res://Weapons/Basic Sword/basic_sword.tscn
+res://Armies/base_army.gd
+res://Camera/Camera2d.gd
+res://Camera/camera_2d.tscn
+res://Armies/PlayerArmy/player_army.gd
+res://Armies/soldier_manager.gd
+res://Classes/GridClass.gd

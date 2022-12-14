@@ -439,6 +439,7 @@ vframes = 3
 frame = 1
 
 [node name="Dust" type="GPUParticles2D" parent="Pivot"]
+visible = false
 emitting = false
 amount = 16
 lifetime = 0.5

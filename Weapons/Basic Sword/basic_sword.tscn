@@ -369,6 +369,7 @@ scale = Vector2(0.05, 0.0756217)
 texture = ExtResource("3_joa0w")
 
 [node name="BloodSpatter" type="GPUParticles2D" parent="Pivot/BodySprite2D"]
+visible = false
 self_modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
 rotation = -1.5708

@@ -86,10 +86,11 @@ func simple_move(target):
 	var dist_check: int = int(_parent.get_global_position().distance_squared_to(target) > 10*10)
 	return direction * int(dist_check)
 
-func simple_move_army(target):
+func simple_move_army(target: Vector2):
 	var direction: Vector2 = _parent.get_global_position().direction_to(target)
 	var dist_check: int = int(_parent.get_global_position().distance_squared_to(target) > 25*25)
-	var army_move_check: int = int(_parent._army._army_velocity.length() > 5)
+#	var army_move_check: int = int(_parent._army._army_velocity.length() > 5)
+	var army_move_check: int = int(_parent._army._army_velocity != Vector2.ZERO)
 	return direction * int(dist_check||army_move_check)
 
 

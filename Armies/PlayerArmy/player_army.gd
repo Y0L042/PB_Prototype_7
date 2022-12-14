@@ -58,7 +58,7 @@ func clamp_army_position(): # testing clamping
 	var LENGTH: float = 6 * GlobalSettings.UNIT
 	var LERP_STRENGTH: float = 0.1
 	var delta: float = _delta
-	var army_center: Vector2 = _calc_soldier_array_center(_soldier_manager.active_soldiers_array)
+	var army_center: Vector2 = _calc_soldier_array_center()#_soldier_manager.active_soldiers_array)
 	var target: Vector2 = army_center + _army_velocity.normalized() * LENGTH
 	if _army_velocity != Vector2.ZERO:
 		_army_position = lerp(_army_position, target, LERP_STRENGTH)

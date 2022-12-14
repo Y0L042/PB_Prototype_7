@@ -49,7 +49,7 @@ func _ready() -> void:
 # Runtime
 #-------------------------------------------------------------------------------
 func _physics_process(delta: float) -> void:
-	if master != null and is_instance_valid(master):
+	if master != null and is_instance_valid(master):# and is_instance_valid(master._soldier_manager):
 		var spawn_pos: Vector2 = master._calc_soldier_array_center()
 		if is_nan(spawn_pos.x) or is_nan(spawn_pos.y):
 			spawn_pos = master.get_army_position()

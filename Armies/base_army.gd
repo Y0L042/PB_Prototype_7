@@ -225,7 +225,12 @@ func army_is_dead():
 #-------------------------------------------------------------------------------
 # Tools
 #-------------------------------------------------------------------------------
-func _calc_soldier_array_center(arr: Array = _soldier_manager.active_soldiers_array):
+#func _calc_soldier_array_center(arr: Array = _soldier_manager.active_soldiers_array):
+func _calc_soldier_array_center():
+	var arr: Array = []
+	if is_instance_valid(_soldier_manager):
+		arr = _soldier_manager.active_soldiers_array
+	else: return Vector2(-1, -1)
 	var avg := Vector2.ZERO
 	for soldier in arr:
 		avg += soldier.get_global_position()

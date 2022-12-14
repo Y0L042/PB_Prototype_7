@@ -163,7 +163,6 @@ func init(new_blackboard) -> void:
 	return self
 
 func _ready() -> void:
-	self.set_visible(false)
 	set_SCENE()
 	_ai_module_ready()
 	_custom_ready()
@@ -174,8 +173,9 @@ func _ready() -> void:
 	set_physics_process(true)
 
 func connect_to_signals():
-	flag_visibility_notifier.screen_exited.connect(visibility_turn_off)
-	flag_visibility_notifier.screen_entered.connect(visibility_turn_on)
+#	flag_visibility_notifier.screen_exited.connect(visibility_turn_off)
+#	flag_visibility_notifier.screen_entered.connect(visibility_turn_on)
+	pass
 
 
 func _custom_ready():

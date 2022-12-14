@@ -24,7 +24,7 @@ var spacing = 1 * UNIT : set = set_spacing
 var rotation: float = 0 #: set = set_rotation
 var center_position: Vector2 : set = set_center_position
 
-var vector_array: Array
+var vector_array: Array[Vector2]
 
 #-------------------------------------------------------------------------------
 # SetGet
@@ -80,7 +80,11 @@ func set_grid_spacing(new_grid, new_spacing):
 
 
 func set_grid_center_position(new_center_position: Vector2 = center_position):
-	var current_grid_center: Vector2 = get_grid_center(vector_array)
+#	var current_grid_center: Vector2 = get_grid_center(vector_array)
+	if vector_array.is_empty(): return
+#	var current_grid_center: Vector2 = (Vector2(width, height) * UNIT * 0.5).rotated(rotation) # vector_array[0]
+	var current_grid_center: Vector2 = (vector_array.front() - vector_array.back()) * 0.5 + vector_array.back()
+	# ^ only valid for width/height grids, circle grids use radius or something
 	var _offset: Vector2 = new_center_position - current_grid_center
 	for index in vector_array.size():
 		vector_array[index] += _offset
@@ -102,7 +106,7 @@ func increment_grid_rotation(new_grid, new_rotation: float):
 
 
 func generate_box_grid() -> Array:
-	var grid: Array = []
+	var grid: Array[Vector2] = []
 	var temp: float = float(volume)/float(width)
 	height = ceil(temp)
 	if is_inf(height): print ("ERROR: Height is INF, WIDTH is ZERO") #throw error
