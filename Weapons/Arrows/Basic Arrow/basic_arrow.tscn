@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyv3cv23qt8t7"]
 
-[ext_resource type="Texture2D" uid="uid://tgy01jwfanmt" path="res://Weapons/Arrows/Basic Arrow/Ice Bow Set.svg" id="1_fpovt"]
 [ext_resource type="Script" path="res://Weapons/Arrows/Basic Arrow/basic_arrow.gd" id="1_wunie"]
+[ext_resource type="Texture2D" uid="uid://q7swywsyhei3" path="res://Weapons/Arrows/Basic Arrow/basic_arrow.svg" id="2_dj872"]
 
 [node name="Basic Arrow" type="CharacterBody2D"]
 script = ExtResource("1_wunie")
@@ -10,7 +10,14 @@ script = ExtResource("1_wunie")
 unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
-scale = Vector2(1.5, 1)
-texture = ExtResource("1_fpovt")
-region_enabled = true
+position = Vector2(0, 114)
+scale = Vector2(1.35, 0.9)
+texture = ExtResource("2_dj872")
 region_rect = Rect2(487.433, 150.842, 169.302, 684.904)
+
+[node name="PointLight2D" type="PointLight2D" parent="Pivot/Sprite2D"]
+scale = Vector2(1.1, 1.1)
+color = Color(0.960784, 0.94902, 0, 1)
+energy = 15.0
+texture = ExtResource("2_dj872")
+texture_scale = 2.5

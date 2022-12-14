@@ -68,7 +68,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Enemy Random Spawn" parent="Map Items/Spawns/Enemy Spawns" node_paths=PackedStringArray("disable_zone") instance=ExtResource("3_wvl2d")]
-position = Vector2(8424, 4536)
+position = Vector2(5832, 4536)
 _troops = [ExtResource("4_m7tie")]
 _ai = ExtResource("5_03g22")
 delay = 15.0
@@ -78,9 +78,9 @@ disable_zone = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="Map Items/Spawns/Enemy Spawns/Enemy Random Spawn"]
 scale = Vector2(10, 10)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Items/Spawns/Enemy Spawns/Enemy Random Spawn/Area2D"]
-position = Vector2(-388.8, 0)
 shape = SubResource("CircleShape2D_ncr3v")
 
 [node name="PlayerArmy" parent="." instance=ExtResource("8_p2ihq")]

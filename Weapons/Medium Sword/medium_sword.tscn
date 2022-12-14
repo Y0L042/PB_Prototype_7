@@ -1,0 +1,295 @@
+[gd_scene load_steps=24 format=3 uid="uid://v4hcl0fk11wa"]
+
+[ext_resource type="Script" path="res://Weapons/Basic Sword/basic_sword.gd" id="1_r7rs3"]
+[ext_resource type="Texture2D" uid="uid://do45hloggxhk3" path="res://Weapons/Basic Sword/weapon_regular_sword.png" id="2_lenuo"]
+[ext_resource type="Texture2D" uid="uid://db170d24q7x5p" path="res://Weapons/Basic Sword/trail.png" id="3_ijkdk"]
+
+[sub_resource type="Animation" id="Animation_5grc8"]
+resource_name = "Attack_1"
+length = 0.6
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -54), Vector2(0, -118), Vector2(213, 64), Vector2(213, 64), Vector2(0, -54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.438237, 2.08321, 2.08321, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:skew")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.174533, -0.174533, 0.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.17),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BodySprite2D/Smear:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.275),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_hfm0u"]
+resource_name = "Attack_2"
+length = 0.6
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.17, 0.22, 0.26, 0.31, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -54), Vector2(53, 2), Vector2(114, 2), Vector2(199, 2), Vector2(114, 2), Vector2(53, 2), Vector2(0, -54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.31, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 1.5708, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lqf3g"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -54), Vector2(0, -115), Vector2(0, -54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gtrv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/BodySprite2D/Smear:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jeeek"]
+_data = {
+"Attack_1": SubResource("Animation_5grc8"),
+"Attack_2": SubResource("Animation_hfm0u"),
+"Idle": SubResource("Animation_lqf3g"),
+"RESET": SubResource("Animation_gtrv7")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1eu4d"]
+animation = &"Attack_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3dseh"]
+animation = &"Attack_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hfgju"]
+animation = &"Attack_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k66y4"]
+animation = &"Attack_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kc70q"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mqgc7"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gjtbm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_niumx"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6rnb5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ok0an"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7gsej"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w7csa"]
+xfade_time = 0.1
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb4y4"]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xs4hn"]
+states/Attack_1/node = SubResource("AnimationNodeAnimation_3dseh")
+states/Attack_1/position = Vector2(290, 212)
+"states/Attack_1 2/node" = SubResource("AnimationNodeAnimation_1eu4d")
+"states/Attack_1 2/position" = Vector2(586, 77)
+states/Attack_2/node = SubResource("AnimationNodeAnimation_hfgju")
+states/Attack_2/position = Vector2(482, 212)
+states/Combo/node = SubResource("AnimationNodeAnimation_k66y4")
+states/Combo/position = Vector2(692, 159)
+states/Idle/node = SubResource("AnimationNodeAnimation_kc70q")
+states/Idle/position = Vector2(406, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mqgc7"), "Idle", "Attack_1", SubResource("AnimationNodeStateMachineTransition_gjtbm"), "Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_niumx"), "Idle", "Attack_2", SubResource("AnimationNodeStateMachineTransition_6rnb5"), "Attack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_ok0an"), "Idle", "Attack_1 2", SubResource("AnimationNodeStateMachineTransition_7gsej"), "Attack_1 2", "Combo", SubResource("AnimationNodeStateMachineTransition_w7csa"), "Combo", "Idle", SubResource("AnimationNodeStateMachineTransition_gb4y4")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_fmp1r"]
+
+[node name="Medium Sword" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_r7rs3")
+damage = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+method_call_mode = 1
+libraries = {
+"": SubResource("AnimationLibrary_jeeek")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+tree_root = SubResource("AnimationNodeStateMachine_xs4hn")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_fmp1r")
+
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -53.4544)
+rotation = 0.00234161
+scale = Vector2(1.2, 1.457)
+
+[node name="BodySprite2D" type="Sprite2D" parent="Pivot"]
+position = Vector2(0, -7.62939e-06)
+scale = Vector2(10, 10)
+texture = ExtResource("2_lenuo")
+
+[node name="Smear" type="Sprite2D" parent="Pivot/BodySprite2D"]
+visible = false
+show_behind_parent = true
+position = Vector2(-5.45392, -5.36938)
+rotation = -1.58825
+scale = Vector2(0.05, 0.0756217)
+texture = ExtResource("3_ijkdk")

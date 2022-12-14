@@ -1,19 +1,19 @@
-[gd_scene load_steps=35 format=3 uid="uid://dy3ipmi5ft5hh"]
+[gd_scene load_steps=35 format=3 uid="uid://0f20bq7w45rr"]
 
-[ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_2enko"]
-[ext_resource type="Script" path="res://Soldiers/soldier.gd" id="2_v13jg"]
-[ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_2345v"]
-[ext_resource type="Script" path="res://Soldiers/Sight.gd" id="4_fweye"]
-[ext_resource type="Resource" uid="uid://by30f4df0uxsa" path="res://Soldiers/Archer/basic_archer_stats.tres" id="4_vf34j"]
-[ext_resource type="Texture2D" uid="uid://uiyiif4kyq0e" path="res://Fx/Sprites/shadow.png" id="5_7xipc"]
-[ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="6_u8wok"]
-[ext_resource type="Texture2D" uid="uid://de5jscn3h5np1" path="res://Soldiers/Archer/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0_archeranims.png" id="7_coe1c"]
-[ext_resource type="PackedScene" uid="uid://bqqeith03velt" path="res://Weapons/Basic Bow/basic_bow.tscn" id="9_v5ebd"]
-[ext_resource type="Script" path="res://Soldiers/Archer/TYPE.gd" id="13_x3jut"]
+[ext_resource type="Shader" path="res://Fx/Shaders/faction_outline.gdshader" id="1_dvfwp"]
+[ext_resource type="Script" path="res://Soldiers/soldier.gd" id="2_y4wxn"]
+[ext_resource type="Resource" uid="uid://d2jgdb1r55t1i" path="res://Soldiers/Soldier AI/standard_soldier_ai.tres" id="3_c7tg2"]
+[ext_resource type="Resource" uid="uid://dxvj2x8fq4xbp" path="res://Soldiers/Knight/basic_knight_stats.tres" id="4_mv0rl"]
+[ext_resource type="Script" path="res://Soldiers/Sight.gd" id="5_jnvg8"]
+[ext_resource type="Script" path="res://Soldiers/Heavy Knight/TYPE.gd" id="5_jrnnh"]
+[ext_resource type="Texture2D" uid="uid://uiyiif4kyq0e" path="res://Fx/Sprites/shadow.png" id="6_n4aya"]
+[ext_resource type="Shader" path="res://Fx/Shaders/hurt_shader.gdshader" id="7_48j3h"]
+[ext_resource type="Texture2D" uid="uid://bcjck6wdvlqp8" path="res://Soldiers/Knight/knight_m_hit_anim_f0_pa_knight_m_hit_anim_f0.png" id="8_3xnr5"]
+[ext_resource type="PackedScene" uid="uid://v4hcl0fk11wa" path="res://Weapons/Medium Sword/medium_sword.tscn" id="10_qgcul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufi0m"]
 resource_local_to_scene = true
-shader = ExtResource("1_2enko")
+shader = ExtResource("1_dvfwp")
 shader_parameter/active = null
 shader_parameter/add_margins = false
 shader_parameter/color = null
@@ -311,7 +311,7 @@ radius = 216.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nhtx"]
 resource_local_to_scene = true
-shader = ExtResource("1_2enko")
+shader = ExtResource("1_dvfwp")
 shader_parameter/active = false
 shader_parameter/add_margins = null
 shader_parameter/color = null
@@ -321,23 +321,23 @@ shader_parameter/width = 25.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_63qgb"]
 resource_local_to_scene = true
-shader = ExtResource("6_u8wok")
+shader = ExtResource("7_48j3h")
 shader_parameter/active = false
 shader_parameter/tint_color = Color(1, 0, 0, 1)
 shader_parameter/tint_effect_factor = 0.75
 
-[node name="Archer" type="CharacterBody2D"]
+[node name="Heavy Knight" type="CharacterBody2D"]
 z_index = 1
 material = SubResource("ShaderMaterial_ufi0m")
 collision_layer = 2
-script = ExtResource("2_v13jg")
-_ai_module = ExtResource("3_2345v")
-base_stats = ExtResource("4_vf34j")
+script = ExtResource("2_y4wxn")
+_ai_module = ExtResource("3_c7tg2")
+base_stats = ExtResource("4_mv0rl")
 health = 10.0
 
 [node name="TYPE" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("13_x3jut")
+script = ExtResource("5_jrnnh")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -361,11 +361,12 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_okoax")
 
 [node name="Sight" type="Area2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(5, 5)
+visible = false
+scale = Vector2(3, 3)
 collision_layer = 3
 collision_mask = 3
 monitorable = false
-script = ExtResource("4_fweye")
+script = ExtResource("5_jnvg8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_gvuww")
@@ -374,7 +375,7 @@ debug_color = Color(0.580392, 0.384314, 1, 0.262745)
 [node name="Pivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
 use_parent_material = true
-scale = Vector2(1, 1.25)
+scale = Vector2(1.25, 1.164)
 
 [node name="Shadow" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
@@ -383,14 +384,14 @@ y_sort_enabled = true
 material = SubResource("ShaderMaterial_1nhtx")
 position = Vector2(0, -9.15527e-05)
 scale = Vector2(1.23, 0.615)
-texture = ExtResource("5_7xipc")
+texture = ExtResource("6_n4aya")
 
 [node name="BodySprite" type="Sprite2D" parent="Pivot"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_63qgb")
 position = Vector2(0, -216)
 scale = Vector2(15, 15)
-texture = ExtResource("7_coe1c")
+texture = ExtResource("8_3xnr5")
 hframes = 4
 vframes = 3
 frame = 1
@@ -399,5 +400,5 @@ frame = 1
 unique_name_in_owner = true
 use_parent_material = true
 
-[node name="Basic Bow" parent="Pivot/WeaponPivot" instance=ExtResource("9_v5ebd")]
-position = Vector2(43, -128)
+[node name="Medium Sword" parent="Pivot/WeaponPivot" instance=ExtResource("10_qgcul")]
+position = Vector2(-40.6897, -108.889)

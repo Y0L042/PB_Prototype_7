@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqqeith03velt"]
+[gd_scene load_steps=15 format=3 uid="uid://bqqeith03velt"]
 
 [ext_resource type="Script" path="res://Weapons/Basic Bow/basic_bow.gd" id="1_kn771"]
 [ext_resource type="Texture2D" uid="uid://drvbxtfnogq43" path="res://Weapons/Basic Bow/Ice Bow Set.svg" id="1_mvgir"]
+[ext_resource type="PackedScene" uid="uid://dyv3cv23qt8t7" path="res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn" id="2_mqnpq"]
 
 [sub_resource type="Animation" id="Animation_vfcda"]
 resource_name = "Attack_1"
@@ -111,6 +112,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Basic Bow" type="Node2D"]
 script = ExtResource("1_kn771")
+arrow_scene = ExtResource("2_mqnpq")
 range = 7.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

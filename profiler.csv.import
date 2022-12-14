@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ulocjf7d7fyu"
+
+[deps]
+
+files=["res://profiler.time/process.translation", "res://profiler.time/physics.translation", "res://profiler.memory/static.translation", "res://profiler.memory/static.translation", "res://profiler.memory/msg.translation", "res://profiler.object/objects.translation", "res://profiler.object/resources.translation", "res://profiler.object/nodes.translation", "res://profiler.object/orphan.translation", "res://profiler.raster/total.translation", "res://profiler.raster/total.translation", "res://profiler.raster/total.translation", "res://profiler.video/video.translation", "res://profiler.video/texture.translation", "res://profiler.video/buffer.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.audio/driver/output.translation"]
+
+source_file="res://profiler.csv"
+dest_files=["res://profiler.time/process.translation", "res://profiler.time/physics.translation", "res://profiler.memory/static.translation", "res://profiler.memory/static.translation", "res://profiler.memory/msg.translation", "res://profiler.object/objects.translation", "res://profiler.object/resources.translation", "res://profiler.object/nodes.translation", "res://profiler.object/orphan.translation", "res://profiler.raster/total.translation", "res://profiler.raster/total.translation", "res://profiler.raster/total.translation", "res://profiler.video/video.translation", "res://profiler.video/texture.translation", "res://profiler.video/buffer.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.physics.translation", "res://profiler.audio/driver/output.translation"]
+
+[params]
+
+compress=true
+delimiter=0

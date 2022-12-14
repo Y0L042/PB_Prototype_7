@@ -1,8 +1,8 @@
 [gd_resource type="Resource" load_steps=4 format=3 uid="uid://6jacc2lta1ib"]
 
 [ext_resource type="Script" path="res://Troops/base_troop.gd" id="1_bowc4"]
-[ext_resource type="PackedScene" uid="uid://csdlxh14u7ryr" path="res://Soldiers/Knight/knight.tscn" id="1_vmhx0"]
-[ext_resource type="PackedScene" uid="uid://vrlt33chl33d" path="res://Soldiers/Archer/archer.tscn" id="2_l2trv"]
+[ext_resource type="PackedScene" uid="uid://cjdqaekhnr1v7" path="res://Soldiers/Knight/knight.tscn" id="1_vmhx0"]
+[ext_resource type="PackedScene" uid="uid://dy3ipmi5ft5hh" path="res://Soldiers/Archer/archer.tscn" id="2_l2trv"]
 
 [resource]
 script = ExtResource("1_bowc4")

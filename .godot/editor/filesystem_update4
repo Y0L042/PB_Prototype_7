@@ -23,3 +23,21 @@ res://Armies/soldier_manager.gd
 res://Classes/GridClass.gd
 res://Soldiers/Sight.gd
 res://Armies/EnemyArmy/enemy_army.gd
+res://Maps/Map 1/map_1.tscn
+res://Maps/Map 0/Assets/pixel_art_dungeon_216.tres
+res://Troops/Player Troops/player_knights.tres
+res://Troops/Army of Knights/army_of_knights.tres
+res://Armies/EnemyArmy/AI/Wander/wander.tres
+res://Troops/Player Troops/basic_mixed_troop.tres
+res://Troops/Player Troops/archers.tres
+res://Troops/Army of Knights/large_mixed_boss.tres
+res://Soldiers/Heavy Knight/heavy_knight_stats.tres
+res://Soldiers/Heavy Knight/heavy_knight.tscn
+res://Autoloads/scene_lib.gd
+res://Soldiers/Knight/TYPE.gd
+res://Weapons/Medium Sword/medium_sword.tscn
+res://Weapons/Basic Bow/basic_bow.tscn
+res://Weapons/Arrows/Basic Arrow/basic_arrow.tscn
+res://Soldiers/Heavy Knight/TYPE.gd
+res://Maps/Map 0/map_0.tscn
+res://profiler.physics.translation

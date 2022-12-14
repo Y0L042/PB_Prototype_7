@@ -34,6 +34,7 @@ var WANDER_AI: Resource = load("res://Armies/EnemyArmy/AI/Wander/wander.tres")
 #-------------------------------------------------------------------------------
 var SOLDIER_KNIGHT: PackedScene = load("res://Soldiers/Knight/knight.tscn")
 var SOLDIER_ARCHER: PackedScene = load("res://Soldiers/Archer/archer.tscn")
+var SOLDIER_HEAVYKNIGHT: PackedScene = load("res://Soldiers/Heavy Knight/heavy_knight.tscn")
 
 #-------------------------------------------------------------------------------
 # Weapons

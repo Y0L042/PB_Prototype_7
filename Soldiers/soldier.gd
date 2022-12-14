@@ -15,16 +15,12 @@ signal SoldierIsDead
 var _parent
 var _formation_index: int : set = set_formation_index, get = get_formation_index
 var isAttacking: bool = false : set = set_isAttacking, get = get_isAttacking
-
 @onready var TYPE = %TYPE
 @onready var SCENE: PackedScene
 func set_SCENE():
 	SCENE = TYPE.TYPE
 @onready var flag_visibility_notifier = $VisibleOnScreenNotifier2D
 var debug_isVisible: bool = false
-
-var _col_activated: bool = false
-
 
 #-------------------------------------------------------------------------------
 # Blackboard Variables
@@ -46,6 +42,7 @@ var _move_order
 @export var health: float = 5.0 : set = set_health
 @export var speed: float = 5.0 : set = set_speed
 @export var formation_order: float = 1.0 : set = set_formation_order
+
 #-------------------------------------------------------------------------------
 # "Features"
 #-------------------------------------------------------------------------------
@@ -58,10 +55,8 @@ var _move_order
 @onready var body_sprite: Sprite2D = %BodySprite
 @onready var weapon_pivot: Marker2D = %WeaponPivot
 @onready var sight: Area2D = %Sight
-
-
-
 var blackboard: ArmyBlackboard : set = set_blackboard
+
 #-------------------------------------------------------------------------------
 # Properties
 #-------------------------------------------------------------------------------
@@ -86,7 +81,7 @@ func set_blackboard(new_blackboard):
 	BlackboardIsReady.emit() # make _ready wait for blackboard, avoid bugs with ai starting too soon
 
 func set_base_stats(new_base_stats: Resource):
-	base_stats = new_base_stats
+	base_stats = new_base_stats.duplicate()
 	health = base_stats.health
 	speed = base_stats.speed
 	formation_order = base_stats.order
@@ -116,11 +111,6 @@ func get_attack_range():
 	if array_of_weapons.is_empty():
 		return attack_range
 	attack_range = array_of_weapons.front().range
-
-
-#	for weapon in array_of_weapons:
-#		if weapon.range > attack_range:#replace with actual stat
-#			attack_range = weapon.range#replace with actual stat
 	return attack_range
 
 func set_health(new_health):
@@ -156,6 +146,7 @@ func set_formation_index(new_index: int):
 	_formation_index = new_index
 func get_formation_index():
 	return _formation_index
+
 #---------------------------------------------------------------------------------------------------#
 # Private Functions
 #---------------------------------------------------------------------------------------------------#
@@ -165,7 +156,6 @@ func get_formation_index():
 func init(new_blackboard) -> void:
 	blackboard = new_blackboard
 	CustomReady.emit(blackboard)
-
 	return self
 
 func _ready() -> void:
@@ -182,7 +172,6 @@ func connect_to_signals():
 #	flag_visibility_notifier.screen_exited.connect(visibility_turn_off)
 #	flag_visibility_notifier.screen_entered.connect(visibility_turn_on)
 	pass
-
 
 func _custom_ready():
 	pass
@@ -201,7 +190,6 @@ func _physics_process(delta: float) -> void:
 	_custom_process(delta)
 
 func _base_process(_delta: float):
-#	_formation_index = get_position_in_formation()
 	pass
 
 func _ai_module_process(_delta: float):
@@ -225,6 +213,7 @@ func visibility_turn_on():
 func visibility_turn_off():
 	self.set_visible(false)
 	debug_isVisible = self.visible
+
 #---------------------------------------------------------------------------------------------------#
 # Public Functions
 #---------------------------------------------------------------------------------------------------#
@@ -250,42 +239,8 @@ func hurt(damage):
 #-------------------------------------------------------------------------------
 func get_position_in_formation():
 	var index: int = -1
-#	for soldier_index in blackboard.active_soldiers.size():
-#		if self.get_instance_id() == blackboard.active_soldiers[soldier_index].get_instance_id():
-#			index = soldier_index
-#			break
 	index = blackboard.active_soldiers.find(self)
 	return index
-
-
-
-#-------------------------------------------------------------------------------
-# Collision Functions
-#-------------------------------------------------------------------------------
-func activate_collision():
-	if !_col_activated:
-#
-
-
-
-
-		_col_activated = true
-		print("col ON")
-	else: print("already active")
-
-
-
-func deactivate_collision():
-	if _col_activated:
-#
-
-
-		_col_activated = false
-		print("col OFF")
-	else: print("already not active")
-
-
-
 
 #-------------------------------------------------------------------------------
 # Animation Interface
@@ -295,7 +250,6 @@ func anim_run():
 
 func anim_hurt():
 	animation_tree_mode.travel("Hurt")
-
 
 #---------------------------------------------------------------------------------------------------#
 # %debug%
